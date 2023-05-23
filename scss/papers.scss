@@ -1,0 +1,20 @@
+.papers{
+  display: flex;
+  flex-direction: column;
+  .textblock {
+    max-width: 75rem;
+    margin-bottom: 2rem;
+    .window__paper {
+      border-bottom: solid black 2px;
+      a {
+        @extend %squared_button !optional;
+        font-weight: bold;
+        margin-top: 0;
+      }
+    }
+    :last-child{
+      border-bottom: none;
+    }
+    
+  }    
+}
