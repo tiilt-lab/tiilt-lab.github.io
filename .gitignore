@@ -1,0 +1,8 @@
+node_modules
+.bugs.done
+bugs
+stats
+.DS_Store
+.htaccess
+package-lock.json
+.sass-cache

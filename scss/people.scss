@@ -1,0 +1,113 @@
+.people {
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      transform: rotate(0deg);
+      transition-delay: 50ms;
+      transition: all 450ms ease-in-out;
+    }
+
+    .rotated {
+      transform: rotate(-540deg);
+    }
+  }
+
+  .people-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+
+    .textblock {
+      flex-basis: 20rem;
+      margin-bottom: 2rem;
+
+      h2 {
+        border-bottom: solid 2px black;
+        padding: 0.75rem;
+      }
+
+      p {}
+
+      a,
+      button {
+        @extend %squared_button  !optional;
+      }
+    }
+
+    .top_dog {
+      h2 {
+        border: 0;
+      }
+
+      h3 {
+        padding: 0 .75rem .75rem;
+        border-bottom: 2px solid black;
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  article:not(.leaders) {
+    p {
+      -webkit-line-clamp: 60;
+      line-clamp: 60;
+      &.contracted_text {
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        line-clamp: 60;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: normal;
+        transition: line-clamp 5s linear;
+      }
+
+    }
+
+  }
+
+  .alumni {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      min-height: 10rem;
+
+      li {
+        font-size: 1.5rem;
+        font-weight: bold;
+        border: 2px solid black;
+        padding: .5rem;
+        margin-bottom: .5rem;
+      }
+
+    }
+  }
+
+  img {
+    width: 100%;
+    border-bottom: 2px solid #000;
+    user-select: none;
+  }
+}
+
+.text_truncator {
+  //this is how youtube does it: https://stackoverflow.com/questions/33058004/applying-an-ellipsis-to-multiline-text 
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

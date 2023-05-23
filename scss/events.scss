@@ -1,0 +1,53 @@
+.events {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    list-style-position: inside;
+    .textblock {
+        margin-bottom: 1rem;
+        max-width: 70rem;
+
+        h2,
+        p, ol {
+            margin: .75rem
+        }
+        h3 {
+            margin: 0 .75rem
+        }
+    }
+    .info { 
+        max-width: 20rem;
+    }
+    .schedule {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        h1 {
+            flex: 0 0 100%;
+        }
+        h2 {
+            text-decoration-line: underline;
+        }
+        p {
+            margin: 0 .75rem;
+        }
+        a {
+            // margin: 0  0 0 .75rem;
+        }
+        section {
+            max-width: 300px;
+            :last-child {
+                margin-bottom: .75rem;
+            }
+        }
+    }
+    @media only screen and (max-width: 640px) {
+        .info { 
+            max-width: 25rem;
+        }
+    }
+
+
+}
