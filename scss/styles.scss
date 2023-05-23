@@ -1,0 +1,258 @@
+@import "./people.scss";
+@import "./contact.scss";
+@import "./projects.scss";
+@import "./papers.scss";
+@import './blog.scss';
+@import "./classes.scss";
+@import "./events.scss";
+@import "./logo.scss";
+
+// FONTS
+@font-face {
+  font-family: "AHAMONO";
+  src: url("../assets/fonts/AHAMONO-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../assets/fonts/AHAMONO-Regular.otf") format("opentype"),
+    url("../assets/fonts/AHAMONO-Regular.woff") format("woff"),
+    url("../assets/fonts/AHAMONO-Regular.ttf") format("/truetype"),
+    url("../assets/fonts/AHAMONO-Regular.svg#AHAMONO-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+// SITE WIDE
+
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: "AHAMONO";
+  font-size: 1.2rem;
+  max-width: 1200px !important;
+  height: 100vh;
+}
+
+ul {
+  list-style: none;
+}
+
+%squared_button {
+  margin: .4rem;
+  display: inline-block;
+  border: 2px solid #000;
+  text-decoration: none;
+  padding: .5rem;
+  font-size: 1rem;
+  background-color: white;
+  color: black;
+  transition: all .2s linear;
+
+  &:hover {
+    color: white;
+    background-color: black;
+  }
+}
+
+/* Mobile Styles Start */
+@media only screen and (max-width: 640px) {
+  body {
+    padding-bottom: 7rem;
+    height: 100%;
+
+    header {
+      h1 {
+        margin: 3rem 1rem;
+      }
+
+      nav {
+        ul {
+          display: flex;
+          justify-content: space-around;
+          margin: 0;
+          position: fixed;
+          bottom: 0;
+          z-index: 9999;
+          width: 100vw;
+
+          li {
+            a {
+              font-size: 1rem;
+              display: flex;
+              flex-direction: column-reverse;
+
+              i {
+                font-size: 2rem;
+              }
+            }
+
+            .current-page {
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    main {
+
+      margin: 0 1.2rem 2rem;
+
+      .logo, #logo3 {
+        display: none;
+        position: fixed;
+        bottom: 6rem;
+        width: auto;
+        left: 0;
+        z-index: -1;
+      }
+    }
+
+    .people {
+      .textblock {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+/* Mobile Styles End */
+
+/* Desktop Styles Start */
+header {
+
+  position: relative;
+  z-index: 9999;
+  h1 {
+    font-size: 2rem;
+    padding: 5px;
+    margin: 3rem 3rem 0;
+  }
+
+  nav {
+    ul {
+      margin: 0 3rem 3rem;
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 1.5rem;
+      justify-content: space-around;
+      font-weight: bold;
+      border: solid black 2px;
+
+      li {
+        a {
+          transition: all 0.5s;
+          color: #717171;
+          text-decoration: none;
+          font-size: 1.5rem;
+          height: 5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        a:hover {
+          color: black;
+          text-decoration: underline;
+        }
+
+        .current-page {
+          color: #000 !important;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+main {
+  // width: 100%;
+  margin: 0 3rem 3rem;
+
+  .list_with_padding {
+    padding-left: 3rem;
+  }
+
+  .textblock {
+    border: solid 2px black;
+    transition: box-shadow 0.2s linear;
+    background-color: #ffffff;
+    &:hover {
+      box-shadow: 4px 5px;
+    }
+    h1 {
+      border-bottom: solid 2px black;
+      padding: 0.75rem;
+    }
+
+    p,
+    ol,
+    ul {
+      margin: .75rem;
+    }
+  }
+  
+
+  .twitter {
+    max-width: 500px;
+
+    .twitter-embed {
+      overflow-y: scroll;
+      max-height: 300px;
+    }
+  }
+
+  .logo {
+    background-color: transparent;
+    position: fixed;
+    bottom: 0;
+    left: 2rem;
+    z-index: -1;
+    width: 43vw;
+    transition: opacity 30s;
+    opacity: 0;
+  }
+  .logo.loaded {
+    opacity: 1;
+  }
+  .visually_hidden { //https://accessibility.18f.gov/hidden-content/
+    display: block;
+    max-height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(1px);
+    white-space: nowrap;
+    position: absolute;
+  }
+  &.about {
+    ol {
+      margin: 0.75rem;
+    }
+  
+    .textblock {
+      max-width: 55rem;
+      margin-bottom: 1vh;
+      margin-left: auto;
+      position: relative;
+      z-index: 99;
+    }
+  }
+}
+
