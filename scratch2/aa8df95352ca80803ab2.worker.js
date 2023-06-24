@@ -94,9 +94,11 @@
 /***/ (function(module, exports) {
 
 /* eslint-env worker */
+
 var jobsActive = 0;
 var complete = [];
 var intervalId = null;
+
 /**
  * Register a step function.
  *
@@ -104,13 +106,13 @@ var intervalId = null;
  * parent. Then it checks the jobs count. If there are no further jobs, clear
  * the step.
  */
-
 var registerStep = function registerStep() {
   intervalId = setInterval(function () {
     if (complete.length) {
       // Send our chunk of completed requests and instruct postMessage to
       // transfer the buffers instead of copying them.
-      postMessage(complete.slice(), // Instruct postMessage that these buffers in the sent message
+      postMessage(complete.slice(),
+      // Instruct postMessage that these buffers in the sent message
       // should use their Transferable trait. After the postMessage
       // call the "buffers" will still be in complete if you looked,
       // but they will all be length 0 as the data they reference has
@@ -122,26 +124,22 @@ var registerStep = function registerStep() {
       }).filter(Boolean));
       complete.length = 0;
     }
-
     if (jobsActive === 0) {
       clearInterval(intervalId);
       intervalId = null;
     }
   }, 1);
 };
+
 /**
  * Receive a job from the parent and fetch the requested data.
  * @param {object} options.job A job id, url, and options descriptor to perform.
  */
-
-
 var onMessage = function onMessage(_ref) {
   var job = _ref.data;
-
   if (jobsActive === 0 && !intervalId) {
     registerStep();
   }
-
   jobsActive++;
   fetch(job.url, job.options).then(function (response) {
     return response.arrayBuffer();
@@ -159,7 +157,6 @@ var onMessage = function onMessage(_ref) {
     return jobsActive--;
   });
 };
-
 if (self.fetch) {
   postMessage({
     support: {
@@ -185,4 +182,4 @@ if (self.fetch) {
 /***/ })
 
 /******/ });
-//# sourceMappingURL=326c5f98902ccd335b5b.worker.js.map
+//# sourceMappingURL=aa8df95352ca80803ab2.worker.js.map
