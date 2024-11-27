@@ -93,12 +93,12 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+/* WEBPACK VAR INJECTION */(function(global) {function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -118,20 +118,20 @@ var ExtensionWorker = /*#__PURE__*/function () {
     this.nextExtensionId = 0;
     this.initialRegistrations = [];
     dispatch.waitForConnection.then(function () {
-      dispatch.call("extensions", "allocateWorker").then(function (x) {
-        var _x2 = _slicedToArray(x, 2),
-          id = _x2[0],
-          extension = _x2[1];
+      dispatch.call('extensions', 'allocateWorker').then(function (x) {
+        var _x = _slicedToArray(x, 2),
+          id = _x[0],
+          extension = _x[1];
         _this.workerId = id;
         try {
           importScripts(extension);
           var initialRegistrations = _this.initialRegistrations;
           _this.initialRegistrations = null;
           Promise.all(initialRegistrations).then(function () {
-            return dispatch.call("extensions", "onWorkerInit", id);
+            return dispatch.call('extensions', 'onWorkerInit', id);
           });
         } catch (e) {
-          dispatch.call("extensions", "onWorkerInit", id, e);
+          dispatch.call('extensions', 'onWorkerInit', id, e);
         }
       });
     });
@@ -144,7 +144,7 @@ var ExtensionWorker = /*#__PURE__*/function () {
       this.extensions.push(extensionObject);
       var serviceName = "extension.".concat(this.workerId, ".").concat(extensionId);
       var promise = dispatch.setService(serviceName, extensionObject).then(function () {
-        return dispatch.call("extensions", "registerExtensionService", serviceName);
+        return dispatch.call('extensions', 'registerExtensionService', serviceName);
       });
       if (this.initialRegistrations) {
         this.initialRegistrations.push(promise);
@@ -772,7 +772,7 @@ module.exports = logger;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
@@ -781,7 +781,7 @@ function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArra
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i.return && (_r = _i.return(), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -942,7 +942,7 @@ var SharedDispatch = /*#__PURE__*/function () {
         var responseId = _this._storeCallbacks(resolve, reject);
 
         /** @TODO: remove this hack! this is just here so we don't try to send `util` to a worker */
-        if (args.length > 0 && typeof args[args.length - 1].yield === "function") {
+        if (args.length > 0 && typeof args[args.length - 1].yield === 'function') {
           args.pop();
         }
         if (transfer) {
@@ -1016,18 +1016,18 @@ var SharedDispatch = /*#__PURE__*/function () {
       message.args = message.args || [];
       var promise;
       if (message.service) {
-        if (message.service === "dispatch") {
+        if (message.service === 'dispatch') {
           promise = this._onDispatchMessage(worker, message);
         } else {
           promise = this.call.apply(this, [message.service, message.method].concat(_toConsumableArray(message.args)));
         }
-      } else if (typeof message.responseId === "undefined") {
+      } else if (typeof message.responseId === 'undefined') {
         log.error("Dispatch caught malformed message from a worker: ".concat(JSON.stringify(event)));
       } else {
         this._deliverResponse(message.responseId, message);
       }
       if (promise) {
-        if (typeof message.responseId === "undefined") {
+        if (typeof message.responseId === 'undefined') {
           log.error("Dispatch message missing required response ID: ".concat(JSON.stringify(event)));
         } else {
           promise.then(function (result) {
@@ -1085,7 +1085,7 @@ module.exports = SharedDispatch;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -1135,7 +1135,7 @@ var WorkerDispatch = /*#__PURE__*/function (_SharedDispatch) {
      */
     _this.services = {};
     _this._onMessage = _this._onMessage.bind(_assertThisInitialized(_this), self);
-    if (typeof self !== "undefined") {
+    if (typeof self !== 'undefined') {
       self.onmessage = _this._onMessage;
     }
     return _this;
@@ -1171,7 +1171,7 @@ var WorkerDispatch = /*#__PURE__*/function (_SharedDispatch) {
       }
       this.services[service] = provider;
       return this.waitForConnection.then(function () {
-        return _this2._remoteCall(self, "dispatch", "setService", service);
+        return _this2._remoteCall(self, 'dispatch', 'setService', service);
       });
     }
 
@@ -1206,10 +1206,10 @@ var WorkerDispatch = /*#__PURE__*/function (_SharedDispatch) {
     value: function _onDispatchMessage(worker, message) {
       var promise;
       switch (message.method) {
-        case "handshake":
+        case 'handshake':
           promise = this._onConnect();
           break;
-        case "terminate":
+        case 'terminate':
           // Don't close until next tick, after sending confirmation back
           setTimeout(function () {
             return self.close();
@@ -1243,35 +1243,35 @@ var ArgumentType = {
   /**
    * Numeric value with angle picker
    */
-  ANGLE: "angle",
+  ANGLE: 'angle',
   /**
    * Boolean value with hexagonal placeholder
    */
-  BOOLEAN: "Boolean",
+  BOOLEAN: 'Boolean',
   /**
    * Numeric value with color picker
    */
-  COLOR: "color",
+  COLOR: 'color',
   /**
    * Numeric value with text field
    */
-  NUMBER: "number",
+  NUMBER: 'number',
   /**
    * String value with text field
    */
-  STRING: "string",
+  STRING: 'string',
   /**
    * String value with matrix field
    */
-  MATRIX: "matrix",
+  MATRIX: 'matrix',
   /**
    * MIDI note number with note picker (piano) field
    */
-  NOTE: "note",
+  NOTE: 'note',
   /**
    * Inline image on block (as part of the label)
    */
-  IMAGE: "image"
+  IMAGE: 'image'
 };
 module.exports = ArgumentType;
 
@@ -1292,38 +1292,38 @@ var BlockType = {
   /**
    * Boolean reporter with hexagonal shape
    */
-  BOOLEAN: "Boolean",
+  BOOLEAN: 'Boolean',
   /**
    * A button (not an actual block) for some special action, like making a variable
    */
-  BUTTON: "button",
+  BUTTON: 'button',
   /**
    * Command block
    */
-  COMMAND: "command",
+  COMMAND: 'command',
   /**
    * Specialized command block which may or may not run a child branch
    * The thread continues with the next block whether or not a child branch ran.
    */
-  CONDITIONAL: "conditional",
+  CONDITIONAL: 'conditional',
   /**
    * Specialized hat block with no implementation function
    * This stack only runs if the corresponding event is emitted by other code.
    */
-  EVENT: "event",
+  EVENT: 'event',
   /**
    * Hat block which conditionally starts a block stack
    */
-  HAT: "hat",
+  HAT: 'hat',
   /**
    * Specialized command block which may or may not run a child branch
    * If a child branch runs, the thread evaluates the loop block again.
    */
-  LOOP: "loop",
+  LOOP: 'loop',
   /**
    * General reporter with numeric or string value
    */
-  REPORTER: "reporter"
+  REPORTER: 'reporter'
 };
 module.exports = BlockType;
 
@@ -1344,11 +1344,11 @@ var TargetType = {
   /**
    * Rendered target which can move, change costumes, etc.
    */
-  SPRITE: "sprite",
+  SPRITE: 'sprite',
   /**
    * Rendered target which cannot move but can change backdrops
    */
-  STAGE: "stage"
+  STAGE: 'stage'
 };
 module.exports = TargetType;
 
@@ -1363,7 +1363,7 @@ module.exports = TargetType;
 
 var minilog = __webpack_require__(/*! minilog */ "./node_modules/scratch-vm/node_modules/minilog/lib/web/index.js");
 minilog.enable();
-module.exports = minilog("vm");
+module.exports = minilog('vm');
 
 /***/ }),
 
