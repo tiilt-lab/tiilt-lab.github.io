@@ -1,0 +1,88 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: horizontal;
+  min-width: 1500px;
+
+}
+
+table {
+  color: white;
+}
+
+main {
+  z-index: -2;
+}
+
+
+.dropzone {
+  background-color: #2F80ED;
+  border: dashed 4px transparent;
+  border-radius: 4px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  z-index: 1;
+/*  margin: 10px auto 30px; */
+  padding: 10px;
+/*  padding-right: 50px;*/
+/*  align-items: top;*/
+/*  margin-right: 100px;*/
+   width: 170px; 
+  transition: background-color 0.3s;
+}
+
+.number-input {
+  display: inline;
+  width: 70px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.drop-active {
+  border-color: #aaa;
+}
+
+
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #29e;
+  border-color: #fff;
+  border-style: solid;
+}
+
+.drag-drop {
+/*  display: inline-block;*/
+  min-width: 40px;
+  padding: 0.5em;
+  position: fixed;
+  border-radius: 5px;
+  z-index: 3;
+  transform: translate(0px, 0px);
+/*   margin: 1rem 0 0 1rem; */
+
+  color: #fff;
+  background-color: #219653;
+  border: solid 2px #fff;
+
+  touch-action: none;
+/*  transform: translate(0px, 0px);*/
+
+  transition: background-color 0.3s;
+}
+
+.drag-drop.can-drop {
+  color: #fff;
+  background-color: #2D9CDB;
+  
+}
+
+.no-drop {
+  background-color: #29e;
+}

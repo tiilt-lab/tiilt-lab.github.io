@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://ngammarano.github.io/microbit-web-bluetooth/microbit-web-bluetooth-scan.html -->
+<html lang="en" data-bs-theme="auto">
+
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th {
+                background-color: #D0D0FF;
+            }
+        </style>
+<!--       <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script> -->
+      <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+      <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <title>Web Bluetooth play impossible scan</title>
+  </head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+    
+  
+  <body id="body" style="background-color:#FFD0D0" class="vsc-initialized">
+    <div class="px-5 mx-2 py-4 my-8">  
+
+      <h1>Web Bluetooth play impossible scan</h1>
+      <p>Scan Bluetooth devices (using "BBC micro:bit" as namePrefix filter). Shows all the available Bluetooth services and characteristics, their name, UUID, and available properties.</p>
+
+
+      <button type="button" class="btn btn-primary" onclick="connect()">Connect</button>
+      <button type="button" class="btn btn-warning" onclick="disconnect()">Disconnect</button>
+      <button type="button" class="btn btn-danger" onclick="resetData()">reset data</button>
+  <!--       <button onclick="tagData(3)">throw start</button> -->
+
+      <button type="button" class="btn btn-info" onclick="toggleRecord()">toggle graphing/recording</button>
+      <p>
+        
+<!--         <div class="btn-group" role="group">
+          <button type="button" class="btn btn-success" onclick="togglePredicting()" id="predictionToggle">Start predicting</button> 
+          <button type="button" class="btn btn-outline"id="predictionVal"> Prediction: </button> 
+        </div> -->
+        
+
+      </p>
+      <p id="runningTag"> Running tag: -1</p>
+      <h4> shake score </h4>  
+      <p id="shakeBool"> shaking:  0 </p>
+      <p id="shakeScore"> score:  0 </p>
+      <div id="tester" style="width:600px;height:250px;"></div>
+
+  <!--         <p> 
+            <button onclick="startMock(1)">start mock</button> 
+            <button onclick="startMock(0)">end mock</button>
+          </p> -->
+
+          <h2>Log <button type="button" class="btn btn-outline" onclick="clearLog()">Clear</button></h2>
+          <p id="log" style="font-family:&#39;Courier New&#39;,Courier,monospace">Requesting micro:bit Bluetooth devices... <b><font color="red">NotFoundError: User cancelled the requestDevice() chooser.</font></b><br></p>
+          <script src="https://apis.google.com/js/api.js"></script>
+          <script src="./script.js"></script>
+    </div>
+  </body>
+</html>
