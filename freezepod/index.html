@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/features/"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+
+    <title>FreezePods</title>
+  </head>
+  <body id="body">
+    <div class="container px-4 py-2" id="featured-3">
+      <h2 class="pb-2 border-bottom">FreezePods</h2>
+      <p>
+        Load this MakeCode micro:bit project on to your micro:bits
+        <a href="https://makecode.microbit.org/_37FHVCLC2CAL" target="_blank"
+          >here</a
+        >
+      </p>
+
+      <button class="btn btn-primary" onclick="connect()">Connect</button>
+      <!-- <button onclick="connectSecond()">Connect Second MB</button> -->
+<!--       <button class="btn" onclick="disconnect()">Disconnect</button> -->
+      <p>
+        <div class="btn-group" id="microbitList" role="group" aria-label="Basic outlined example">
+          Connected Microbits:
+        </div>
+      </p>
+    </div>
+    <div class="b-example-divider"></div>
+
+    <div class="container px-4 py-3" id="hanging-icons">
+      <h3 class="pb-2 border-bottom">New Game</h3>
+      <br />
+      <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+      <button class="btn remix btn--remix" onclick="endGame()">End Game</button>
+<!--       <button type="button" class="btn btn-primary" onclick="testPattern()">Test pattern write</button> -->
+
+      <div class="toast-container position-fixed bottom-0 end-0 p-1">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="me-auto">Alert</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body" id="toastBody">
+            Hello, world! This is a toast message.
+          </div>
+        </div>
+      </div>
+
+
+<!--       <h2>Log</h2>
+      <br />
+      <button onclick="clearLog()">Clear</button>
+      <p id="log" style="font-family: 'Courier New', Courier, monospace"></p> -->
+    </div>
+    <div class="container px-4 py-3">
+<!--         <h3 class="pb-2 border-bottom" id="game-info">3</h3> -->
+      <div id = "gameBlock" class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header" id="gameBlockHeader">Press Start Game to Start!</div>
+        <div class="card-body">
+          <h5 class="card-title" id="gameCountdown">Score Here</h5>
+          <p class="card-text" id="scoreText">Updates Here</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="table container">
+      <table class="table" id="scoreTable">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Round</th>
+            <th scope="col">Score</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <!--     <script src="microbit-web-bluetooth-leds.js"></script> -->
+  <script src="mb2.js"></script>
+</html>
