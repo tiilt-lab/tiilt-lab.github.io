@@ -1,16 +1,11 @@
 .projects {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: $space-lg;
 
     h1 {
       span {
-        transform: rotate(0deg);
-        transition-delay: 50ms;
-        transition: all 450ms ease-in-out;
-      }
-      .rotated {
-        transform: rotate(-540deg);
+        @include rotate-toggle;
       }
     }
     .textblock {
@@ -20,14 +15,11 @@
 
       h1 {
         margin: 0;
-        padding-top: 0.25rem;
+        padding-top: $space-xs;
       }
 
       .card-actions {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        @include card-actions-layout;
 
         a {
           @extend %squared_button !optional;
@@ -35,12 +27,10 @@
       }
     }
     img {
-      width: 100%;
-      height: auto;
+      @include card-image;
       max-height: 100rem;
       transition: max-height 1s linear;
       overflow: hidden;
-      border-bottom: black 2px solid;
     }
 }
 
@@ -51,9 +41,8 @@
     }
 
     .pictures {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-      gap: 1rem;
+      @include auto-grid(15rem);
+      gap: $space-lg;
 
       img {
         width: 100%;
@@ -66,7 +55,11 @@
     }
 }
 
-@media only screen and (max-width: 640px) {
+.section-heading {
+    margin: $space-xl $space-4xl;
+}
+
+@include mobile {
   .projects {
     grid-template-columns: 1fr;
   }

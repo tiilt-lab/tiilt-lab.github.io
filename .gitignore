@@ -7,3 +7,6 @@ stats
 package-lock.json
 .sass-cache
 *Zone.Identifier
+
+# Source maps (generated from scss/ via sass)
+css/*.css.map
