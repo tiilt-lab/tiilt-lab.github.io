@@ -520,37 +520,39 @@ header nav ul {
   font-weight: bold;
   border: solid black 2px;
 }
-header nav ul .btn-group {
-  display: inline-flex;
+header nav ul .projects-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
-header nav ul .btn {
-  padding: unset;
-  transition: none;
+header nav ul .projects-nav .projects-dropdown-toggle {
+  background: none;
+  border: none;
+  color: #717171;
+  cursor: pointer;
+  font-size: 0.8rem;
+  padding: 0 0.3rem;
 }
-header nav ul .btn-primary {
-  transition: none;
-  border-color: white;
-  background-color: white;
+header nav ul .projects-nav .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  background: white;
+  border: 2px solid black;
+  padding: 0.5rem 0;
+}
+header nav ul .projects-nav .dropdown-menu a {
+  display: block;
+  padding: 0.3rem 1rem;
+  color: #717171;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+header nav ul .projects-nav .dropdown-menu a:hover {
   color: black;
-  outline: unset;
-  box-shadow: unset;
-  font-weight: bold;
-}
-header nav ul .btn-primary:hover, header nav ul .btn-primary:focus, header nav ul .btn-primary:focus-visible, header nav ul .btn-primary:active, header nav ul .btn-primary:active:hover, header nav ul .btn-primary:active:focus, header nav ul .btn-primary:focus:hover, header nav ul .btn-primary.active, header nav ul .btn-primary.active:hover, header nav ul .btn-primary.active:focus, header nav ul .btn-primary.active.focus, header nav ul .btn-primary:active.focus, header nav ul .btn-primary.focus {
-  transition: none;
-  border-color: white;
-  background-color: white;
-  color: black;
-  outline: unset;
-  box-shadow: unset;
-}
-header nav ul .open > .dropdown-toggle.btn-primary, header nav ul .open > .dropdown-toggle.btn-primary:focus, header nav ul .open > .dropdown-toggle.btn-primary:hover, header nav ul .open > .dropdown-toggle.btn-primary:focus:hover, header nav ul .open > .dropdown-toggle.btn-primary:active:hover, header nav ul .open > .dropdown-toggle.btn-primary.focus {
-  transition: none;
-  border-color: white;
-  background-color: white;
-  color: black;
-  outline: unset;
-  box-shadow: unset;
+  text-decoration: underline;
 }
 header nav ul li a {
   transition: all 0.5s;
