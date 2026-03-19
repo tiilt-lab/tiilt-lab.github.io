@@ -1,7 +1,7 @@
 .classes {
     .textblock {
         max-width: 60rem;
-        margin-bottom: 2rem;
+        margin-bottom: $space-3xl;
         h1 {
             display: flex;
             justify-content: space-between;
@@ -9,13 +9,12 @@
         }
         p,
         ol {
-            margin: 0.75rem;
+            margin: $space-base;
         }
         span, a{
             @extend %squared_button  !optional;
-            margin: 0.75rem;
+            margin: $space-base;
             font-weight: bold;
         }
     }
-
 }

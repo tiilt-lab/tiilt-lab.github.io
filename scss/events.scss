@@ -5,25 +5,25 @@
     align-items: flex-start;
     list-style-position: inside;
     .textblock {
-        margin-bottom: 1rem;
+        margin-bottom: $space-lg;
         max-width: 70rem;
 
         h2,
         p, ol {
-            margin: .75rem
+            margin: $space-base;
         }
         h3 {
-            margin: 0 .75rem
+            margin: 0 $space-base;
         }
     }
-    .info { 
+    .info {
         max-width: 20rem;
     }
     .schedule {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        
+
         h1 {
             flex: 0 0 100%;
         }
@@ -31,23 +31,18 @@
             text-decoration-line: underline;
         }
         p {
-            margin: 0 .75rem;
-        }
-        a {
-            // margin: 0  0 0 .75rem;
+            margin: 0 $space-base;
         }
         section {
             max-width: 300px;
             :last-child {
-                margin-bottom: .75rem;
+                margin-bottom: $space-base;
             }
         }
     }
-    @media only screen and (max-width: 640px) {
-        .info { 
+    @include mobile {
+        .info {
             max-width: 25rem;
         }
     }
-
-
 }
