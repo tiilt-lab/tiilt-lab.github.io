@@ -1,137 +1,85 @@
-.cls-1,
-.cls-10,
-.cls-11,
-.cls-13,
-.cls-2,
-.cls-3,
-.cls-4,
-.cls-5,
-.cls-6,
-.cls-7,
-.cls-8,
-.cls-9 {
+// Logo stroke colors as CSS custom properties for easy theming
+:root {
+    --logo-purple: #{$color-purple};
+    --logo-orange: #{$color-orange};
+    --logo-yellow: #{$color-yellow};
+    --logo-green: #{$color-green};
+    --logo-teal: #{$color-teal};
+    --logo-red: #{$color-red};
+    --logo-pink: #{$color-pink};
+    --logo-orange-red: #{$color-orange-red};
+    --logo-blue: #{$color-blue};
+}
+
+// Shared base for all logo strokes
+.cls-1, .cls-2, .cls-3, .cls-4, .cls-5,
+.cls-6, .cls-7, .cls-8, .cls-9, .cls-10,
+.cls-11, .cls-13 {
     fill: none;
     stroke-miterlimit: 10;
 }
 
-.cls-1,
-.cls-2,
-.cls-3 {
-    stroke: #3a2163;
-}
-
-.cls-1 {
-    stroke-width: 9.77px;
-}
-
-.cls-10,
-.cls-11,
-.cls-2,
-.cls-4,
-.cls-5,
-.cls-6,
-.cls-7,
-.cls-8,
-.cls-9 {
+// Standard stroke width (most elements)
+.cls-2, .cls-3, .cls-4, .cls-5, .cls-6,
+.cls-7, .cls-8, .cls-9, .cls-10, .cls-11 {
     stroke-width: 70px;
 }
 
-.cls-3 {
-    stroke-width: 70px;
-}
-
-.cls-4 {
-    stroke: #fbb040;
-}
-
-.cls-10,
-.cls-11,
-.cls-4,
-.cls-5,
-.cls-6,
-.cls-7,
-.cls-8,
-.cls-9 {
+// Round caps (non-purple strokes)
+.cls-4, .cls-5, .cls-6, .cls-7, .cls-8,
+.cls-9, .cls-10, .cls-11 {
     stroke-linecap: round;
 }
 
-.cls-5 {
-    stroke: #f9ed32;
-}
+// Purple strokes
+.cls-1, .cls-2, .cls-3 { stroke: var(--logo-purple); }
+.cls-1 { stroke-width: 9.77px; }
 
-.cls-6 {
-    stroke: #8dc63f;
-}
-
-.cls-7 {
-    stroke: #00a79d;
-}
-
-.cls-8 {
-    stroke: #be1e2d;
-}
-
-.cls-13,
-.cls-9 {
-    stroke: #ec008c;
-}
-
-.cls-10 {
-    stroke: #ef4136;
-}
-
-.cls-11 {
-    stroke: #2e3192;
-}
-
-.cls-12 {
-    fill: #3a2163;
-}
-
+// Individual color strokes
+.cls-4  { stroke: var(--logo-orange); }
+.cls-5  { stroke: var(--logo-yellow); }
+.cls-6  { stroke: var(--logo-green); }
+.cls-7  { stroke: var(--logo-teal); }
+.cls-8  { stroke: var(--logo-red); }
+.cls-9  { stroke: var(--logo-pink); }
+.cls-10 { stroke: var(--logo-orange-red); }
+.cls-11 { stroke: var(--logo-blue); }
+.cls-12 { fill: var(--logo-purple); }
 .cls-13 {
+    stroke: var(--logo-pink);
     stroke-width: 0.01px;
 }
 
 .big-logo {
     width: 40vw;
     position: fixed;
-    bottom: 2rem;
-    z-index: 1;
+    bottom: $space-3xl;
+    z-index: $z-base;
     animation: fade-in 60s ease forwards;
     opacity: 0;
 
-    >line {
+    > line {
         stroke-dasharray: 1200px;
         stroke-dashoffset: 0;
         transition: stroke-dashoffset 3s linear;
     }
 
-    >polyline {
+    > polyline {
         stroke-dasharray: 2000px;
         stroke-dashoffset: 0;
         transition: stroke-dashoffset 2s linear;
     }
 
-    // >circle {
-    //     stroke-dasharray: 527px;
-    //     stroke-dashoffset: 0;
-    //     transition: stroke-dashoffset 1s linear;
-    // }
-    &:hover>line {
+    &:hover > line {
         stroke-dashoffset: 100rem;
     }
 
-    &:hover>polyline {
+    &:hover > polyline {
         stroke-dashoffset: 2000px;
     }
-
-    // &:hover>circle {
-    //     stroke-dashoffset: 527px;
-    // }
-
 }
 
-@media only screen and (max-width: 640px) {
+@include mobile {
     .big-logo {
         display: none;
     }
@@ -139,11 +87,11 @@
 
 .black-logo {
     path {
-        fill: black;
+        fill: $color-black;
     }
 
-    >* {
-        stroke: black;
+    > * {
+        stroke: $color-black;
     }
 }
 

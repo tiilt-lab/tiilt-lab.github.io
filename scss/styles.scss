@@ -1,3 +1,6 @@
+@import "./variables";
+@import "./mixins";
+
 @import "./people.scss";
 @import "./contact.scss";
 @import "./projects.scss";
@@ -6,6 +9,7 @@
 @import "./classes.scss";
 @import "./events.scss";
 @import "./logo.scss";
+@import "./dropdown.scss";
 
 // FONTS
 @font-face {
@@ -39,10 +43,15 @@ html {
   padding: 0;
 }
 
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
 body {
-  background-color: #ffffff;
+  background-color: $color-white;
   font-family: "AHAMONO";
-  font-size: 1.2rem;
+  font-size: $font-size-base;
   max-width: 1200px !important;
   height: 100vh;
 }
@@ -52,31 +61,31 @@ ul {
 }
 
 %squared_button {
-  margin: .4rem;
+  margin: $space-sm;
   display: inline-block;
-  border: 2px solid #000;
+  border: $border-standard;
   text-decoration: none;
-  padding: .5rem;
-  font-size: 1rem;
-  background-color: white;
-  color: black;
-  transition: all .2s linear;
+  padding: $space-md;
+  font-size: $font-size-sm;
+  background-color: $color-white;
+  color: $color-black;
+  transition: all $transition-fast;
 
   &:hover {
-    color: white;
-    background-color: black;
+    color: $color-white;
+    background-color: $color-black;
   }
 }
 
 /* Mobile Styles Start */
-@media only screen and (max-width: 640px) {
+@include mobile {
   body {
     padding-bottom: 7rem;
     height: 100%;
 
     header {
       h1 {
-        margin: 3rem 1rem;
+        margin: $space-4xl $space-lg;
       }
 
       nav {
@@ -86,34 +95,22 @@ ul {
           margin: 0;
           position: fixed;
           bottom: 0;
-          z-index: 9999;
+          z-index: $z-nav;
           width: 100vw;
 
           li {
             a {
-              font-size: 1rem;
+              font-size: $font-size-sm;
               display: flex;
               flex-direction: column-reverse;
 
               i {
-                font-size: 2rem;
+                font-size: $font-size-xl;
               }
             }
 
             .current-page {
               text-decoration: none;
-            }
-          }
-
-          .btn-group {
-            > a.btn {
-              font-size: 1rem;
-            }
-
-            > .dropdown-toggle {
-              span {
-                color: black;
-              }
             }
           }
         }
@@ -122,7 +119,7 @@ ul {
 
     main {
 
-      margin: 0 1.2rem 2rem;
+      margin: 0 $space-xl $space-3xl;
 
       .logo, #logo3 {
         display: none;
@@ -130,7 +127,7 @@ ul {
         bottom: 6rem;
         width: auto;
         left: 0;
-        z-index: -1;
+        z-index: $z-background;
       }
     }
 
@@ -148,101 +145,30 @@ ul {
 header {
 
   position: relative;
-  z-index: 9999;
+  z-index: $z-nav;
   h1 {
-    font-size: 2rem;
+    font-size: $font-size-xl;
     padding: 5px;
-    margin: 3rem 3rem 0;
+    margin: $space-4xl $space-4xl 0;
   }
 
   nav {
     ul {
-      margin: 0 3rem 3rem;
-      background-color: white;
+      margin: 0 $space-4xl $space-4xl;
+      background-color: $color-white;
       display: flex;
       flex-wrap: wrap;
-      font-size: 1.5rem;
+      font-size: $font-size-lg;
       justify-content: space-around;
       font-weight: bold;
-      border: solid black 2px;
-
-      .btn-group {
-        display: inline-flex;
-        flex-wrap: nowrap;
-        align-items: stretch;
-
-        > a.btn {
-          font-size: 1.5rem;
-          height: 5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-        }
-
-        > .dropdown-toggle {
-          display: flex;
-          align-items: center;
-          padding: 0 0.3rem;
-        }
-      }
-
-      .btn {
-        padding: unset;
-        transition: none;
-      }
-
-      .btn-primary,
-      .btn-primary:hover,
-      .btn-primary:focus,
-      .btn-primary:focus-visible,
-      .btn-primary:active,
-      .btn-primary:active:hover,
-      .btn-primary:active:focus,
-      .btn-primary:focus:hover,
-      .btn-primary.active,
-      .btn-primary.active:hover,
-      .btn-primary.active:focus,
-      .btn-primary.active.focus,
-      .btn-primary:active.focus,
-      .btn-primary.focus,
-      .open > .dropdown-toggle.btn-primary,
-      .open > .dropdown-toggle.btn-primary:focus,
-      .open > .dropdown-toggle.btn-primary:hover,
-      .open > .dropdown-toggle.btn-primary:focus:hover,
-      .open > .dropdown-toggle.btn-primary:active:hover,
-      .open > .dropdown-toggle.btn-primary.focus {
-        transition: none;
-        border-color: white;
-        background-color: white;
-        color: black;
-        outline: unset;
-        box-shadow: unset;
-      }
-
-      .btn-primary a {
-        font-weight: bold;
-      }
-
-      .dropdown-menu {
-        padding: 0.25rem 0;
-        min-width: unset;
-
-        a {
-          height: auto;
-          display: block;
-          padding: 0.3rem 1rem;
-          font-size: 1.2rem;
-          line-height: 1.4;
-        }
-      }
+      border: solid $color-black 2px;
 
       li {
         a {
-          transition: all 0.5s;
-          color: #717171;
+          transition: all $transition-medium;
+          color: $color-gray;
           text-decoration: none;
-          font-size: 1.5rem;
+          font-size: $font-size-lg;
           height: 5rem;
           display: flex;
           justify-content: center;
@@ -250,12 +176,12 @@ header {
         }
 
         a:hover {
-          color: black;
+          color: $color-black;
           text-decoration: underline;
         }
 
         .current-page {
-          color: #000 !important;
+          color: $color-black !important;
           text-decoration: underline;
         }
       }
@@ -264,19 +190,18 @@ header {
 }
 
 main {
-  // width: 100%;
-  margin: 0 3rem 3rem;
+  margin: 0 $space-4xl $space-4xl;
 
   .list_with_padding {
-    padding-left: 3rem;
+    padding-left: $space-4xl;
   }
 
   .textblock {
-    border: solid 2px black;
-    transition: box-shadow 0.2s linear;
-    background-color: #ffffff;
+    border: solid 2px $color-black;
+    transition: box-shadow $transition-fast;
+    background-color: $color-white;
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY($space-lg);
 
     &.visible {
       animation: card-enter 0.4s ease forwards;
@@ -286,17 +211,17 @@ main {
       box-shadow: 4px 5px;
     }
     h1 {
-      border-bottom: solid 2px black;
-      padding: 0.75rem;
+      border-bottom: $border-standard;
+      padding: $space-base;
     }
 
     p,
     ol,
     ul {
-      margin: .75rem;
+      margin: $space-base;
     }
   }
-  
+
 
   .twitter {
     max-width: 500px;
@@ -311,8 +236,8 @@ main {
     background-color: transparent;
     position: fixed;
     bottom: 0;
-    left: 2rem;
-    z-index: -1;
+    left: $space-3xl;
+    z-index: $z-background;
     width: 43vw;
     transition: opacity 30s;
     opacity: 0;
@@ -333,7 +258,7 @@ main {
   }
   &.about {
     ol {
-      margin: 0.75rem;
+      margin: $space-base;
     }
 
     .textblock {
@@ -341,7 +266,7 @@ main {
       margin-bottom: 1vh;
       margin-left: auto;
       position: relative;
-      z-index: 99;
+      z-index: $z-overlay;
     }
   }
 }
@@ -349,7 +274,7 @@ main {
 @keyframes card-enter {
   from {
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY($space-lg);
   }
   to {
     opacity: 1;
@@ -364,4 +289,3 @@ main {
     animation: none !important;
   }
 }
-

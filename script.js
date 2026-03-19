@@ -14,7 +14,7 @@ function headerGenerator() {
     //     rt = "/" 
     //     srt = "/projects/"
     // }
-    header.innerHTML = 
+    header.innerHTML =
     `<h1 role="banner">technological innovations for inclusive learning &amp; teaching</h1>
     <nav aria-label= "Main Navigation">
         <ul>
@@ -25,14 +25,14 @@ function headerGenerator() {
                 </a>
             </li>
             <li>
-                <div class="btn-group">
-                    <a href=${rt + "projects/"} class="btn btn-primary" aria-label="Info on projects">projects
+                <div class="nav-dropdown">
+                    <a href=${rt + "projects/"} class="nav-dropdown__link" aria-label="Info on projects">projects
                         <i class='uil uil-drill'></i>
                     </a>
-                    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
                       <span>▼</span>
                     </button>
-                    <div class="dropdown-menu">
+                    <div class="nav-dropdown__menu">
                         <a href=${srt + "blinc/"} aria-label="Info on Blinc Project">blinc</a>
                         <a href=${srt + "famjam/"} aria-label="Info on Famjam Project">famjam</a>
                         <a href=${srt + "imr/"} aria-label="Info on IMR Project">imr</a>
@@ -75,23 +75,41 @@ function headerGenerator() {
 
     var links = Array.from(document.getElementsByTagName("a"))
     curr_page = curr_page.split("/").filter(i => i != "")
-    links = links.filter(l => window.location.href == l.href || subset(l.href.slice(l.href.indexOf("edu") + 3).split("/").filter(i => i != ""), curr_page)) 
+    links = links.filter(l => window.location.href == l.href || subset(l.href.slice(l.href.indexOf("edu") + 3).split("/").filter(i => i != ""), curr_page))
     links.forEach(l => l.classList.add("current-page"))
+
+    // Custom dropdown toggle (replaces Bootstrap JS)
+    var toggleBtn = document.querySelector(".nav-dropdown__toggle")
+    if (toggleBtn) {
+        toggleBtn.addEventListener("click", function(e) {
+            e.stopPropagation();
+            var dropdown = toggleBtn.closest(".nav-dropdown");
+            dropdown.classList.toggle("open");
+            toggleBtn.setAttribute("aria-expanded", dropdown.classList.contains("open"));
+        });
+        document.addEventListener("click", function() {
+            var dropdown = document.querySelector(".nav-dropdown");
+            if (dropdown) {
+                dropdown.classList.remove("open");
+                toggleBtn.setAttribute("aria-expanded", "false");
+            }
+        });
+    }
 }
 
-function wide() { 
-    var dropdown = document.getElementsByClassName("btn-group")[0] 
-    dropdown.setAttribute("class", "btn-group dropup")
+function wide() {
+    var dropdown = document.querySelector(".nav-dropdown")
+    dropdown.className = "nav-dropdown dropup"
 
-    var arrow = document.querySelector(".btn-primary span") 
+    var arrow = document.querySelector(".nav-dropdown__toggle span")
     arrow.innerHTML = "▲"
 }
 
-function narrow() { 
-    var dropdown = document.getElementsByClassName("btn-group")[0] 
-    dropdown.setAttribute("class", "btn-group")
+function narrow() {
+    var dropdown = document.querySelector(".nav-dropdown")
+    dropdown.className = "nav-dropdown"
 
-    var arrow = document.querySelector(".btn-primary span") 
+    var arrow = document.querySelector(".nav-dropdown__toggle span")
     arrow.innerHTML = "▼"
 }
 
