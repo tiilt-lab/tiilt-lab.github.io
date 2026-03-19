@@ -154,6 +154,71 @@ header {
       font-weight: bold;
       border: solid black 2px;
 
+      .btn-group {
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+
+        > a.btn {
+          font-size: 1.5rem;
+          height: 5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+        }
+
+        > .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          padding: 0 0.3rem;
+        }
+      }
+
+      .btn {
+        padding: unset;
+        transition: none;
+      }
+
+      .btn-primary,
+      .btn-primary:hover,
+      .btn-primary:focus,
+      .btn-primary:focus-visible,
+      .btn-primary:active,
+      .btn-primary:active:hover,
+      .btn-primary:active:focus,
+      .btn-primary:focus:hover,
+      .btn-primary.active,
+      .btn-primary.active:hover,
+      .btn-primary.active:focus,
+      .btn-primary.active.focus,
+      .btn-primary:active.focus,
+      .btn-primary.focus,
+      .open > .dropdown-toggle.btn-primary,
+      .open > .dropdown-toggle.btn-primary:focus,
+      .open > .dropdown-toggle.btn-primary:hover,
+      .open > .dropdown-toggle.btn-primary:focus:hover,
+      .open > .dropdown-toggle.btn-primary:active:hover,
+      .open > .dropdown-toggle.btn-primary.focus {
+        transition: none;
+        border-color: white;
+        background-color: white;
+        color: black;
+        outline: unset;
+        box-shadow: unset;
+      }
+
+      .btn-primary a {
+        font-weight: bold;
+      }
+
+      .dropdown-menu a {
+        height: auto;
+        display: block;
+        padding: 0.3rem 1rem;
+        font-size: 1.2rem;
+      }
+
       li {
         a {
           transition: all 0.5s;
