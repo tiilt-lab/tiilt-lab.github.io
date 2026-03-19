@@ -482,6 +482,11 @@
   top: auto;
   bottom: 100%;
 }
+@media only screen and (max-width: 640px) {
+  .nav-dropdown > a.nav-dropdown__link {
+    font-size: 1rem;
+  }
+}
 
 @font-face {
   font-family: "AHAMONO";

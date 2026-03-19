@@ -73,4 +73,10 @@
         top: auto;
         bottom: 100%;
     }
+
+    @include mobile {
+        > a.nav-dropdown__link {
+            font-size: $font-size-sm;
+        }
+    }
 }
