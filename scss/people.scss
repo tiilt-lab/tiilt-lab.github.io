@@ -1,6 +1,6 @@
 .people {
   h1 {
-    margin-bottom: 1rem;
+    margin-bottom: $space-lg;
   }
 
   h2 {
@@ -8,35 +8,25 @@
     justify-content: space-between;
 
     span {
-      transform: rotate(0deg);
-      transition-delay: 50ms;
-      transition: all 450ms ease-in-out;
-    }
-
-    .rotated {
-      transform: rotate(-540deg);
+      @include rotate-toggle;
     }
   }
 
   .people-group {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    gap: 2rem;
+    @include auto-grid(20rem);
+    gap: $space-3xl;
 
     .textblock {
       display: flex;
       flex-direction: column;
 
       h2 {
-        border-bottom: solid 2px black;
-        padding: 0.75rem;
+        border-bottom: $border-standard;
+        padding: $space-base;
       }
 
       .card-actions {
-        margin-top: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
+        @include card-actions-layout;
 
         button,
         a {
@@ -56,9 +46,9 @@
       }
 
       h3 {
-        padding: 0 .75rem .75rem;
-        border-bottom: 2px solid black;
-        font-size: 1.2rem;
+        padding: 0 $space-base $space-base;
+        border-bottom: $border-standard;
+        font-size: $font-size-base;
       }
     }
   }
@@ -66,32 +56,28 @@
   article:not(.leaders) {
     p {
       &.contracted_text {
-        -webkit-box-orient: vertical;
-        display: -webkit-box;
-        -webkit-line-clamp: 6;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        @include text-truncate(6);
       }
     }
   }
 
   .alumni {
     h2 {
-      font-size: 1.5rem;
-      margin-top: 1.5rem;
-      margin-bottom: 0.5rem;
+      font-size: $font-size-lg;
+      margin-top: $space-2xl;
+      margin-bottom: $space-md;
     }
 
     ul {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
+      gap: $space-md;
 
       li {
         font-size: 1.25rem;
         font-weight: bold;
-        border: 2px solid black;
-        padding: .5rem;
+        border: $border-standard;
+        padding: $space-md;
         text-align: center;
       }
 
@@ -101,8 +87,8 @@
 
         a {
           display: block;
-          padding: .5rem;
-          color: black;
+          padding: $space-md;
+          color: $color-black;
           text-decoration: none;
         }
       }
@@ -110,23 +96,16 @@
   }
 
   .textblock img {
+    @include card-image;
     display: block;
-    width: 100%;
-    height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: top;
-    border-bottom: 2px solid #000;
     user-select: none;
   }
 }
 
 .text_truncator {
-  //this is how youtube does it: https://stackoverflow.com/questions/33058004/applying-an-ellipsis-to-multiline-text 
-  -webkit-box-orient: vertical;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @include text-truncate(8);
   white-space: normal;
 }
