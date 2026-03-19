@@ -14,16 +14,9 @@
   transform: rotate(-540deg);
 }
 .people .people-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-.people .people-group .textblock {
-  flex-basis: 20rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
 }
 .people .people-group .textblock h2 {
   border-bottom: solid 2px black;
