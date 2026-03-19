@@ -21,14 +21,16 @@
   .people-group {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
+    justify-content: center;
     align-content: flex-start;
     flex-wrap: wrap;
+    gap: 2rem;
 
     .textblock {
-      flex-basis: 20rem;
-      margin-bottom: 2rem;
+      flex: 0 0 20rem;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0;
 
       h2 {
         border-bottom: solid 2px black;
@@ -97,6 +99,9 @@
 
   img {
     width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
     border-bottom: 2px solid #000;
     user-select: none;
   }
