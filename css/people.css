@@ -14,18 +14,9 @@
   transform: rotate(-540deg);
 }
 .people .people-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 2rem;
-}
-.people .people-group .textblock {
-  flex: 0 0 20rem;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
 }
 .people .people-group .textblock h2 {
   border-bottom: solid 2px black;
@@ -59,8 +50,8 @@
   margin-bottom: 0.5rem;
 }
 .people .alumni ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 .people .alumni ul li {
@@ -77,13 +68,14 @@
 .people .alumni ul li:has(a) a {
   display: block;
   padding: 0.5rem;
-  color: blue;
+  color: black;
   text-decoration: none;
 }
-.people img {
+.people .textblock img {
+  display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;
-  height: 20rem;
+  height: auto;
+  aspect-ratio: 1/1;
   object-fit: cover;
   object-position: top;
   border-bottom: 2px solid #000;
