@@ -520,7 +520,8 @@ header nav ul {
 }
 header nav ul .btn-group {
   display: inline-flex;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
 }
 header nav ul .btn-group > a.btn {
   font-size: 1.5rem;
@@ -529,6 +530,11 @@ header nav ul .btn-group > a.btn {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+}
+header nav ul .btn-group > .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0 0.3rem;
 }
 header nav ul .btn {
   padding: unset;

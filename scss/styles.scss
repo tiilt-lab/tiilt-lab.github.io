@@ -156,7 +156,8 @@ header {
 
       .btn-group {
         display: inline-flex;
-        align-items: center;
+        flex-wrap: nowrap;
+        align-items: stretch;
 
         > a.btn {
           font-size: 1.5rem;
@@ -165,6 +166,12 @@ header {
           align-items: center;
           justify-content: center;
           font-weight: bold;
+        }
+
+        > .dropdown-toggle {
+          display: flex;
+          align-items: center;
+          padding: 0 0.3rem;
         }
       }
 
