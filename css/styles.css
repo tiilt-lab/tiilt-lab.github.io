@@ -14,16 +14,9 @@
   transform: rotate(-540deg);
 }
 .people .people-group {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-.people .people-group .textblock {
-  flex-basis: 20rem;
-  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2rem;
 }
 .people .people-group .textblock h2 {
   border-bottom: solid 2px black;
@@ -75,11 +68,16 @@
 .people .alumni ul li:has(a) a {
   display: block;
   padding: 0.5rem;
-  color: blue;
+  color: black;
   text-decoration: none;
 }
-.people img {
+.people .textblock img {
+  display: block;
   width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  object-position: top;
   border-bottom: 2px solid #000;
   user-select: none;
 }
@@ -519,6 +517,64 @@ header nav ul {
   justify-content: space-around;
   font-weight: bold;
   border: solid black 2px;
+}
+header nav ul .btn-group {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+}
+header nav ul .btn-group > a.btn {
+  font-size: 1.5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+header nav ul .btn-group > .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0 0.3rem;
+}
+header nav ul .btn {
+  padding: unset;
+  transition: none;
+}
+header nav ul .btn-primary,
+header nav ul .btn-primary:hover,
+header nav ul .btn-primary:focus,
+header nav ul .btn-primary:focus-visible,
+header nav ul .btn-primary:active,
+header nav ul .btn-primary:active:hover,
+header nav ul .btn-primary:active:focus,
+header nav ul .btn-primary:focus:hover,
+header nav ul .btn-primary.active,
+header nav ul .btn-primary.active:hover,
+header nav ul .btn-primary.active:focus,
+header nav ul .btn-primary.active.focus,
+header nav ul .btn-primary:active.focus,
+header nav ul .btn-primary.focus,
+header nav ul .open > .dropdown-toggle.btn-primary,
+header nav ul .open > .dropdown-toggle.btn-primary:focus,
+header nav ul .open > .dropdown-toggle.btn-primary:hover,
+header nav ul .open > .dropdown-toggle.btn-primary:focus:hover,
+header nav ul .open > .dropdown-toggle.btn-primary:active:hover,
+header nav ul .open > .dropdown-toggle.btn-primary.focus {
+  transition: none;
+  border-color: white;
+  background-color: white;
+  color: black;
+  outline: unset;
+  box-shadow: unset;
+}
+header nav ul .btn-primary a {
+  font-weight: bold;
+}
+header nav ul .dropdown-menu a {
+  height: auto;
+  display: block;
+  padding: 0.3rem 1rem;
+  font-size: 1.2rem;
 }
 header nav ul li a {
   transition: all 0.5s;
