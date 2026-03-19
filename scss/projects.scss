@@ -1,6 +1,6 @@
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
 
     h1 {
@@ -14,6 +14,8 @@
       }
     }
     .textblock {
+      display: flex;
+      flex-direction: column;
       max-height: 90rem;
 
       h1 {
@@ -21,8 +23,15 @@
         padding-top: 0.25rem;
       }
 
-      .box {
-        @extend %squared_button !optional;
+      .card-actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        a {
+          @extend %squared_button !optional;
+        }
       }
     }
     img {
@@ -33,4 +42,32 @@
       overflow: hidden;
       border-bottom: black 2px solid;
     }
+}
+
+.projectpages {
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .pictures {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      gap: 1rem;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+
+    iframe {
+      max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }
