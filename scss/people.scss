@@ -24,17 +24,29 @@
     gap: 2rem;
 
     .textblock {
+      display: flex;
+      flex-direction: column;
 
       h2 {
         border-bottom: solid 2px black;
         padding: 0.75rem;
       }
 
-      p {}
+      .card-actions {
+        margin-top: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
 
-      a,
-      button {
-        @extend %squared_button  !optional;
+        button,
+        a {
+          @extend %squared_button !optional;
+        }
+
+        // When there's no button, push lone link to the right
+        a:first-child:last-child {
+          margin-left: auto;
+        }
       }
     }
 
@@ -53,22 +65,14 @@
 
   article:not(.leaders) {
     p {
-      -webkit-line-clamp: 60;
-      line-clamp: 60;
       &.contracted_text {
         -webkit-box-orient: vertical;
         display: -webkit-box;
-        -webkit-line-clamp: 8;
-        line-clamp: 60;
-
+        -webkit-line-clamp: 6;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: normal;
-        transition: line-clamp 5s linear;
       }
-
     }
-
   }
 
   .alumni {

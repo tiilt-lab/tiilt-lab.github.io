@@ -1,15 +1,9 @@
 .projects {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+    gap: 1rem;
 
-    // outline: solid rosybrown 1px;
     h1 {
-      display: flex;
-      justify-content: space-between;
       span {
         transform: rotate(0deg);
         transition-delay: 50ms;
@@ -20,9 +14,16 @@
       }
     }
     .textblock {
-      margin-bottom: 1em;
-      flex-basis: 45rem;
       max-height: 90rem;
+
+      h1 {
+        margin: 0;
+        padding-top: 0.25rem;
+      }
+
+      .box {
+        @extend %squared_button !optional;
+      }
     }
     img {
       width: 100%;

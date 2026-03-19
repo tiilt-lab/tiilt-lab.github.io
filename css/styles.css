@@ -18,9 +18,22 @@
   grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   gap: 2rem;
 }
+.people .people-group .textblock {
+  display: flex;
+  flex-direction: column;
+}
 .people .people-group .textblock h2 {
   border-bottom: solid 2px black;
   padding: 0.75rem;
+}
+.people .people-group .textblock .card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.people .people-group .textblock .card-actions a:first-child:last-child {
+  margin-left: auto;
 }
 .people .people-group .top_dog h2 {
   border: 0;
@@ -30,19 +43,12 @@
   border-bottom: 2px solid black;
   font-size: 1.2rem;
 }
-.people article:not(.leaders) p {
-  -webkit-line-clamp: 60;
-  line-clamp: 60;
-}
 .people article:not(.leaders) p.contracted_text {
   -webkit-box-orient: vertical;
   display: -webkit-box;
-  -webkit-line-clamp: 8;
-  line-clamp: 60;
+  -webkit-line-clamp: 6;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: normal;
-  transition: line-clamp 5s linear;
 }
 .people .alumni h2 {
   font-size: 1.5rem;
@@ -109,16 +115,9 @@
 }
 
 .projects {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-content: flex-start;
-  flex-wrap: wrap;
-}
-.projects h1 {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 1rem;
 }
 .projects h1 span {
   transform: rotate(0deg);
@@ -129,9 +128,11 @@
   transform: rotate(-540deg);
 }
 .projects .textblock {
-  margin-bottom: 1em;
-  flex-basis: 45rem;
   max-height: 90rem;
+}
+.projects .textblock h1 {
+  margin: 0;
+  padding-top: 0.25rem;
 }
 .projects img {
   width: 100%;
@@ -435,8 +436,8 @@ ul {
   list-style: none;
 }
 
-.people .people-group .textblock a,
-.people .people-group .textblock button, .papers .textblock .window__paper a, .classes .textblock span, .classes .textblock a {
+.people .people-group .textblock .card-actions button,
+.people .people-group .textblock .card-actions a, .projects .textblock .box, .papers .textblock .window__paper a, .classes .textblock span, .classes .textblock a {
   margin: 0.4rem;
   display: inline-block;
   border: 2px solid #000;
@@ -447,8 +448,8 @@ ul {
   color: black;
   transition: all 0.2s linear;
 }
-.people .people-group .textblock a:hover,
-.people .people-group .textblock button:hover, .papers .textblock .window__paper a:hover, .classes .textblock span:hover, .classes .textblock a:hover {
+.people .people-group .textblock .card-actions button:hover,
+.people .people-group .textblock .card-actions a:hover, .projects .textblock .box:hover, .papers .textblock .window__paper a:hover, .classes .textblock span:hover, .classes .textblock a:hover {
   color: white;
   background-color: black;
 }
