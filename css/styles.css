@@ -636,6 +636,11 @@ main .textblock {
   border: solid 2px black;
   transition: box-shadow 0.2s linear;
   background-color: #ffffff;
+  opacity: 0;
+  transform: translateY(1rem);
+}
+main .textblock.visible {
+  animation: card-enter 0.4s ease forwards;
 }
 main .textblock:hover {
   box-shadow: 4px 5px;
@@ -689,4 +694,22 @@ main.about .textblock {
   margin-left: auto;
   position: relative;
   z-index: 99;
+}
+
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  main .textblock {
+    opacity: 1;
+    transform: none;
+    animation: none !important;
+  }
 }
