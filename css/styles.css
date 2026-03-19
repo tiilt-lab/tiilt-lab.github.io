@@ -451,6 +451,7 @@
   cursor: pointer;
   font-size: inherit;
   font-family: inherit;
+  color: #000;
 }
 .nav-dropdown .nav-dropdown__menu {
   display: none;
@@ -480,6 +481,11 @@
 .nav-dropdown.dropup .nav-dropdown__menu {
   top: auto;
   bottom: 100%;
+}
+@media only screen and (max-width: 640px) {
+  .nav-dropdown > a.nav-dropdown__link {
+    font-size: 1rem;
+  }
 }
 
 @font-face {
