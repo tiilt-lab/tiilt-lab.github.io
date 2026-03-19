@@ -10,12 +10,7 @@
     display: flex;
     justify-content: space-between;
     span {
-      transform: rotate(0deg);
-      transition-delay: 50ms;
-      transition: all 450ms ease-in-out;
-    }
-    .rotated {
-      transform: rotate(-540deg);
+      @include rotate-toggle;
     }
   }
   .textblock {
@@ -24,11 +19,9 @@
     max-height: 90rem;
   }
   img {
-    width: 100%;
-    height: auto;
+    @include card-image;
     max-height: 100rem;
     transition: max-height 1s linear;
     overflow: hidden;
-    border-bottom: black 2px solid;
   }
 }
