@@ -26,11 +26,9 @@ function headerGenerator() {
             </li>
             <li>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">
-                        <a href=${rt + "projects/"} aria-label="Info on projects">projects
-                            <i class='uil uil-drill'></i>
-                        </a>
-                    </button>
+                    <a href=${rt + "projects/"} class="btn btn-primary" aria-label="Info on projects">projects
+                        <i class='uil uil-drill'></i>
+                    </a>
                     <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span>▼</span>
                     </button>
