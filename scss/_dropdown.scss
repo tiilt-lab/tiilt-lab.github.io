@@ -36,6 +36,7 @@
         cursor: pointer;
         font-size: inherit;
         font-family: inherit;
+        color: $color-black;
     }
 
     .nav-dropdown__menu {
@@ -71,5 +72,11 @@
     &.dropup .nav-dropdown__menu {
         top: auto;
         bottom: 100%;
+    }
+
+    @include mobile {
+        > a.nav-dropdown__link {
+            font-size: $font-size-sm;
+        }
     }
 }
