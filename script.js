@@ -279,7 +279,26 @@ window.onload = () => {
         }
     }
 
-    const myLazyLoad = new LazyLoad({
-        elements_selector: ".lazy"
-    });
+    if (typeof LazyLoad !== 'undefined') {
+        const myLazyLoad = new LazyLoad({
+            elements_selector: ".lazy"
+        });
+    }
+
+    // Animate textblocks into view with staggered delays
+    var cards = document.querySelectorAll('.textblock');
+    if (cards.length > 0 && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        cards.forEach(function(card) { observer.observe(card); });
+    } else {
+        // Fallback: show all immediately
+        cards.forEach(function(card) { card.classList.add('visible'); });
+    }
 };
