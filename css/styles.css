@@ -451,6 +451,7 @@
   cursor: pointer;
   font-size: inherit;
   font-family: inherit;
+  color: #000;
 }
 .nav-dropdown .nav-dropdown__menu {
   display: none;
