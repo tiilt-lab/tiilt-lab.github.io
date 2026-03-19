@@ -116,7 +116,7 @@
 
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 .projects h1 span {
@@ -128,11 +128,19 @@
   transform: rotate(-540deg);
 }
 .projects .textblock {
+  display: flex;
+  flex-direction: column;
   max-height: 90rem;
 }
 .projects .textblock h1 {
   margin: 0;
   padding-top: 0.25rem;
+}
+.projects .textblock .card-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 .projects img {
   width: 100%;
@@ -143,6 +151,28 @@
   border-bottom: black 2px solid;
 }
 
+.projectpages img {
+  max-width: 100%;
+  height: auto;
+}
+.projectpages .pictures {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+.projectpages .pictures img {
+  width: 100%;
+  object-fit: cover;
+}
+.projectpages iframe {
+  max-width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
 .papers {
   display: flex;
   flex-direction: column;
@@ -437,7 +467,7 @@ ul {
 }
 
 .people .people-group .textblock .card-actions button,
-.people .people-group .textblock .card-actions a, .projects .textblock .box, .papers .textblock .window__paper a, .classes .textblock span, .classes .textblock a {
+.people .people-group .textblock .card-actions a, .projects .textblock .card-actions a, .papers .textblock .window__paper a, .classes .textblock span, .classes .textblock a {
   margin: 0.4rem;
   display: inline-block;
   border: 2px solid #000;
@@ -449,7 +479,7 @@ ul {
   transition: all 0.2s linear;
 }
 .people .people-group .textblock .card-actions button:hover,
-.people .people-group .textblock .card-actions a:hover, .projects .textblock .box:hover, .papers .textblock .window__paper a:hover, .classes .textblock span:hover, .classes .textblock a:hover {
+.people .people-group .textblock .card-actions a:hover, .projects .textblock .card-actions a:hover, .papers .textblock .window__paper a:hover, .classes .textblock span:hover, .classes .textblock a:hover {
   color: white;
   background-color: black;
 }
