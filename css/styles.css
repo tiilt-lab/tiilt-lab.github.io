@@ -518,22 +518,44 @@ header nav ul {
   font-weight: bold;
   border: solid black 2px;
 }
-header nav ul .projects-nav .btn-group {
+header nav ul .btn-group {
   display: inline-flex;
-  align-items: center;
 }
-header nav ul .projects-nav .btn-group .dropdown-toggle {
-  background: none;
-  border: none;
-  color: #717171;
-  cursor: pointer;
-  font-size: 0.8rem;
-  padding: 0 0.5rem;
+header nav ul .btn {
+  padding: unset;
+  transition: none;
 }
-header nav ul .projects-nav .btn-group .dropdown-toggle:hover {
+header nav ul .btn-primary,
+header nav ul .btn-primary:hover,
+header nav ul .btn-primary:focus,
+header nav ul .btn-primary:focus-visible,
+header nav ul .btn-primary:active,
+header nav ul .btn-primary:active:hover,
+header nav ul .btn-primary:active:focus,
+header nav ul .btn-primary:focus:hover,
+header nav ul .btn-primary.active,
+header nav ul .btn-primary.active:hover,
+header nav ul .btn-primary.active:focus,
+header nav ul .btn-primary.active.focus,
+header nav ul .btn-primary:active.focus,
+header nav ul .btn-primary.focus,
+header nav ul .open > .dropdown-toggle.btn-primary,
+header nav ul .open > .dropdown-toggle.btn-primary:focus,
+header nav ul .open > .dropdown-toggle.btn-primary:hover,
+header nav ul .open > .dropdown-toggle.btn-primary:focus:hover,
+header nav ul .open > .dropdown-toggle.btn-primary:active:hover,
+header nav ul .open > .dropdown-toggle.btn-primary.focus {
+  transition: none;
+  border-color: white;
+  background-color: white;
   color: black;
+  outline: unset;
+  box-shadow: unset;
 }
-header nav ul .projects-nav .btn-group .dropdown-menu a {
+header nav ul .btn-primary a {
+  font-weight: bold;
+}
+header nav ul .dropdown-menu a {
   height: auto;
   display: block;
   padding: 0.3rem 1rem;

@@ -154,33 +154,52 @@ header {
       font-weight: bold;
       border: solid black 2px;
 
-      .projects-nav .btn-group {
+      .btn-group {
         display: inline-flex;
-        align-items: center;
+      }
 
-        > a {
-          // inherits li a styles naturally
-        }
+      .btn {
+        padding: unset;
+        transition: none;
+      }
 
-        .dropdown-toggle {
-          background: none;
-          border: none;
-          color: #717171;
-          cursor: pointer;
-          font-size: 0.8rem;
-          padding: 0 0.5rem;
+      .btn-primary,
+      .btn-primary:hover,
+      .btn-primary:focus,
+      .btn-primary:focus-visible,
+      .btn-primary:active,
+      .btn-primary:active:hover,
+      .btn-primary:active:focus,
+      .btn-primary:focus:hover,
+      .btn-primary.active,
+      .btn-primary.active:hover,
+      .btn-primary.active:focus,
+      .btn-primary.active.focus,
+      .btn-primary:active.focus,
+      .btn-primary.focus,
+      .open > .dropdown-toggle.btn-primary,
+      .open > .dropdown-toggle.btn-primary:focus,
+      .open > .dropdown-toggle.btn-primary:hover,
+      .open > .dropdown-toggle.btn-primary:focus:hover,
+      .open > .dropdown-toggle.btn-primary:active:hover,
+      .open > .dropdown-toggle.btn-primary.focus {
+        transition: none;
+        border-color: white;
+        background-color: white;
+        color: black;
+        outline: unset;
+        box-shadow: unset;
+      }
 
-          &:hover {
-            color: black;
-          }
-        }
+      .btn-primary a {
+        font-weight: bold;
+      }
 
-        .dropdown-menu a {
-          height: auto;
-          display: block;
-          padding: 0.3rem 1rem;
-          font-size: 1.2rem;
-        }
+      .dropdown-menu a {
+        height: auto;
+        display: block;
+        padding: 0.3rem 1rem;
+        font-size: 1.2rem;
       }
 
       li {
