@@ -19,16 +19,11 @@
   }
 
   .people-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 2rem;
 
     .textblock {
-      flex-basis: 20rem;
-      margin-bottom: 2rem;
 
       h2 {
         border-bottom: solid 2px black;
@@ -77,26 +72,46 @@
   }
 
   .alumni {
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
     ul {
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
-      align-items: flex-start;
-      min-height: 10rem;
+      gap: 0.5rem;
 
       li {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         font-weight: bold;
         border: 2px solid black;
         padding: .5rem;
-        margin-bottom: .5rem;
+        text-align: center;
       }
 
+      li:has(a) {
+        border-color: blue;
+        padding: 0;
+
+        a {
+          display: block;
+          padding: .5rem;
+          color: blue;
+          text-decoration: none;
+        }
+      }
     }
   }
 
-  img {
+  .textblock img {
+    display: block;
     width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top;
     border-bottom: 2px solid #000;
     user-select: none;
   }

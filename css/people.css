@@ -26,7 +26,7 @@
   margin-bottom: 2rem;
 }
 .people .people-group .textblock h2 {
-  border-bottom: solid 2px #000;
+  border-bottom: solid 2px black;
   padding: 0.75rem;
 }
 .people .people-group .top_dog h2 {
@@ -34,7 +34,7 @@
 }
 .people .people-group .top_dog h3 {
   padding: 0 0.75rem 0.75rem;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid black;
   font-size: 1.2rem;
 }
 .people article:not(.leaders) p {
@@ -51,25 +51,39 @@
   white-space: normal;
   transition: line-clamp 5s linear;
 }
+.people .alumni h2 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
 .people .alumni ul {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  min-height: 10rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.5rem;
 }
 .people .alumni ul li {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  border: 2px solid #000;
+  border: 2px solid black;
   padding: 0.5rem;
-  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.people .alumni ul li:has(a) {
+  border-color: blue;
+  padding: 0;
+}
+.people .alumni ul li:has(a) a {
+  display: block;
+  padding: 0.5rem;
+  color: blue;
+  text-decoration: none;
 }
 .people img {
   width: 100%;
   border-bottom: 2px solid #000;
   user-select: none;
 }
+
 .text_truncator {
   -webkit-box-orient: vertical;
   display: -webkit-box;
@@ -77,4 +91,4 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-} /*# sourceMappingURL=people.css.map */
+}
