@@ -607,11 +607,16 @@ header nav ul .open > .dropdown-toggle.btn-primary.focus {
 header nav ul .btn-primary a {
   font-weight: bold;
 }
+header nav ul .dropdown-menu {
+  padding: 0.25rem 0;
+  min-width: unset;
+}
 header nav ul .dropdown-menu a {
   height: auto;
   display: block;
   padding: 0.3rem 1rem;
   font-size: 1.2rem;
+  line-height: 1.4;
 }
 header nav ul li a {
   transition: all 0.5s;
