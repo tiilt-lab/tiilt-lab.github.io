@@ -154,6 +154,48 @@ header {
       font-weight: bold;
       border: solid black 2px;
 
+      .btn-group {
+        display: inline-flex;
+      }
+
+      .btn {
+        padding: unset;
+        transition: none;
+      }
+
+      .btn-primary {
+        transition: none;
+        border-color: white;
+        background-color: white;
+        color: black;
+        outline: unset;
+        box-shadow: unset;
+        font-weight: bold;
+
+        &:hover, &:focus, &:focus-visible, &:active,
+        &:active:hover, &:active:focus, &:focus:hover,
+        &.active, &.active:hover, &.active:focus, &.active.focus,
+        &:active.focus, &.focus {
+          transition: none;
+          border-color: white;
+          background-color: white;
+          color: black;
+          outline: unset;
+          box-shadow: unset;
+        }
+      }
+
+      .open > .dropdown-toggle.btn-primary {
+        &, &:focus, &:hover, &:focus:hover, &:active:hover, &.focus {
+          transition: none;
+          border-color: white;
+          background-color: white;
+          color: black;
+          outline: unset;
+          box-shadow: unset;
+        }
+      }
+
       li {
         a {
           transition: all 0.5s;
