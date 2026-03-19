@@ -513,6 +513,12 @@ ul {
   body header nav ul li .current-page {
     text-decoration: none;
   }
+  body header nav ul .btn-group > a.btn {
+    font-size: 1rem;
+  }
+  body header nav ul .btn-group > .dropdown-toggle span {
+    color: black;
+  }
   body main {
     margin: 0 1.2rem 2rem;
   }
@@ -713,3 +719,5 @@ main.about .textblock {
     animation: none !important;
   }
 }
+
+/*# sourceMappingURL=styles.css.map */
