@@ -19,18 +19,11 @@
   }
 
   .people-group {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     gap: 2rem;
 
     .textblock {
-      flex: 0 0 20rem;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 0;
 
       h2 {
         border-bottom: solid 2px black;
@@ -105,17 +98,18 @@
         a {
           display: block;
           padding: .5rem;
-          color: blue;
+          color: black;
           text-decoration: none;
         }
       }
     }
   }
 
-  img {
+  .textblock img {
+    display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
-    height: 20rem;
     object-fit: cover;
     object-position: top;
     border-bottom: 2px solid #000;
