@@ -26,11 +26,9 @@ function headerGenerator() {
             </li>
             <li>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">
-                        <a href=${rt + "projects/"} aria-label="Info on projects">projects
-                            <i class='uil uil-drill'></i>
-                        </a>
-                    </button>
+                    <a href=${rt + "projects/"} class="btn btn-primary" aria-label="Info on projects">projects
+                        <i class='uil uil-drill'></i>
+                    </a>
                     <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span>▼</span>
                     </button>
@@ -141,7 +139,7 @@ function subset(l1, l2) {
 }
 
 function contractText(e) {
-    const p_Sibling = e.parentElement.querySelector('p');
+    const p_Sibling = e.closest('.textblock').querySelector('p');
 
     const textContracted = p_Sibling.classList.toggle("contracted_text");
     if (textContracted) {
@@ -153,18 +151,40 @@ function contractText(e) {
 
 function addReadMoreButtons() {
     const paragraphs = document.querySelectorAll("article:not(.leaders) > .people-group section p");
-    const paragraphArr = Array.from(paragraphs);
-    const filtered = paragraphArr.filter(para => para.clientHeight > 200);
 
-    filtered.map((bigPara) => {
-        bigPara.classList.add('contracted_text');
+    // Apply clamp to all paragraphs first
+    paragraphs.forEach((para) => {
+        para.classList.add('contracted_text');
+    });
 
-        const button = document.createElement("button");
-        const newContent = document.createTextNode("read more");
-        button.appendChild(newContent);
-        button.addEventListener('click', () => contractText(button));
+    // Wait for reflow, then check which are truncated
+    requestAnimationFrame(() => {
+        paragraphs.forEach((para) => {
+            if (para.scrollHeight > para.clientHeight) {
+                const button = document.createElement("button");
+                button.textContent = "read more";
+                button.addEventListener('click', () => contractText(button));
+                para.after(button);
+            }
+        });
+        wrapCardFooters();
+    });
+}
 
-        bigPara.after(button);
+function wrapCardFooters() {
+    const cards = document.querySelectorAll(".people-group .textblock");
+    cards.forEach(card => {
+        const footer = document.createElement("div");
+        footer.classList.add("card-actions");
+
+        const buttons = card.querySelectorAll(":scope > button");
+        const links = card.querySelectorAll(":scope > a");
+
+        if (buttons.length === 0 && links.length === 0) return;
+
+        buttons.forEach(btn => footer.appendChild(btn));
+        links.forEach(link => footer.appendChild(link));
+        card.appendChild(footer);
     });
 }
 
