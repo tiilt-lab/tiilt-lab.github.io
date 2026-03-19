@@ -520,39 +520,26 @@ header nav ul {
   font-weight: bold;
   border: solid black 2px;
 }
-header nav ul .projects-nav {
-  position: relative;
-  display: flex;
+header nav ul .projects-nav .btn-group {
+  display: inline-flex;
   align-items: center;
 }
-header nav ul .projects-nav .projects-dropdown-toggle {
+header nav ul .projects-nav .btn-group .dropdown-toggle {
   background: none;
   border: none;
   color: #717171;
   cursor: pointer;
   font-size: 0.8rem;
-  padding: 0 0.3rem;
+  padding: 0 0.5rem;
 }
-header nav ul .projects-nav .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1000;
-  display: none;
-  background: white;
-  border: 2px solid black;
-  padding: 0.5rem 0;
+header nav ul .projects-nav .btn-group .dropdown-toggle:hover {
+  color: black;
 }
-header nav ul .projects-nav .dropdown-menu a {
+header nav ul .projects-nav .btn-group .dropdown-menu a {
+  height: auto;
   display: block;
   padding: 0.3rem 1rem;
-  color: #717171;
-  text-decoration: none;
   font-size: 1.2rem;
-}
-header nav ul .projects-nav .dropdown-menu a:hover {
-  color: black;
-  text-decoration: underline;
 }
 header nav ul li a {
   transition: all 0.5s;
