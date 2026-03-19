@@ -274,6 +274,7 @@ window.onload = () => {
     if (location.href.includes("people")) {
         if (navigator.userAgent.indexOf("Firefox") !== -1) {
             console.log('lol @ Firefox');
+            wrapCardFooters();
         } else {
             addReadMoreButtons();
         }
