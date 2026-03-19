@@ -224,11 +224,17 @@ header {
         font-weight: bold;
       }
 
-      .dropdown-menu a {
-        height: auto;
-        display: block;
-        padding: 0.3rem 1rem;
-        font-size: 1.2rem;
+      .dropdown-menu {
+        padding: 0.25rem 0;
+        min-width: unset;
+
+        a {
+          height: auto;
+          display: block;
+          padding: 0.3rem 1rem;
+          font-size: 1.2rem;
+          line-height: 1.4;
+        }
       }
 
       li {
