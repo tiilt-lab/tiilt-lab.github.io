@@ -1,0 +1,560 @@
+papers:
+  # 2023
+  - citation: "Wallace, A., Quiterio, A., Kumar, V., & Worsley, M. (2023). Culturally responsive computing for black boys through sports technology. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 1426-1429). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-wallace.pdf"
+    doi: "https://doi.org/10.22318/icls2023.199755"
+    link: ""
+
+  - citation: "Chávez, V. C., Van Wart, S. (2023). \"Accessibility is important to everybody\": Unpacking Students' Understanding about Accessibility. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 1474-1477). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-victoria-2.pdf"
+    doi: "https://doi.org/10.22318/icls2023.262420"
+    link: ""
+
+  - citation: "Chávez, V. C. (2023). \"The Focus Came in Handy for Me Too\": Exploring Accessibility Learning and Identity Formation in a Web Development Course. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 2127-2128). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-victoria.pdf"
+    doi: "https://doi.org/10.22318/icls2023.307950"
+    link: ""
+
+  - citation: "Blikstein, P., Davis, R., Rosenbaum, L. F., Zheng, Y., Bender, S., Halverson, E., ... & Hooper, P. (2023). The Future of Maker Education. In Proceedings of the 17th International Conference of the Learning Sciences-ICLS 2023, pp. 1650-1658. International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-maker.pdf"
+    doi: "https://doi.org/10.22318/icls2023.337879"
+    link: ""
+
+  - citation: "Jones, S. T., Moore, S., & Vossoughi, S. (2023). Treading lightly with computing education: Politicized care as an intervention of black life. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 978-981). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-jones.pdf"
+    doi: "https://doi.org/10.22318/icls2023.531954"
+    link: ""
+
+  - citation: "Kumar, V., Fields, D. A., Blikstein, P., Peppler, K., Dahn, M., Ito, M., Braaten, M., Hayden, R., Roque, R., Chang, M. A., Philip, T. M., Worsley, M., & Pinkard, N. (2023). Expansive lenses to examine interventions (of) moving across contexts. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 1732-1740). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-symposium.pdf"
+    doi: "https://doi.org/10.22318/icls2023.868056"
+    link: ""
+
+  - citation: "Lee, S. P., Jones, S. T., Kumar, V., & Worsley, M. (2023). Unsettling socio-emotional learning: Perspectives from working with resettled refugee youth. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 1927-1928). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-lee.pdf"
+    doi: "https://doi.org/10.22318/icls2023.277557"
+    link: ""
+
+  - citation: "Simmons, S. & Kumar, V. (2023). Centering safety at community centers: Making space for youth interest. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 2131-2132). International Society of the Learning Sciences."
+    year: 2023
+    pdf: "../assets/papers/23-icls-simmons.pdf"
+    doi: "https://doi.org/10.22318/icls2023.889272"
+    link: ""
+
+  - citation: "Lewis, Z.A.M., Lee, S.P., Jones, S.T., Nanoff, T.J., and Worsley, M. (2023, June). For Maker's Sake: A Somatic Exploration of Making. In Proceedings of the 22nd Annual ACM Interaction Design and Children Conference (IDC '23). Association for Computing Machinery, New York, NY, USA, 792-794."
+    year: 2023
+    pdf: "../assets/papers/23-idc-somatic.pdf"
+    doi: "https://doi.org/10.1145/3585088.3589931"
+    link: ""
+
+  - citation: "Kumar, V., & Worsley, M. (2023, June). PaintBall - Coding Sports Into Art for Cross-Interest Computational Connections. In Proceedings of the 22nd Annual ACM Interaction Design and Children Conference (IDC '23). Association for Computing Machinery, New York, NY, USA, 713-715."
+    year: 2023
+    pdf: "../assets/papers/23-idc-vishesh-paintball.pdf"
+    doi: "https://doi.org/10.1145/3585088.3594492"
+    link: ""
+
+  - citation: "Wallace, A., Quiterio, A., Kumar, V., & Worsley, M. (2023). How Youth Connect Sports with Technology. In Proceedings of the 54th ACM Technical Symposium on Computer Science Education V. 2 (SIGCSE 2023). Association for Computing Machinery, New York, NY, USA, 1351."
+    year: 2023
+    pdf: "../assets/papers/23-sigcse-wallace.pdf"
+    doi: "https://doi.org/10.1145/3545947.3576296"
+    link: ""
+
+  - citation: "Kumar, V., & Worsley, M. (2023). Scratch for sports: athletic drills as a platform for experiencing, understanding, and developing AI-driven apps. In Proceedings of the AAAI Conference on Artificial Intelligence (Vol. 37, No. 13, pp. 16011-16016)."
+    year: 2023
+    pdf: "../assets/papers/23-aaai-vishesh.pdf"
+    doi: "https://doi.org/10.1609/aaai.v37i13.26901"
+    link: ""
+
+  - citation: "Worsley, M. (2023). Artificial Intelligence Innovations for Multimodal Learning, Interfaces, and Analytics. In AI for Learning. 19-35. Springer Nature."
+    year: 2023
+    pdf: "../assets/papers/23-ai_in_learning.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. (2023). Artificial Intelligence Innovations for Multimodal Learning, Interfaces, and Analytics. In: Niemi, H., Pea, R.D., Lu, Y. (eds) AI in Learning: Designing the Future. Springer, Cham."
+    year: 2023
+    pdf: "../assets/papers/23-ai_in_learning.pdf"
+    doi: "https://doi.org/10.1007/978-3-031-09687-7_2"
+    link: ""
+
+  - citation: "Worsley, M. (2023). Artificial Intelligence Innovations for Multimodal Learning, Interfaces, and Analytics. In AI for Learning. 19-35. Springer Nature."
+    year: 2023
+    pdf: "../assets/papers/23-ai_in_learning.pdf"
+    doi: ""
+    link: ""
+
+  # 2022
+  - citation: "Roscoe, R., Salehi, S., Dowell, N., Worsley, M., Piech, C., & Luckin, R. (2022). Inclusion and Equity as a Paradigm Shift for Artificial Intelligence in Education. In Artificial Intelligence in STEM Education: The Paradigmatic Shifts in Research, Education, and Technology."
+    year: 2022
+    pdf: "../assets/papers/23-Inclusion_Equity_AIED.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. (2022). Framing the Future of Multimodal Learning Analytics. In Multimodal Learning Analytics Handbook. Springer. Springer, Cham."
+    year: 2022
+    pdf: "../assets/papers/22-mmla-future.pdf"
+    doi: "https://doi.org/10.1007/978-3-031-08076-0_14"
+    link: ""
+
+  - citation: "Gorson, J., Cunningham, K., Worsley, M., & O'Rourke, E. (2022). Using Electrodermal Activity Measurements to Understand Student Emotions While Programming. In Proceedings of the 2022 ACM Conference on International Computing Education Research-Volume 1. 105-119. ACM, New York NY, USA."
+    year: 2022
+    pdf: "../assets/papers/22-icer-electrodermal.pdf"
+    doi: "https://doi.org/10.1145/3501385.3543981"
+    link: ""
+
+  - citation: "Worsley, M. (2022). PE++: Exploring Opportunities for Computational Thinking in Physical Education. In the Proceedings of the 2022 Interaction Design and Children Conference. ACM, New York, NY, USA."
+    year: 2022
+    pdf: "../assets/papers/22-idc-peplus.pdf"
+    doi: "https://doi.org/10.1145/3501712.3535293"
+    link: ""
+
+  - citation: "Bodon, H., Kumar, V., Worsley, M. (2022). Youth Experiences with Authentically Embedded Computer Science in Sport. In Proceedings of the 21st Annual ACM Interaction Design and Children Conference (IDC '22). Association for Computing Machinery, New York, NY, USA, 504-509."
+    year: 2022
+    pdf: "../assets/papers/22-idc-bodon.pdf"
+    doi: "https://doi.org/10.1145/3501712.3535297"
+    link: ""
+
+  - citation: "Worsley, M. (2022). Examining the Realities and Nuances of 'Low-stakes' Interest-Driven Learning Environments. In the Proceedings of the 2022 RESPECT conference. IEEE. Philadelphia, PA, USA."
+    year: 2022
+    pdf: "../assets/papers/22-respect-worsley.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Turakhia, D. Blikstein, P., Holbert, N., Worsley, M., Jacobs, J., Anderson, F., Gong, J., DesPortes, K, and Mueller, S. (2022). Reimagining Systems for Learning Hands-on Creative and Maker Skills. In CHI Conference on Human Factors in Computing Systems Extended Abstracts (CHI EA '22). Association for Computing Machinery, New York, NY, USA, Article 94, 1-7. https://doi.org/10.1145/3491101.3503732"
+    year: 2022
+    pdf: ""
+    doi: ""
+    link: ""
+
+  # 2021
+  - citation: "Worsley, M., Martinez-Maldonado, R., & D'Angelo, C. (2021). A New Era in Multimodal Learning Analytics: Twelve Core Commitments to Ground and Grow MMLA. Journal of Learning Analytics, 8(3), 10-27. https://doi.org/10.18608/jla.2021.7361"
+    year: 2021
+    pdf: "../assets/papers/mmla_new_era.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Abrahamson, D., Worsley, M., Pardos, Z. A., & Ou, L. (2021). Learning analytics of embodied design: Enhancing synergy. International Journal of Child-Computer Interaction, 100409. https://doi.org/10.1016/j.ijcci.2021.100409"
+    year: 2021
+    pdf: "../assets/papers/embodied_design_LA.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley M., Mendoza Tudares K., Mwiti T., Zhen M., Jiang M. (2021) Multicraft: A Multimodal Interface for Supporting and Studying Learning in Minecraft. In: Fang X. (eds) HCI in Games: Serious and Immersive Games. HCII 2021. Lecture Notes in Computer Science, vol 12790. Springer, Cham. https://doi.org/10.1007/978-3-030-77414-1_10"
+    year: 2021
+    pdf: "../assets/papers/multicraft_chapter.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Gomez K., Gomez L.M., Worsley M. (2021) Interrogating the Role of CSCL in Diversity, Equity, and Inclusion. In: Cress U., Rose C., Wise A.F., Oshima J. (eds) International Handbook of Computer-Supported Collaborative Learning. Computer-Supported Collaborative Learning Series, vol 19. Springer, Cham. https://doi.org/10.1007/978-3-030-65291-3_6"
+    year: 2021
+    pdf: "../assets/papers/csclDiversity_chapter.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Schneider, B., Worsley, M., & Martinez-Maldonado, R. (2021). Gesture and gaze: Multimodal data in dyadic interactions. In International Handbook of Computer-Supported Collaborative Learning (pp. 625-641). Springer, Cham."
+    year: 2021
+    pdf: "../assets/papers/gestureGaze_chapter.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., Lee, S. P., & Jones, S. T. (2021). Family-Friendly Teacher Professional Development. In Proceedings of the 15th International Conference of the Learning Sciences-ICLS 2021.. International Society of the Learning Sciences."
+    year: 2021
+    pdf: "../assets/papers/familyFriendly.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Jones, S.T., melo, n.a. We Tell These Stories to Survive: Towards Abolition in Computer Science Education. Can. J. Sci. Math. Techn. Educ. 21, 290-308 (2021). https://doi.org/10.1007/s42330-021-00158-2"
+    year: 2021
+    pdf: "../assets/papers/Jones-Melo2021.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Bar-El, D., & Worsley, M. (2021). Making the maker movement more inclusive: Lessons learned from a course on accessibility in making. International Journal of Child-Computer Interaction, 29, 100285."
+    year: 2021
+    pdf: "../assets/papers/Making_Maker_Movement_Paper.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. (2021). Exploring ideation strategies as an opportunity to support and evaluate making. Information and Learning Sciences."
+    year: 2021
+    pdf: "../assets/papers/exploring ideation strategies.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "McHugh, T. B., Saha, A., Bar-El, D., Worsley, M., & Piper, A. M. (2021, May). Towards Inclusive Streaming: Building Multimodal Music Experiences for the Deaf and Hard of Hearing. In Extended Abstracts of the 2021 CHI Conference on Human Factors in Computing Systems (pp. 1-7)."
+    year: 2021
+    pdf: "../assets/papers/Towards_Inclusive_Streaming_Paper.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Spikol, D., Ochoa, X., Worsley, M., Di Mitri, D., Cukurova, M., Martinez-Maldonado, R., & Schneider, J. (2021, April). CROSSMMLA Futures: Collecting and analysing multimodal data across the physical and the virtual. 11th International Learning Analytics and Knowledge Conference (LAK'21)."
+    year: 2021
+    pdf: "../assets/papers/CROSSMMLA_Paper.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., Anderson, K., Melo, N., & Jang, J. (2021). Designing Analytics for Collaboration Literacy and Student Empowerment. Journal of Learning Analytics, 8(1), 30-48."
+    year: 2021
+    pdf: "../assets/papers/Designing_Analytics_Paper.pdf"
+    doi: ""
+    link: ""
+
+  # 2020
+  - citation: "Melissa Escamilla Perez, Stephanie T. Jones, Sarah Priscilla Lee, Marcelo Aaron Bonilla Worsley. (2020). Intergenerational Making with Young Children. In Proceedings of Fablearn conference (Fablearn ' 2020). Fablearn, New York, NY, USA, 6 pages."
+    year: 2020
+    pdf: "../assets/papers/FabLearn_2020_paper_136 (1).pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., & Ochoa, X. (2020). Towards Collaboration Literacy Development through Multimodal Learning Analytics."
+    year: 2020
+    pdf: "../assets/papers/towards_collaboration_literacy_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., & Bar-El, D. (2020). Inclusive Making: designing tools and experiences to promote accessibility and redefine making. Computer Science Education, 1-33."
+    year: 2020
+    pdf: "../assets/papers/inclusive_making_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Andrus, B., Bar-El, D., Msall, C., Uttal, D., & Worsley, M. (2020). Minecraft as a Generative Platform for Analyzing and Practicing Spatial Reasoning. In German Conference on Spatial Cognition (pp. 297-302). Springer, Cham."
+    year: 2020
+    pdf: ""
+    doi: ""
+    link: "https://link.springer.com/chapter/10.1007/978-3-030-57983-8_22"
+
+  - citation: "Jones, S. T., Thompson, J., & Worsley, M. (2020). Data in Motion: Sports as a site for expansive learning. Computer Science Education, 30(3), 279-312."
+    year: 2020
+    pdf: "../assets/papers/data_in_motion_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., & Bar-El, D. (2020). Spatial Reasoning in Minecraft: An Exploratory Study of In-Game Spatial Practices."
+    year: 2020
+    pdf: "../assets/papers/spatial_reasoning_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Clegg, T., Edouard, K., Greene, D., Jones, S., Melo, N., Nasir, N. I., ... & Zimmermann-Niefield, A. (2020). Reconceptualizing Legitimate and Generative Learning Experiences in Sports and Technology."
+    year: 2020
+    pdf: "../assets/papers/reconceptualizing_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Jones, S. T., & Melo, N. (2020). 'Anti-blackness is no glitch' the need for critical conversations within computer science education. XRDS: Crossroads, The ACM Magazine for Students, 27(2), 42-46."
+    year: 2020
+    pdf: "../assets/papers/acm_xrds_2020.pdf"
+    doi: ""
+    link: ""
+
+  # 2019
+  - citation: "Bar-El, D., & Worsley, M. (2019). Tinkering with Music: Designing a Maker Curriculum for an After School Youth Club. In Proceedings of the Interaction Design and Children Conference. pp. 220-226."
+    year: 2019
+    pdf: "../assets/papers/tinkering_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Jones, S., Perez, M., Lee, S., Furuichi, K., & Worsley, M. (2019). Facilitation in an Intergenerational Making Activity: How to Facilitate Moves Shift Across Traditional and Digital Fabrication. In Proceeedings of the Interaction Design and Children Conference. pp. 237-245."
+    year: 2019
+    pdf: "../assets/papers/facilitation_intergenerational_making_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Martin, K., Wang, E. Q., Bain, C., & Worsley, M. (2019). Computationally Augmented Ethnography: Emotion Tracking and Learning in Museum Games. In International Conference on Quantitative Ethnography. pp. 141-153."
+    year: 2019
+    pdf: "../assets/papers/computationally_augmented_ethnography_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Martin, K. (2019). Future Visions for the study of Group Learning with Complex Systems Models: The role of multimodal data in group learning analysis."
+    year: 2019
+    pdf: ""
+    doi: ""
+    link: "https://collaborationanalytics.files.wordpress.com/2019/06/submission-4-martin.pdf"
+
+  - citation: "Bergner, Y., Abramovich, S., Worsley, M. and Chen, O. (2019). What are the learning and assessment objectives in educational Fab Labs and Makerspaces? FabLearn 2019"
+    year: 2019
+    pdf: "../assets/papers/learning_assessment_objectives_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Lee, S. & Worsley, M. (2019). Designing for and Facilitating Meaningful Making with Refugee Children. FabLearn 2019."
+    year: 2019
+    pdf: "../assets/papers/refugee_children_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Maldonado, R. M., Worsley, M., Schneider, B., & Kharrufa, A. (2019). International Workshop on Collaboration Analytics: Making Learning Visible in Collaborative Settings. A Wide Lens: Combining Embodied, Enactive, Extended, and Embedded Learning in Collaborative Settings."
+    year: 2019
+    pdf: "../assets/papers/international_workshop_2020.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Anderson, K. J., Dubiel, T., Tanaka, K., Worsley, M., Poultney, C., & Brenneman, S. (2019). Chemistry pods: A mutlimodal real time and retrospective tool for the classroom. In 2019 International Conference on Multimodal Interaction (pp. 506-507)."
+    year: 2019
+    pdf: "../assets/papers/chemistry_pods_2019.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Martin, K., Wang, E., Bain, C. & Worsley, M. (2019). Analyzing Affective States Alongside Qualitative Analysis. In Companion Proceedings of the Learning Analytics and Knowledge Conference."
+    year: 2019
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Perez, M., Furuichi, K., Jones, S., Lee, S., Suzuki, K. & Worsley, M. (2019). Using Multimodal Analytics to Analyze Family Interactions in a \"Making\" Activity. In Companion Proceedings of the Learning Analytics and Knowledge Conference."
+    year: 2019
+    pdf: ""
+    doi: ""
+    link: ""
+
+  # 2018
+  - citation: "Lee, S., Perez, M., Burgess, B. & Worsley, M. (2018). Utilizing Natural Language Processing (NLP) to Evaluate Engagement in Project-Based Learning. In Proceedings of the IEEE Teaching, Assessment and Learning for Engineering (TALE) 2018 Conference. pp. 369-372."
+    year: 2018
+    pdf: "../assets/papers/Utilizing Natural Language Processing (NLP) to Evaluate Engagement in Project-Based Learning-lee-perez-burgess-worsley.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Furuichi, K., & Worsley, M. (2018). Using Physiological Responses to Capture Unique Idea Creation In Team Collaborations. In Companion of the 2018 ACM Conference on Computer Supported Cooperative Work and Social Computing (CSCW '18). ACM, New York, NY, USA, 369-372."
+    year: 2018
+    pdf: ""
+    doi: ""
+    link: "https://doi.org/10.1145/3272973.3274099"
+
+  - citation: "Worsley, M., Barel, D., Davison, L., Large, T., & Mwitit, T. (2018) Multimodal Interfaces for Inclusive Learning. In the Proceedings of the 2018 Artificial Intelligence in Education Conference. Springer. pp. 389-393."
+    year: 2018
+    pdf: ""
+    doi: ""
+    link: "https://link.springer.com/chapter/10.1007/978-3-319-93846-2_73"
+
+  - citation: "Worsley, M. (2018). Multimodal Learning Analytics for the Qualitative Researcher. In the Proceedings of the 2018 International Conference of the Learning Sciences. London, England. pp. 1109-1112."
+    year: 2018
+    pdf: "../assets/papers/mmla_qualitative_researcher_2018.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Lee, S., Bar-El, D., Martin, K., Worsley, M. (2018). Facilitation in Informal Makerspaces. In the Proceedings of the 2018 International Conference of the Learning Sciences. London, England. pp. 1759-1760."
+    year: 2018
+    pdf: "../assets/papers/facilitationininformalmakerspaces-lee-barel-martin-worsley.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. (2018). Multimodal Learning Analytics' Past, Present, and, Potential Futures. In Companion Proceedings 8th International Conference on Learning Analytics & Knowledge (LAK18). Sydney, Australia, March 2018. pp. 365-369."
+    year: 2018
+    pdf: "../assets/papers/mmla_past_2018.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley. M. (2018). (Dis)Engagement Matters: Identifying Efficacious Learning Practices with Multimodal Learning Analytics. In Proceedings of the International Conference on Learning Analytics and Knowledge, Sydney, Australia, March 2018 (LAK'18)."
+    year: 2018
+    pdf: ""
+    doi: ""
+    link: "https://doi.org/10.1145/3170358.3170420"
+
+  - citation: "Blikstein, P. & Worsley, M. (2018). Multimodal Learning Analytics and Assessment of Open-Ended Artifacts. In Neimi, D., Pea, R., Saxberg, B., & Clark, R. (Eds), Learning Analytics in Education."
+    year: 2018
+    pdf: ""
+    doi: ""
+    link: "https://books.google.com/books?hl=en&lr=&id=K1VuDwAAQBAJ&oi=fnd&pg=PA89&dq=Blikstein,+P.+%26+Worsley,+M.+(2013).+Multimodal+Learning+Analytics+and+Assessment+of+Open-Ended+Artifacts.+Bill+and+Melinda+Gates+Foundation,+Learning+Analytics+Working+Group&ots=PadbGvRF_A&sig=btwqBhv_yhKTDKPVppitBzvJ3WY"
+
+  # 2017
+  - citation: "Andrade, A., & Worsley, M. (2017). A methodological framework for the exploratory analysis of multimodal features in learning activities. CEUR Workshop Proceedings, 1828, 99-103."
+    year: 2017
+    pdf: "../assets/papers/methodological_framework_2017.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., Blikstein, P. A Multimodal Analysis of Making. Int J Artif Intell Educ 28, 385-419 (2018)."
+    year: 2017
+    pdf: "../assets/papers/17-ijaied-multi-making.pdf"
+    doi: "https://doi.org/10.1007/s40593-017-0160-1"
+    link: ""
+
+  - citation: "Worsley, M. (2017). Engineering design with everyday materials multimodal dataset. CEUR Workshop Proceedings, 1828, 104-110."
+    year: 2017
+    pdf: "../assets/papers/engineering_design_2017.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2017). Reasoning Strategies in the Context of Engineering Design with Everyday Materials. The Journal of Pre-College Engineering Education Research, 6(2), 57-74."
+    year: 2017
+    pdf: "../assets/papers/jpeer_worsley_bilkstein.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. (2017). Multimodal analysis. In J. Roschelle, W. Martin, J. Ahn, & P. Schank (Eds.), Cyberlearning Community Report: The State of Cyberlearning and the Future of Learning With Technology (pp. 46-50). Menlo Park CA: SRI International."
+    year: 2017
+    pdf: "../assets/papers/mmla_2017.pdf"
+    doi: ""
+    link: ""
+
+  # 2016
+  - citation: "Ochoa, X. & Worsley, M. (2016). Augmenting Learning Analytics with Multimodal Sensory Data. Journal of Learning Analytics, 3(2), 213-219."
+    year: 2016
+    pdf: "../assets/papers/jla_ochoa_worsley_2016.pdf"
+    doi: ""
+    link: "http://dx.doi.org/10.18608/jla.2016.32.10"
+
+  - citation: "Blikstein, P. & Worsley, M. (2016). Multimodal Learning Analytics and Education Data Mining: using computational technologies to measure complex learning tasks. Journal of Learning Analytics, 3(2), 220-238."
+    year: 2016
+    pdf: "../assets/papers/jla_blikstein_worsley_2016.pdf"
+    doi: ""
+    link: "http://dx.doi.org/10.18608/jla.2016.32.11"
+
+  - citation: "Worsley, M., Abrahamson, D., Blikstein, P., Grover, S., Schneider, B., & Tissenbaum, M. (2016). Situating multimodal learning analytics. In C.-K. Looi, J. L. Polman, U. Cress, & P. Reimann (Eds.), \"Transforming learning, empowering learners,\" Proceedings of the International Conference of the Learning Sciences (ICLS 2016) (Vol. 2, pp. 1346-1349). Singapore: International Society of the Learning Sciences."
+    year: 2016
+    pdf: "../assets/papers/icls2016.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Blikstein, P. & Worsley, M. (2016). Children are not Hackers: building a culture of powerful ideas, deep learning, and equity in the maker movement. In Peppler, K. & Kafai, Y. & Halverson, E. (Eds), Makeology."
+    year: 2016
+    pdf: "../assets/papers/childrenarenothackers.pdf"
+    doi: ""
+    link: ""
+
+  # 2015
+  - citation: "Worsley, M. Scherer, S., Morency, L.P., & Blikstein, P. (2015). Exploring Behavior Representation for Learning Analytics. In Proceedings of the 2015 International Conference on Multimodal Interaction. ACM, New York, USA. pp. 251-258."
+    year: 2015
+    pdf: "../assets/papers/icmi2016.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M, Chiluiza, K., Grafsgaard, J., & Ochoa, X.,. (2015). 2015 Multimodal Learning and Analytics Grand Challenge. In Proceedings of the 2015 International Conference on Multimodal Interaction. ACM, New York, USA. pp. 525-529."
+    year: 2015
+    pdf: ""
+    doi: ""
+    link: "http://dl.acm.org/citation.cfm?id=2829995"
+
+  - citation: "Worsley, M. & Blikstein, P. (2015). Using Learning Analytics to Study Cognitive Disequilibrium in a Complex Learning Environments. In Proceedings of the 5th Annual Conference on Learning Analytics and Knowledge, ACM, New York, USA. pp. 426-247."
+    year: 2015
+    pdf: ""
+    doi: ""
+    link: "http://dl.acm.org/citation.cfm?id=2723659"
+
+  # 2014
+  - citation: "Ochoa, X., Worsley, M., Chiluiza, K., & Luz, S. (2014). MLA'14: Third Multimodal Learning Analytics Workshop and Grand Challenges. In Proceedings of the 16th International Conference on Multimodal Interaction (ICMI '14). ACM, New York, NY, USA. pp. 531-532."
+    year: 2014
+    pdf: ""
+    doi: ""
+    link: "http://dl.acm.org/citation.cfm?id=2723659"
+
+  - citation: "Worsley, M. (2014). Multimodal Learning Analytics as a Tool for Bridging Learning Theory and Complex Learning Behaviors. In Proceedings of the 2014 ACM workshop on Multimodal Learning Analytics Workshop and Grand Challenge (MLA '14). ACM, New York, NY, USA. pp. 1-4."
+    year: 2014
+    pdf: "../assets/papers/mla2014_1.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2014). Deciphering the Practices and Affordances of Different Reasoning Strategies through Multimodal Learning Analytics. In Proceedings of the 2014 ACM workshop on Multimodal Learning Analytics Workshop and Grand Challenge (MLA '14). ACM, New York, NY, USA. pp. 21-27."
+    year: 2014
+    pdf: "../assets/papers/mla2014_2.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Blikstein, P., Worsley, M., Piech, C., Gibbons, A., Sahami, M., & Cooper, S. (2014). Programming Pluralism: Using Learning Analytics to Detect Patterns in Novices' Learning of Computer Programming. International Journal of the Learning Sciences. Vol. 23, Iss. 4. pp. 561-599."
+    year: 2014
+    pdf: "../assets/papers/jls2014.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2014). The Impact of Principle-Based Reasoning on Hands-on, Project-Based Learning. In Proceedings of the 2014 International Conference of the Learning Sciences. Vol 3. pp 1147-1151."
+    year: 2014
+    pdf: "../assets/papers/icls2014.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2014). Using Multimodal Learning Analytics to Study Learning Mechanisms. In Proceedings of the 2014 Educational Data Mining Conference. pp. pp 431-432."
+    year: 2014
+    pdf: "../assets/papers/edm2014.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2014). Making Smarter not Harder: Using Principle-based Reasoning to Promote Object Closeness and Improve Making. In Proceedings of the 2014 FabLearn Conference."
+    year: 2014
+    pdf: "../assets/papers/fl2014.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2014). Analyzing Engineering Design through the Lens of Computation. Journal of Learning Analytics."
+    year: 2014
+    pdf: "../assets/papers/jla2014.pdf"
+    doi: ""
+    link: ""
+
+  # 2013
+  - citation: "Morency, L. Oviatt, S., Scherer, S. Weibel, N. & Worsley, M. (2013). ICMI 2013 Grand Challenge Workshop on Multimodal Learning Analytics. In Proceedings of the 15th ACM international conference on Multimodal interaction (ICMI '13). ACM, New York, NY, USA."
+    year: 2013
+    pdf: "../assets/papers/icmi_mmla_2013.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., &; Blikstein, P. (2013). Programming Pathways: A Technique for Analyzing Novice Programmers' Learning Trajectories. In Artificial Intelligence in Education. Springer Berlin Heidelberg. 844-847."
+    year: 2013
+    pdf: "../assets/papers/aied_2013.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Gomes, J. Yassine, M., Worsley, M., & Blikstein, P. (2013) Analysing Engineering Expertise of High School Students Using Eye Tracking and Multimodal Learning Analytics. In Proceedings of the Educational Data Mining 2013 (EDM '13). Memphis, TN, USA. 375-377."
+    year: 2013
+    pdf: "../assets/papers/edm_2013.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2013). Toward the Development of Mulitmodal Action Based Assessment. In Proceedings of the Third International Conference on Learning Analytics and Knowledge (LAK '13). ACM, New York, NY, USA, 94-101."
+    year: 2013
+    pdf: "../assets/papers/lak_2013.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Blikstein, P. & Worsley, M. (2013). Multimodal Learning Analytics and Assessment of Open-Ended Artifacts. Bill and Melinda Gates Foundation, Learning Analytics Working Group"
+    year: 2013
+    pdf: ""
+    doi: ""
+    link: ""
+
+  # 2012
+  - citation: "Worsley, M. (2012). Multimodal Learning Analytics: Enabling the Future of Learning through Multimodal Data Analysis and Interfaces. In Proceedings of the 14th ACM international conference on Multimodal interaction (ICMI '12). ACM, New York, NY, USA. 353-356. Doctoral Consortium Best Paper Runner-up."
+    year: 2012
+    pdf: "../assets/papers/icmi_2012.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Scherer,S., Worsley,M. & Morency, L. (2012). 1st international workshop on multimodal learning analytics: extended abstract. In Proceedings of the 14th ACM international conference on Multimodal interaction (ICMI '12). ACM, New York, NY, USA, 609-610."
+    year: 2012
+    pdf: "../assets/papers/icmi_mmla_2012.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein, P. (2012). An Eye For Detail: Techniques For Using Eye Tracker Data to Explore Learning in Computer-Mediated Environments. In the Proceedings of the 2012 International Conference of the Learning Sciences (ICLS '12). Sydney, Australia. 561-562."
+    year: 2012
+    pdf: "../assets/papers/icls_2012.pdf"
+    doi: ""
+    link: ""
+
+  # 2011
+  - citation: "Worsley, M., Johnston, M. & Blikstein P. (2011). OpenGesture: a low cost authoring framework for gesture and speech based application development and learning analytics. In Proceedings of the 10th International Conference on Interaction Design and Children (IDC '11). ACM, New York, NY, USA. 254-256."
+    year: 2011
+    pdf: "../assets/papers/idc_2011.pdf"
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M. & Blikstein P. (2011). What's an Expert? Using learning analytics to identify emergent markers of expertise through automated speech, sentiment and sketch analysis. In Proceedings for the 4th Annual Conference on Educational Data Mining. Eindhoven, Netherlands. 235-240."
+    year: 2011
+    pdf: "../assets/papers/edm_2011.pdf"
+    doi: ""
+    link: ""
+
+  # 2010
+  - citation: "Worsley, M. & Johnston, M. (2010). Multimodal Interactive Spaces: MagicTV and MagicMAP. Spoken Language Technology Workshop (SLT '10), IEEE. San Francisco, CA, USA. 161-162."
+    year: 2010
+    pdf: "../assets/papers/slt_2010.pdf"
+    doi: ""
+    link: ""
