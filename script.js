@@ -321,14 +321,4 @@ window.onload = () => {
         cards.forEach(function(card) { card.classList.add('visible'); });
     }
 
-    // Netlify Identity redirect: after login, send user to /admin/
-    if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function(user) {
-            if (!user) {
-                window.netlifyIdentity.on("login", function() {
-                    document.location.href = "/admin/";
-                });
-            }
-        });
-    }
 };

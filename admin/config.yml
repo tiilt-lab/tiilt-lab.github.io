@@ -1,7 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: tiilt-lab/tiilt-lab.github.io
   branch: main
-  base_url: https://magical-hummingbird-36d6d2.netlify.app
+  base_url: https://videodev.tiilt-blinc.com
+  auth_endpoint: oauth/auth
 
 media_folder: "assets/img/people"
 public_folder: "../assets/img/people"
