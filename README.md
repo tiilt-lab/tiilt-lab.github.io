@@ -8,28 +8,30 @@ The official website for the **Technological Innovations for Inclusive Learning 
 
 ```
 ├── index.html            # Home page
-├── people/               # Lab members and alumni
-├── projects/             # Project listings and individual project pages
+├── _config.yml           # Jekyll configuration
+├── _data/                # CMS-managed data
+│   ├── people.yml        # Lab members and alumni
+│   ├── papers.yml        # Publications
+│   └── classes.yml       # Courses
+├── _posts/               # Blog posts (Markdown)
+├── admin/                # Sveltia CMS admin panel
+│   ├── config.yml        # CMS field/collection definitions
+│   └── index.html        # CMS entry point
+├── people/               # People page
+├── projects/             # Project pages
 │   ├── blinc/
 │   ├── sportsense/
 │   ├── sportsensefordata/
+│   ├── sportsanalytics/
 │   ├── minecraft/
 │   ├── multicraft/
 │   ├── famjam/
 │   └── imr/
-├── papers/               # Publications
-├── classes/              # Course listings
-├── blog/                 # Blog posts
-├── contact/              # Contact info
-├── scss/                 # SCSS source files
-│   ├── styles.scss       # Main stylesheet (imports all others)
-│   ├── people.scss
-│   ├── projects.scss
-│   ├── papers.scss
-│   ├── classes.scss
-│   ├── contact.scss
-│   ├── blog.scss
-│   └── logo.scss
+├── papers/               # Publications page
+├── classes/              # Course listings page
+├── blog/                 # Blog page
+├── contact/              # Contact page
+├── scss/                 # SCSS source files (compile to css/)
 ├── css/                  # Compiled CSS (do not edit directly)
 ├── assets/               # Images, papers, and other static files
 ├── script.js             # Site-wide JavaScript
