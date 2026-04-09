@@ -85,4 +85,25 @@ To migrate the OAuth proxy to a new server:
 
 The site is hosted via GitHub Pages. Pushing to `main` automatically deploys to [tiilt.northwestern.edu](https://tiilt.northwestern.edu/).
 
-To develop locally, clone the repo and serve with any static file server (e.g. `python3 -m http.server 8000`). Styles are in `scss/` — compile with `npx sass scss/styles.scss css/styles.css` (install Sass first with `npm install sass`).
+### Local development
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/tiilt-lab/tiilt-lab.github.io.git
+   cd tiilt-lab.github.io
+   ```
+
+2. Serve with any static file server:
+   ```bash
+   python3 -m http.server 8000
+   ```
+
+3. To edit styles, install Sass:
+   ```bash
+   npm install sass
+   ```
+
+4. Compile SCSS to CSS:
+   ```bash
+   npx sass scss/styles.scss css/styles.css
+   ```
