@@ -6,7 +6,7 @@ backend:
   auth_endpoint: oauth/auth
 
 media_folder: "assets/img/people"
-public_folder: "../assets/img/people"
+public_folder: "/assets/img/people"
 
 collections:
   # --- Lab Members ---
@@ -66,7 +66,7 @@ collections:
             fields:
               - { name: "citation", label: "Full Citation", widget: "text" }
               - { name: "year", label: "Year", widget: "number", value_type: "int" }
-              - { name: "pdf", label: "PDF File", widget: "file", required: false, default: "", media_folder: "assets/papers", public_folder: "../assets/papers" }
+              - { name: "pdf", label: "PDF File", widget: "file", required: false, default: "", media_folder: "assets/papers", public_folder: "/assets/papers" }
               - { name: "doi", label: "DOI URL", widget: "string", required: false, default: "" }
               - { name: "link", label: "External Link", widget: "string", required: false, default: "" }
 
