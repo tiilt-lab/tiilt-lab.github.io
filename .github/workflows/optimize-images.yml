@@ -25,12 +25,12 @@ jobs:
           changed=false
           for img in *.jpg *.jpeg *.png *.JPG *.JPEG *.PNG; do
             [ -f "$img" ] || continue
-            # Skip if already small (under 200KB)
-            size=$(stat -c%s "$img" 2>/dev/null || stat -f%z "$img")
-            if [ "$size" -gt 204800 ]; then
-              echo "Optimizing $img ($size bytes)"
-              # Resize to max 800px wide, 85% quality
-              convert "$img" -resize '800x800>' -quality 85 "$img"
+            # Check dimensions
+            width=$(identify -format '%w' "$img")
+            height=$(identify -format '%h' "$img")
+            if [ "$width" -gt 600 ] || [ "$height" -gt 600 ]; then
+              echo "Resizing $img (${width}x${height} -> 600x600 max)"
+              convert "$img" -resize '600x600>' -quality 85 "$img"
               changed=true
             fi
           done
