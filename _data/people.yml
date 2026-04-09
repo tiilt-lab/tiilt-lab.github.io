@@ -22,7 +22,7 @@ members:
       analysis, and the science of learning.
     name: Bookyung Shin
     sort_name: Shin
-    photo: ../assets/img/bookyungshin_profile_2509.png
+    photo: ../assets/img/people/bookyungshin_profile_2509.png
     status: active
     role: grad
     website: ""
@@ -35,8 +35,8 @@ members:
 
       To realize this vision, he develops a systematic design space that spans material innovation, device fabrication, power management, and human-computer interaction. Through this integrated approach, he aims to create soft, embodied technologies that seamlessly integrate into the fabric of everyday life. Within this fabric, new possibilities emerge across domains such as assistive technology, rehabilitation, and embodied learning.
     name: Di Wu
-    sort_name: Di
-    photo: ../assets/img/di.jpg
+    sort_name: Wu
+    photo: ../assets/img/people/di.jpg
     status: active
     role: grad
     website: ""
