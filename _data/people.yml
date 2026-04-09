@@ -1,0 +1,1151 @@
+members:
+  - name: "Marcelo Worsley"
+    role: pi
+    status: active
+    alumni_type: ""
+    bio: "I am an associate professor of Learning Sciences and Computer Science at Northwestern's School of Education and Social Policy and the McCormick School of Engineering. My research aims to advance society's understanding of how students learn in complex learning environments by forging new opportunities for using multimodal technology."
+    photo_webp: "marcelo-worsley copy.webp"
+    photo_fallback: "marcelo-worsley copy.jpg"
+    photo_alt: ""
+    website: ""
+    sort_name: "Worsley"
+  - name: "Jacob Puthipiroj"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Jacob is a PhD student in Computer Science and Learning Sciences at Northwestern University. His research focuses on AI education, knowledge representation, and computational linguistics, with an emphasis on developing innovative learning models such as structured hackathons and AI literacy frameworks. In his spare time, Jacob enjoys climbing, quizbowl, and reading social science, which he continuously tries to incorporate into his research."
+    photo_webp: "jacob-puthipiroj.webp"
+    photo_fallback: "jacob-puthipiroj.JPG"
+    photo_alt: ""
+    website: ""
+    sort_name: "Puthipiroj"
+  - name: "Khushbu Kshirsagar"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Khushbu is a doctoral student in Learning Sciences at Northwestern University. Her work lies at the intersection of mechanical design, mathematics, and art, focusing on informal learning spaces such as museums, playgrounds, and everyday public environments. Khushbu is passionate about encouraging creative exploration and accessibility through her designs; reimagining where and how learning happens, and about designing tools that support playful, curiosity-driven interactions beyond traditional classrooms."
+    photo_webp: "Khushbu-Kshirsagar.webp"
+    photo_fallback: "Khushbu-Kshirsagar.jpg"
+    photo_alt: ""
+    website: ""
+    sort_name: "Kshirsagar"
+  - name: "Michael Smith"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow. Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games."
+    photo_webp: "michael-smith copy.webp"
+    photo_fallback: "michael-smith copy.jpg"
+    photo_alt: ""
+    website: "https://michaelshanesmith.github.io/"
+    sort_name: "Smith"
+  - name: "Sarah Priscilla Lee"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Sarah (she/her) is a PhD candidate in Learning Sciences, working on an ethnographic account of refugee students and a cross-cultural coalition of youth across informal educational settings. She examines practices of intergenerational learning and (multi)culturally sustaining pedagogy that complicate notions of youth identity and belonging (vis-a-vis transnationalism and spatial justice). She also enjoys calls with family or friends, various forms of crafting, making coffee (currently AeroPressing), and initiating group hugs."
+    photo_webp: "sarah-priscilla-lee.webp"
+    photo_fallback: "sarah-priscilla-lee.jpg"
+    photo_alt: "Sarah Priscilla Lee"
+    website: "https://www.sarahplee.com/"
+    sort_name: "Lee"
+  - name: "Ashley Quiterio"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Ashley is a Learning Sciences PhD candidate at Northwestern University. Their research focuses on data education across K-16 contexts with an emphasis on agency, culture, and identity."
+    photo_webp: "ashley-quiterio.webp"
+    photo_fallback: "ashley-quiterio.jpg"
+    photo_alt: ""
+    website: ""
+    sort_name: "Quiterio"
+  - name: "Tochukwu Eze"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Tochukwu is a PhD candidate in Computer Science at Northwestern University, specializing in Collaborative Learning Analytics, AI, and Educational Technology. He focuses on developing predictive models to analyze student cognition, behavior, and interaction, utilizing computer vision and NLP techniques. He has developed a collaboration literacy analytics framework and a multimodal fusion ML algorithm to assess the same. Tochukwu is also a lifetime member of the Edward Alexander Bouchet Graduate Honor Society, a fellow of the Center for Leadership, the Assistant Chair of Chapin Residential College at Northwestern University, and the Co-president of the African Graduate Student Association, where he fosters a supportive environment for African graduate students, emphasizing cultural exchange and academic excellence. He enjoys traveling, exploring diverse cultures, and is passionate about the intersection of technology, education, and social impact."
+    photo_webp: "tochukwu-eze-3.webp"
+    photo_fallback: "tochukwu-eze-3.jpg"
+    photo_alt: "Tochukwu Eze"
+    website: ""
+    sort_name: "Eze"
+  - name: "Victoria C. Chavez"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "Victoria (V/they/she) is a Chicago-born and raised Chapine (Guatemalan) educator, scholar, and engineer. Currently, they're a third-year PhD student at Northwestern University's Computer Science Program. Victoria's research interests explore systemic issues within computer science education, centering the experiences of Black, Disabled, Indigenous, and Latine/x students. Most recently, their research has focused on teaching and learning accessibility as well as unpacking how ableism is codified in the policies, practices, and pedagogies used in college CS courses."
+    photo_webp: "victoria.webp"
+    photo_fallback: "victoria.jpg"
+    photo_alt: ""
+    website: "https://vickiebananas.com/"
+    sort_name: "Chavez"
+  - name: "Meg Butler"
+    role: grad
+    status: active
+    alumni_type: ""
+    bio: "As a disabled researcher and educator, Meg is particularly interested in educational dignity. Her work seeks to challenge the deficit-based views of human learning that are complicit in the reification of normatively powered dynamics and push beyond the practices that maintain and enact ableism to a dynamic coexistence of multiple ways of seeing and knowing. She enjoys riding her bike, hanging out with animals, and eating Albanese gummy bears."
+    photo_webp: "meg-butler-hotdog.webp"
+    photo_fallback: "meg-butler-hotdog.jpg"
+    photo_alt: "Meg Butler Hotdog"
+    website: ""
+    sort_name: "Butler"
+  - name: "Khalil Anderson"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://www.khanders.com"
+    sort_name: "Anderson"
+  - name: "Connor Bain"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Bain"
+  - name: "David Bar-El"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Bar-El"
+  - name: "Herminio Bodon"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://bodon2018.github.io/"
+    sort_name: "Bodon"
+  - name: "DJ (Stephanie T. Jones)"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Jones"
+  - name: "Kit Martin"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Martin"
+  - name: "Natalie Melo"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Melo"
+  - name: "JaCoya Thompson"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Thompson"
+  - name: "Emily Q. Wang"
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wang"
+  - name: "AnnaRose"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "AnnaRose"
+  - name: "Vedant Apte"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Apte"
+  - name: "Justin Aronson"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://www.linkedin.com/in/justin-aronson/"
+    sort_name: "Aronson"
+  - name: "Sam Arrants"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Arrants"
+  - name: "Prasanna Bansode"
+    role: grad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Bansode"
+  - name: "Robert Bell"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Bell"
+  - name: "Audrey Benitez"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Benitez"
+  - name: "Afreen Bhumgara"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://www.afreenbhumgara.me/"
+    sort_name: "Bhumgara"
+  - name: "Emily Blackman"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Blackman"
+  - name: "Sara Bouftas"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Bouftas"
+  - name: "Bobbie Burgess"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Burgess"
+  - name: "Eugenia Cao"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Cao"
+  - name: "Ethan M. Chan"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Chan"
+  - name: "Simeon Charles"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Charles"
+  - name: "Michael Chen"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Chen"
+  - name: "Natalie Cheng"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Cheng"
+  - name: "Haley De Boom"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "De Boom"
+  - name: "Audrey DeBruine"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "DeBruine"
+  - name: "Caroline DeMarco"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "DeMarco"
+  - name: "Melissa Escamilla Perez"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Escamilla Perez"
+  - name: "Timothy Fu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Fu"
+  - name: "Kira Furuichi"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Furuichi"
+  - name: "Durell Gill"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Gill"
+  - name: "Alex Gist"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Gist"
+  - name: "Nathaniel Hardy"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Hardy"
+  - name: "Keigo Healy"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Healy"
+  - name: "Joy Hsu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Hsu"
+  - name: "Kelia Human"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Human"
+  - name: "Sengdao Inthavong"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Inthavong"
+  - name: "Jannah Issa"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Issa"
+  - name: "JooYoung Jang"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Jang"
+  - name: "Justin Jia"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Jia"
+  - name: "Marc Jiang"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Jiang"
+  - name: "Edward Kang"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Kang"
+  - name: "Aaron Karp"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Karp"
+  - name: "Priya Kini"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Kini"
+  - name: "Andy Ko"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Ko"
+  - name: "Jaiveer Kothari"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Kothari"
+  - name: "Vishesh Kumar"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://www.visheshk.net/"
+    sort_name: "Kumar"
+  - name: "Tom Large"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Large"
+  - name: "Judy Lee"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Lee"
+  - name: "Alison Levin"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Levin"
+  - name: "Zoe Lewis"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Lewis"
+  - name: "Stephenie Liew"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Liew"
+  - name: "Jeremy Libretti-River"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Libretti-River"
+  - name: "Irena Liu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Liu"
+  - name: "Aryan Mahajan"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mahajan"
+  - name: "Milind Maiti"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Maiti"
+  - name: "Beck Mallwitz"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mallwitz"
+  - name: "Seth May"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "May"
+  - name: "Zachary McCoy"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://www.zacharymccoy.dev/"
+    sort_name: "McCoy"
+  - name: "Kevin Mendoza"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mendoza"
+  - name: "Eric Mertz"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mertz"
+  - name: "Aziza Mirsaidova"
+    role: grad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mirsaidova"
+  - name: "Andy Moran"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Moran"
+  - name: "Timothy Mwiti"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Mwiti"
+  - name: "Tyler Nanoff"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Nanoff"
+  - name: "Jordan Nishina"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Nishina"
+  - name: "Saahas Parise"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Parise"
+  - name: "Julie Park"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Park"
+  - name: "Harrison Pearl"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Pearl"
+  - name: "Sebastian Perez"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Perez"
+  - name: "Danny Pineda"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Pineda"
+  - name: "Ethan Pineda"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://ethanpinedaa.dev/"
+    sort_name: "Pineda"
+  - name: "Lindsay Rawitscher"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Rawitscher"
+  - name: "Alexander Redding"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Redding"
+  - name: "Nathan Summer Reiff"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Reiff"
+  - name: "Joonyong Rhee"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Rhee"
+  - name: "Antonio Rocha"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Rocha"
+  - name: "Gabe Rojas-Westall"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Rojas-Westall"
+  - name: "Sophie Rollins"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Rollins"
+  - name: "Deniz Sagnalakar"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Sagnalakar"
+  - name: "Siddhartha Saha"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Saha"
+  - name: "Shankar Salawan"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Salawan"
+  - name: "John Sanchez"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Sanchez"
+  - name: "Siddharth Sheth"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Sheth"
+  - name: "Sydney Simmons"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Simmons"
+  - name: "Jimmy Song"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Song"
+  - name: "Elana Stettin"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Stettin"
+  - name: "Kya Suzuki"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Suzuki"
+  - name: "Lucas Takayasu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Takayasu"
+  - name: "Nicole Tartakovsky"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Tartakovsky"
+  - name: "Kidus Tessma"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Tessma"
+  - name: "Yamini Ulaganathan"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Ulaganathan"
+  - name: "Neil Vakharia"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Vakharia"
+  - name: "Aimee van der Berg"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "van der Berg"
+  - name: "Avi Vaid"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Vaid"
+  - name: "Adia Wallace"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: "https://sites.northwestern.edu/adiawallace/"
+    sort_name: "Wallace"
+  - name: "Angela Wan"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wan"
+  - name: "Joshua Wang"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wang"
+  - name: "Marco Wang"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wang"
+  - name: "Naomi Wu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wu"
+  - name: "Richard Wu"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Wu"
+  - name: "Anna Xiao"
+    role: grad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Xiao"
+  - name: "Kris Yun"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Yun"
+  - name: "Mitchell Zhen"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Zhen"
+  - name: "Lucas Zurbuchen"
+    role: undergrad
+    status: alumni
+    alumni_type: other
+    bio: ""
+    photo_webp: ""
+    photo_fallback: ""
+    photo_alt: ""
+    website: ""
+    sort_name: "Zurbuchen"

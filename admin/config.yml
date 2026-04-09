@@ -1,0 +1,51 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/people"
+public_folder: "../assets/img/people"
+
+collections:
+  - name: "data"
+    label: "Site Data"
+    files:
+      - name: "members"
+        label: "Lab Members"
+        file: "_data/people.yml"
+        description: "Manage current and alumni lab members"
+        fields:
+          - name: "members"
+            label: "Members"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.role}} — {{fields.status}})"
+            fields:
+              - { name: "name", label: "Name", widget: "string" }
+              - name: "role"
+                label: "Role"
+                widget: "select"
+                options:
+                  - { label: "Principal Investigator", value: "pi" }
+                  - { label: "Graduate Student", value: "grad" }
+                  - { label: "Undergraduate Student", value: "undergrad" }
+                  - { label: "Postdoc", value: "postdoc" }
+              - name: "status"
+                label: "Status"
+                widget: "select"
+                options:
+                  - { label: "Active", value: "active" }
+                  - { label: "Alumni", value: "alumni" }
+              - name: "alumni_type"
+                label: "Alumni Type"
+                widget: "select"
+                options:
+                  - { label: "N/A", value: "" }
+                  - { label: "PhD Alumni", value: "phd" }
+                  - { label: "Other Alumni", value: "other" }
+                default: ""
+                required: false
+              - { name: "bio", label: "Bio", widget: "text", required: false, default: "" }
+              - { name: "photo_webp", label: "Photo (WebP filename)", widget: "string", required: false, default: "" }
+              - { name: "photo_fallback", label: "Photo (JPG/PNG filename)", widget: "string", required: false, default: "" }
+              - { name: "photo_alt", label: "Photo Alt Text", widget: "string", required: false, default: "" }
+              - { name: "website", label: "Website URL", widget: "string", required: false, default: "" }
+              - { name: "sort_name", label: "Sort Name (last name for alphabetical ordering)", widget: "string" }

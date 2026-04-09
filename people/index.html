@@ -1,9 +1,8 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- adia, justin, david fu -->
- <!-- ? eugenia, zach -->
 
 <head>
   <meta charset="utf-8" />
@@ -24,234 +23,93 @@
     <article class="leaders" role="contentinfo" aria-label="Leaders of the lab">
       <h1>Principal Investigator</h1>
       <div class="people-group">
-
+        {% for member in site.data.people.members %}
+        {% if member.role == "pi" and member.status == "active" %}
         <section class="textblock top_dog">
-          <h2>Marcelo Worsley</h2>
+          <h2>{{ member.name }}</h2>
           <picture>
-            <source data-srcset="../assets/img/people/marcelo-worsley copy.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/marcelo-worsley copy.jpg" alt="">
+            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
+            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
           </picture>
-          <p>I am an associate professor of Learning Sciences and Computer Science at Northwestern's School of Education and Social Policy and the McCormick School of Engineering. My research aims to advance society's understanding of how students learn in complex learning environments by forging new opportunities for using multimodal technology.</p>
+          <p>{{ member.bio }}</p>
+          {% if member.website != "" and member.website != nil %}
+          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          {% endif %}
         </section>
-
-
-        
+        {% endif %}
+        {% endfor %}
       </div>
     </article>
+
     <article class="grads" role="contentinfo" aria-label="Graduate students of the lab">
       <h1>Graduate Students</h1>
       <div class="people-group">
-
+        {% for member in site.data.people.members %}
+        {% if member.role == "grad" and member.status == "active" %}
         <section class="textblock">
-          <h2>Jacob Puthipiroj</h2>
+          <h2>{{ member.name }}</h2>
           <picture>
-            <source data-srcset="../assets/img/people/jacob-puthipiroj.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/jacob-puthipiroj.JPG" alt="">
+            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
+            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
           </picture>
-          <p>Jacob is a PhD student in Computer Science and Learning Sciences at Northwestern University. His research focuses on AI education, knowledge representation, and computational linguistics, with an emphasis on developing innovative learning models such as structured hackathons and AI literacy frameworks. In his spare time, Jacob enjoys climbing, quizbowl, and reading social science, which he continuously tries to incorporate into his research.
-          </p>
-          <!-- <a href="" target="_blank" aria-label="">website</a> -->
+          <p>{{ member.bio }}</p>
+          {% if member.website != "" and member.website != nil %}
+          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          {% endif %}
         </section>
-
-        <section class="textblock">
-          <h2>Khushbu Kshirsagar</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/Khushbu-Kshirsagar.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/Khushbu-Kshirsagar.jpg" alt="">
-          </picture>
-          <p>Khushbu is a doctoral student in Learning Sciences at Northwestern University. Her work lies at the intersection of mechanical design, mathematics, and art, focusing on informal learning spaces such as museums, playgrounds, and everyday public environments. Khushbu is passionate about encouraging creative exploration and accessibility through her designs; reimagining where and how learning happens, and about designing tools that support playful, curiosity-driven interactions beyond traditional classrooms.
-          </p>
-        </section>
-
-   
-        <section class="textblock">
-          <h2>Michael Smith</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/michael-smith copy.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/michael-smith copy.jpg" alt="">
-          </picture>
-          <p>Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow.  Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games.
-          </p>
-          <a href="https://michaelshanesmith.github.io/" target="_blank" aria-label="Michael's Website">website</a>
-        </section>
-
-        <section class="textblock">
-          <h2>Sarah Priscilla Lee</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/sarah-priscilla-lee.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/sarah-priscilla-lee.jpg" alt="Sarah Priscilla Lee">
-          </picture>
-          <p>Sarah (she/her) is a PhD candidate in Learning Sciences, working on an ethnographic account of refugee students and a cross-cultural coalition of youth across informal educational settings. She examines practices of intergenerational learning and (multi)culturally sustaining pedagogy that complicate notions of youth identity and belonging (vis-à-vis transnationalism and spatial justice). She also enjoys calls with family or friends, various forms of crafting, making coffee (currently AeroPressing), and initiating group hugs. </p>
-          <a href="https://www.sarahplee.com/" target="_blank">website</a>
-        </section>
-
-        <section class="textblock">
-          <h2>Ashley Quiterio</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/ashley-quiterio.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/ashley-quiterio.jpg" alt="">
-          </picture>
-          <p>Ashley is a Learning Sciences PhD candidate at Northwestern University. Their research focuses on data education across K-16 contexts with an emphasis on agency, culture, and identity.</p>
-        </section>
-
-<section class="textblock">
-          <h2>Tochukwu Eze</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/tochukwu-eze-3.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/tochukwu-eze-3.jpg" alt="Tochukwu Eze">
-          </picture>
-          <p>Tochukwu is a PhD candidate in Computer Science at Northwestern University, specializing in Collaborative Learning Analytics, AI, and Educational Technology. He focuses on developing predictive models to analyze student cognition, behavior, and interaction, utilizing computer vision and NLP techniques. He has developed a collaboration literacy analytics framework and a multimodal fusion ML algorithm to assess the same. Tochukwu is also a lifetime member of the Edward Alexander Bouchet Graduate Honor Society, a fellow of the Center for Leadership, the Assistant Chair of Chapin Residential College at Northwestern University, and the Co-president of the African Graduate Student Association, where he fosters a supportive environment for African graduate students, emphasizing cultural exchange and academic excellence. He enjoys traveling, exploring diverse cultures, and is passionate about the intersection of technology, education, and social impact.</p>
-        </section>
-
-        <section class="textblock">
-          <h2>Victoria C. Chavez</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/victoria.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/victoria.jpg" alt="">
-          </picture>
-          <p>Victoria (V/they/she) is a Chicago-born and raised Chapine (Guatemalan) educator, scholar, and engineer. Currently, they’re a third-year PhD student at Northwestern University's Computer Science Program. Victoria’s research interests explore systemic issues within computer science education, centering the experiences of Black, Disabled, Indigenous, and Latine/x students. Most recently, their research has focused on teaching and learning accessibility as well as unpacking how ableism is codified in the policies, practices, and pedagogies used in college CS courses.</p>
-          <a href="https://vickiebananas.com/" target="_blank">website</a>
-        </section>
-
-         <section class="textblock">
-          <h2>Meg Butler</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/meg-butler-hotdog.webp" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/meg-butler-hotdog.jpg" alt="Meg Butler Hotdog">
-          </picture>
-          <p>As a disabled researcher and educator, Meg is particularly interested in educational dignity. Her work seeks to challenge the deficit-based views of human learning that are complicit in the reification of normatively powered dynamics and push beyond the practices that maintain and enact ableism to a dynamic coexistence of multiple ways of seeing and knowing. She enjoys riding her bike, hanging out with animals, and eating Albanese gummy bears.</p>
-        </section>
-
-
+        {% endif %}
+        {% endfor %}
       </div>
     </article>
+
+    {% assign undergrads = site.data.people.members | where: "role", "undergrad" | where: "status", "active" %}
+    {% if undergrads.size > 0 %}
+    <article class="undergrads" role="contentinfo" aria-label="Undergraduate students of the lab">
+      <h1>Undergraduate Students</h1>
+      <div class="people-group">
+        {% for member in undergrads %}
+        <section class="textblock">
+          <h2>{{ member.name }}</h2>
+          <picture>
+            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
+            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
+          </picture>
+          <p>{{ member.bio }}</p>
+          {% if member.website != "" and member.website != nil %}
+          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          {% endif %}
+        </section>
+        {% endfor %}
+      </div>
+    </article>
+    {% endif %}
+
     <article class="alumni" role="contentinfo" aria-label="Alumni of the lab">
       <h1>Alumni</h1>
 
       <h2>PhD Alumni</h2>
       <div class="list-group">
         <ul>
-          <li><a href="https://www.khanders.com" target="_blank">Khalil Anderson</a></li>
-          <li>Connor Bain</li>
-          <li>David Bar-El</li>
-          <li><a href="https://bodon2018.github.io/" target="_blank">Herminio Bodon</a></li>
-          <li>DJ (Stephanie T. Jones)</li>
-          <li>Kit Martin</li>
-          <li>Natalie Melo</li>
-          <li>JaCoya Thompson</li>
-          <li>Emily Q. Wang</li>
-
+          {% assign phd_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "phd" | sort: "sort_name" %}
+          {% for member in phd_alumni %}
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</li>
+          {% endfor %}
         </ul>
       </div>
 
       <h2>Other Alumni</h2>
       <div class="list-group">
         <ul>
-          <li>AnnaRose</li>
-          <li>Vedant Apte</li>
-          <li><a href="https://www.linkedin.com/in/justin-aronson/" target="_blank">Justin Aronson</a></li>
-          <li>Sam Arrants</li>
-          <li>Prasanna Bansode</li>
-          <li>Robert Bell</li>
-          <li>Audrey Benitez</li>
-          <li><a href="https://www.afreenbhumgara.me/" target="_blank">Afreen Bhumgara</a></li>
-          <li>Emily Blackman</li>
-          <li>Sara Bouftas</li>
-          <li>Bobbie Burgess</li>
-          <li>Eugenia Cao</li>
-          <li>Ethan M. Chan</li>
-          <li>Simeon Charles</li>
-          <li>Michael Chen</li>
-          <li>Natalie Cheng</li>
-          <li>Haley De Boom</li>
-          <li>Audrey DeBruine</li>
-          <li>Caroline DeMarco</li>
-          <li>Melissa Escamilla Perez</li>
-          <li>Timothy Fu</li>
-          <li>Kira Furuichi</li>
-          <li>Durell Gill</li>
-          <li>Alex Gist</li>
-          <li>Nathaniel Hardy</li>
-          <li>Keigo Healy</li>
-          <li>Joy Hsu</li>
-          <li>Kelia Human</li>
-          <li>Sengdao Inthavong</li>
-          <li>Jannah Issa</li>
-          <li>JooYoung Jang</li>
-          <li>Justin Jia</li>
-          <li>Marc Jiang</li>
-          <li>Edward Kang</li>
-          <li>Aaron Karp</li>
-          <li>Priya Kini</li>
-          <li>Andy Ko</li>
-          <li>Jaiveer Kothari</li>
-          <li><a href="https://www.visheshk.net/" target="_blank">Vishesh Kumar</a></li>
-          <li>Tom Large</li>
-          <li>Judy Lee</li>
-          <li>Alison Levin</li>
-          <li>Zoe Lewis</li>
-          <li>Stephenie Liew</li>
-          <li>Jeremy Libretti-River</li>
-          <li>Irena Liu</li>
-          <li>Aryan Mahajan</li>
-          <li>Milind Maiti</li>
-          <li>Beck Mallwitz</li>
-          <li>Seth May</li>
-          <li><a href="https://www.zacharymccoy.dev/" target="_blank">Zachary McCoy</a></li>
-          <li>Kevin Mendoza</li>
-          <li>Eric Mertz</li>
-          <li>Aziza Mirsaidova</li>
-          <li>Andy Moran</li>
-          <li>Timothy Mwiti</li>
-          <li>Tyler Nanoff</li>
-          <li>Jordan Nishina</li>
-          <li>Saahas Parise</li>
-          <li>Julie Park</li>
-          <li>Harrison Pearl</li>
-          <li>Sebastian Perez</li>
-          <li>Danny Pineda</li>
-          <li><a href="https://ethanpinedaa.dev/" target="_blank">Ethan Piñeda</a></li>
-          <li>Lindsay Rawitscher</li>
-          <li>Alexander Redding</li>
-          <li>Nathan Summer Reiff</li>
-          <li>Joonyong Rhee</li>
-          <li>Antonio Rocha</li>
-          <li>Gabe Rojas-Westall</li>
-          <li>Sophie Rollins</li>
-          <li>Deniz Sagnalakar</li>
-          <li>Siddhartha Saha</li>
-          <li>Shankar Salawan</li>
-          <li>John Sanchez</li>
-          <li>Siddharth Sheth</li>
-          <li>Sydney Simmons</li>
-          <li>Jimmy Song</li>
-          <li>Elana Stettin</li>
-          <li>Kya Suzuki</li>
-          <li>Lucas Takayasu</li>
-          <li>Nicole Tartakovsky</li>
-          <li>Kidus Tessma</li>
-          <li>Yamini Ulaganathan</li>
-          <li>Neil Vakharia</li>
-          <li>Aimee van der Berg</li>
-          <li>Avi Vaid</li>
-          <li><a href="https://sites.northwestern.edu/adiawallace/" target="_blank">Adia Wallace</a></li>
-          <li>Angela Wan</li>
-          <li>Joshua Wang</li>
-          <li>Marco Wang</li>
-          <li>Naomi Wu</li>
-          <li>Richard Wu</li>
-          <li>Anna Xiao</li>
-          <li>Kris Yun</li>
-          <li>Mitchell Zhen</li>
-          <li>Lucas Zurbuchen</li>
+          {% assign other_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "other" | sort: "sort_name" %}
+          {% for member in other_alumni %}
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</li>
+          {% endfor %}
         </ul>
       </div>
     </article>
   </main>
-  
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="../script.js"></script>
 </body>
 
