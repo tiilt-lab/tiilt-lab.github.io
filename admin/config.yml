@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  base_url: https://magical-hummingbird-36d6d2.netlify.app
 
 media_folder: "assets/img/people"
 public_folder: "../assets/img/people"
