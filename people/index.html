@@ -27,10 +27,7 @@ layout: null
         {% if member.role == "pi" and member.status == "active" %}
         <section class="textblock top_dog">
           <h2>{{ member.name }}</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
-          </picture>
+          <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
@@ -48,10 +45,7 @@ layout: null
         {% if member.role == "grad" and member.status == "active" %}
         <section class="textblock">
           <h2>{{ member.name }}</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
-          </picture>
+          <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
@@ -70,10 +64,7 @@ layout: null
         {% for member in undergrads %}
         <section class="textblock">
           <h2>{{ member.name }}</h2>
-          <picture>
-            <source data-srcset="../assets/img/people/{{ member.photo_webp }}" type="image/webp">
-            <img class="lazy" data-src="../assets/img/people/{{ member.photo_fallback }}" alt="{{ member.photo_alt }}">
-          </picture>
+          <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
