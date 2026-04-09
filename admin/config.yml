@@ -3,10 +3,11 @@ backend:
   branch: main
   base_url: https://magical-hummingbird-36d6d2.netlify.app
 
-media_folder: "assets/img/people"
-public_folder: "../assets/img/people"
+media_folder: "assets/img"
+public_folder: "../assets/img"
 
 collections:
+  # --- Lab Members ---
   - name: "data"
     label: "Site Data"
     files:
@@ -49,3 +50,54 @@ collections:
               - { name: "photo_alt", label: "Photo Alt Text", widget: "string", required: false, default: "" }
               - { name: "website", label: "Website URL", widget: "string", required: false, default: "" }
               - { name: "sort_name", label: "Sort Name (last name for alphabetical ordering)", widget: "string" }
+
+      # --- Papers ---
+      - name: "papers"
+        label: "Papers"
+        file: "_data/papers.yml"
+        description: "Manage research publications"
+        fields:
+          - name: "papers"
+            label: "Papers"
+            widget: "list"
+            summary: "{{fields.year}} — {{fields.citation | truncate(80, '...')}}"
+            fields:
+              - { name: "citation", label: "Full Citation", widget: "text" }
+              - { name: "year", label: "Year", widget: "number", value_type: "int" }
+              - { name: "pdf", label: "PDF File", widget: "file", required: false, default: "", media_folder: "assets/papers", public_folder: "../assets/papers" }
+              - { name: "doi", label: "DOI URL", widget: "string", required: false, default: "" }
+              - { name: "link", label: "External Link", widget: "string", required: false, default: "" }
+
+      # --- Classes ---
+      - name: "classes"
+        label: "Classes"
+        file: "_data/classes.yml"
+        description: "Manage courses"
+        fields:
+          - name: "classes"
+            label: "Classes"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { name: "title", label: "Course Title", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+              - name: "objectives"
+                label: "Learning Objectives"
+                widget: "list"
+                required: false
+                field: { name: "objective", label: "Objective", widget: "string" }
+              - { name: "additional_description", label: "Additional Description", widget: "text", required: false, default: "" }
+              - { name: "link", label: "Course Link", widget: "string", required: false, default: "" }
+
+  # --- Blog Posts ---
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "image", label: "Featured Image", widget: "image", required: false }
+      - { name: "image_alt", label: "Image Alt Text", widget: "string", required: false, default: "" }
+      - { name: "body", label: "Body", widget: "markdown" }

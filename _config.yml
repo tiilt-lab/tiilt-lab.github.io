@@ -6,3 +6,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - scripts
+
+# Blog post permalink structure
+permalink: /blog/:year/:month/:day/:title/
