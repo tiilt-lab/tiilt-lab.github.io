@@ -12,6 +12,36 @@ members:
     website: ""
     alumni_type: ""
     photo_alt: ""
+  - bio: Bookyung is a doctoral student in the Learning Sciences at Northwestern
+      University. Her research focuses on collaborative inquiry in formal and
+      informal learning environments. Specifically, she is interested in how
+      learners ask questions as they engage in joint activity, interacting with
+      each other and with multiple technologies and texts simultaneously. In
+      exploring the process of collaborative inquiry, she hopes to bring
+      together ideas and methods from multimodal learning analytics, interaction
+      analysis, and the science of learning.
+    name: Bookyung Shin
+    sort_name: Shin
+    photo: ../assets/img/bookyungshin_profile_2509.png
+    status: active
+    role: grad
+    website: ""
+    alumni_type: ""
+    photo_alt: ""
+  - bio: >-
+      Di (Dee) is a second-year PhD candidate in Computer Science.
+
+      His research explores how interactive systems can become physical, embedded, and intuitive—not merely placing interfaces onto the human body, but transforming the body itself into the interface. Inspired by the vision of the “Ultimate Display,” his work seeks to dissolve the boundary between perception and control, where sensing and actuation are no longer separate components but unified as lived experience.
+
+      To realize this vision, he develops a systematic design space that spans material innovation, device fabrication, power management, and human-computer interaction. Through this integrated approach, he aims to create soft, embodied technologies that seamlessly integrate into the fabric of everyday life. Within this fabric, new possibilities emerge across domains such as assistive technology, rehabilitation, and embodied learning.
+    name: Di Wu
+    sort_name: Di
+    photo: ../assets/img/di.jpg
+    status: active
+    role: grad
+    website: ""
+    alumni_type: ""
+    photo_alt: ""
   - bio: Jacob is a PhD student in Computer Science and Learning Sciences at
       Northwestern University. His research focuses on AI education, knowledge
       representation, and computational linguistics, with an emphasis on
@@ -1089,34 +1119,4 @@ members:
     role: undergrad
     website: ""
     alumni_type: other
-    photo_alt: ""
-  - bio: >-
-      Di (Dee) is a second-year PhD candidate in Computer Science.
-
-      His research explores how interactive systems can become physical, embedded, and intuitive—not merely placing interfaces onto the human body, but transforming the body itself into the interface. Inspired by the vision of the “Ultimate Display,” his work seeks to dissolve the boundary between perception and control, where sensing and actuation are no longer separate components but unified as lived experience.
-
-      To realize this vision, he develops a systematic design space that spans material innovation, device fabrication, power management, and human-computer interaction. Through this integrated approach, he aims to create soft, embodied technologies that seamlessly integrate into the fabric of everyday life. Within this fabric, new possibilities emerge across domains such as assistive technology, rehabilitation, and embodied learning.
-    name: Di Wu
-    sort_name: Di
-    photo: ../assets/img/di.jpg
-    status: active
-    role: grad
-    website: ""
-    alumni_type: ""
-    photo_alt: ""
-  - bio: Bookyung is a doctoral student in the Learning Sciences at Northwestern
-      University. Her research focuses on collaborative inquiry in formal and
-      informal learning environments. Specifically, she is interested in how
-      learners ask questions as they engage in joint activity, interacting with
-      each other and with multiple technologies and texts simultaneously. In
-      exploring the process of collaborative inquiry, she hopes to bring
-      together ideas and methods from multimodal learning analytics, interaction
-      analysis, and the science of learning.
-    name: Bookyung Shin
-    sort_name: Shin
-    photo: ../assets/img/bookyungshin_profile_2509.png
-    status: active
-    role: grad
-    website: ""
-    alumni_type: ""
     photo_alt: ""
