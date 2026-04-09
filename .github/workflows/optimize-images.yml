@@ -1,0 +1,49 @@
+name: Optimize uploaded images
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "assets/img/people/**"
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install image tools
+        run: sudo apt-get install -y imagemagick webp
+
+      - name: Resize and compress images
+        run: |
+          cd assets/img/people
+          changed=false
+          for img in *.jpg *.jpeg *.png *.JPG *.JPEG *.PNG; do
+            [ -f "$img" ] || continue
+            # Skip if already small (under 200KB)
+            size=$(stat -c%s "$img" 2>/dev/null || stat -f%z "$img")
+            if [ "$size" -gt 204800 ]; then
+              echo "Optimizing $img ($size bytes)"
+              # Resize to max 800px wide, 85% quality
+              convert "$img" -resize '800x800>' -quality 85 "$img"
+              changed=true
+            fi
+          done
+
+          if [ "$changed" = true ]; then
+            echo "images_changed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Commit optimized images
+        if: env.images_changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/img/people/
+          git commit -m "chore: auto-optimize uploaded images"
+          git push
