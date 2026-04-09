@@ -36,43 +36,6 @@ The official website for the **Technological Innovations for Inclusive Learning 
 └── bootstrap.min.js      # Bootstrap JS
 ```
 
-## Setup
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/tiilt-lab/tiilt-lab.github.io.git
-   cd tiilt-lab.github.io
-   ```
-
-2. Install Sass:
-   ```bash
-   npm install sass
-   ```
-
-3. Compile SCSS to CSS:
-   ```bash
-   npx sass scss/styles.scss css/styles.css
-   npx sass scss/projects.scss css/projects.css
-   ```
-
-   Or watch for changes during development:
-   ```bash
-   npx sass --watch scss/styles.scss:css/styles.css
-   ```
-
-4. Serve locally (any static file server works):
-   ```bash
-   python3 -m http.server 8000
-   ```
-   Then open [http://localhost:8000](http://localhost:8000).
-
-## Development
-
-- **Styles:** Edit files in `scss/`, then compile. `styles.scss` imports all page-specific stylesheets. Never edit `css/` files directly — they are overwritten on compile.
-- **Pages:** Each page is a standalone HTML file with its own `index.html`. The navbar is generated dynamically by `script.js`.
-- **People:** Lab members are defined directly in `people/index.html`. PhD graduates should be moved to the Alumni section.
-- **Projects:** Project cards are in `projects/index.html`. Each project can have its own subpage under `projects/<name>/`.
-
 ## CMS
 
 The site uses [Sveltia CMS](https://github.com/sveltia/sveltia-cms) at `/admin/` for editing lab members, papers, classes, and blog posts. It authenticates via GitHub OAuth through a self-hosted proxy.
@@ -119,3 +82,5 @@ To migrate the OAuth proxy to a new server:
 ## Deployment
 
 The site is hosted via GitHub Pages. Pushing to `main` automatically deploys to [tiilt.northwestern.edu](https://tiilt.northwestern.edu/).
+
+To develop locally, clone the repo and serve with any static file server (e.g. `python3 -m http.server 8000`). Styles are in `scss/` — compile with `npx sass scss/styles.scss css/styles.css` (install Sass first with `npm install sass`).
