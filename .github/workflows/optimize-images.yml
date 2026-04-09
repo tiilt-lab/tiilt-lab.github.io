@@ -30,7 +30,7 @@ jobs:
             height=$(identify -format '%h' "$img")
             if [ "$width" -gt 600 ] || [ "$height" -gt 600 ]; then
               echo "Resizing $img (${width}x${height} -> 600x600 max)"
-              convert "$img" -resize '600x600>' -quality 85 "$img"
+              convert "$img" -resize '600x600>' "$img"
               changed=true
             fi
           done
