@@ -1,11 +1,18 @@
 .classes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $space-lg;
+
     .textblock {
-        max-width: 60rem;
-        margin-bottom: $space-3xl;
+        display: flex;
+        flex-direction: column;
+
         h1 {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
+            margin: 0;
+            padding-top: $space-xs;
         }
         p,
         ol {
@@ -17,4 +24,10 @@
             font-weight: bold;
         }
     }
+}
+
+@include mobile {
+  .classes {
+    grid-template-columns: 1fr;
+  }
 }
