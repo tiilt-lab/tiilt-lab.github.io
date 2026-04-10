@@ -1,4 +1,85 @@
 papers:
+  # 2026
+  - citation: "Quiterio, A., Butler, M., Montas, A., Bouftas, S., & Worsley, M. (2026). SportSense for Data Literacy: Applying Sports and Movement for Authentic and Personal Data Interactions in Elementary Schools. Proceedings of the 57th ACM Technical Symposium on Computer Science Education (SIGCSE '26), pp. 880-886."
+    year: 2026
+    pdf: ""
+    doi: ""
+    link: ""
+
+  # 2025
+  - citation: "Bodon, H., Kumar, V., & Worsley, M. (2025). Design Principles for Authentically Embedding Computer Science in Sports. ACM Transactions on Computing Education, 25(2), 1-42."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Quiterio, A., Kumar, V., & Worsley, M. (2025). Data as an Actor in Collaborative Sensemaking: Balancing the Body, Memory, and the Record. Proceedings of the 2025 ACM Interaction Design and Children Conference (IDC '25), pp. 527-534."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Kshirsagar, K., Worsley, M., & Azmandian, M. (2025). StoryBit Boards: Crafting Interactive Narratives in Paper-Based Games with Micro:bits. Proceedings of the ACM SIGCHI Annual Symposium on Computer-Human Interaction in Play Companion (CHI PLAY '25), pp. 302-304."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Kshirsagar, K., Quiterio, A., & Smith, M. (2025). MorphBlox: Bridging Play and Mathematics through Kinetic Tessellations. Proceedings of the Nineteenth International Conference on Tangible, Embedded, and Embodied Interaction (TEI '25)."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Worsley, M., Quiterio, A., Kumar, V., Smith, M., Bodon, H., & Butler, M. (2025). SportSense: Engaging youth in data science experience in in-school and out-of-school K-12 contexts. Proceedings of the 2025 Data Science Education K-12: Research to Practice Conference."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Quiterio, A., Worsley, M., Smith, M., & Xiao, A. (2025). Data Scavenger Hunt: Actively Authoring Data and Interpreting Movement. Proceedings of the 2025 Data Science Education K-12: Research to Practice Conference."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Puthipiroj, P. & Quiterio, A. (2025). Designing for 5th Grader Sports and Computing Experiences. Proceedings of the 56th ACM Technical Symposium on Computer Science Education (SIGCSE '25), Posters."
+    year: 2025
+    pdf: ""
+    doi: ""
+    link: ""
+
+  # 2024
+  - citation: "Issa, J., Kumar, V., & Worsley, M. (2024). Spatial Cognition Through Gestural Interfaces: Embodied Play and Learning with Minecraft. HCI International 2024, pp. 45-56."
+    year: 2024
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Quiterio, A., Kumar, V., & Worsley, M. (2024). When Athletes Play Around Technology - A Sporting Approach to Computing Inquiry. Proceedings of the 2024 ACM Designing Interactive Systems Conference (LDT '24), pp. 30-37."
+    year: 2024
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Quiterio, A. & Smith, M. (2024). Data Informed Learning for Equity: Empowering Volunteer Coaches in Youth Basketball Leagues. Proceedings of the 2024 RESPECT Annual Conference, pp. 139-142."
+    year: 2024
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Smith, M., Kumar, V., & Worsley, M. (2024). Unveiling Student Interests: A Topic Modeling Exploration of Interest-Driven Project-Based Learning. Companion Proceedings of the 14th International Conference on Learning Analytics and Knowledge (LAK '24)."
+    year: 2024
+    pdf: ""
+    doi: ""
+    link: ""
+
+  - citation: "Kshirsagar, K. (2024). Tangible Mathematical Tinkering Toolkits as a Platform for Understanding Drivers and Trajectories of Curiosity based Exploration. Proceedings of the 2024 ACM Designing Interactive Systems Conference."
+    year: 2024
+    pdf: ""
+    doi: ""
+    link: ""
+
   # 2023
   - citation: "Wallace, A., Quiterio, A., Kumar, V., & Worsley, M. (2023). Culturally responsive computing for black boys through sports technology. In Blikstein, P., Van Aalst, J., Kizito, R., & Brennan, K. (Eds.), Proceedings of the 17th International Conference of the Learning Sciences - ICLS 2023 (pp. 1426-1429). International Society of the Learning Sciences."
     year: 2023
