@@ -25,7 +25,7 @@ layout: null
       <h1>{{ post.title }}</h1>
       <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
       {% if post.image %}
-      <img class="lazy" data-src="{{ post.image }}" alt="{{ post.image_alt }}" />
+      <img src="{{ post.image }}" alt="{{ post.image_alt }}" />
       {% endif %}
       {{ post.content }}
     </section>
