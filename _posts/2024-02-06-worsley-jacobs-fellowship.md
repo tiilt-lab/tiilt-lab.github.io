@@ -1,8 +1,8 @@
 ---
 title: "Marcelo Worsley Named Jacobs Foundation Research Fellow"
 date: 2024-02-06
-image: ""
-image_alt: ""
+image: "/assets/img/blog/marcelo-worsley-jacobs-fellow.jpg"
+image_alt: "Marcelo Worsley attaching a wearable device to an athlete's wrist"
 ---
 
 We are excited to announce that Professor Marcelo Worsley has been selected as a [Jacobs Foundation](https://jacobsfoundation.org/) Research Fellow. The fellowship supports early- and mid-career researchers who are working to advance children's and youth learning around the world.
