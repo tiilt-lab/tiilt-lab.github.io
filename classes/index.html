@@ -33,7 +33,9 @@ layout: null
       <p>{{ course.additional_description }}</p>
       {% endif %}
       {% if course.link != "" and course.link != nil %}
-      <a href="{{ course.link }}" target="_blank">Link</a>
+      <div class="card-actions">
+        <a href="{{ course.link }}" target="_blank">learn more</a>
+      </div>
       {% endif %}
     </section>
     {% endfor %}

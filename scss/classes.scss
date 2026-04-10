@@ -8,9 +8,6 @@
         flex-direction: column;
 
         h1 {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
             margin: 0;
             padding-top: $space-xs;
         }
@@ -18,10 +15,13 @@
         ol {
             margin: $space-base;
         }
-        span, a{
-            @extend %squared_button  !optional;
-            margin: $space-base;
-            font-weight: bold;
+        .card-actions {
+            @include card-actions-layout;
+            margin-top: auto;
+
+            a {
+                @extend %squared_button !optional;
+            }
         }
     }
 }
