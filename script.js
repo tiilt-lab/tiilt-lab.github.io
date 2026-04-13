@@ -34,11 +34,8 @@ function headerGenerator() {
                     </button>
                     <div class="nav-dropdown__menu">
                         <a href=${srt + "blinc/"} aria-label="Info on Blinc Project">blinc</a>
-                        <a href=${srt + "famjam/"} aria-label="Info on Famjam Project">famjam</a>
-                        <a href=${srt + "imr/"} aria-label="Info on IMR Project">imr</a>
-                        <a href=${srt + "minecraft/"} aria-label="Info on Minecraft Project">minecraft</a>
-                        <a href=${srt + "multicraft/"} aria-label="Info on Multicraft Project">multicraft</a>
                         <a href=${srt + "sportsense/"} aria-label="Info on SportSense Project">sportsense</a>
+                        <a href=${srt + "sportsensefordata/"} aria-label="Info on SportSense for Data Literacy Project">sportsense for data</a>
                     </div>
                 </div>
             </li>
