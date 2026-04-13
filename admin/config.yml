@@ -53,6 +53,33 @@ collections:
               - { name: "website", label: "Website URL", widget: "string", required: false, default: "" }
               - { name: "sort_name", label: "Sort Name (last name for alphabetical ordering)", widget: "string" }
 
+      # --- Projects ---
+      - name: "projects"
+        label: "Projects"
+        file: "_data/projects.yml"
+        description: "Manage current and past lab projects"
+        fields:
+          - name: "projects"
+            label: "Projects"
+            widget: "list"
+            summary: "{{fields.name}} ({{fields.status}})"
+            fields:
+              - { name: "name", label: "Project Name", widget: "string" }
+              - { name: "description", label: "Description", widget: "text" }
+              - name: "status"
+                label: "Status"
+                widget: "select"
+                options:
+                  - { label: "Current", value: "current" }
+                  - { label: "Past", value: "past" }
+              - name: "links"
+                label: "Links"
+                widget: "list"
+                required: false
+                fields:
+                  - { name: "label", label: "Link Label", widget: "string" }
+                  - { name: "url", label: "URL", widget: "string" }
+
       # --- Papers ---
       - name: "papers"
         label: "Papers"
