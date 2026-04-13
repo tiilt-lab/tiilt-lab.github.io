@@ -17,9 +17,10 @@
     }
     .apply-btn {
       display: inline-block;
-      margin-top: $space-xl;
-      padding: $space-md $space-3xl;
-      font-size: $font-size-base;
+      margin-top: $space-3xl;
+      padding: $space-lg $space-4xl;
+      font-size: $font-size-lg;
+      font-weight: bold;
       border: $border-standard;
       text-decoration: none;
       background-color: $color-black;
