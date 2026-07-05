@@ -34,7 +34,6 @@ The official website for the **Technological Innovations for Inclusive Learning 
 ├── css/                  # Compiled CSS (do not edit directly)
 ├── assets/               # Images, papers, and other static files
 ├── script.js             # Site-wide JavaScript
-└── bootstrap.min.js      # Bootstrap JS
 ```
 
 ## CMS

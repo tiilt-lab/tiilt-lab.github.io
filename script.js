@@ -4,6 +4,23 @@
 // Arms the JS-only CSS (card entrance animation) — see styles.scss
 document.documentElement.classList.add("js");
 
+// Inline nav icons (Unicons line set, https://github.com/Iconscout/unicons,
+// Apache-2.0) — replaces the render-blocking icon-font CDN.
+var NAV_ICONS = {
+    "home": ["M21.66,10.25l-9-8a1,1,0,0,0-1.32,0l-9,8a1,1,0,0,0-.27,1.11A1,1,0,0,0,3,12H4v9a1,1,0,0,0,1,1H19a1,1,0,0,0,1-1V12h1a1,1,0,0,0,.93-.64A1,1,0,0,0,21.66,10.25ZM13,20H11V17a1,1,0,0,1,2,0Zm5,0H15V17a3,3,0,0,0-6,0v3H6V12H18ZM5.63,10,12,4.34,18.37,10Z"],
+    "drill": ["M19,4H9A1,1,0,0,0,8,5V7H3A1,1,0,0,0,3,9H8v4a1,1,0,0,0,2,0V12h4v7a1,1,0,0,0,1,1h2a3,3,0,0,0,3-3V11.82A3,3,0,0,0,22,9V7A3,3,0,0,0,19,4ZM18,17a1,1,0,0,1-1,1H16V12h2Zm2-8a1,1,0,0,1-1,1H10V6h6V7a1,1,0,0,0,2,0V6h1a1,1,0,0,1,1,1Z"],
+    "users-alt": ["M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z"],
+    "file-alt": ["M9,10h1a1,1,0,0,0,0-2H9a1,1,0,0,0,0,2Zm0,2a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19.32.32,0,0,0-.09,0A.88.88,0,0,0,13.05,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Zm-3-3H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z"],
+    "book": ["M15,6H9A1,1,0,0,0,8,7v4a1,1,0,0,0,1,1h6a1,1,0,0,0,1-1V7A1,1,0,0,0,15,6Zm-1,4H10V8h4Zm3-8H5A1,1,0,0,0,4,3V21a1,1,0,0,0,1,1H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Zm1,17a1,1,0,0,1-1,1H6V4H17a1,1,0,0,1,1,1Z"],
+    "pen": ["M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z"],
+    "envelope": ["M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"]
+};
+
+function navIcon(name) {
+    var paths = NAV_ICONS[name].map(function (d) { return '<path d="' + d + '"/>'; }).join("");
+    return '<svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">' + paths + '</svg>';
+}
+
 function headerGenerator() {
     var header = document.getElementsByTagName("header")[0];
     // The site is served from the domain root, so absolute paths work from
@@ -15,13 +32,13 @@ function headerGenerator() {
             <li>
                 <a href="/">
                     home
-                    <i class='uil uil-home' aria-hidden="true"></i>
+                    ${navIcon("home")}
                 </a>
             </li>
             <li>
                 <div class="nav-dropdown">
                     <a href="/projects/" class="nav-dropdown__link">projects
-                        <i class='uil uil-drill' aria-hidden="true"></i>
+                        ${navIcon("drill")}
                     </a>
                     <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu" aria-label="Toggle projects menu">
                       <span aria-hidden="true">▼</span>
@@ -35,27 +52,27 @@ function headerGenerator() {
             </li>
             <li>
                 <a href="/people/">people
-                    <i class='uil uil-users-alt' aria-hidden="true"></i>
+                    ${navIcon("users-alt")}
                 </a>
             </li>
             <li>
                 <a href="/papers/">papers
-                    <i class='uil uil-file-alt' aria-hidden="true"></i>
+                    ${navIcon("file-alt")}
                 </a>
             </li>
             <li>
                 <a href="/classes/">classes
-                    <i class='uil uil-book' aria-hidden="true"></i>
+                    ${navIcon("book")}
                 </a>
             </li>
             <li>
                 <a href="/blog/">blog
-                    <i class='uil uil-pen' aria-hidden="true"></i>
+                    ${navIcon("pen")}
                 </a>
             </li>
             <li>
                 <a href="/contact/">contact
-                    <i class='uil uil-envelope' aria-hidden="true"></i></a>
+                    ${navIcon("envelope")}</a>
             </li>
         </ul>
     </nav>`

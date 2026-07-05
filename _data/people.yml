@@ -4,7 +4,7 @@ members:
     status: active
     alumni_type: ''
     bio: I am an associate professor of Learning Sciences and Computer Science at Northwestern's School of Education and Social Policy and the McCormick School of Engineering. My research aims to advance society's understanding of how students learn in complex learning environments by forging new opportunities for using multimodal technology.
-    photo: ../assets/img/people/marcelo-worsley copy.jpg
+    photo: /assets/img/people/marcelo-worsley copy.jpg
     photo_alt: ''
     website: ''
     sort_name: Worsley
@@ -13,7 +13,7 @@ members:
     status: active
     alumni_type: ''
     bio: Bookyung is a doctoral student in the Learning Sciences at Northwestern University. Her research focuses on collaborative inquiry in formal and informal learning environments. Specifically, she is interested in how learners ask questions as they engage in joint activity, interacting with each other and with multiple technologies and texts simultaneously. In exploring the process of collaborative inquiry, she hopes to bring together ideas and methods from multimodal learning analytics, interaction analysis, and the science of learning.
-    photo: ../assets/img/people/bookyungshin_profile_2509.png
+    photo: /assets/img/people/bookyungshin_profile_2509.png
     photo_alt: ''
     website: ''
     sort_name: Shin
@@ -25,7 +25,7 @@ members:
       Di (Dee) is a second-year PhD candidate in Computer Science.
       His research explores how interactive systems can become physical, embedded, and intuitive—not merely placing interfaces onto the human body, but transforming the body itself into the interface. Inspired by the vision of the “Ultimate Display,” his work seeks to dissolve the boundary between perception and control, where sensing and actuation are no longer separate components but unified as lived experience.
       To realize this vision, he develops a systematic design space that spans material innovation, device fabrication, power management, and human-computer interaction. Through this integrated approach, he aims to create soft, embodied technologies that seamlessly integrate into the fabric of everyday life. Within this fabric, new possibilities emerge across domains such as assistive technology, rehabilitation, and embodied learning.
-    photo: ../assets/img/people/di.jpg
+    photo: /assets/img/people/di.jpg
     photo_alt: ''
     website: ''
     sort_name: Wu
@@ -34,7 +34,7 @@ members:
     status: active
     alumni_type: ''
     bio: Jacob is a PhD student in Computer Science and Learning Sciences at Northwestern University. His research focuses on AI education, knowledge representation, and computational linguistics, with an emphasis on developing innovative learning models such as structured hackathons and AI literacy frameworks. In his spare time, Jacob enjoys climbing, quizbowl, and reading social science, which he continuously tries to incorporate into his research.
-    photo: ../assets/img/people/jacob-puthipiroj.JPG
+    photo: /assets/img/people/jacob-puthipiroj.JPG
     photo_alt: ''
     website: ''
     sort_name: Puthipiroj
@@ -43,7 +43,7 @@ members:
     status: active
     alumni_type: ''
     bio: Khushbu is a doctoral student in Learning Sciences at Northwestern University. Her work lies at the intersection of mechanical design, mathematics, and art, focusing on informal learning spaces such as museums, playgrounds, and everyday public environments. Khushbu is passionate about encouraging creative exploration and accessibility through her designs; reimagining where and how learning happens, and about designing tools that support playful, curiosity-driven interactions beyond traditional classrooms.
-    photo: ../assets/img/people/Khushbu-Kshirsagar.jpg
+    photo: /assets/img/people/Khushbu-Kshirsagar.jpg
     photo_alt: ''
     website: ''
     sort_name: Kshirsagar
@@ -52,7 +52,7 @@ members:
     status: active
     alumni_type: ''
     bio: Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow. Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games.
-    photo: ../assets/img/people/michael-smith copy.jpg
+    photo: /assets/img/people/michael-smith copy.jpg
     photo_alt: ''
     website: https://michaelshanesmith.github.io/
     sort_name: Smith
@@ -70,7 +70,7 @@ members:
     status: active
     alumni_type: ''
     bio: Ashley is a Learning Sciences PhD candidate at Northwestern University. Their research focuses on data education across K-16 contexts with an emphasis on agency, culture, and identity.
-    photo: ../assets/img/people/ashley-quiterio.jpg
+    photo: /assets/img/people/ashley-quiterio.jpg
     photo_alt: ''
     website: ''
     sort_name: Quiterio
@@ -79,7 +79,7 @@ members:
     status: active
     alumni_type: ''
     bio: Tochukwu is a PhD candidate in Computer Science at Northwestern University, specializing in Collaborative Learning Analytics, AI, and Educational Technology. He focuses on developing predictive models to analyze student cognition, behavior, and interaction, utilizing computer vision and NLP techniques. He has developed a collaboration literacy analytics framework and a multimodal fusion ML algorithm to assess the same. Tochukwu is also a lifetime member of the Edward Alexander Bouchet Graduate Honor Society, a fellow of the Center for Leadership, the Assistant Chair of Chapin Residential College at Northwestern University, and the Co-president of the African Graduate Student Association, where he fosters a supportive environment for African graduate students, emphasizing cultural exchange and academic excellence. He enjoys traveling, exploring diverse cultures, and is passionate about the intersection of technology, education, and social impact.
-    photo: ../assets/img/people/tochukwu-eze-3.jpg
+    photo: /assets/img/people/tochukwu-eze-3.jpg
     photo_alt: Tochukwu Eze
     website: ''
     sort_name: Eze
@@ -88,7 +88,7 @@ members:
     status: active
     alumni_type: ''
     bio: Victoria (V/they/she) is a Chicago-born and raised Chapine (Guatemalan) educator, scholar, and engineer. Currently, they're a third-year PhD student at Northwestern University's Computer Science Program. Victoria's research interests explore systemic issues within computer science education, centering the experiences of Black, Disabled, Indigenous, and Latine/x students. Most recently, their research has focused on teaching and learning accessibility as well as unpacking how ableism is codified in the policies, practices, and pedagogies used in college CS courses.
-    photo: ../assets/img/people/victoria.jpg
+    photo: /assets/img/people/victoria.jpg
     photo_alt: ''
     website: https://vickiebananas.com/
     sort_name: Chavez
@@ -97,7 +97,7 @@ members:
     status: active
     alumni_type: ''
     bio: As a disabled researcher and educator, Meg is particularly interested in educational dignity. Her work seeks to challenge the deficit-based views of human learning that are complicit in the reification of normatively powered dynamics and push beyond the practices that maintain and enact ableism to a dynamic coexistence of multiple ways of seeing and knowing. She enjoys riding her bike, hanging out with animals, and eating Albanese gummy bears.
-    photo: ../assets/img/people/meg-butler-hotdog.jpg
+    photo: /assets/img/people/meg-butler-hotdog.jpg
     photo_alt: Meg Butler Hotdog
     website: ''
     sort_name: Butler
@@ -135,7 +135,7 @@ members:
     bio: ''
     photo: ''
     photo_alt: ''
-    website: https://bodon2018.github.io/
+    website: ''
     sort_name: Bodon
   - name: DJ (Stephanie T. Jones)
     role: grad

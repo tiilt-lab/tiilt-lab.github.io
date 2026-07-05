@@ -12,8 +12,9 @@
       display: flex;
       flex-direction: column;
 
-      // Member names
+      // Member names (h3, but sized like the h2s they replaced)
       h3 {
+        font-size: 1.5em;
         border-bottom: $border-standard;
         padding: $space-base;
       }
@@ -93,7 +94,3 @@
   }
 }
 
-.text_truncator {
-  @include text-truncate(8);
-  white-space: normal;
-}
