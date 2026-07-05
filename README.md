@@ -85,9 +85,11 @@ The site is hosted via GitHub Pages. Pushing to `main` automatically deploys to 
 
 ### Local development
 
-1. Clone the repo:
+1. Clone the repo (the `--filter` flag skips historic file versions and the
+   heavyweight Scratch build blobs until they're actually needed, making the
+   initial clone much smaller and faster):
    ```bash
-   git clone https://github.com/tiilt-lab/tiilt-lab.github.io.git
+   git clone --filter=blob:none https://github.com/tiilt-lab/tiilt-lab.github.io.git
    cd tiilt-lab.github.io
    ```
 
