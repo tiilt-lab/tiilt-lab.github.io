@@ -25,6 +25,8 @@ var NAV_ICONS = {
     "ellipsis-h": ["M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"],
     "moon": ["M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"],
     "sun": ["M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"],
+    "flask": ["M20.11,17.49,15,8.73V4h1a1,1,0,0,0,0-2H8A1,1,0,0,0,8,4H9V8.73L3.89,17.49A3,3,0,0,0,6.48,22h11a3,3,0,0,0,2.59-4.51Zm-9.25-8A1,1,0,0,0,11,9V4h2V9a1,1,0,0,0,.14.5L14,11H10Zm7.52,10a1,1,0,0,1-.86.5h-11a1,1,0,0,1-.86-.5,1,1,0,0,1,0-1L8.83,13h6.35l3.2,5.5A1,1,0,0,1,18.38,19.5ZM10,15a1,1,0,1,0,1,1A1,1,0,0,0,10,15Zm4,1a1,1,0,1,0,1,1A1,1,0,0,0,14,16Z"],
+    "info-circle": ["M12,2A10,10,0,1,0,22,12,10.01114,10.01114,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Zm0-8.5a1,1,0,0,0-1,1v3a1,1,0,0,0,2,0v-3A1,1,0,0,0,12,11.5Zm0-4a1.25,1.25,0,1,0,1.25,1.25A1.25,1.25,0,0,0,12,7.5Z"],
     "envelope": ["M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"]
 };
 
@@ -48,27 +50,24 @@ function headerGenerator() {
     // The site is served from the domain root, so absolute paths work from
     // every page regardless of nesting depth.
     header.innerHTML =
-    `<p class="site-title">technological innovations for inclusive learning &amp; teaching</p>
+    `<p class="site-title"><a href="/" aria-label="TIILT Lab home">technological innovations for inclusive learning &amp; teaching</a></p>
     <nav aria-label="Main Navigation">
         <ul>
             <li>
-                <a href="/">
-                    home
-                    ${navIcon("home")}
-                </a>
-            </li>
-            <li>
                 <div class="nav-dropdown">
-                    <a href="/projects/" class="nav-dropdown__link">projects
-                        ${navIcon("drill")}
+                    <a href="/projects/" class="nav-dropdown__link">research
+                        ${navIcon("flask")}
                     </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu" aria-label="Toggle projects menu">
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="research-menu" aria-label="Toggle research menu">
                       <span aria-hidden="true">▼</span>
                     </button>
-                    <div class="nav-dropdown__menu" id="projects-menu">
+                    <div class="nav-dropdown__menu" id="research-menu">
+                        <a href="/projects/">all projects</a>
                         <a href="/projects/blinc/">blinc</a>
                         <a href="/projects/sportsense/">sportsense</a>
                         <a href="/projects/sportsensefordata/">sportsense for data</a>
+                        <a href="/impact/">impact</a>
+                        <a href="/playground/">playground</a>
                     </div>
                 </div>
             </li>
@@ -83,32 +82,35 @@ function headerGenerator() {
                 </a>
             </li>
             <li>
-                <a href="/classes/">classes
-                    ${navIcon("book")}
-                </a>
+                <div class="nav-dropdown">
+                    <a href="/classes/" class="nav-dropdown__link">teaching
+                        ${navIcon("book")}
+                    </a>
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="teaching-menu" aria-label="Toggle teaching menu">
+                      <span aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown__menu" id="teaching-menu">
+                        <a href="/classes/">classes</a>
+                        <a href="/educators/">for educators</a>
+                    </div>
+                </div>
             </li>
             <li>
-                <a href="/blog/">blog
+                <a href="/blog/">news
                     ${navIcon("pen")}
                 </a>
             </li>
             <li>
-                <a href="/contact/">contact
-                    ${navIcon("envelope")}</a>
-            </li>
-            <li>
                 <div class="nav-dropdown">
-                    <a href="/join/" class="nav-dropdown__link">more
-                        ${navIcon("ellipsis-h")}
+                    <a href="/contact/" class="nav-dropdown__link">about
+                        ${navIcon("info-circle")}
                     </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="more-menu" aria-label="Toggle more menu">
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" aria-label="Toggle about menu">
                       <span aria-hidden="true">▼</span>
                     </button>
-                    <div class="nav-dropdown__menu nav-dropdown__menu--right" id="more-menu">
+                    <div class="nav-dropdown__menu nav-dropdown__menu--right" id="about-menu">
                         <a href="/join/">join the lab</a>
-                        <a href="/educators/">for educators</a>
-                        <a href="/playground/">playground</a>
-                        <a href="/impact/">impact</a>
+                        <a href="/contact/">contact</a>
                         <a href="/search/">search</a>
                         <a href="/accessibility/">accessibility</a>
                     </div>
