@@ -30,12 +30,27 @@
   --pagefind-ui-font: "AHAMONO", monospace;
 }
 
+@mixin dark-theme-vars {
+  --bg: #141414;
+  --fg: #f2f2f2;
+  --muted: #a3a3a3;
+}
+
+// OS preference applies unless the user chose light with the toggle …
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141414;
-    --fg: #f2f2f2;
-    --muted: #a3a3a3;
+  :root:not([data-theme="light"]) {
+    @include dark-theme-vars;
   }
+}
+
+// … and an explicit dark choice wins everywhere
+:root[data-theme="dark"] {
+  @include dark-theme-vars;
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
 }
 
 // FONTS
@@ -172,6 +187,28 @@ a.box {
   @include squared-button;
 }
 
+// Theme toggle sits in the nav and dresses like a nav link
+header nav .theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $color-gray;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 $space-md;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-black;
+  }
+
+  .nav-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
 /* Mobile Styles Start */
 @include mobile {
   body {
@@ -208,6 +245,26 @@ a.box {
 
             .current-page {
               text-decoration: none;
+            }
+          }
+
+          // On mobile the toggle leaves the crowded bottom bar and floats
+          // in the top-right corner instead
+          li:has(> .theme-toggle) {
+            position: fixed;
+            top: $space-md;
+            right: $space-md;
+          }
+
+          .theme-toggle {
+            height: auto;
+            padding: $space-md;
+            background-color: $color-white;
+            border: $border-standard;
+
+            .nav-icon {
+              width: $font-size-lg;
+              height: $font-size-lg;
             }
           }
         }
