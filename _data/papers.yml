@@ -1,5 +1,47 @@
 papers:
   # 2026
+  - citation: "Xie, D., Anderson, K. J., Eze, T., Lin, C., Shin, B., & Worsley, M. (2026). CLARA: An AI-Augmented Analytics Dashboard for Collaboration Literacy. Proceedings of Artificial Intelligence in Education (AIED 2026), pp. 339-353."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.1007/978-3-032-29755-6_23"
+    link: ""
+
+  - citation: "Eze, T. D., Zurbuchen, L., Anderson, K. J., & Worsley, M. (2026). A Collaboration Literacy Analytics Framework (CLAF): Investigating Students' Perspectives on Collaboration Quality Indicators and Feedback Utilization. International Journal of Computer-Supported Collaborative Learning."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.1007/s11412-026-09475-w"
+    link: ""
+
+  - citation: "Schneider, B., Martinez-Maldonado, R., Worsley, M., & Biswas, G. (2026). Implementing Multimodal Learning Analytics in Authentic Settings: A Roadmap for Ecological Impact. Learning and Instruction, 102341."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.1016/j.learninstruc.2026.102341"
+    link: ""
+
+  - citation: "Abrahamson, D., Worsley, M., & Pardos, Z. A. (2026). AI Designer, Know Thyself!: What We Learn about Human Intelligence through Building Artificial Intelligence. In Embodied Intelligence (pp. 359-378). MIT Press."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.7551/mitpress/15999.003.0028"
+    link: ""
+
+  - citation: "Spikol, D., Nguyen, A., Ochoa, X., Worsley, M., et al. (2026). GenAI as Semantic Sensors for Collaborative Learning. In Communications in Computer and Information Science: AIED 2026 Workshops (CrossMMLA)."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.1007/978-3-032-29794-5_12"
+    link: ""
+
+  - citation: "Quiterio, A. (2026). Computing in the Everyday: Engaging Teachers and Learners in Authentic and Personal Data Interactions. Proceedings of the 57th ACM Technical Symposium on Computer Science Education (SIGCSE '26), Doctoral Consortium."
+    year: 2026
+    pdf: ""
+    doi: "https://doi.org/10.1145/3770761.3777074"
+    link: ""
+
+  - citation: "Puthipiroj, J., Supnithi, T., & Ketui, N. (2026). If One Hack Week is Pedagogically Effective, Why Not Ten? Proceedings of the International Conference on Computer-Supported Collaborative Learning (CSCL 2026), pp. 797-799. ISLS."
+    year: 2026
+    pdf: ""
+    doi: ""
+    link: "https://2026.isls.org/proceedings/"
+
   - citation: "Quiterio, A., Butler, M., Montas, A., Bouftas, S., & Worsley, M. (2026). SportSense for Data Literacy: Applying Sports and Movement for Authentic and Personal Data Interactions in Elementary Schools. Proceedings of the 57th ACM Technical Symposium on Computer Science Education (SIGCSE '26), pp. 880-886."
     year: 2026
     pdf: ""
@@ -7,6 +49,60 @@ papers:
     link: ""
 
   # 2025
+  - citation: "Quiterio, A., Kumar, V., & Worsley, M. (2025). Acting, Sensing, and Writing: Making Sense of Self-Authored Data. Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 1918-1922. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.384050"
+    link: ""
+
+  - citation: "Kshirsagar, K., Horn, M. S., & Worsley, M. (2025). Curiosity Portals: Designing Entryways for Tangible Exploration. Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 2813-2815. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.545431"
+    link: ""
+
+  - citation: "Lee, A., Quiterio, A., Kumar, V., & Worsley, M. (2025). Athletic Tinkering: Playful Computing Learning at the Intersection of Sports and Technology. Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 2650-2652. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.371849"
+    link: ""
+
+  - citation: "Kafai, Y., Shapiro, R. B., Jetzinger, F., Michaeli, T., Tedre, M., Vartiainen, H., Iivari, N., Musaeus, L. H., Iversen, O. S., Ali, S., Bodon, H., Butler, M., Kshirsagar, K., Smith, M., Quiterio, A., Worsley, M., Kumar, V., Morales-Navarro, L., Noh, D., ... Philip, T. M. (2025). Youth as Designers of Artificial Intelligence and Machine Learning Technologies: What Do We Know About the Opportunities and Challenges of K-12 Students Creating Their Own Applications? Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 2260-2268. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.362276"
+    link: ""
+
+  - citation: "Phuong, A. E., Quiterio, A., McCune, D. L., Jackson, D. W., Huang, F., Goehrig, F., Nwogu, I., Ramdath, K., Worsley, M., Butler, M., Waight, N., Scheuneman, S. M., & Lo, S. M. (2025). Critically-Oriented Approaches to Mixed Methods. Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 2278-2286. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.655976"
+    link: ""
+
+  - citation: "Boateng, B. A., Curnow, J., Jones, S. T., Lee, S. P., Melo, N. A., Polman, J. L., et al. (2025). Developing Approaches to Racial Justice in the Learning Sciences. Proceedings of the 19th International Conference of the Learning Sciences (ICLS 2025), pp. 2381-2389. ISLS."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.22318/icls2025.436471"
+    link: ""
+
+  - citation: "Quiterio, A. (2025). Agency in Data Interactions: Teaching and Learning for Personal Data Literacy. Proceedings of the 2025 ACM Interaction Design and Children Conference (IDC '25), Doctoral Consortium."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.1145/3713043.3731607"
+    link: ""
+
+  - citation: "Quiterio, A., & Worsley, M. (2025). Toward Culturally Sustaining Pedagogies: Exploring Computer Science and Sports Perceptions of Student-Athletes. American Educational Research Association Annual Meeting (AERA 2025)."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.3102/ip.25.2195755"
+    link: ""
+
+  - citation: "Puthipiroj, J., Supnithi, T., Ketui, N., & Thongthungwong, N. (2025). Structured Hackathons: A Pedagogical Model for AI Education. Artificial Intelligence in Education (AIED 2025), LNCS, pp. 261-273. Springer."
+    year: 2025
+    pdf: ""
+    doi: "https://doi.org/10.1007/978-3-031-98420-4_19"
+    link: ""
+
   - citation: "Bodon, H., Kumar, V., & Worsley, M. (2025). Design Principles for Authentically Embedding Computer Science in Sports. ACM Transactions on Computing Education, 25(2), 1-42."
     year: 2025
     pdf: ""
