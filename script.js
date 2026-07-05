@@ -55,21 +55,25 @@ function headerGenerator() {
         <ul>
             <li>
                 <div class="nav-dropdown">
-                    <a href="/projects/" class="nav-dropdown__link">research
-                        ${navIcon("flask")}
+                    <a href="/projects/" class="nav-dropdown__link">projects
+                        ${navIcon("drill")}
                     </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="research-menu" aria-label="Toggle research menu">
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu" aria-label="Toggle projects menu">
                       <span aria-hidden="true">▼</span>
                     </button>
-                    <div class="nav-dropdown__menu" id="research-menu">
+                    <div class="nav-dropdown__menu" id="projects-menu">
                         <a href="/projects/">all projects</a>
                         <a href="/projects/blinc/">blinc</a>
                         <a href="/projects/sportsense/">sportsense</a>
                         <a href="/projects/sportsensefordata/">sportsense for data</a>
-                        <a href="/impact/">impact</a>
                         <a href="/playground/">playground</a>
                     </div>
                 </div>
+            </li>
+            <li>
+                <a href="/papers/">research
+                    ${navIcon("flask")}
+                </a>
             </li>
             <li>
                 <a href="/people/">people
@@ -77,23 +81,9 @@ function headerGenerator() {
                 </a>
             </li>
             <li>
-                <a href="/papers/">papers
-                    ${navIcon("file-alt")}
+                <a href="/classes/">classes
+                    ${navIcon("book")}
                 </a>
-            </li>
-            <li>
-                <div class="nav-dropdown">
-                    <a href="/classes/" class="nav-dropdown__link">teaching
-                        ${navIcon("book")}
-                    </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="teaching-menu" aria-label="Toggle teaching menu">
-                      <span aria-hidden="true">▼</span>
-                    </button>
-                    <div class="nav-dropdown__menu" id="teaching-menu">
-                        <a href="/classes/">classes</a>
-                        <a href="/educators/">for educators</a>
-                    </div>
-                </div>
             </li>
             <li>
                 <a href="/blog/">news
@@ -101,20 +91,8 @@ function headerGenerator() {
                 </a>
             </li>
             <li>
-                <div class="nav-dropdown">
-                    <a href="/contact/" class="nav-dropdown__link">about
-                        ${navIcon("info-circle")}
-                    </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="about-menu" aria-label="Toggle about menu">
-                      <span aria-hidden="true">▼</span>
-                    </button>
-                    <div class="nav-dropdown__menu nav-dropdown__menu--right" id="about-menu">
-                        <a href="/join/">join the lab</a>
-                        <a href="/contact/">contact</a>
-                        <a href="/search/">search</a>
-                        <a href="/accessibility/">accessibility</a>
-                    </div>
-                </div>
+                <a href="/contact/">contact
+                    ${navIcon("envelope")}</a>
             </li>
             <li>
                 <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
@@ -136,14 +114,6 @@ function footerGenerator() {
     footer.className = "site-footer";
     footer.innerHTML =
     `<p>tiilt lab &middot; Northwestern University &middot; Mudd 3104</p>
-    <p>
-        <a href="/join/">join the lab</a>
-        &middot; <a href="/educators/">for educators</a>
-        &middot; <a href="/playground/">playground</a>
-        &middot; <a href="/impact/">impact</a>
-        &middot; <a href="/search/">search</a>
-        &middot; <a href="/accessibility/">accessibility</a>
-    </p>
     <p>
         <a href="mailto:tiiltlab@gmail.com">tiiltlab@gmail.com</a>
         &middot; <a href="https://twitter.com/tiiltlab">twitter</a>

@@ -5,12 +5,12 @@ layout: null
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>TIILT Lab - Papers</title>
-  <meta name="description" content="Peer-reviewed publications from the TIILT Lab on multimodal learning analytics, inclusive making, and sports-based STEM learning."/>
+    <title>TIILT Lab - Research</title>
+  <meta name="description" content="TIILT Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance."/>
   <link rel="canonical" href="https://tiilt.northwestern.edu/papers/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TIILT Lab - Papers">
-  <meta property="og:description" content="Peer-reviewed publications from the TIILT Lab on multimodal learning analytics, inclusive making, and sports-based STEM learning.">
+  <meta property="og:title" content="TIILT Lab - Research">
+  <meta property="og:description" content="TIILT Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance.">
   <meta property="og:url" content="https://tiilt.northwestern.edu/papers/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -48,8 +48,37 @@ layout: null
 
 <body>
     <header></header>
-    <main class="papers">
-      <h1 class="visually_hidden">Papers</h1>
+    <main class="papers impact">
+      <h1 class="visually_hidden">Research</h1>
+
+      {% assign all_papers = site.data.papers.papers %}
+      {% assign active_members = site.data.people.members | where: "status", "active" %}
+      {% assign alumni_members = site.data.people.members | where: "status", "alumni" %}
+      <section class="textblock">
+        <h2 class="card-title">The lab in numbers</h2>
+        <div class="stat-row">
+          <div class="stat-tile">
+            <span class="stat-tile__value">{{ all_papers.size }}</span>
+            <span class="stat-tile__label">publications</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-tile__value">{{ site.data.projects.projects.size }}</span>
+            <span class="stat-tile__label">research projects</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-tile__value">{{ active_members.size }}</span>
+            <span class="stat-tile__label">current members</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-tile__value">{{ alumni_members.size }}</span>
+            <span class="stat-tile__label">alumni</span>
+          </div>
+          <div class="stat-tile">
+            <span class="stat-tile__value">13</span>
+            <span class="stat-tile__label">free curriculum lessons</span>
+          </div>
+        </div>
+      </section>
 
       <section class="textblock paper-filters" aria-label="Filter publications">
         <div class="paper-filters__row">
@@ -82,13 +111,52 @@ layout: null
         {% endfor %}
       </section>
       {% endfor %}
+
+      <section class="textblock">
+        <h2 class="card-title">Publications per year</h2>
+        <div id="years-chart" class="chart" role="img" aria-label="Column chart of TIILT Lab publications per year. A data table follows."></div>
+        <details class="chart-table">
+          <summary>view as table</summary>
+          <table id="years-table"></table>
+        </details>
+      </section>
+
+      <section class="textblock">
+        <h2 class="card-title">Who publishes together</h2>
+        <p class="chart-note">Co-authored publications between current lab members. Darker means more papers together.</p>
+        <div id="coauthor-chart" class="chart" role="img" aria-label="Heatmap of co-authored publications between current lab members. A data table follows."></div>
+        <details class="chart-table">
+          <summary>view as table</summary>
+          <table id="coauthor-table"></table>
+        </details>
+      </section>
+
+      <section class="textblock">
+        <h2 class="card-title">Where we work</h2>
+        <p>
+          TIILT research happens in real learning spaces, with partners including
+          Evanston/Skokie School District 65, Chute Middle School, MetaMedia at the
+          McGaw YMCA, the Evanston Public Library, World Relief Chicago, the
+          <a href="https://www.blackkidspredict.org">Black Kids Predict</a> initiative,
+          and youth sports programs across Evanston and Chicago.
+        </p>
+      </section>
     </main>
+    <div id="chart-tooltip" class="chart-tooltip" hidden></div>
     <script src="../script.js"></script>
     <script>
       window.LAB_MEMBERS = [
         {% for member in site.data.people.members %}{% if member.status == "active" %}{{ member.name | jsonify }},{% endif %}{% endfor %}
       ];
     </script>
+    <script>
+      window.IMPACT_DATA = {
+        years: [{% for p in all_papers %}{{ p.year }},{% endfor %}],
+        citations: [{% for p in all_papers %}{{ p.citation | jsonify }},{% endfor %}],
+        members: [{% for m in active_members %}{{ m.name | jsonify }},{% endfor %}]
+      };
+    </script>
     <script src="/assets/js/papers.js"></script>
+    <script src="/assets/js/impact.js"></script>
 </body>
 </html>

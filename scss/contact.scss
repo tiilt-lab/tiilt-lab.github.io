@@ -8,6 +8,10 @@
       margin-left: auto;
       position: relative;
       z-index: $z-overlay;
+
+      h3 {
+        margin: $space-base $space-base 0;
+      }
     }
     @include mobile {
       .textblock {
