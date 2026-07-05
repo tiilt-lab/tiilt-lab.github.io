@@ -23,6 +23,16 @@ function navIcon(name) {
 
 function headerGenerator() {
     var header = document.getElementsByTagName("header")[0];
+
+    // Skip link for keyboard users, first focusable element on the page
+    var main = document.querySelector("main");
+    if (main && !main.id) main.id = "main-content";
+    var skip = document.createElement("a");
+    skip.className = "skip-link";
+    skip.href = "#" + (main ? main.id : "main-content");
+    skip.textContent = "skip to content";
+    document.body.insertBefore(skip, document.body.firstChild);
+
     // The site is served from the domain root, so absolute paths work from
     // every page regardless of nesting depth.
     header.innerHTML =
@@ -79,6 +89,23 @@ function headerGenerator() {
 
     markCurrentPage();
     initDropdown();
+    footerGenerator();
+}
+
+function footerGenerator() {
+    if (document.querySelector(".site-footer")) return;
+    var footer = document.createElement("footer");
+    footer.className = "site-footer";
+    footer.innerHTML =
+    `<p>tiilt lab &middot; Northwestern University &middot; Mudd 3104</p>
+    <p>
+        <a href="mailto:tiiltlab@gmail.com">tiiltlab@gmail.com</a>
+        &middot; <a href="https://twitter.com/tiiltlab">twitter</a>
+        &middot; <a href="https://github.com/tiilt-lab">github</a>
+        &middot; <a href="/accessibility/">accessibility</a>
+    </p>
+    <p>&copy; ${new Date().getFullYear()} TIILT Lab</p>`;
+    document.body.appendChild(footer);
 }
 
 // Highlight the nav link(s) matching the current URL path.
