@@ -1,0 +1,46 @@
+# Pings the website and the BLINC instance every 6 hours; opens an issue when
+# either is unreachable (and closes it again once both recover).
+name: Uptime check
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check endpoints
+        id: ping
+        run: |
+          down=""
+          for url in https://tiilt.northwestern.edu/ https://tiilt-blinc.com/; do
+            code=$(curl -s -o /dev/null --max-time 20 -L -w "%{http_code}" "$url" || echo 000)
+            echo "$code $url"
+            case "$code" in
+              2*|3*) ;;
+              *) down="$down $url ($code)";;
+            esac
+          done
+          echo "down=${down# }" >> "$GITHUB_OUTPUT"
+
+      - name: Open or close issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DOWN: ${{ steps.ping.outputs.down }}
+        run: |
+          existing=$(gh issue list --label uptime --state open --json number --jq '.[0].number' || true)
+          if [ -n "$DOWN" ]; then
+            if [ -z "$existing" ]; then
+              gh issue create --title "Uptime check failing" --label uptime \
+                --body "The scheduled uptime check could not reach: $DOWN"$'\n\n'"It will keep checking every 6 hours and close this issue when everything recovers."
+            fi
+          elif [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "All endpoints reachable again."
+          fi

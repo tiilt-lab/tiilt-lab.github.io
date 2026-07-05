@@ -14,11 +14,14 @@ exclude:
 # Blog post permalink structure
 permalink: /blog/:year/:month/:day/:title/
 
-# Site URL (used by jekyll-sitemap)
+# Site URL (used by jekyll-sitemap and jekyll-feed)
 url: "https://tiilt.northwestern.edu"
+title: TIILT Lab
+description: Technological Innovations for Inclusive Learning and Teaching at Northwestern University
 
 plugins:
   - jekyll-sitemap
+  - jekyll-feed
 
 # All blog posts use the post layout automatically
 defaults:

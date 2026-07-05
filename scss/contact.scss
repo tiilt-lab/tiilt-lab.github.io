@@ -18,23 +18,6 @@
     ul {
       list-style-type: disc;
     }
-    .apply-btn {
-      display: inline-block;
-      margin-top: $space-3xl;
-      padding: $space-lg $space-4xl;
-      font-size: $font-size-lg;
-      font-weight: bold;
-      border: $border-standard;
-      text-decoration: none;
-      background-color: $color-black;
-      color: $color-white;
-      transition: all $transition-fast;
-
-      &:hover {
-        background-color: $color-white;
-        color: $color-black;
-      }
-    }
 
     .big-logo {
       left: unset;
