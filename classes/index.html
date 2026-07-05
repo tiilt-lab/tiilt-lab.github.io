@@ -18,9 +18,10 @@ layout: null
 <body>
   <header></header>
   <main class="classes">
+    <h1 class="visually_hidden">Classes</h1>
     {% for course in site.data.classes.classes %}
     <section class="textblock">
-      <h1>{{ course.title }}</h1>
+      <h2 class="card-title">{{ course.title }}</h2>
       <p>{{ course.description | newline_to_br }}</p>
       {% if course.objectives.size > 0 %}
       <ol class="list_with_padding">
@@ -40,10 +41,9 @@ layout: null
     </section>
     {% endfor %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../script.js"></script>
-
   </main>
+
+  <script src="../script.js"></script>
 
 </body>
 

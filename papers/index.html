@@ -17,11 +17,12 @@ layout: null
 <body>
     <header></header>
     <main class="papers">
+      <h1 class="visually_hidden">Papers</h1>
       {% assign sorted_papers = site.data.papers.papers | sort: "year" | reverse %}
       {% assign years = sorted_papers | map: "year" | uniq %}
       {% for year in years %}
       <section class="textblock">
-        <h1 class="windowheader" tabindex="0">{{ year }}</h1>
+        <h2 class="card-title">{{ year }}</h2>
         {% assign year_papers = sorted_papers | where: "year", year %}
         {% for paper in year_papers %}
         <div class="window__paper">
@@ -40,7 +41,6 @@ layout: null
       </section>
       {% endfor %}
     </main>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../script.js"></script>
 </body>
 </html>

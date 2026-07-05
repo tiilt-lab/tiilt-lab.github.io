@@ -35,6 +35,7 @@
 
     .big-logo {
       left: unset;
-      right: $space-3xl;
+      // Stay pinned to the content column's right edge on wide monitors
+      right: max(#{$space-3xl}, calc(50vw - #{$content-max-width} / 2));
     }
 }

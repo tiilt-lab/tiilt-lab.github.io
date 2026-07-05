@@ -8,6 +8,18 @@
   }
 }
 
+@mixin wide {
+  @media only screen and (min-width: $breakpoint-wide) {
+    @content;
+  }
+}
+
+@mixin ultrawide {
+  @media only screen and (min-width: $breakpoint-ultrawide) {
+    @content;
+  }
+}
+
 @mixin rotate-toggle {
   transform: rotate(0deg);
   transition-delay: 50ms;

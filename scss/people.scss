@@ -1,15 +1,7 @@
 .people {
-  h1 {
+  // Section titles (Principal Investigator, Graduate Students, …)
+  article > h2 {
     margin-bottom: $space-lg;
-  }
-
-  h2 {
-    display: flex;
-    justify-content: space-between;
-
-    span {
-      @include rotate-toggle;
-    }
   }
 
   .people-group {
@@ -20,7 +12,8 @@
       display: flex;
       flex-direction: column;
 
-      h2 {
+      // Member names
+      h3 {
         border-bottom: $border-standard;
         padding: $space-base;
       }
@@ -41,14 +34,8 @@
     }
 
     .top_dog {
-      h2 {
-        border: 0;
-      }
-
       h3 {
-        padding: 0 $space-base $space-base;
-        border-bottom: $border-standard;
-        font-size: $font-size-base;
+        border: 0;
       }
     }
   }
@@ -62,7 +49,8 @@
   }
 
   .alumni {
-    h2 {
+    // Alumni sub-groups (PhD Alumni, Other Alumni)
+    h3 {
       font-size: $font-size-lg;
       margin-top: $space-2xl;
       margin-bottom: $space-md;
@@ -82,7 +70,7 @@
       }
 
       li:has(a) {
-        border-color: blue;
+        border-color: $color-blue;
         padding: 0;
 
         a {

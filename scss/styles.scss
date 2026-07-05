@@ -7,7 +7,6 @@
 @import "./papers.scss";
 @import './blog.scss';
 @import "./classes.scss";
-@import "./events.scss";
 @import "./logo.scss";
 @import "./dropdown.scss";
 
@@ -17,7 +16,7 @@
   src: url("../assets/fonts/AHAMONO-Regular.eot?#iefix") format("embedded-opentype"),
     url("../assets/fonts/AHAMONO-Regular.otf") format("opentype"),
     url("../assets/fonts/AHAMONO-Regular.woff") format("woff"),
-    url("../assets/fonts/AHAMONO-Regular.ttf") format("/truetype"),
+    url("../assets/fonts/AHAMONO-Regular.ttf") format("truetype"),
     url("../assets/fonts/AHAMONO-Regular.svg#AHAMONO-Regular") format("svg");
   font-weight: normal;
   font-style: normal;
@@ -33,6 +32,15 @@ html {
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  // Scale the whole rem-based design up on large monitors
+  @include wide {
+    font-size: 14px;
+  }
+
+  @include ultrawide {
+    font-size: 16px;
+  }
 }
 
 *,
@@ -52,8 +60,11 @@ body {
   background-color: $color-white;
   font-family: "AHAMONO";
   font-size: $font-size-base;
-  max-width: 1200px !important;
-  height: 100vh;
+  // rem-based cap (1200px at the 12px root) that grows with the root font
+  // size on large monitors, centered instead of stuck to the left edge
+  max-width: $content-max-width;
+  margin-inline: auto;
+  min-height: 100vh;
 }
 
 ul {
@@ -77,6 +88,11 @@ ul {
   }
 }
 
+// Standalone button-style links ("READ", "Lesson plan", "back to curriculum", …)
+a.box {
+  @extend %squared_button;
+}
+
 /* Mobile Styles Start */
 @include mobile {
   body {
@@ -84,7 +100,7 @@ ul {
     height: 100%;
 
     header {
-      h1 {
+      .site-title {
         margin: $space-4xl $space-lg;
       }
 
@@ -146,8 +162,9 @@ header {
 
   position: relative;
   z-index: $z-nav;
-  h1 {
+  .site-title {
     font-size: $font-size-xl;
+    font-weight: bold;
     padding: 5px;
     margin: $space-4xl $space-4xl 0;
   }
@@ -200,17 +217,12 @@ main {
     border: solid 2px $color-black;
     transition: box-shadow $transition-fast;
     background-color: $color-white;
-    opacity: 0;
-    transform: translateY($space-lg);
-
-    &.visible {
-      animation: card-enter 0.4s ease forwards;
-    }
 
     &:hover {
       box-shadow: 4px 5px;
     }
-    h1 {
+    h1,
+    .card-title {
       border-bottom: $border-standard;
       padding: $space-base;
     }
@@ -223,23 +235,15 @@ main {
   }
 
 
-  .twitter {
-    max-width: 500px;
-
-    .twitter-embed {
-      overflow-y: scroll;
-      max-height: 300px;
-    }
-  }
-
   .logo {
     background-color: transparent;
     position: fixed;
     bottom: 0;
-    left: $space-3xl;
+    // Track the centered content column instead of the viewport edge
+    left: max(#{$space-3xl}, calc(50vw - #{$content-max-width} / 2));
     z-index: $z-background;
-    width: 43vw;
-    transition: opacity 30s;
+    width: min(43vw, 45rem);
+    transition: opacity 2s;
     opacity: 0;
   }
   .logo.loaded {
@@ -271,6 +275,18 @@ main {
   }
 }
 
+// Entrance animation is only armed when JS is running (script.js adds .js to
+// <html>), so cards are never invisible for no-JS visitors or if the script
+// fails to load.
+html.js main .textblock {
+  opacity: 0;
+  transform: translateY($space-lg);
+
+  &.visible {
+    animation: card-enter 0.4s ease forwards;
+  }
+}
+
 @keyframes card-enter {
   from {
     opacity: 0;
@@ -283,7 +299,7 @@ main {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  main .textblock {
+  html.js main .textblock {
     opacity: 1;
     transform: none;
     animation: none !important;

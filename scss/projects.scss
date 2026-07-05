@@ -3,17 +3,12 @@
     grid-template-columns: repeat(2, 1fr);
     gap: $space-lg;
 
-    h1 {
-      span {
-        @include rotate-toggle;
-      }
-    }
     .textblock {
       display: flex;
       flex-direction: column;
       max-height: 90rem;
 
-      h1 {
+      .card-title {
         margin: 0;
         padding-top: $space-xs;
       }
@@ -28,14 +23,12 @@
     }
     img {
       @include card-image;
-      max-height: 100rem;
-      transition: max-height 1s linear;
-      overflow: hidden;
     }
 }
 
 .projectpages {
-    img {
+    img,
+    video {
       max-width: 100%;
       height: auto;
     }
@@ -54,10 +47,21 @@
     iframe {
       max-width: 100%;
     }
+
+    // Video embeds keep their aspect ratio as they shrink on narrow screens
+    // instead of letterboxing at their hardcoded height
+    iframe[src*="youtube"],
+    iframe[src*="youtu.be"],
+    iframe[src*="vimeo"] {
+      width: 100%;
+      max-width: 42rem;
+      height: auto;
+      aspect-ratio: 16 / 9;
+    }
 }
 
 .section-heading {
-    margin: $space-xl $space-4xl;
+    margin: $space-xl 0;
 }
 
 @include mobile {

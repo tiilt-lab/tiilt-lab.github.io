@@ -19,47 +19,46 @@ layout: null
 <body>
   <header></header>
 
-  <h1 class="section-heading">Current Projects</h1>
-  <main class="projects">
-    {% for project in site.data.projects.projects %}
-    {% if project.status == "current" %}
-    <section class="textblock project_box">
-      <h1>{{ project.name }}</h1>
-      <p class="window__description">{{ project.description }}</p>
-      {% if project.links.size > 0 %}
-      <div class="card-actions">
-        {% for link in project.links %}
-        <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
-        {% endfor %}
-      </div>
+  <main>
+    <h1 class="section-heading">Current Projects</h1>
+    <div class="projects">
+      {% for project in site.data.projects.projects %}
+      {% if project.status == "current" %}
+      <section class="textblock">
+        <h2 class="card-title">{{ project.name }}</h2>
+        <p class="window__description">{{ project.description }}</p>
+        {% if project.links.size > 0 %}
+        <div class="card-actions">
+          {% for link in project.links %}
+          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </section>
       {% endif %}
-    </section>
-    {% endif %}
-    {% endfor %}
+      {% endfor %}
+    </div>
+
+    <h2 class="section-heading">Past Projects</h2>
+    <div class="projects">
+      {% for project in site.data.projects.projects %}
+      {% if project.status == "past" %}
+      <section class="textblock">
+        <h3 class="card-title">{{ project.name }}</h3>
+        <p class="window__description">{{ project.description }}</p>
+        {% if project.links.size > 0 %}
+        <div class="card-actions">
+          {% for link in project.links %}
+          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </section>
+      {% endif %}
+      {% endfor %}
+    </div>
   </main>
 
-  <h1 class="section-heading">Past Projects</h1>
-  <main class="projects">
-    {% for project in site.data.projects.projects %}
-    {% if project.status == "past" %}
-    <section class="textblock project_box">
-      <h1>{{ project.name }}</h1>
-      <p class="window__description">{{ project.description }}</p>
-      {% if project.links.size > 0 %}
-      <div class="card-actions">
-        {% for link in project.links %}
-        <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </section>
-    {% endif %}
-    {% endfor %}
-  </main>
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="../script.js"></script>
 </body>
 

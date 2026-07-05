@@ -1,167 +1,146 @@
-// TODO: Clean up legacy code. Left due to the Mekatilili Fellowship Program, which has a picture in the project page. 
+// Shared site behavior: injected header/nav, projects dropdown,
+// "read more" bio truncation (people page), lazy images, card reveal.
 
-function headerGenerator() { 
-    var header = document.getElementsByTagName("header")[0]; 
-    var page = Array.from(document.getElementsByTagName("meta"))
-    var curr_page = window.location.href.slice(window.location.href.indexOf("edu") + 3)
-    var rt = "/" 
-    var srt = "/projects/"
-    if (page.some(m => m.content.includes("Project"))) { 
-        rt = "../../" 
-        srt = "../"
-    }
-    // } else if (curr_page == "/") { 
-    //     rt = "/" 
-    //     srt = "/projects/"
-    // }
+// Arms the JS-only CSS (card entrance animation) — see styles.scss
+document.documentElement.classList.add("js");
+
+function headerGenerator() {
+    var header = document.getElementsByTagName("header")[0];
+    // The site is served from the domain root, so absolute paths work from
+    // every page regardless of nesting depth.
     header.innerHTML =
-    `<h1 role="banner">technological innovations for inclusive learning &amp; teaching</h1>
-    <nav aria-label= "Main Navigation">
+    `<p class="site-title">technological innovations for inclusive learning &amp; teaching</p>
+    <nav aria-label="Main Navigation">
         <ul>
             <li>
-                <a href=${rt} aria-label="Go to Home Page">
+                <a href="/">
                     home
-                    <i class='uil uil-home'></i>
+                    <i class='uil uil-home' aria-hidden="true"></i>
                 </a>
             </li>
             <li>
                 <div class="nav-dropdown">
-                    <a href=${rt + "projects/"} class="nav-dropdown__link" aria-label="Info on projects">projects
-                        <i class='uil uil-drill'></i>
+                    <a href="/projects/" class="nav-dropdown__link">projects
+                        <i class='uil uil-drill' aria-hidden="true"></i>
                     </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false">
-                      <span>▼</span>
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu" aria-label="Toggle projects menu">
+                      <span aria-hidden="true">▼</span>
                     </button>
-                    <div class="nav-dropdown__menu">
-                        <a href=${srt + "blinc/"} aria-label="Info on Blinc Project">blinc</a>
-                        <a href=${srt + "sportsense/"} aria-label="Info on SportSense Project">sportsense</a>
-                        <a href=${srt + "sportsensefordata/"} aria-label="Info on SportSense for Data Literacy Project">sportsense for data</a>
+                    <div class="nav-dropdown__menu" id="projects-menu">
+                        <a href="/projects/blinc/">blinc</a>
+                        <a href="/projects/sportsense/">sportsense</a>
+                        <a href="/projects/sportsensefordata/">sportsense for data</a>
                     </div>
                 </div>
             </li>
             <li>
-                <a href=${rt + "people/"} aria-label="Info on the people">people
-                    <i class='uil uil-users-alt'></i>
+                <a href="/people/">people
+                    <i class='uil uil-users-alt' aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href=${rt + "papers/"} aria-label="Info on papers">papers
-                    <i class='uil uil-file-alt'></i>
+                <a href="/papers/">papers
+                    <i class='uil uil-file-alt' aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href=${rt + "classes/"} aria-label="Info on classes">classes
-                    <i class='uil uil-book'></i>
+                <a href="/classes/">classes
+                    <i class='uil uil-book' aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href=${rt + "blog/"} aria-label="Read our Blog">blog
-                    <i class='uil uil-pen'></i>
+                <a href="/blog/">blog
+                    <i class='uil uil-pen' aria-hidden="true"></i>
                 </a>
             </li>
             <li>
-                <a href=${rt + "contact/"} aria-label="Our Contact Info">contact
-                    <i class='uil uil-envelope'></i></a>
+                <a href="/contact/">contact
+                    <i class='uil uil-envelope' aria-hidden="true"></i></a>
             </li>
-            <!-- <li>
-                <a href=${rt + "events/"} class="current-page">events
-                    <i class='uil uil-meeting-board'></i></a>
-            </li> -->
         </ul>
     </nav>`
 
-    var links = Array.from(document.getElementsByTagName("a"))
-    curr_page = curr_page.split("/").filter(i => i != "")
-    links = links.filter(l => window.location.href == l.href || subset(l.href.slice(l.href.indexOf("edu") + 3).split("/").filter(i => i != ""), curr_page))
-    links.forEach(l => l.classList.add("current-page"))
-
-    // Custom dropdown toggle (replaces Bootstrap JS)
-    var toggleBtn = document.querySelector(".nav-dropdown__toggle")
-    if (toggleBtn) {
-        toggleBtn.addEventListener("click", function(e) {
-            e.stopPropagation();
-            var dropdown = toggleBtn.closest(".nav-dropdown");
-            dropdown.classList.toggle("open");
-            toggleBtn.setAttribute("aria-expanded", dropdown.classList.contains("open"));
-        });
-        document.addEventListener("click", function() {
-            var dropdown = document.querySelector(".nav-dropdown");
-            if (dropdown) {
-                dropdown.classList.remove("open");
-                toggleBtn.setAttribute("aria-expanded", "false");
-            }
-        });
-    }
+    markCurrentPage();
+    initDropdown();
 }
 
-function wide() {
-    var dropdown = document.querySelector(".nav-dropdown")
-    dropdown.className = "nav-dropdown dropup"
+// Highlight the nav link(s) matching the current URL path.
+function markCurrentPage() {
+    var pageSegments = window.location.pathname
+        .split("/")
+        .filter(function (s) { return s !== "" && s !== "index.html"; });
 
-    var arrow = document.querySelector(".nav-dropdown__toggle span")
-    arrow.innerHTML = "▲"
-}
+    Array.from(document.querySelectorAll("header nav a")).forEach(function (link) {
+        var linkSegments = new URL(link.href, window.location.origin).pathname
+            .split("/")
+            .filter(function (s) { return s !== "" && s !== "index.html"; });
 
-function narrow() {
-    var dropdown = document.querySelector(".nav-dropdown")
-    dropdown.className = "nav-dropdown"
+        var isCurrent = linkSegments.length === 0
+            ? pageSegments.length === 0
+            : subset(linkSegments, pageSegments);
 
-    var arrow = document.querySelector(".nav-dropdown__toggle span")
-    arrow.innerHTML = "▼"
-}
-
-function changeDropdown() { 
-    if (window.screen.width < 640) { 
-        wide()
-    } else { 
-        narrow()
-    }
-}
-
-function iosPatch() { 
-    if (!window.orientation){
-        if (window.innerWidth < window.innerHeight){
-            wide()
-        } else { 
-            narrow()
+        if (isCurrent) {
+            link.classList.add("current-page");
+            link.setAttribute("aria-current", "page");
         }
-    } else { 
-        switch(window.orientation) {  
-            case -90: case 90:
-                wide()
-            default:
-                narrow()
-        }
-    }
+    });
 }
 
-headerGenerator();
-changeDropdown();
-
-window.addEventListener("resize", function(event) {
-    changeDropdown();
-})
-
-window.addEventListener("orientationchange", function(event) {
-    iosPatch();
-})
-
-function subset(l1, l2) { 
-    if (l1.length == 0) { 
+function subset(l1, l2) {
+    if (l1.length == 0) {
         return false
     }
     return l1.every(i => l2.includes(i))
 }
 
-function contractText(e) {
-    const p_Sibling = e.closest('.textblock').querySelector('p');
+function initDropdown() {
+    var toggleBtn = document.querySelector(".nav-dropdown__toggle");
+    if (!toggleBtn) return;
+
+    function closeDropdown() {
+        var dropdown = document.querySelector(".nav-dropdown");
+        if (dropdown) {
+            dropdown.classList.remove("open");
+            toggleBtn.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    toggleBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var dropdown = toggleBtn.closest(".nav-dropdown");
+        dropdown.classList.toggle("open");
+        toggleBtn.setAttribute("aria-expanded", dropdown.classList.contains("open"));
+    });
+    document.addEventListener("click", closeDropdown);
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeDropdown();
+    });
+}
+
+// On mobile the nav sits at the bottom of the screen, so the projects
+// dropdown opens upward ("dropup") instead of downward.
+function changeDropdown() {
+    var dropdown = document.querySelector(".nav-dropdown");
+    var arrow = document.querySelector(".nav-dropdown__toggle span");
+    if (!dropdown || !arrow) return;
+
+    var mobile = window.innerWidth <= 640;
+    dropdown.classList.toggle("dropup", mobile);
+    arrow.textContent = mobile ? "▲" : "▼";
+}
+
+headerGenerator();
+changeDropdown();
+
+window.addEventListener("resize", changeDropdown);
+window.addEventListener("orientationchange", changeDropdown);
+
+function contractText(button) {
+    const p_Sibling = button.closest('.textblock').querySelector('p');
 
     const textContracted = p_Sibling.classList.toggle("contracted_text");
-    if (textContracted) {
-        e.innerHTML = "read more";
-    } else {
-        e.innerHTML = "read less";
-    }
+    button.textContent = textContracted ? "read more" : "read less";
+    button.setAttribute("aria-expanded", String(!textContracted));
 }
 
 function addReadMoreButtons() {
@@ -178,6 +157,7 @@ function addReadMoreButtons() {
             if (para.scrollHeight > para.clientHeight) {
                 const button = document.createElement("button");
                 button.textContent = "read more";
+                button.setAttribute("aria-expanded", "false");
                 button.addEventListener('click', () => contractText(button));
                 para.after(button);
             }
@@ -203,96 +183,9 @@ function wrapCardFooters() {
     });
 }
 
-
-// Goal is to remove everything from here and beyond. Seems like it's only dependent on the project page. 
-function onlyShow(e) { 
-    e.className = "lazy" 
-}
-
-function onlyHide(e) { 
-    e.className = "visually_hidden"
-}
-
-// These functions were renamed so that purpose will be more clear
-function toggleImage(e) {
-    e.classList.toggle("visually_hidden");
-}
-
-function rotate(e) {
-    e.classList.toggle("rotated");
-}
-
-// Makes function more versatile.
-function toggleHelper(e, f) {
-    const spanElement = e.querySelector('span');
-    rotate(spanElement);
-
-    const imgElements = e.getElementsByTagName('img');
-    const imgElementsInArray = Array.from(imgElements);
-    imgElementsInArray.map((imgTag) => f(imgTag));
-}
-
 window.onload = () => {
-    var timer = null;
-    if (location.href.includes("projects")) {
-        const projectBoxes = document.getElementsByClassName('project_box');
-        const projectBoxesInArray = Array.from(projectBoxes);
-        projectBoxesInArray.map((box) => box.addEventListener('click', function () { 
-            var headerElement = box.querySelector('span')  
-            toggleHelper(box, toggleImage); 
-            // This is to change the accessibility tags when the box does get expanded
-            if (headerElement.getAttribute('aria-expanded') == "true") { 
-                headerElement.setAttribute('aria-expanded', "false")
-            } else { 
-                headerElement.setAttribute('aria-expanded', "true")
-            } 
-        }));
-        projectBoxesInArray.map((box) => box.addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                var headerElement = box.querySelector('span') 
-              toggleHelper(box, toggleImage)
-              if (headerElement.getAttribute('aria-expanded') == "true") { 
-                  headerElement.setAttribute('aria-expanded', "false")
-              } else { 
-                  headerElement.setAttribute('aria-expanded', "true")
-              }
-            }
-        }));
-
-        // Here are the hover features
-        projectBoxesInArray.map(function(box) {
-            var headerElement = box.querySelector('h1') 
-            headerElement.addEventListener("mouseenter", 
-                function() {  
-                    var spanElement = box.querySelector('span')
-                    clearTimeout(timer);  
-                    if (spanElement.getAttribute('aria-expanded') == "false") { 
-                        toggleHelper(box, onlyShow); 
-                        spanElement.setAttribute('aria-expanded', "true")
-                    } 
-                }
-            ); 
-        })
-        projectBoxesInArray.map(function(box) { 
-            box.addEventListener("mouseleave", () => timer = setTimeout(
-                function() { 
-                    var headerElement = box.querySelector('span')
-                    if (headerElement.getAttribute('aria-expanded') == "true") { 
-                        toggleHelper(box, onlyHide); 
-                        headerElement.setAttribute('aria-expanded', "false")
-                    } 
-                }, 
-            1000));
-        })
-    }
-
-    if (location.href.includes("people")) {
-        if (navigator.userAgent.indexOf("Firefox") !== -1) {
-            console.log('lol @ Firefox');
-            wrapCardFooters();
-        } else {
-            addReadMoreButtons();
-        }
+    if (location.pathname.includes("people")) {
+        addReadMoreButtons();
     }
 
     if (typeof LazyLoad !== 'undefined') {
@@ -317,5 +210,10 @@ window.onload = () => {
         // Fallback: show all immediately
         cards.forEach(function(card) { card.classList.add('visible'); });
     }
+
+    // Safety net: never leave a card hidden if the observer doesn't fire
+    setTimeout(function () {
+        cards.forEach(function (card) { card.classList.add('visible'); });
+    }, 1500);
 
 };

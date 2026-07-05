@@ -22,7 +22,6 @@ The official website for the **Technological Innovations for Inclusive Learning 
 │   ├── blinc/
 │   ├── sportsense/
 │   ├── sportsensefordata/
-│   ├── sportsanalytics/
 │   ├── minecraft/
 │   ├── multicraft/
 │   ├── famjam/
@@ -105,5 +104,7 @@ The site is hosted via GitHub Pages. Pushing to `main` automatically deploys to 
 
 4. Compile SCSS to CSS:
    ```bash
-   npx sass scss/styles.scss css/styles.css
+   npx sass scss/styles.scss css/styles.css --style=compressed --no-source-map
    ```
+   The deploy workflow (`.github/workflows/static.yml`) also compiles SCSS on
+   every push, so the committed `css/styles.css` only matters for local preview.

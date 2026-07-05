@@ -20,13 +20,14 @@ layout: null
   <header></header>
 
   <main class="people">
-    <article class="leaders" role="contentinfo" aria-label="Leaders of the lab">
-      <h1>Principal Investigator</h1>
+    <h1 class="visually_hidden">People</h1>
+    <article class="leaders" aria-label="Leaders of the lab">
+      <h2>Principal Investigator</h2>
       <div class="people-group">
         {% for member in site.data.people.members %}
         {% if member.role == "pi" and member.status == "active" %}
         <section class="textblock top_dog">
-          <h2>{{ member.name }}</h2>
+          <h3>{{ member.name }}</h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">
@@ -42,13 +43,13 @@ layout: null
       </div>
     </article>
 
-    <article class="grads" role="contentinfo" aria-label="Graduate students of the lab">
-      <h1>Graduate Students</h1>
+    <article class="grads" aria-label="Graduate students of the lab">
+      <h2>Graduate Students</h2>
       <div class="people-group">
         {% for member in site.data.people.members %}
         {% if member.role == "grad" and member.status == "active" %}
         <section class="textblock">
-          <h2>{{ member.name }}</h2>
+          <h3>{{ member.name }}</h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">
@@ -66,12 +67,12 @@ layout: null
 
     {% assign undergrads = site.data.people.members | where: "role", "undergrad" | where: "status", "active" %}
     {% if undergrads.size > 0 %}
-    <article class="undergrads" role="contentinfo" aria-label="Undergraduate students of the lab">
-      <h1>Undergraduate Students</h1>
+    <article class="undergrads" aria-label="Undergraduate students of the lab">
+      <h2>Undergraduate Students</h2>
       <div class="people-group">
         {% for member in undergrads %}
         <section class="textblock">
-          <h2>{{ member.name }}</h2>
+          <h3>{{ member.name }}</h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">
@@ -87,10 +88,10 @@ layout: null
     </article>
     {% endif %}
 
-    <article class="alumni" role="contentinfo" aria-label="Alumni of the lab">
-      <h1>Alumni</h1>
+    <article class="alumni" aria-label="Alumni of the lab">
+      <h2>Alumni</h2>
 
-      <h2>PhD Alumni</h2>
+      <h3>PhD Alumni</h3>
       <div class="list-group">
         <ul>
           {% assign phd_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "phd" | sort: "sort_name" %}
@@ -100,7 +101,7 @@ layout: null
         </ul>
       </div>
 
-      <h2>Other Alumni</h2>
+      <h3>Other Alumni</h3>
       <div class="list-group">
         <ul>
           {% assign other_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "other" | sort: "sort_name" %}
@@ -112,7 +113,6 @@ layout: null
     </article>
   </main>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../script.js"></script>
 </body>
 
