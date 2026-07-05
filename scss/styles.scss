@@ -13,11 +13,8 @@
 // FONTS
 @font-face {
   font-family: "AHAMONO";
-  src: url("../assets/fonts/AHAMONO-Regular.eot?#iefix") format("embedded-opentype"),
-    url("../assets/fonts/AHAMONO-Regular.otf") format("opentype"),
-    url("../assets/fonts/AHAMONO-Regular.woff") format("woff"),
-    url("../assets/fonts/AHAMONO-Regular.ttf") format("truetype"),
-    url("../assets/fonts/AHAMONO-Regular.svg#AHAMONO-Regular") format("svg");
+  src: url("../assets/fonts/AHAMONO-Regular.woff2") format("woff2"),
+    url("../assets/fonts/AHAMONO-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -120,8 +117,10 @@ a.box {
               display: flex;
               flex-direction: column-reverse;
 
-              i {
-                font-size: $font-size-xl;
+              .nav-icon {
+                width: $font-size-xl;
+                height: $font-size-xl;
+                margin: 0 auto;
               }
             }
 
@@ -134,17 +133,7 @@ a.box {
     }
 
     main {
-
       margin: 0 $space-xl $space-3xl;
-
-      .logo, #logo3 {
-        display: none;
-        position: fixed;
-        bottom: 6rem;
-        width: auto;
-        left: 0;
-        z-index: $z-background;
-      }
     }
 
     .people {
@@ -190,6 +179,13 @@ header {
           display: flex;
           justify-content: center;
           align-items: center;
+
+          .nav-icon {
+            width: 1em;
+            height: 1em;
+            margin-left: 0.3em;
+            flex-shrink: 0;
+          }
         }
 
         a:hover {
@@ -227,6 +223,12 @@ main {
       padding: $space-base;
     }
 
+    // Card titles render the same size regardless of their heading level
+    // (h2 on top-level cards, h3 under a section heading)
+    .card-title {
+      font-size: 1.5em;
+    }
+
     p,
     ol,
     ul {
@@ -235,20 +237,6 @@ main {
   }
 
 
-  .logo {
-    background-color: transparent;
-    position: fixed;
-    bottom: 0;
-    // Track the centered content column instead of the viewport edge
-    left: max(#{$space-3xl}, calc(50vw - #{$content-max-width} / 2));
-    z-index: $z-background;
-    width: min(43vw, 45rem);
-    transition: opacity 2s;
-    opacity: 0;
-  }
-  .logo.loaded {
-    opacity: 1;
-  }
   .visually_hidden { //https://accessibility.18f.gov/hidden-content/
     display: block;
     max-height: 1px;

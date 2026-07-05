@@ -37,7 +37,8 @@ jobs:
           node-version: '20'
 
       - name: Compile SCSS
-        run: npx --yes sass scss/styles.scss css/styles.css --style=compressed --no-source-map
+        # Pinned: sass 3.x will remove @import support, which styles.scss uses
+        run: npx --yes sass@1.99.0 scss/styles.scss css/styles.css --style=compressed --no-source-map
 
       - name: Build with Jekyll
         run: bundle exec jekyll build

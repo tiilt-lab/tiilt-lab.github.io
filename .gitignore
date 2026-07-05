@@ -10,3 +10,8 @@ package-lock.json
 
 # Source maps (generated from scss/ via sass)
 css/*.css.map
+# Jekyll build output
+_site/
+.jekyll-cache/
+vendor/bundle
+.bundle

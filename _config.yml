@@ -6,6 +6,24 @@ exclude:
   - Gemfile.lock
   - node_modules
   - scripts
+  # Source maps for the compiled Scratch build — 43MB that only browser
+  # devtools would ever request; keep them out of the deployed site
+  - "scratch/*.map"
+  - "scratch/**/*.map"
 
 # Blog post permalink structure
 permalink: /blog/:year/:month/:day/:title/
+
+# Site URL (used by jekyll-sitemap)
+url: "https://tiilt.northwestern.edu"
+
+plugins:
+  - jekyll-sitemap
+
+# All blog posts use the post layout automatically
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post

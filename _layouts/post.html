@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - {{ page.title }}</title>
+  <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image | absolute_url }}{% else %}{{ '/assets/img/og-image.png' | absolute_url }}{% endif %}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#ccc4df" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
+</head>
+
+<body>
+  <header></header>
+  <main class="blog">
+    <section class="textblock">
+      <h1 class="card-title">{{ page.title }}</h1>
+      <p class="post-date">{{ page.date | date: "%B %-d, %Y" }}</p>
+      {% if page.image %}
+      <img src="{{ page.image }}" alt="{{ page.image_alt }}" />
+      {% endif %}
+      {{ content }}
+      <p><a class="box" href="/blog/" aria-label="Back to all blog posts">◀ all posts</a></p>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>
