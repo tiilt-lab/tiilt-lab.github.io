@@ -1,0 +1,108 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - Impact</title>
+  <meta name="description" content="The TIILT Lab's research output and community footprint: publications over time, collaboration across the lab, and our Evanston and Chicago partners."/>
+  <link rel="canonical" href="https://tiilt.northwestern.edu/impact/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TIILT Lab - Impact">
+  <meta property="og:description" content="The TIILT Lab's research output and community footprint: publications over time, collaboration across the lab, and our Evanston and Chicago partners.">
+  <meta property="og:url" content="https://tiilt.northwestern.edu/impact/">
+  <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#ccc4df"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+</head>
+
+<body>
+  <header></header>
+
+  {% assign papers = site.data.papers.papers %}
+  {% assign active = site.data.people.members | where: "status", "active" %}
+  {% assign alumni = site.data.people.members | where: "status", "alumni" %}
+
+  <main class="prose impact">
+    <h1 class="visually_hidden">Impact</h1>
+
+    <section class="textblock">
+      <h2 class="card-title">The lab in numbers</h2>
+      <div class="stat-row">
+        <div class="stat-tile">
+          <span class="stat-tile__value">{{ papers.size }}</span>
+          <span class="stat-tile__label">publications</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-tile__value">{{ site.data.projects.projects.size }}</span>
+          <span class="stat-tile__label">research projects</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-tile__value">{{ active.size }}</span>
+          <span class="stat-tile__label">current members</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-tile__value">{{ alumni.size }}</span>
+          <span class="stat-tile__label">alumni</span>
+        </div>
+        <div class="stat-tile">
+          <span class="stat-tile__value">13</span>
+          <span class="stat-tile__label">free curriculum lessons</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="textblock">
+      <h2 class="card-title">Publications per year</h2>
+      <div id="years-chart" class="chart" role="img" aria-label="Column chart of TIILT Lab publications per year. A data table follows."></div>
+      <details class="chart-table">
+        <summary>view as table</summary>
+        <table id="years-table"></table>
+      </details>
+    </section>
+
+    <section class="textblock">
+      <h2 class="card-title">Who publishes together</h2>
+      <p class="chart-note">Co-authored publications between current lab members. Darker means more papers together.</p>
+      <div id="coauthor-chart" class="chart" role="img" aria-label="Heatmap of co-authored publications between current lab members. A data table follows."></div>
+      <details class="chart-table">
+        <summary>view as table</summary>
+        <table id="coauthor-table"></table>
+      </details>
+    </section>
+
+    <section class="textblock">
+      <h2 class="card-title">Where we work</h2>
+      <p>
+        TIILT research happens in real learning spaces, with partners including
+        Evanston/Skokie School District 65, Chute Middle School, MetaMedia at the
+        McGaw YMCA, the Evanston Public Library, World Relief Chicago, the
+        <a href="https://www.blackkidspredict.org">Black Kids Predict</a> initiative,
+        and youth sports programs across Evanston and Chicago.
+      </p>
+    </section>
+  </main>
+
+  <div id="chart-tooltip" class="chart-tooltip" hidden></div>
+
+  <script>
+    window.IMPACT_DATA = {
+      years: [{% for p in papers %}{{ p.year }},{% endfor %}],
+      citations: [{% for p in papers %}{{ p.citation | jsonify }},{% endfor %}],
+      members: [{% for m in active %}{{ m.name | jsonify }},{% endfor %}]
+    };
+  </script>
+  <script src="/script.js"></script>
+  <script src="/assets/js/impact.js"></script>
+</body>
+
+</html>

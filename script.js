@@ -101,6 +101,8 @@ function footerGenerator() {
     <p>
         <a href="/join/">join the lab</a>
         &middot; <a href="/educators/">for educators</a>
+        &middot; <a href="/playground/">playground</a>
+        &middot; <a href="/impact/">impact</a>
         &middot; <a href="/search/">search</a>
         &middot; <a href="/accessibility/">accessibility</a>
     </p>
@@ -181,6 +183,15 @@ function changeDropdown() {
 
 headerGenerator();
 changeDropdown();
+
+// Let the logo's circuit traces draw themselves in (see logo.scss)
+requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+        Array.from(document.querySelectorAll(".big-logo")).forEach(function (logo) {
+            logo.classList.add("drawn");
+        });
+    });
+});
 
 window.addEventListener("resize", changeDropdown);
 window.addEventListener("orientationchange", changeDropdown);

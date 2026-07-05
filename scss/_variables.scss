@@ -13,10 +13,11 @@ $color-orange-red: #ef4136;
 $color-orange: #fbb040;
 $color-yellow: #f9ed32;
 
-// Neutrals
-$color-black: #000;
-$color-white: #ffffff;
-$color-gray: #717171;
+// Neutrals — routed through CSS custom properties so the whole design
+// themes for dark mode in one place (see the :root block in styles.scss)
+$color-black: var(--fg, #000);
+$color-white: var(--bg, #ffffff);
+$color-gray: var(--muted, #717171);
 
 // Spacing Scale
 $space-xs: 0.25rem;

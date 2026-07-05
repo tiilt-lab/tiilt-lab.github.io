@@ -37,7 +37,7 @@ layout: null
         {% for member in site.data.people.members %}
         {% if member.role == "pi" and member.status == "active" %}
         <section class="textblock top_dog">
-          <h3>{{ member.name }}</h3>
+          <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">
@@ -59,7 +59,7 @@ layout: null
         {% for member in site.data.people.members %}
         {% if member.role == "grad" and member.status == "active" %}
         <section class="textblock">
-          <h3>{{ member.name }}</h3>
+          <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">
@@ -82,7 +82,7 @@ layout: null
       <div class="people-group">
         {% for member in undergrads %}
         <section class="textblock">
-          <h3>{{ member.name }}</h3>
+          <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source data-srcset="{{ webp }}" type="image/webp">

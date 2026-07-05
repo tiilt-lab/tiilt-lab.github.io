@@ -30,6 +30,19 @@
 }
 
 .projectpages {
+    // Each project page sets --accent from the logo palette (inline style on
+    // <main>); titles and hover shadows pick it up, everything else stays ink
+    .textblock {
+      h1,
+      .card-title {
+        border-bottom-color: var(--accent, $color-black);
+      }
+
+      &:hover {
+        box-shadow: 4px 5px var(--accent, currentColor);
+      }
+    }
+
     img,
     video {
       max-width: 100%;

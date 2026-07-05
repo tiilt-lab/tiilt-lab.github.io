@@ -73,6 +73,20 @@
         transition: stroke-dashoffset 2s linear;
     }
 
+    // Circuit traces draw themselves in on page load (script.js adds .drawn);
+    // JS-off visitors and reduced-motion users see the finished logo instantly
+    @media (prefers-reduced-motion: no-preference) {
+        html.js &:not(.drawn) {
+            > line {
+                stroke-dashoffset: 1200px;
+            }
+
+            > polyline {
+                stroke-dashoffset: 2000px;
+            }
+        }
+    }
+
     &:hover > line {
         stroke-dashoffset: 100rem;
     }
