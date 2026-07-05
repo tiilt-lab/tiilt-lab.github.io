@@ -33,7 +33,7 @@ jobs:
 
       - name: Open or update issue
         if: steps.lychee.outputs.exit_code != 0
-        uses: peter-evans/create-issue-from-file@v5
+        uses: peter-evans/create-issue-from-file@v6
         with:
           title: "Broken links found by the monthly link check"
           content-filepath: ./lychee/out.md
