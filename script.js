@@ -4,6 +4,15 @@
 // Arms the JS-only CSS (card entrance animation) — see styles.scss
 document.documentElement.classList.add("js");
 
+// Apply a manually-chosen theme before first paint (falls back to the
+// OS preference via the prefers-color-scheme CSS when nothing is stored)
+try {
+    var storedTheme = localStorage.getItem("theme");
+    if (storedTheme === "light" || storedTheme === "dark") {
+        document.documentElement.dataset.theme = storedTheme;
+    }
+} catch (e) { /* private mode */ }
+
 // Inline nav icons (Unicons line set, https://github.com/Iconscout/unicons,
 // Apache-2.0) — replaces the render-blocking icon-font CDN.
 var NAV_ICONS = {
@@ -13,6 +22,9 @@ var NAV_ICONS = {
     "file-alt": ["M9,10h1a1,1,0,0,0,0-2H9a1,1,0,0,0,0,2Zm0,2a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2ZM20,8.94a1.31,1.31,0,0,0-.06-.27l0-.09a1.07,1.07,0,0,0-.19-.28h0l-6-6h0a1.07,1.07,0,0,0-.28-.19.32.32,0,0,0-.09,0A.88.88,0,0,0,13.05,2H7A3,3,0,0,0,4,5V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V9S20,9,20,8.94ZM14,5.41,16.59,8H15a1,1,0,0,1-1-1ZM18,19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V5A1,1,0,0,1,7,4h5V7a3,3,0,0,0,3,3h3Zm-3-3H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z"],
     "book": ["M15,6H9A1,1,0,0,0,8,7v4a1,1,0,0,0,1,1h6a1,1,0,0,0,1-1V7A1,1,0,0,0,15,6Zm-1,4H10V8h4Zm3-8H5A1,1,0,0,0,4,3V21a1,1,0,0,0,1,1H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Zm1,17a1,1,0,0,1-1,1H6V4H17a1,1,0,0,1,1,1Z"],
     "pen": ["M22,7.24a1,1,0,0,0-.29-.71L17.47,2.29A1,1,0,0,0,16.76,2a1,1,0,0,0-.71.29L13.22,5.12h0L2.29,16.05a1,1,0,0,0-.29.71V21a1,1,0,0,0,1,1H7.24A1,1,0,0,0,8,21.71L18.87,10.78h0L21.71,8a1.19,1.19,0,0,0,.22-.33,1,1,0,0,0,0-.24.7.7,0,0,0,0-.14ZM6.83,20H4V17.17l9.93-9.93,2.83,2.83ZM18.17,8.66,15.34,5.83l1.42-1.41,2.82,2.82Z"],
+    "ellipsis-h": ["M12,10a2,2,0,1,0,2,2A2,2,0,0,0,12,10ZM5,10a2,2,0,1,0,2,2A2,2,0,0,0,5,10Zm14,0a2,2,0,1,0,2,2A2,2,0,0,0,19,10Z"],
+    "moon": ["M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"],
+    "sun": ["M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"],
     "envelope": ["M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.41,2-5.88,5.88a1,1,0,0,1-1.42,0L5.41,6ZM20,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V7.41l5.88,5.88a3,3,0,0,0,4.24,0L20,7.41Z"]
 };
 
@@ -84,11 +96,35 @@ function headerGenerator() {
                 <a href="/contact/">contact
                     ${navIcon("envelope")}</a>
             </li>
+            <li>
+                <div class="nav-dropdown">
+                    <a href="/join/" class="nav-dropdown__link">more
+                        ${navIcon("ellipsis-h")}
+                    </a>
+                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="more-menu" aria-label="Toggle more menu">
+                      <span aria-hidden="true">▼</span>
+                    </button>
+                    <div class="nav-dropdown__menu nav-dropdown__menu--right" id="more-menu">
+                        <a href="/join/">join the lab</a>
+                        <a href="/educators/">for educators</a>
+                        <a href="/playground/">playground</a>
+                        <a href="/impact/">impact</a>
+                        <a href="/search/">search</a>
+                        <a href="/accessibility/">accessibility</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
+                    ${navIcon("moon")}
+                </button>
+            </li>
         </ul>
     </nav>`
 
     markCurrentPage();
-    initDropdown();
+    initDropdowns();
+    initThemeToggle();
     footerGenerator();
 }
 
@@ -145,40 +181,69 @@ function subset(l1, l2) {
     return l1.every(i => l2.includes(i))
 }
 
-function initDropdown() {
-    var toggleBtn = document.querySelector(".nav-dropdown__toggle");
-    if (!toggleBtn) return;
+function initDropdowns() {
+    var dropdowns = Array.from(document.querySelectorAll(".nav-dropdown"));
 
-    function closeDropdown() {
-        var dropdown = document.querySelector(".nav-dropdown");
-        if (dropdown) {
-            dropdown.classList.remove("open");
-            toggleBtn.setAttribute("aria-expanded", "false");
-        }
+    function closeAll(except) {
+        dropdowns.forEach(function (d) {
+            if (d === except) return;
+            d.classList.remove("open");
+            d.querySelector(".nav-dropdown__toggle").setAttribute("aria-expanded", "false");
+        });
     }
 
-    toggleBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        var dropdown = toggleBtn.closest(".nav-dropdown");
-        dropdown.classList.toggle("open");
-        toggleBtn.setAttribute("aria-expanded", dropdown.classList.contains("open"));
+    dropdowns.forEach(function (dropdown) {
+        var toggleBtn = dropdown.querySelector(".nav-dropdown__toggle");
+        toggleBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            closeAll(dropdown); // only one menu open at a time
+            dropdown.classList.toggle("open");
+            toggleBtn.setAttribute("aria-expanded", dropdown.classList.contains("open"));
+        });
     });
-    document.addEventListener("click", closeDropdown);
+    document.addEventListener("click", function () { closeAll(null); });
     document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeDropdown();
+        if (e.key === "Escape") closeAll(null);
     });
 }
 
-// On mobile the nav sits at the bottom of the screen, so the projects
-// dropdown opens upward ("dropup") instead of downward.
-function changeDropdown() {
-    var dropdown = document.querySelector(".nav-dropdown");
-    var arrow = document.querySelector(".nav-dropdown__toggle span");
-    if (!dropdown || !arrow) return;
+// Manual light/dark override; the choice persists in localStorage and the
+// impact charts listen for the change to re-render with the other ramp.
+function initThemeToggle() {
+    var btn = document.querySelector(".theme-toggle");
+    if (!btn) return;
 
+    function currentTheme() {
+        return document.documentElement.dataset.theme ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    }
+
+    function paint() {
+        var dark = currentTheme() === "dark";
+        btn.innerHTML = navIcon(dark ? "sun" : "moon");
+        btn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+        btn.setAttribute("aria-pressed", String(dark));
+    }
+
+    btn.addEventListener("click", function () {
+        var next = currentTheme() === "dark" ? "light" : "dark";
+        document.documentElement.dataset.theme = next;
+        try { localStorage.setItem("theme", next); } catch (e) { /* private mode */ }
+        paint();
+        document.documentElement.dispatchEvent(new CustomEvent("themechange"));
+    });
+    paint();
+}
+
+// On mobile the nav sits at the bottom of the screen, so dropdown menus
+// open upward ("dropup") instead of downward.
+function changeDropdown() {
     var mobile = window.innerWidth <= 640;
-    dropdown.classList.toggle("dropup", mobile);
-    arrow.textContent = mobile ? "▲" : "▼";
+    Array.from(document.querySelectorAll(".nav-dropdown")).forEach(function (dropdown) {
+        dropdown.classList.toggle("dropup", mobile);
+        var arrow = dropdown.querySelector(".nav-dropdown__toggle span");
+        if (arrow) arrow.textContent = mobile ? "▲" : "▼";
+    });
 }
 
 headerGenerator();

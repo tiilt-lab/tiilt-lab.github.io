@@ -199,6 +199,16 @@
         table.innerHTML = head + rows;
     }
 
-    yearsChart();
-    coauthorChart();
+    function render() {
+        var yh = document.getElementById("years-chart");
+        var ch = document.getElementById("coauthor-chart");
+        if (yh) yh.innerHTML = "";
+        if (ch) ch.innerHTML = "";
+        yearsChart();
+        coauthorChart();
+    }
+
+    render();
+    // repaint with the other validated ramp when the user flips the theme
+    document.documentElement.addEventListener("themechange", render);
 })();

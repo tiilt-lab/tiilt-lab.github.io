@@ -70,6 +70,11 @@
         }
     }
 
+    .nav-dropdown__menu--right {
+        left: auto;
+        right: 0;
+    }
+
     &.open .nav-dropdown__menu {
         display: block;
     }

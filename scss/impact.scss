@@ -15,16 +15,24 @@
   --muted-ink: #{$color-gray};
 }
 
+// dark ramp anchor flips: light step = high emphasis on a dark surface
+@mixin dark-chart-vars {
+  --heat-1: #215550;
+  --heat-2: #00716a;
+  --heat-3: #00958c;
+  --heat-4: #55bab2;
+  --cell-empty: #242424;
+  --grid-line: #333333;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    // dark ramp anchor flips: light step = high emphasis on a dark surface
-    --heat-1: #215550;
-    --heat-2: #00716a;
-    --heat-3: #00958c;
-    --heat-4: #55bab2;
-    --cell-empty: #242424;
-    --grid-line: #333333;
+  :root:not([data-theme="light"]) {
+    @include dark-chart-vars;
   }
+}
+
+:root[data-theme="dark"] {
+  @include dark-chart-vars;
 }
 
 .impact {
