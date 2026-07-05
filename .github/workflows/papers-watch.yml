@@ -1,0 +1,38 @@
+# Quarterly check for new lab publications missing from papers.yml.
+name: Publications watch
+
+on:
+  schedule:
+    - cron: "0 9 5 1,4,7,10 *" # quarterly: Jan/Apr/Jul/Oct 5th
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check for new papers
+        run: |
+          pip install --quiet pyyaml
+          python3 scripts/check_new_papers.py > report.md
+          echo "found=$(test -s report.md && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+        id: check
+
+      - name: Open issue
+        if: steps.check.outputs.found == 'yes'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          existing=$(gh issue list --label publications --state open --json number --jq '.[0].number' || true)
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body-file report.md
+          else
+            gh issue create --title "New publications may be missing from the papers list" \
+              --label publications --body-file report.md
+          fi

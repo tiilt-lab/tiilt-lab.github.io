@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - Search</title>
+  <meta name="description" content="Search the TIILT Lab website: publications, projects, people, and curricula."/>
+  <link rel="canonical" href="https://tiilt.northwestern.edu/search/">
+  <meta name="robots" content="noindex">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#ccc4df"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+</head>
+
+<body>
+  <header></header>
+
+  <main class="prose">
+    <section class="textblock">
+      <h1>Search</h1>
+      <div id="search"></div>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+  <script src="/pagefind/pagefind-ui.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (typeof PagefindUI !== 'undefined') {
+        new PagefindUI({ element: "#search", showSubResults: true });
+      } else {
+        document.getElementById('search').innerHTML =
+          '<p>Search is available on the live site at <a href="https://tiilt.northwestern.edu/search/">tiilt.northwestern.edu/search</a>.</p>';
+      }
+    });
+  </script>
+</body>
+
+</html>

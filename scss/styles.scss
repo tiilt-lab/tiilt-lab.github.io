@@ -117,6 +117,26 @@ ul {
   }
 }
 
+
+// Prominent call-to-action link (contact + join pages)
+.apply-btn {
+  display: inline-block;
+  margin-top: $space-3xl;
+  padding: $space-lg $space-4xl;
+  font-size: $font-size-lg;
+  font-weight: bold;
+  border: $border-standard;
+  text-decoration: none;
+  background-color: $color-black;
+  color: $color-white;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-black;
+  }
+}
+
 // Standalone button-style links ("READ", "Lesson plan", "back to curriculum", …)
 a.box {
   @include squared-button;

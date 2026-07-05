@@ -99,10 +99,16 @@ function footerGenerator() {
     footer.innerHTML =
     `<p>tiilt lab &middot; Northwestern University &middot; Mudd 3104</p>
     <p>
+        <a href="/join/">join the lab</a>
+        &middot; <a href="/educators/">for educators</a>
+        &middot; <a href="/search/">search</a>
+        &middot; <a href="/accessibility/">accessibility</a>
+    </p>
+    <p>
         <a href="mailto:tiiltlab@gmail.com">tiiltlab@gmail.com</a>
         &middot; <a href="https://twitter.com/tiiltlab">twitter</a>
         &middot; <a href="https://github.com/tiilt-lab">github</a>
-        &middot; <a href="/accessibility/">accessibility</a>
+        &middot; <a href="/feed.xml">rss</a>
     </p>
     <p>&copy; ${new Date().getFullYear()} TIILT Lab</p>`;
     document.body.appendChild(footer);
