@@ -50,14 +50,24 @@ layout: null
     <header></header>
     <main class="papers">
       <h1 class="visually_hidden">Papers</h1>
+
+      <section class="textblock paper-filters" aria-label="Filter publications">
+        <div class="paper-filters__row">
+          <input type="search" id="paper-search" placeholder="search citations…" aria-label="Search citations">
+          <button type="button" id="paper-clear" hidden>clear filters</button>
+          <span id="paper-count" role="status" aria-live="polite"></span>
+        </div>
+        <div class="paper-filters__row" id="member-pills" aria-label="Filter by lab member"></div>
+      </section>
+
       {% assign sorted_papers = site.data.papers.papers | sort: "year" | reverse %}
       {% assign years = sorted_papers | map: "year" | uniq %}
       {% for year in years %}
-      <section class="textblock">
+      <section class="textblock" data-year="{{ year }}">
         <h2 class="card-title">{{ year }}</h2>
         {% assign year_papers = sorted_papers | where: "year", year %}
         {% for paper in year_papers %}
-        <div class="window__paper">
+        <div class="window__paper" data-citation="{{ paper.citation | downcase | escape }}"{% if paper.doi != "" and paper.doi != nil %} data-doi="{{ paper.doi | escape }}"{% endif %}>
           <p>{{ paper.citation }}</p>
           {% if paper.pdf != "" and paper.pdf != nil %}
           <a href="{{ paper.pdf }}" target="_blank">PDF</a>
@@ -74,5 +84,11 @@ layout: null
       {% endfor %}
     </main>
     <script src="../script.js"></script>
+    <script>
+      window.LAB_MEMBERS = [
+        {% for member in site.data.people.members %}{% if member.status == "active" %}{{ member.name | jsonify }},{% endif %}{% endfor %}
+      ];
+    </script>
+    <script src="/assets/js/papers.js"></script>
 </body>
 </html>

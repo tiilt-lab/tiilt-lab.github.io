@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - {{ page.member.name }}</title>
+  <meta name="description" content="{{ page.member.name }} at the TIILT Lab, Northwestern University. {{ page.member.bio | strip_html | strip_newlines | truncate: 120 }}" />
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="{{ page.member.name }} — TIILT Lab">
+  <meta property="og:description" content="{{ page.member.bio | strip_html | strip_newlines | truncate: 160 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{% if page.member.photo != '' and page.member.photo != nil %}{{ page.member.photo | absolute_url }}{% else %}{{ '/assets/img/og-image.png' | absolute_url }}{% endif %}">
+  <meta name="twitter:card" content="summary">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ page.member.name | jsonify }},
+    "url": "{{ page.url | absolute_url }}",
+    {% if page.member.website != "" and page.member.website != nil %}"sameAs": {{ page.member.website | jsonify }},{% endif %}
+    "affiliation": {
+      "@type": "ResearchOrganization",
+      "name": "TIILT Lab, Northwestern University",
+      "url": "https://tiilt.northwestern.edu/"
+    }
+  }
+  </script>
+  <meta name="theme-color" content="#ccc4df" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
+</head>
+
+<body>
+  <header></header>
+  <main class="prose member-profile">
+    <section class="textblock">
+      <h1>{{ page.member.name }}</h1>
+      <div class="member-profile__body">
+        {% if page.member.photo != "" and page.member.photo != nil %}
+        {% assign p = page.member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = page.member.photo | remove: ext | append: "webp" %}
+        <picture class="member-profile__photo">
+          <source srcset="{{ webp }}" type="image/webp">
+          <img src="{{ page.member.photo }}" alt="{{ page.member.photo_alt }}" loading="lazy">
+        </picture>
+        {% endif %}
+        <div>
+          <p>{{ page.member.bio }}</p>
+          {% if page.member.website != "" and page.member.website != nil %}
+          <p><a class="box" href="{{ page.member.website }}" target="_blank">personal website</a></p>
+          {% endif %}
+          <p><a class="box" href="/people/">◀ all people</a></p>
+        </div>
+      </div>
+    </section>
+
+    {% if page.member_papers.size > 0 %}
+    <section class="textblock">
+      <h2 class="card-title">Publications ({{ page.member_papers.size }})</h2>
+      {% for paper in page.member_papers %}
+      <div class="window__paper">
+        <p>{{ paper.citation }}</p>
+        {% if paper.pdf != "" and paper.pdf != nil %}<a class="box" href="{{ paper.pdf | replace_first: '../', '/' }}" target="_blank">PDF</a>{% endif %}
+        {% if paper.doi != "" and paper.doi != nil %}<a class="box" href="{{ paper.doi }}" target="_blank">DOI</a>{% endif %}
+        {% if paper.link != "" and paper.link != nil %}<a class="box" href="{{ paper.link }}" target="_blank">READ</a>{% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+
+</html>

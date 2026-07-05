@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - Playground: PaintBall Live</title>
+  <meta name="description" content="Try TIILT Lab research in your browser: PaintBall Live turns your movement into generative art using your device's motion sensors."/>
+  <link rel="canonical" href="https://tiilt.northwestern.edu/playground/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TIILT Lab - Playground: PaintBall Live">
+  <meta property="og:description" content="Try TIILT Lab research in your browser: PaintBall Live turns your movement into generative art using your device's motion sensors.">
+  <meta property="og:url" content="https://tiilt.northwestern.edu/playground/">
+  <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#ccc4df"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+</head>
+
+<body>
+  <header></header>
+
+  <main class="prose playground">
+    <section class="textblock">
+      <h1>Playground: PaintBall Live</h1>
+      <p>
+        <a href="/projects/sportsense/paintball/">PaintBall</a> is a SportSense
+        prototype that turns movement data into art. This is a small live version
+        you can try right now: <b>on a phone, wave or shake your device</b> to
+        paint with your motion; on a computer, <b>drag across the canvas</b> —
+        faster movement makes bigger, wilder splats.
+      </p>
+      <p>
+        Everything runs in your browser. No motion data leaves your device.
+      </p>
+    </section>
+
+    <section class="textblock paint-card">
+      <h2 class="card-title">Canvas</h2>
+      <div class="paint-controls">
+        <button type="button" id="motion-btn">enable motion painting</button>
+        <button type="button" id="clear-btn">clear</button>
+        <button type="button" id="save-btn">save as image</button>
+        <span id="motion-status" role="status" aria-live="polite"></span>
+      </div>
+      <canvas id="paint" aria-label="Painting canvas. Drag with your pointer, or enable motion painting and move your device, to create splats of color."></canvas>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+  <script>
+  (function () {
+    var PALETTE = ["#3a2163", "#00a79d", "#2e3192", "#8dc63f", "#be1e2d",
+                   "#ec008c", "#ef4136", "#fbb040", "#f9ed32"];
+    var canvas = document.getElementById("paint");
+    var ctx = canvas.getContext("2d");
+    var statusEl = document.getElementById("motion-status");
+    var colorIdx = Math.floor(Math.random() * PALETTE.length);
+
+    function sizeCanvas() {
+      var dpr = window.devicePixelRatio || 1;
+      var rect = canvas.getBoundingClientRect();
+      var snapshot = document.createElement("canvas");
+      snapshot.width = canvas.width; snapshot.height = canvas.height;
+      if (canvas.width) snapshot.getContext("2d").drawImage(canvas, 0, 0);
+      canvas.width = Math.round(rect.width * dpr);
+      canvas.height = Math.round(rect.height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (snapshot.width) ctx.drawImage(snapshot, 0, 0, rect.width, rect.height);
+    }
+
+    // One "splat": a main blob plus satellite droplets, energy scales size
+    function splat(x, y, energy) {
+      var color = PALETTE[colorIdx % PALETTE.length];
+      if (Math.random() < 0.12) colorIdx++; // drift through the palette
+      var r = Math.min(4 + energy * 2.2, 46);
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.ellipse(x, y, r, r * (0.75 + Math.random() * 0.5),
+                  Math.random() * Math.PI, 0, Math.PI * 2);
+      ctx.fill();
+      var drops = 2 + Math.floor(energy / 3);
+      for (var i = 0; i < Math.min(drops, 14); i++) {
+        var a = Math.random() * Math.PI * 2;
+        var d = r * (1 + Math.random() * 2.2);
+        var dr = Math.max(1, r * Math.random() * 0.3);
+        ctx.beginPath();
+        ctx.arc(x + Math.cos(a) * d, y + Math.sin(a) * d, dr, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // --- Pointer painting (works everywhere) ---
+    var last = null;
+    function pointerPaint(e) {
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left, y = e.clientY - rect.top;
+      if (last) {
+        var dx = x - last.x, dy = y - last.y;
+        var speed = Math.sqrt(dx * dx + dy * dy);
+        splat(x, y, Math.min(speed * 0.6, 22));
+      } else {
+        splat(x, y, 6);
+      }
+      last = { x: x, y: y };
+    }
+    canvas.addEventListener("pointerdown", function (e) {
+      canvas.setPointerCapture(e.pointerId);
+      last = null; pointerPaint(e);
+    });
+    canvas.addEventListener("pointermove", function (e) {
+      if (e.buttons) pointerPaint(e);
+    });
+    canvas.addEventListener("pointerup", function () { last = null; });
+
+    // --- Motion painting (phones/tablets) ---
+    var motionOn = false;
+    var wander = null;
+    function handleMotion(e) {
+      var acc = e.acceleration && e.acceleration.x !== null
+        ? e.acceleration
+        : e.accelerationIncludingGravity;
+      if (!acc) return;
+      var mag = Math.sqrt((acc.x || 0) * (acc.x || 0) +
+                          (acc.y || 0) * (acc.y || 0) +
+                          (acc.z || 0) * (acc.z || 0));
+      if (e.acceleration && e.acceleration.x !== null ? mag < 1.4 : Math.abs(mag - 9.8) < 1.4) return;
+      var energy = e.acceleration && e.acceleration.x !== null ? mag : Math.abs(mag - 9.8);
+      var rect = canvas.getBoundingClientRect();
+      // wander point drifts with the motion so shakes trace a path
+      if (!wander) wander = { x: rect.width / 2, y: rect.height / 2 };
+      wander.x = Math.max(0, Math.min(rect.width, wander.x + (acc.x || 0) * 6 + (Math.random() - 0.5) * 30));
+      wander.y = Math.max(0, Math.min(rect.height, wander.y - (acc.y || 0) * 6 + (Math.random() - 0.5) * 30));
+      splat(wander.x, wander.y, Math.min(energy * 1.6, 26));
+    }
+
+    document.getElementById("motion-btn").addEventListener("click", function () {
+      var btn = this;
+      function arm() {
+        window.addEventListener("devicemotion", handleMotion);
+        motionOn = true;
+        btn.textContent = "motion painting on";
+        btn.disabled = true;
+        statusEl.textContent = "move your device to paint!";
+      }
+      if (typeof DeviceMotionEvent !== "undefined" &&
+          typeof DeviceMotionEvent.requestPermission === "function") {
+        DeviceMotionEvent.requestPermission().then(function (state) {
+          if (state === "granted") arm();
+          else statusEl.textContent = "motion permission was declined — you can still paint by dragging.";
+        }).catch(function () {
+          statusEl.textContent = "motion sensors unavailable — paint by dragging instead.";
+        });
+      } else if ("ondevicemotion" in window) {
+        arm();
+      } else {
+        statusEl.textContent = "no motion sensors here — paint by dragging instead.";
+      }
+    });
+
+    document.getElementById("clear-btn").addEventListener("click", function () {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+
+    document.getElementById("save-btn").addEventListener("click", function () {
+      // flatten onto the page background so the download isn't transparent
+      var out = document.createElement("canvas");
+      out.width = canvas.width; out.height = canvas.height;
+      var octx = out.getContext("2d");
+      octx.fillStyle = getComputedStyle(document.body).backgroundColor || "#fff";
+      octx.fillRect(0, 0, out.width, out.height);
+      octx.drawImage(canvas, 0, 0);
+      var a = document.createElement("a");
+      a.download = "tiilt-paintball.png";
+      a.href = out.toDataURL("image/png");
+      a.click();
+    });
+
+    window.addEventListener("resize", sizeCanvas);
+    sizeCanvas();
+  })();
+  </script>
+</body>
+
+</html>

@@ -9,6 +9,34 @@
 @use "./classes";
 @use "./logo";
 @use "./dropdown";
+@use "./impact";
+
+// =====================
+// Theme (light default, dark via prefers-color-scheme)
+// =====================
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #717171;
+
+  // Pagefind search UI adopts the site theme
+  --pagefind-ui-primary: var(--fg);
+  --pagefind-ui-text: var(--fg);
+  --pagefind-ui-background: var(--bg);
+  --pagefind-ui-border: var(--fg);
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 0;
+  --pagefind-ui-tag: var(--bg);
+  --pagefind-ui-font: "AHAMONO", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141414;
+    --fg: #f2f2f2;
+    --muted: #a3a3a3;
+  }
+}
 
 // FONTS
 @font-face {
@@ -26,6 +54,8 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: $color-white; // covers the gutters beside the capped body
+  color-scheme: light dark;
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -304,6 +334,43 @@ main {
   &.prose {
     .textblock {
       max-width: 75rem;
+    }
+  }
+
+  // PaintBall Live playground
+  &.playground {
+    .paint-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: $space-md;
+      margin: $space-base;
+
+      button {
+        @include squared-button;
+        margin: 0;
+        cursor: pointer;
+
+        &:disabled {
+          color: $color-gray;
+          cursor: default;
+        }
+      }
+
+      #motion-status {
+        font-size: $font-size-sm;
+        color: $color-gray;
+      }
+    }
+
+    #paint {
+      display: block;
+      width: calc(100% - 2 * #{$space-base});
+      height: 60vh;
+      margin: 0 $space-base $space-base;
+      border: $border-standard;
+      touch-action: none;
+      cursor: crosshair;
     }
   }
 

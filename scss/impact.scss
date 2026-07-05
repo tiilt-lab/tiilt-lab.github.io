@@ -1,0 +1,103 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+// Chart colors — validated with the dataviz palette checker for both modes.
+// Light: bar #00958c 3.7:1 on white; ramp #55bab2→#004d48 monotone.
+// Dark: same bar 4.98:1 on #141414; ramp anchor flips (light = high).
+:root {
+  --chart-bar: #00958c;
+  --heat-1: #55bab2;
+  --heat-2: #00958c;
+  --heat-3: #00716a;
+  --heat-4: #004d48;
+  --cell-empty: #f2f2f2;
+  --grid-line: #e4e4e4;
+  --muted-ink: #{$color-gray};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    // dark ramp anchor flips: light step = high emphasis on a dark surface
+    --heat-1: #215550;
+    --heat-2: #00716a;
+    --heat-3: #00958c;
+    --heat-4: #55bab2;
+    --cell-empty: #242424;
+    --grid-line: #333333;
+  }
+}
+
+.impact {
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: $space-md;
+    padding: $space-base;
+  }
+
+  .stat-tile {
+    border: $border-standard;
+    padding: $space-lg;
+    display: flex;
+    flex-direction: column;
+    gap: $space-xs;
+
+    &__value {
+      font-size: 4rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    &__label {
+      color: $color-gray;
+      font-size: $font-size-sm;
+    }
+  }
+
+  .chart {
+    padding: $space-base;
+  }
+
+  .chart-note {
+    color: $color-gray;
+    font-size: $font-size-sm;
+  }
+
+  .chart-table {
+    margin: 0 $space-base $space-base;
+    font-size: $font-size-sm;
+
+    summary {
+      cursor: pointer;
+      color: $color-gray;
+    }
+
+    table {
+      margin-top: $space-md;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid $color-gray;
+      padding: $space-xs $space-md;
+      text-align: right;
+    }
+
+    th[scope="row"],
+    caption {
+      text-align: left;
+    }
+  }
+}
+
+.chart-tooltip {
+  position: absolute;
+  z-index: $z-nav;
+  pointer-events: none;
+  background: $color-black;
+  color: $color-white;
+  padding: $space-xs $space-md;
+  font-size: $font-size-sm;
+  font-family: "AHAMONO", monospace;
+}
