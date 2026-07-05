@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 .projects {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -17,7 +20,7 @@
         @include card-actions-layout;
 
         a {
-          @extend %squared_button !optional;
+          @include squared-button;
         }
       }
     }

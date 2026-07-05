@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 // Custom dropdown replacing Bootstrap 3 dependency
 // Only used for the projects nav dropdown
 

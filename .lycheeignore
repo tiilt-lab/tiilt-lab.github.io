@@ -1,0 +1,11 @@
+# Auth-walled or bot-hostile hosts that return errors to non-browsers
+https://www.linkedin.com/.*
+https://twitter.com/.*
+https://x.com/.*
+https://docs.google.com/.*
+https://drive.google.com/.*
+https://forms.gle/.*
+# Google Maps deep links time out for bots
+https://www.google.com/maps/.*
+# Obfuscated mailto entities
+mailto:.*

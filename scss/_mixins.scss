@@ -2,6 +2,26 @@
 // Shared Mixins
 // =====================
 
+@use "./variables" as *;
+
+// Bordered button-style link ("READ", "learn more", "website", …)
+@mixin squared-button {
+  margin: $space-sm;
+  display: inline-block;
+  border: $border-standard;
+  text-decoration: none;
+  padding: $space-md;
+  font-size: $font-size-sm;
+  background-color: $color-white;
+  color: $color-black;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-black;
+  }
+}
+
 @mixin mobile {
   @media only screen and (max-width: $breakpoint-mobile) {
     @content;

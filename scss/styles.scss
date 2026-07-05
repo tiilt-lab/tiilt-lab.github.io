@@ -1,14 +1,14 @@
-@import "./variables";
-@import "./mixins";
+@use "./variables" as *;
+@use "./mixins" as *;
 
-@import "./people.scss";
-@import "./contact.scss";
-@import "./projects.scss";
-@import "./papers.scss";
-@import './blog.scss';
-@import "./classes.scss";
-@import "./logo.scss";
-@import "./dropdown.scss";
+@use "./people";
+@use "./contact";
+@use "./projects";
+@use "./papers";
+@use "./blog";
+@use "./classes";
+@use "./logo";
+@use "./dropdown";
 
 // FONTS
 @font-face {
@@ -68,26 +68,58 @@ ul {
   list-style: none;
 }
 
-%squared_button {
-  margin: $space-sm;
-  display: inline-block;
-  border: $border-standard;
-  text-decoration: none;
-  padding: $space-md;
-  font-size: $font-size-sm;
-  background-color: $color-white;
-  color: $color-black;
-  transition: all $transition-fast;
+// Visible, on-brand keyboard focus
+:focus-visible {
+  outline: 2px solid $color-black;
+  outline-offset: 2px;
+}
 
-  &:hover {
-    color: $color-white;
-    background-color: $color-black;
+// Skip-to-content link: hidden until focused
+.skip-link {
+  position: absolute;
+  top: $space-md;
+  left: $space-md;
+  z-index: $z-nav + 1;
+  padding: $space-md $space-lg;
+  background-color: $color-black;
+  color: $color-white;
+  text-decoration: none;
+  transform: translateY(-200%);
+
+  &:focus {
+    transform: translateY(0);
+  }
+}
+
+.site-footer {
+  margin: $space-4xl;
+  padding-top: $space-lg;
+  border-top: $border-standard;
+  font-size: $font-size-sm;
+  color: $color-gray;
+  position: relative;
+  z-index: $z-overlay;
+
+  p {
+    margin: $space-xs 0;
+  }
+
+  a {
+    color: $color-black;
+  }
+}
+
+@include mobile {
+  .site-footer {
+    margin: $space-xl;
+    // clear the fixed bottom nav
+    margin-bottom: 8rem;
   }
 }
 
 // Standalone button-style links ("READ", "Lesson plan", "back to curriculum", …)
 a.box {
-  @extend %squared_button;
+  @include squared-button;
 }
 
 /* Mobile Styles Start */
@@ -248,6 +280,13 @@ main {
     white-space: nowrap;
     position: absolute;
   }
+  // Simple single-column text pages (accessibility statement, …)
+  &.prose {
+    .textblock {
+      max-width: 75rem;
+    }
+  }
+
   &.about {
     ol {
       margin: $space-base;

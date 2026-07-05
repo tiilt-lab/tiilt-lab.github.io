@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 .people {
   // Section titles (Principal Investigator, Graduate Students, …)
   article > h2 {
@@ -24,7 +27,7 @@
 
         button,
         a {
-          @extend %squared_button !optional;
+          @include squared-button;
         }
 
         // When there's no button, push lone link to the right

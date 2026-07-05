@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 // Logo stroke colors as CSS custom properties for easy theming
 :root {
     --logo-purple: #{$color-purple};
