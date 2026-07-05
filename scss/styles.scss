@@ -18,16 +18,6 @@
   --bg: #ffffff;
   --fg: #000000;
   --muted: #717171;
-
-  // Pagefind search UI adopts the site theme
-  --pagefind-ui-primary: var(--fg);
-  --pagefind-ui-text: var(--fg);
-  --pagefind-ui-background: var(--bg);
-  --pagefind-ui-border: var(--fg);
-  --pagefind-ui-border-width: 2px;
-  --pagefind-ui-border-radius: 0;
-  --pagefind-ui-tag: var(--bg);
-  --pagefind-ui-font: "AHAMONO", monospace;
 }
 
 @mixin dark-theme-vars {

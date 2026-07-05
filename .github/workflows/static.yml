@@ -42,8 +42,6 @@ jobs:
       - name: Build with Jekyll
         run: bundle exec jekyll build
 
-      - name: Build search index
-        run: npx --yes pagefind --site _site --root-selector main
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
