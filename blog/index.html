@@ -18,11 +18,12 @@ layout: null
 <body>
   <header></header>
   <main class="blog">
+    <h1 class="visually_hidden">Blog</h1>
     {% assign posts = site.posts | sort: "date" | reverse %}
     {% if posts.size > 0 %}
     {% for post in posts %}
     <section class="textblock">
-      <h1>{{ post.title }}</h1>
+      <h2 class="card-title">{{ post.title }}</h2>
       <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
       {% if post.image %}
       <img src="{{ post.image }}" alt="{{ post.image_alt }}" />
@@ -32,15 +33,14 @@ layout: null
     {% endfor %}
     {% else %}
     <section class="textblock">
-      <h1>Coming Soon</h1>
+      <h2 class="card-title">Coming Soon</h2>
       <p><b>Stay tuned for TIILT Lab's blog!</b></p>
     </section>
     {% endif %}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../script.js"></script>
-
   </main>
+
+  <script src="../script.js"></script>
 
 </body>
 

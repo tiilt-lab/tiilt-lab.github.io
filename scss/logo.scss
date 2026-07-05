@@ -51,11 +51,11 @@
 }
 
 .big-logo {
-    width: 40vw;
+    width: min(40vw, 42rem);
     position: fixed;
     bottom: $space-3xl;
     z-index: $z-base;
-    animation: fade-in 60s ease forwards;
+    animation: fade-in 2s ease forwards;
     opacity: 0;
 
     > line {

@@ -31,6 +31,14 @@ jobs:
           ruby-version: '3.3'
           bundler-cache: true
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Compile SCSS
+        run: npx --yes sass scss/styles.scss css/styles.css --style=compressed --no-source-map
+
       - name: Build with Jekyll
         run: bundle exec jekyll build
 

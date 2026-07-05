@@ -40,6 +40,11 @@ $border-standard: 2px solid $color-black;
 
 // Breakpoints
 $breakpoint-mobile: 640px;
+$breakpoint-wide: 1600px;
+$breakpoint-ultrawide: 2200px;
+
+// Content column (rem-based so it scales with the root font size)
+$content-max-width: 100rem;
 
 // Z-index scale
 $z-background: -1;
