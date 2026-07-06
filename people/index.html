@@ -23,7 +23,6 @@ layout: null
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@10.19.0/dist/lazyload.min.js"></script>
 </head>
 
 <body>
@@ -40,8 +39,8 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
-            <source data-srcset="{{ webp }}" type="image/webp">
-            <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
+            <source srcset="{{ webp }}" type="image/webp">
+            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
@@ -62,8 +61,8 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
-            <source data-srcset="{{ webp }}" type="image/webp">
-            <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
+            <source srcset="{{ webp }}" type="image/webp">
+            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
@@ -85,8 +84,8 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
-            <source data-srcset="{{ webp }}" type="image/webp">
-            <img class="lazy" data-src="{{ member.photo }}" alt="{{ member.photo_alt }}">
+            <source srcset="{{ webp }}" type="image/webp">
+            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}

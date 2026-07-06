@@ -33,7 +33,7 @@ layout: null
     {% if posts.size > 0 %}
     {% for post in posts %}
     <section class="textblock">
-      <h2 class="card-title">{{ post.title }}</h2>
+      <h2 class="card-title"><a class="post-link" href="{{ post.url }}">{{ post.title }}</a></h2>
       <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
       {% if post.image %}
       <img src="{{ post.image }}" alt="{{ post.image_alt }}" />

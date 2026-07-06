@@ -17,8 +17,8 @@ sections:
       world. Tangicraft utilizes tangible blocks with webcam detectable codes.
       Users can construct a physical structure in front of a webcam and call
       it in the Minecraft world by pressing a button on an Arduino
-      microcontroller. Our team is currently conducting user tests to drive
-      iteration on our initial designs.
+      microcontroller. Our team ran user tests to drive
+      iteration on our designs.
   - heading: "Videos"
     videos:
       - { url: "https://www.youtube-nocookie.com/embed/JbcSWPrsm4c", title: "Eye tracking with Multicraft demo", caption: "Eye Tracking with Multicraft" }

@@ -374,6 +374,11 @@ main {
     &:hover {
       box-shadow: 4px 5px;
     }
+
+    // cards with no actions don't pretend to be interactive
+    &--static:hover {
+      box-shadow: none;
+    }
     h1,
     .card-title {
       border-bottom: $border-standard;
