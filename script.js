@@ -123,13 +123,12 @@ function initThemeToggle() {
 }
 
 // People-page easter egg: grab the top portrait and peel it up like a
-// notepad page. The sheet is 8 full-width strips, each nested inside the
-// one above, and every strip carries BOTH a fold (rotateX) and a small
-// twist (rotateY) that its children inherit -- so the surface is connected
-// by construction and cannot crack apart no matter how hard you shake it.
-// The twist propagating strip-to-strip is what makes sideways flicks
-// ripple down the sheet diagonally. The top strip is glued flat to the
-// photo underneath; the fold creases along its bottom edge. CSS
+// sheet of paper taped along its very top edge. The sheet is 8 full-width
+// strips, each nested inside the one above, and every strip carries BOTH
+// a fold (rotateX) and a small twist (rotateY) that its children inherit
+// -- so the surface is connected by construction and cannot crack apart
+// no matter how hard you shake it. The twist propagating strip-to-strip
+// is what makes sideways flicks ripple down the sheet diagonally. CSS
 // hover-lift stays as the no-JS fallback.
 function initPhotoPeel() {
     var ROWS = 8;
@@ -197,23 +196,23 @@ function initPhotoPeel() {
         }
 
         function apply() {
-            for (var r = 1; r < ROWS; r++) {
+            for (var r = 0; r < ROWS; r++) {
                 strips[r].style.transform =
                     "rotateX(" + Math.max(-4, vAng[r]).toFixed(2) + "deg)" +
                     " rotateY(" + hAng[r].toFixed(2) + "deg)";
             }
-            shade.style.opacity = (Math.max(0, vAng[1]) / MAX * 0.45).toFixed(3);
+            shade.style.opacity = (Math.max(0, vAng[0]) / MAX * 0.45).toFixed(3);
         }
 
         function frame() {
             var moving = false;
             hTarget *= 0.9; // the hand's sideways flick relaxes on its own
-            for (var r = 1; r < ROWS; r++) {
-                // strip 0 is the glued band and never moves; strip 1 chases
-                // the hand; each strip below chases the one above it. Outer
+            for (var r = 0; r < ROWS; r++) {
+                // the sheet hinges along its top edge: strip 0 chases the
+                // hand, each strip below chases the one above it. Outer
                 // strips are springier -- that's the flimsiness
-                var vt = r === 1 ? target : vAng[r - 1] * FOLLOW;
-                var ht = r === 1 ? hTarget : hAng[r - 1] * HFOLLOW;
+                var vt = r === 0 ? target : vAng[r - 1] * FOLLOW;
+                var ht = r === 0 ? hTarget : hAng[r - 1] * HFOLLOW;
                 var k = dragging ? 0.34 - r * 0.028 : 0.08 + r * 0.008;
                 var d = dragging ? 0.52 : 0.87 - r * 0.01;
                 vVel[r] += (vt - vAng[r]) * k;
@@ -248,7 +247,7 @@ function initPhotoPeel() {
             sheet.style.display = "block";
             dragging = true;
             grabY = e.clientY;
-            grabAngle = vAng[1];
+            grabAngle = vAng[0];
             lastX = e.clientX;
             stack.classList.add("peeling");
             if (card) card.style.zIndex = "60"; // ride above neighboring cards
