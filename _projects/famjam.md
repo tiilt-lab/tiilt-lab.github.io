@@ -17,7 +17,7 @@ sections:
     body: |-
       ### 'Inclusive Making' Helps Students Design for People with Disabilities
 
-      [READ](https://www.mccormick.northwestern.edu/news/articles/2021/04/inclusive-making-helps-students-design-for-people-with-disabilities.html){: .box target="_blank"}
+      [READ](https://www.mccormick.northwestern.edu/news/articles/2021/04/inclusive-making-helps-students-design-for-people-with-disabilities.html){: .box target="_blank" rel="noopener"}
   - heading: "FabLearn 2020: Diversity in Maker Ed"
     videos:
       - { url: "https://www.youtube-nocookie.com/embed/0mBvoBjVzvY", title: "FabLearn 2020: Diversity in Maker Ed — YouTube video" }

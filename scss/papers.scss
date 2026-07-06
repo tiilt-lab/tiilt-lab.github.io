@@ -8,7 +8,7 @@
     max-width: 75rem;
     margin-bottom: $space-3xl;
     .window__paper {
-      border-bottom: $border-standard;
+      @include paper-entry;
       a,
       .bibtex-btn {
         @include squared-button;
@@ -16,9 +16,6 @@
         margin-top: 0;
         cursor: pointer;
       }
-    }
-    .window__paper:last-child {
-      border-bottom: none;
     }
   }
 

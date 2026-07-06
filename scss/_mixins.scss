@@ -40,15 +40,6 @@
   }
 }
 
-@mixin rotate-toggle {
-  transform: rotate(0deg);
-  transition-delay: 50ms;
-  transition: all $transition-rotation;
-
-  &.rotated {
-    transform: rotate(-540deg);
-  }
-}
 
 @mixin text-truncate($lines: 6) {
   -webkit-box-orient: vertical;
@@ -74,4 +65,14 @@
 @mixin auto-grid($min-width: 20rem) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
+}
+
+// Publication entry rows (papers page, member profiles, project pages)
+@mixin paper-entry {
+  border-bottom: $border-standard;
+  padding-bottom: $space-md;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }

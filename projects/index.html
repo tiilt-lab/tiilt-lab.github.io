@@ -15,20 +15,13 @@ layout: null
   <meta property="og:url" content="https://tiilt.northwestern.edu/projects/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="theme-color" content="#ccc4df"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+  {% include head-common.html %}
 </head>
 
 <body>
-  <header></header>
+  {% include site-header.html %}
 
-  <main>
+  <main id="main-content">
     <h1 class="section-heading">Current Projects</h1>
     <div class="projects">
       {% for project in site.data.projects.projects %}
@@ -39,7 +32,7 @@ layout: null
         {% if project.links.size > 0 %}
         <div class="card-actions">
           {% for link in project.links %}
-          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
+          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
           {% endfor %}
         </div>
         {% endif %}
@@ -58,7 +51,7 @@ layout: null
         {% if project.links.size > 0 %}
         <div class="card-actions">
           {% for link in project.links %}
-          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank"{% endif %}>{{ link.label }}</a>
+          <a href="{{ link.url }}"{% if link.url contains "http" %} target="_blank" rel="noopener"{% endif %}>{{ link.label }}</a>
           {% endfor %}
         </div>
         {% endif %}
@@ -68,8 +61,9 @@ layout: null
     </div>
   </main>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% include site-footer.html %}
+  <script src="/script.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 
 </html>

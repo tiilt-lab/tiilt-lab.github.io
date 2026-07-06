@@ -15,19 +15,12 @@ layout: null
   <meta property="og:url" content="https://tiilt.northwestern.edu/blog/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="theme-color" content="#ccc4df" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
+  {% include head-common.html %}
 </head>
 
 <body>
-  <header></header>
-  <main class="blog">
+  {% include site-header.html %}
+  <main id="main-content" class="blog">
     <h1 class="visually_hidden">News</h1>
     {% assign posts = site.posts | sort: "date" | reverse %}
     {% if posts.size > 0 %}
@@ -50,9 +43,10 @@ layout: null
 
   </main>
 
-  <script src="../script.js"></script>
+  {% include site-footer.html %}
+  <script src="/script.js"></script>
 
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 
 </html>

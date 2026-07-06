@@ -15,30 +15,23 @@ layout: null
   <meta property="og:url" content="https://tiilt.northwestern.edu/contact/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="theme-color" content="#ccc4df"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
 
+  {% include head-common.html %}
 </head>
 
 <body>
-  <header></header>
+  {% include site-header.html %}
 
-  <main class="contact">
+  <main id="main-content" class="contact">
     <section class="textblock">
       <h1>Contact</h1>
       <ul class="list_with_padding">
         <li>email us at <a href="mailto:tiiltlab@gmail.com" aria-label="Our Gmail">tiiltlab@gmail.com</a></li>
         <li>follow us on <a href="https://twitter.com/tiiltlab" aria-label="Our Twitter">twitter</a></li>
-        <li>visit our lab in <a target="_blank" href="https://www.google.com/maps/place/Mudd+Library/@42.0581472,-87.6765888,17z/data=!3m1!4b1!4m5!3m4!1s0x880fda9eebe51fd3:0x303e4571ee131fdd!8m2!3d42.0581472!4d-87.6744001" aria-label="Address to the Lab">Mudd 3104</a></li>
+        <li>visit our lab in <a target="_blank" rel="noopener" href="https://www.google.com/maps/place/Mudd+Library/@42.0581472,-87.6765888,17z/data=!3m1!4b1!4m5!3m4!1s0x880fda9eebe51fd3:0x303e4571ee131fdd!8m2!3d42.0581472!4d-87.6744001" aria-label="Address to the Lab">Mudd 3104</a></li>
         <li>contact <a href="mailto:puthipiroj&#64;u&#46;northwestern&#46;edu" aria-label="Manager's Email">Jacob</a> for any questions about your application</li>
       </ul>
-      <a class="apply-btn" target="_blank" href="https://forms.gle/N5BR1cYcxxLcdaJY8">Apply to tiilt Lab</a>
+      <a class="apply-btn" target="_blank" rel="noopener" href="https://forms.gle/N5BR1cYcxxLcdaJY8">Apply to tiilt Lab</a>
     </section>
 
     <section class="textblock">
@@ -111,8 +104,9 @@ layout: null
       <path class="cls-13" d="M1252.26,904.4l.19.49-.19-.49" transform="translate(1891.2 2126.6)" />
     </svg>
   </main>
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% include site-footer.html %}
+  <script src="/script.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 
 </html>

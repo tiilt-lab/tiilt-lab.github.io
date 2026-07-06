@@ -11,13 +11,15 @@
         return s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
     }
 
-    // "Sarah Priscilla Lee" -> matches "lee, s"; strict enough to separate
-    // members from same-surname coauthors (e.g. Allyson Lee = "lee, a")
+    // Mirrors _plugins/member_pages.rb: rare surnames match surname-only
+    // (tolerates initial typos); common surnames need the first initial to
+    // separate members from same-surname coauthors (Allyson vs Sarah Lee).
+    var SURNAME_ONLY = ["worsley", "puthipiroj", "kshirsagar", "quiterio", "bodon", "eze"];
     function matchToken(name) {
         var parts = name.trim().split(/\s+/);
-        var surname = parts[parts.length - 1];
-        var initial = parts[0][0];
-        return deburr(surname) + ", " + deburr(initial);
+        var surname = deburr(parts[parts.length - 1]);
+        var initial = deburr(parts[0][0]);
+        return SURNAME_ONLY.indexOf(surname) !== -1 ? surname + "," : surname + ", " + initial;
     }
 
     var activeMember = null;

@@ -1,17 +1,21 @@
-// Shared site behavior: injected header/nav, projects dropdown,
-// "read more" bio truncation (people page), lazy images, card reveal.
+// tiilt site behavior: current-page marking, dropdowns, theme toggle,
+// people-page read-more, lazy images, card reveal. The header/footer/nav
+// are static HTML (_includes/site-header.html) — this file only binds.
+(function () {
+    "use strict";
+    if (window.__tiiltInit) return; // idempotent if loaded twice
+    window.__tiiltInit = true;
 
-// Arms the JS-only CSS (card entrance animation) — see styles.scss
-document.documentElement.classList.add("js");
+    // Arms the JS-only CSS (card entrance animation) — see styles.scss
+    document.documentElement.classList.add("js");
 
-// Apply a manually-chosen theme before first paint (falls back to the
-// OS preference via the prefers-color-scheme CSS when nothing is stored)
-try {
-    var storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "light" || storedTheme === "dark") {
-        document.documentElement.dataset.theme = storedTheme;
-    }
-} catch (e) { /* private mode */ }
+    // Apply a manually-chosen theme before first paint
+    try {
+        var storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "light" || storedTheme === "dark") {
+            document.documentElement.dataset.theme = storedTheme;
+        }
+    } catch (e) { /* private mode */ }
 
 // Inline nav icons (Unicons line set, https://github.com/Iconscout/unicons,
 // Apache-2.0) — replaces the render-blocking icon-font CDN.
@@ -35,96 +39,6 @@ function navIcon(name) {
     return '<svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">' + paths + '</svg>';
 }
 
-function headerGenerator() {
-    var header = document.getElementsByTagName("header")[0];
-
-    // Skip link for keyboard users, first focusable element on the page
-    var main = document.querySelector("main");
-    if (main && !main.id) main.id = "main-content";
-    var skip = document.createElement("a");
-    skip.className = "skip-link";
-    skip.href = "#" + (main ? main.id : "main-content");
-    skip.textContent = "skip to content";
-    document.body.insertBefore(skip, document.body.firstChild);
-
-    // The site is served from the domain root, so absolute paths work from
-    // every page regardless of nesting depth.
-    header.innerHTML =
-    `<p class="site-title"><a href="/" aria-label="tiilt Lab home">technological innovations for inclusive learning &amp; teaching</a></p>
-    <nav aria-label="Main Navigation">
-        <ul>
-            <li>
-                <div class="nav-dropdown">
-                    <a href="/projects/" class="nav-dropdown__link">projects
-                        ${navIcon("drill")}
-                    </a>
-                    <button type="button" class="nav-dropdown__toggle" aria-haspopup="true" aria-expanded="false" aria-controls="projects-menu" aria-label="Toggle projects menu">
-                      <span aria-hidden="true">▼</span>
-                    </button>
-                    <div class="nav-dropdown__menu" id="projects-menu">
-                        <a href="/projects/">all projects</a>
-                        <a href="/projects/blinc/">blinc</a>
-                        <a href="/projects/sportsense/">sportsense</a>
-                        <a href="/projects/sportsensefordata/">sportsense for data</a>
-                        <a href="/playground/">playground</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="/people/">people
-                    ${navIcon("users-alt")}
-                </a>
-            </li>
-            <li>
-                <a href="/papers/">research
-                    ${navIcon("flask")}
-                </a>
-            </li>
-            <li>
-                <a href="/classes/">classes
-                    ${navIcon("book")}
-                </a>
-            </li>
-            <li>
-                <a href="/blog/">news
-                    ${navIcon("pen")}
-                </a>
-            </li>
-            <li>
-                <a href="/contact/">contact
-                    ${navIcon("envelope")}</a>
-            </li>
-            <li>
-                <button type="button" class="theme-toggle" aria-label="Switch to dark mode">
-                    ${navIcon("moon")}
-                </button>
-            </li>
-        </ul>
-    </nav>`
-
-    markCurrentPage();
-    initDropdowns();
-    initThemeToggle();
-    footerGenerator();
-}
-
-function footerGenerator() {
-    if (document.querySelector(".site-footer")) return;
-    var footer = document.createElement("footer");
-    footer.className = "site-footer";
-    footer.innerHTML =
-    `<p>tiilt lab &middot; Northwestern University &middot; Mudd 3104</p>
-    <p>
-        <a href="mailto:tiiltlab@gmail.com">tiiltlab@gmail.com</a>
-        &middot; <a href="https://twitter.com/tiiltlab">twitter</a>
-        &middot; <a href="https://github.com/tiilt-lab">github</a>
-        &middot; <a href="/feed.xml">rss</a>
-    </p>
-    <p>&copy; ${new Date().getFullYear()} tiilt Lab</p>`;
-    document.body.appendChild(footer);
-}
-
-// Highlight the nav link(s) matching the current URL path.
 function markCurrentPage() {
     var pageSegments = window.location.pathname
         .split("/")
@@ -179,6 +93,7 @@ function initDropdowns() {
     });
 }
 
+
 // Manual light/dark override; the choice persists in localStorage and the
 // impact charts listen for the change to re-render with the other ramp.
 function initThemeToggle() {
@@ -210,7 +125,7 @@ function initThemeToggle() {
 // On mobile the nav sits at the bottom of the screen, so dropdown menus
 // open upward ("dropup") instead of downward.
 function changeDropdown() {
-    var mobile = window.innerWidth <= 640;
+    var mobile = window.matchMedia("(max-width: 640px)").matches;
     Array.from(document.querySelectorAll(".nav-dropdown")).forEach(function (dropdown) {
         dropdown.classList.toggle("dropup", mobile);
         var arrow = dropdown.querySelector(".nav-dropdown__toggle span");
@@ -218,20 +133,33 @@ function changeDropdown() {
     });
 }
 
-headerGenerator();
-changeDropdown();
+    // mobile: the theme toggle floats top-right (class instead of :has())
+    var toggleLi = document.querySelector(".theme-toggle") &&
+        document.querySelector(".theme-toggle").closest("li");
+    if (toggleLi) toggleLi.classList.add("nav-toggle-item");
 
-// Let the logo's circuit traces draw themselves in (see logo.scss)
-requestAnimationFrame(function () {
+    // footer copyright year stays current
+    var yearEl = document.getElementById("footer-year");
+    if (yearEl) yearEl.textContent = String(new Date().getFullYear());
+
+    var mainEl = document.querySelector("main");
+    if (mainEl && !mainEl.id) mainEl.id = "main-content";
+
+    markCurrentPage();
+    initDropdowns();
+    initThemeToggle();
+    changeDropdown();
+    window.addEventListener("resize", changeDropdown);
+    window.addEventListener("orientationchange", changeDropdown);
+
+    // Let the logo's circuit traces draw themselves in (see logo.scss)
     requestAnimationFrame(function () {
-        Array.from(document.querySelectorAll(".big-logo")).forEach(function (logo) {
-            logo.classList.add("drawn");
+        requestAnimationFrame(function () {
+            Array.prototype.forEach.call(document.querySelectorAll(".big-logo"), function (logo) {
+                logo.classList.add("drawn");
+            });
         });
     });
-});
-
-window.addEventListener("resize", changeDropdown);
-window.addEventListener("orientationchange", changeDropdown);
 
 function contractText(button) {
     const p_Sibling = button.closest('.textblock').querySelector('p');
@@ -281,18 +209,9 @@ function wrapCardFooters() {
     });
 }
 
-// Runs immediately: this script sits at the end of <body>, so the DOM is
-// parsed. (This used to hang on window.onload, which waits for every
-// YouTube iframe — leaving iframe-heavy pages invisible until then.)
-(() => {
+// content behaviors (DOM is parsed; never wait for window.onload)
     if (location.pathname.includes("people")) {
         addReadMoreButtons();
-    }
-
-    if (typeof LazyLoad !== 'undefined') {
-        const myLazyLoad = new LazyLoad({
-            elements_selector: ".lazy"
-        });
     }
 
     // Animate textblocks into view with staggered delays
@@ -316,5 +235,4 @@ function wrapCardFooters() {
     setTimeout(function () {
         cards.forEach(function (card) { card.classList.add('visible'); });
     }, 1500);
-
 })();

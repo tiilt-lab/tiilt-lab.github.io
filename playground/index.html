@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,20 +15,13 @@
   <meta property="og:url" content="https://tiilt.northwestern.edu/playground/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="theme-color" content="#ccc4df"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+  {% include head-common.html %}
 </head>
 
 <body>
-  <header></header>
+  {% include site-header.html %}
 
-  <main class="prose playground">
+  <main id="main-content" class="prose playground">
     <section class="textblock">
       <h1>Playground: PaintBall Live</h1>
       <p>
@@ -41,7 +37,7 @@
       </p>
     </section>
 
-    <section class="textblock paint-card">
+    <section class="textblock">
       <h2 class="card-title">Canvas</h2>
       <div class="paint-controls">
         <button type="button" id="motion-btn">enable motion painting</button>
@@ -55,11 +51,16 @@
     </section>
   </main>
 
+  {% include site-footer.html %}
   <script src="/script.js"></script>
   <script>
   (function () {
-    var PALETTE = ["#3a2163", "#00a79d", "#2e3192", "#8dc63f", "#be1e2d",
-                   "#ec008c", "#ef4136", "#fbb040", "#f9ed32"];
+    // brand palette from the logo's CSS custom properties (single source)
+    var rootStyle = getComputedStyle(document.documentElement);
+    var PALETTE = ["purple", "teal", "blue", "green", "red", "pink", "orange-red", "orange", "yellow"]
+        .map(function (n) { return rootStyle.getPropertyValue("--logo-" + n).trim(); })
+        .filter(Boolean);
+    if (PALETTE.length === 0) PALETTE = ["#3a2163", "#00a79d", "#2e3192"]; // safety
     var canvas = document.getElementById("paint");
     var ctx = canvas.getContext("2d");
     var statusEl = document.getElementById("motion-status");
@@ -260,7 +261,7 @@
     sizeCanvas();
   })();
   </script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 
 </html>

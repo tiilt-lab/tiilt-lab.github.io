@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,20 +15,13 @@
   <meta property="og:url" content="https://tiilt.northwestern.edu/projects/sportsense/DatainMotionPowerofSensors.html">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <meta name="theme-color" content="#ccc4df" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+  {% include head-common.html %}
 </head>
 
 <body>
-	<header></header>
+  {% include site-header.html %}
 
-	<main class="projectpages" style="--accent: var(--logo-green)"> 
+	<main id="main-content" class="projectpages" style="--accent: var(--logo-green)"> 
 		<section class="textblock">
 			<h1>Week 1: The Power of Sensors</h1>
 			<a class="box" href="index.html" aria-label="Back to SportSense curriculum">◀ back to curriculum</a>
@@ -33,7 +29,7 @@
 			<p>Within this module we will be talking about sports and technology. Some of the activities within this module involve using sensors. Oftentimes when people think about sensors they think about robots. We want to start by helping you all think about sensors a little differently. Please take a few minutes to watch this clip from a movie you might recognize.
 			</p>
 			<p>
-				<a href="https://drive.google.com/file/d/1-OiOp33C1-vznkiChoY28F3qTZmA7dhR/view?usp=sharing" target="_blank"> Spiderman Video </a></p>
+				<a href="https://drive.google.com/file/d/1-OiOp33C1-vznkiChoY28F3qTZmA7dhR/view?usp=sharing" target="_blank" rel="noopener"> Spiderman Video </a></p>
 			<p>There is a lot happening in this video. In terms of the storyline Miles Morales meets Peter Parker for the first time, and sadly watches as Peter Parker is defeated by Kingpin. But when Miles and Peter meet, they both realize that they have Spidey Sense, the ability to sense when danger is approaching. This is a pretty cool sensor. So, robots are not the only things that have sensors. Miles and Peter also have a special sensor for danger.
 			</p>
 			<p>But there is more here to think about. People also have a kind of spidey sense. Have you ever done something you weren't supposed to and started feeling nervous? Or gotten a bad feeling before you have to make a big presentation or talk in front of an unfamiliar crowd? These are ways that our bodies are programmed to try to prepare us for tough situations and help us avoid things that might put us in danger.
@@ -108,7 +104,8 @@
 		<br>
 	</main>
 
+  {% include site-footer.html %}
     <script src="/script.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

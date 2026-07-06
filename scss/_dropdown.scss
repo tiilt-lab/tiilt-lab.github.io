@@ -59,7 +59,7 @@
             color: $color-gray;
             text-decoration: none;
             white-space: nowrap;
-            height: auto !important;
+            height: auto;
             line-height: 1.4;
             flex-direction: row;
 
@@ -70,10 +70,6 @@
         }
     }
 
-    .nav-dropdown__menu--right {
-        left: auto;
-        right: 0;
-    }
 
     &.open .nav-dropdown__menu {
         display: block;

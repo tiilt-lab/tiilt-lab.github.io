@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +15,13 @@
   <meta property="og:url" content="https://tiilt.northwestern.edu/projects/sportsense/DatainMotionDesignersWanted.html">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <meta name="theme-color" content="#ccc4df" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+  {% include head-common.html %}
 </head>
 
 <body>
-	<header>
-    </header>
+  {% include site-header.html %}
 
-	<main class="projectpages" style="--accent: var(--logo-green)"> 
+	<main id="main-content" class="projectpages" style="--accent: var(--logo-green)"> 
 		<section class="textblock">
 			<h1>Week 4: Designers Wanted</h1>
 			<a class="box" href="index.html" aria-label="Back to SportSense curriculum">◀ back to curriculum</a>
@@ -54,7 +49,7 @@
 			<p>Now, do the same thing for the other idea or challenge. Put all of these thoughts in your Data in Motion journal, and try to keep these ideas at the back of your mind as your go through the winter break.
 			</p>
 
-			<p>Another fun way to design things is to work within certain constraints and just see what you can come up with. To help with this process, we have included a tiilt (technological innovations for inclusive learning and teaching) beanie. You can find out more about tiilt at <a href="http://tiilt.northwestern.edu" target="_blank">tiilt.northwestern.edu</a>. Today, we want you to start thinking about ways that you could make a physical activity related wearable using the beanie, the micro:bit, and any other materials you might have around your home. The micro:bit can sit inside the cuff of the beanie if you want to conceal it, or you can have it on display. You can also think about ways to use the beanie as something other than a hat by cutting a hole in the top, or using the cuffed part as a headband.
+			<p>Another fun way to design things is to work within certain constraints and just see what you can come up with. To help with this process, we have included a tiilt (technological innovations for inclusive learning and teaching) beanie. You can find out more about tiilt at <a href="http://tiilt.northwestern.edu" target="_blank" rel="noopener">tiilt.northwestern.edu</a>. Today, we want you to start thinking about ways that you could make a physical activity related wearable using the beanie, the micro:bit, and any other materials you might have around your home. The micro:bit can sit inside the cuff of the beanie if you want to conceal it, or you can have it on display. You can also think about ways to use the beanie as something other than a hat by cutting a hole in the top, or using the cuffed part as a headband.
 			</p>
 			<p>If you are stuck for ideas on things to do, talk to a friend, or family member and see if they can help you think up some ideas. Here are a couple ideas that we thought were interested.
 			</p>
@@ -71,7 +66,8 @@
 		<br>
 	</main>
 	
+  {% include site-footer.html %}
     <script src="/script.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

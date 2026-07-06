@@ -1,40 +1,7 @@
 @use "./variables" as *;
 @use "./mixins" as *;
 
-// Chart colors — validated with the dataviz palette checker for both modes.
-// Light: bar #00958c 3.7:1 on white; ramp #55bab2→#004d48 monotone.
-// Dark: same bar 4.98:1 on #141414; ramp anchor flips (light = high).
-:root {
-  --chart-bar: #00958c;
-  --heat-1: #55bab2;
-  --heat-2: #00958c;
-  --heat-3: #00716a;
-  --heat-4: #004d48;
-  --cell-empty: #f2f2f2;
-  --grid-line: #e4e4e4;
-  --muted-ink: #{$color-gray};
-}
-
-// dark ramp anchor flips: light step = high emphasis on a dark surface
-@mixin dark-chart-vars {
-  --heat-1: #215550;
-  --heat-2: #00716a;
-  --heat-3: #00958c;
-  --heat-4: #55bab2;
-  --cell-empty: #242424;
-  --grid-line: #333333;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    @include dark-chart-vars;
-  }
-}
-
-:root[data-theme="dark"] {
-  @include dark-chart-vars;
-}
-
+// Stat tiles ("The Lab in Numbers" on the research page)
 .impact {
   .stat-row {
     display: grid;
@@ -54,7 +21,7 @@
 
     // the lessons tile is a link; give it the card hover affordance
     &:is(a):hover {
-      box-shadow: 4px 5px;
+      box-shadow: $card-shadow;
     }
 
     &__value {
@@ -68,51 +35,4 @@
       font-size: $font-size-sm;
     }
   }
-
-  .chart {
-    padding: $space-base;
-  }
-
-  .chart-note {
-    color: $color-gray;
-    font-size: $font-size-sm;
-  }
-
-  .chart-table {
-    margin: 0 $space-base $space-base;
-    font-size: $font-size-sm;
-
-    summary {
-      cursor: pointer;
-      color: $color-gray;
-    }
-
-    table {
-      margin-top: $space-md;
-      border-collapse: collapse;
-    }
-
-    th,
-    td {
-      border: 1px solid $color-gray;
-      padding: $space-xs $space-md;
-      text-align: right;
-    }
-
-    th[scope="row"],
-    caption {
-      text-align: left;
-    }
-  }
-}
-
-.chart-tooltip {
-  position: absolute;
-  z-index: $z-nav;
-  pointer-events: none;
-  background: $color-black;
-  color: $color-white;
-  padding: $space-xs $space-md;
-  font-size: $font-size-sm;
-  font-family: "AHAMONO", monospace;
 }

@@ -41,11 +41,16 @@ $border-standard: 2px solid $color-black;
 
 // Breakpoints
 $breakpoint-mobile: 640px;
+$breakpoint-tiny: 360px;
 $breakpoint-wide: 1600px;
 $breakpoint-ultrawide: 2200px;
 
 // Content column (rem-based so it scales with the root font size)
 $content-max-width: 100rem;
+
+// Layout constants
+$mobile-nav-clearance: 7rem;
+$card-shadow: 4px 5px;
 
 // Z-index scale
 $z-background: -1;

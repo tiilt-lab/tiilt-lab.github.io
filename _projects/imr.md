@@ -19,7 +19,7 @@ sections:
     body: |-
       ### Making Sense of Multimodal Learning Analytics
 
-      [READ](https://circlcenter.org/events/making-sense-of-multimodal-learning-analytics/){: .box target="_blank"}
+      [READ](https://circlcenter.org/events/making-sense-of-multimodal-learning-analytics/){: .box target="_blank" rel="noopener"}
   - heading: "MMLA: Centering Inclusivity in Data Science"
     videos:
       - { url: "https://www.youtube-nocookie.com/embed/xtG9Jotjw60", title: "MMLA: Centering Inclusivity in Data Science — YouTube video" }

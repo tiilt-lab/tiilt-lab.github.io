@@ -14,14 +14,6 @@ layout: null
   <meta property="og:url" content="https://tiilt.northwestern.edu/papers/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <meta name="theme-color" content="#ccc4df" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -44,11 +36,12 @@ layout: null
       ]
     }
     </script>
+  {% include head-common.html %}
 </head>
 
 <body>
-    <header></header>
-    <main class="papers impact">
+  {% include site-header.html %}
+    <main id="main-content" class="papers impact">
       <h1 class="visually_hidden">Research</h1>
 
       {% assign all_papers = site.data.papers.papers %}
@@ -99,13 +92,13 @@ layout: null
         <div class="window__paper" data-citation="{{ paper.citation | downcase | escape }}"{% if paper.doi != "" and paper.doi != nil %} data-doi="{{ paper.doi | escape }}"{% endif %}>
           <p>{{ paper.citation }}</p>
           {% if paper.pdf != "" and paper.pdf != nil %}
-          <a href="{{ paper.pdf }}" target="_blank">PDF</a>
+          <a href="{{ paper.pdf }}" target="_blank" rel="noopener">PDF</a>
           {% endif %}
           {% if paper.doi != "" and paper.doi != nil %}
-          <a href="{{ paper.doi }}" target="_blank">DOI</a>
+          <a href="{{ paper.doi }}" target="_blank" rel="noopener">DOI</a>
           {% endif %}
           {% if paper.link != "" and paper.link != nil %}
-          <a href="{{ paper.link }}" target="_blank">READ</a>
+          <a href="{{ paper.link }}" target="_blank" rel="noopener">READ</a>
           {% endif %}
         </div>
         {% endfor %}
@@ -113,13 +106,14 @@ layout: null
       {% endfor %}
 
     </main>
-    <script src="../script.js"></script>
+  {% include site-footer.html %}
+    <script src="/script.js"></script>
     <script>
       window.LAB_MEMBERS = [
         {% for member in site.data.people.members %}{% if member.status == "active" %}{{ member.name | jsonify }},{% endif %}{% endfor %}
       ];
     </script>
     <script src="/assets/js/papers.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>

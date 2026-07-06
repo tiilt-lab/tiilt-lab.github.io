@@ -55,8 +55,6 @@
 
 .big-logo {
     width: min(40vw, 42rem);
-    position: fixed;
-    bottom: $space-3xl;
     z-index: $z-base;
     animation: fade-in 2s ease forwards;
     opacity: 0;

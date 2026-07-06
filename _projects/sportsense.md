@@ -39,5 +39,5 @@ sections:
     body: |-
       ### Bridging Between Expansive Learning Environments and MMLA
 
-      [READ](https://lsri.uic.edu/events/speaker-series-dr-marcelo-aaron-bonilla-worsley-northwestern-university/){: .box target="_blank"}
+      [READ](https://lsri.uic.edu/events/speaker-series-dr-marcelo-aaron-bonilla-worsley-northwestern-university/){: .box target="_blank" rel="noopener"}
 ---

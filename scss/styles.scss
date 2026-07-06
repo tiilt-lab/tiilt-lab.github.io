@@ -150,7 +150,7 @@ ul {
   .site-footer {
     margin: $space-xl;
     // clear the fixed bottom nav
-    margin-bottom: 8rem;
+    margin-bottom: $mobile-nav-clearance + 1rem;
   }
 }
 
@@ -204,7 +204,7 @@ header nav .theme-toggle {
 /* Mobile Styles Start */
 @include mobile {
   body {
-    padding-bottom: 7rem;
+    padding-bottom: $mobile-nav-clearance;
     height: 100%;
 
     header {
@@ -242,7 +242,7 @@ header nav .theme-toggle {
 
           // On mobile the toggle leaves the crowded bottom bar and floats
           // in the top-right corner instead
-          li:has(> .theme-toggle) {
+          li.nav-toggle-item {
             position: fixed;
             top: $space-md;
             right: $space-md;
@@ -276,7 +276,7 @@ header nav .theme-toggle {
 
   // Very narrow phones: shave paddings so all tabs stay on one row
   // (labels stay at 1rem — no sub-12px text)
-  @media only screen and (max-width: 360px) {
+  @media only screen and (max-width: #{$breakpoint-tiny}) {
     body header nav ul {
       li a .nav-icon {
         width: 1.7rem;
@@ -300,7 +300,7 @@ header {
   .site-title {
     font-size: $font-size-xl;
     font-weight: bold;
-    padding: 5px;
+    padding: $space-xs;
     margin: $space-4xl $space-4xl 0;
 
     a {
@@ -322,11 +322,11 @@ header {
       font-size: $font-size-lg;
       justify-content: space-around;
       font-weight: bold;
-      border: solid $color-black 2px;
+      border: $border-standard;
 
       li {
         a {
-          transition: all $transition-medium;
+          transition: color $transition-medium;
           color: $color-gray;
           text-decoration: none;
           font-size: $font-size-lg;
@@ -349,7 +349,7 @@ header {
         }
 
         .current-page {
-          color: $color-black !important;
+          color: $color-black;
           text-decoration: underline;
         }
       }
@@ -365,12 +365,12 @@ main {
   }
 
   .textblock {
-    border: solid 2px $color-black;
+    border: $border-standard;
     transition: box-shadow $transition-fast;
     background-color: $color-white;
 
     &:hover {
-      box-shadow: 4px 5px;
+      box-shadow: $card-shadow;
     }
 
     // cards with no actions don't pretend to be interactive

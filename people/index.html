@@ -15,21 +15,16 @@ layout: null
   <meta property="og:url" content="https://tiilt.northwestern.edu/people/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-  <meta name="theme-color" content="#ccc4df" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
-  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css" />
+  {% include head-common.html %}
 </head>
 
 <body>
-  <header></header>
+  {% include site-header.html %}
 
-  <main class="people">
+  <main id="main-content" class="people">
     <h1 class="visually_hidden">People</h1>
+    {% assign pis = site.data.people.members | where: "role", "pi" | where: "status", "active" %}
+    {% if pis.size > 0 %}
     <article class="leaders" aria-label="Leaders of the lab">
       <h2>Principal Investigator</h2>
       <div class="people-group">
@@ -44,14 +39,17 @@ layout: null
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
-          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
           {% endif %}
         </section>
         {% endif %}
         {% endfor %}
       </div>
     </article>
+    {% endif %}
 
+    {% assign grads = site.data.people.members | where: "role", "grad" | where: "status", "active" %}
+    {% if grads.size > 0 %}
     <article class="grads" aria-label="Graduate students of the lab">
       <h2>Graduate Students</h2>
       <div class="people-group">
@@ -66,13 +64,37 @@ layout: null
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
-          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
           {% endif %}
         </section>
         {% endif %}
         {% endfor %}
       </div>
     </article>
+    {% endif %}
+
+    {% assign postdocs = site.data.people.members | where: "role", "postdoc" | where: "status", "active" %}
+    {% if postdocs.size > 0 %}
+    <article class="postdocs" aria-label="Postdoctoral researchers of the lab">
+      <h2>Postdoctoral Researchers</h2>
+      <div class="people-group">
+        {% for member in postdocs %}
+        <section class="textblock">
+          <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
+          {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
+          <picture>
+            <source srcset="{{ webp }}" type="image/webp">
+            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
+          </picture>
+          <p>{{ member.bio }}</p>
+          {% if member.website != "" and member.website != nil %}
+          <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
+          {% endif %}
+        </section>
+        {% endfor %}
+      </div>
+    </article>
+    {% endif %}
 
     {% assign undergrads = site.data.people.members | where: "role", "undergrad" | where: "status", "active" %}
     {% if undergrads.size > 0 %}
@@ -89,7 +111,7 @@ layout: null
           </picture>
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
-          <a href="{{ member.website }}" target="_blank" aria-label="{{ member.name }}'s Website">website</a>
+          <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
           {% endif %}
         </section>
         {% endfor %}
@@ -106,7 +128,7 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.alumni_type == "phd" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
@@ -115,7 +137,7 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.role == "grad" and member.alumni_type != "phd" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
@@ -124,15 +146,16 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.role == "undergrad" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
     </article>
   </main>
 
-  <script src="../script.js"></script>
-  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  {% include site-footer.html %}
+  <script src="/script.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 
 </html>

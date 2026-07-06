@@ -154,12 +154,7 @@
 
     // Per-project publication entries
     .window__paper {
-      border-bottom: $border-standard;
-      padding-bottom: $space-md;
-
-      &:last-child {
-        border-bottom: none;
-      }
+      @include paper-entry;
     }
 
     // Video embeds keep their aspect ratio as they shrink on narrow screens
