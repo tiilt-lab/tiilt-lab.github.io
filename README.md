@@ -1,4 +1,4 @@
-# TIILT Lab Website
+# tiilt Lab Website
 
 The official website for the **Technological Innovations for Inclusive Learning and Teaching (TIILT) Lab** at Northwestern University.
 

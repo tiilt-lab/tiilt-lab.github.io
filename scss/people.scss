@@ -89,7 +89,7 @@
         color: $color-gray;
       }
 
-      li:has(a) {
+      li.alumni-chip--linked {
         border-color: $color-blue;
         padding: 0;
 

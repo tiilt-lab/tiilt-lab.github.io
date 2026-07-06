@@ -128,7 +128,7 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.alumni_type == "phd" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li{% if member.website != "" and member.website != nil %} class="alumni-chip--linked"{% endif %}>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
@@ -137,7 +137,7 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.role == "grad" and member.alumni_type != "phd" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li{% if member.website != "" and member.website != nil %} class="alumni-chip--linked"{% endif %}>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
@@ -146,7 +146,7 @@ layout: null
       <div class="list-group">
         <ul>
           {% for member in all_alumni %}{% if member.role == "undergrad" %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
+          <li{% if member.website != "" and member.website != nil %} class="alumni-chip--linked"{% endif %}>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank" rel="noopener">{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</a>{% else %}{{ member.name }}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}{% endif %}</li>
           {% endif %}{% endfor %}
         </ul>
       </div>
