@@ -41,6 +41,42 @@
       &:hover {
         box-shadow: 4px 5px var(--accent, currentColor);
       }
+
+      // Consistent inner spacing for the layout's content blocks (the old
+      // static pages relied on <p> wrappers for this)
+      .pictures,
+      .window__description,
+      > .box,
+      > h3 {
+        margin: $space-base;
+      }
+
+      > .box {
+        margin-bottom: 0;
+      }
+
+      .window__description {
+        p,
+        ol,
+        ul {
+          margin: $space-base 0;
+
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+
+        // markdown lists: restore markers and indent (the global reset
+        // zeroes padding and strips ul bullets)
+        ol,
+        ul {
+          padding-left: $space-3xl;
+        }
+
+        ul {
+          list-style: disc;
+        }
+      }
     }
 
     img,
@@ -54,9 +90,15 @@
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
       gap: $space-lg;
 
+      h3 {
+        margin-bottom: $space-md;
+      }
+
       img {
         width: 100%;
+        aspect-ratio: 4 / 3;
         object-fit: cover;
+        border: $border-standard;
       }
     }
 
