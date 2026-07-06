@@ -168,8 +168,9 @@
       opacity: 0; // the sliced sheet takes over rendering during a drag
     }
 
-    // The draggable sheet: 4 nested slices of the photo, each rotating
-    // around its top edge inside its parent's space, so bends accumulate
+    // The draggable sheet: a 4x4 grid of photo slices. Rows nest
+    // vertically (rotateX curls), each row's cells nest horizontally
+    // (rotateY bends), so folds accumulate along both axes
     .peel-sheet {
       display: none;
       position: absolute;
@@ -179,17 +180,25 @@
       transform-style: preserve-3d;
     }
 
-    .peel-seg {
+    .peel-strip {
       position: absolute;
       left: 0;
       right: 0;
       transform-origin: top center;
       transform-style: preserve-3d;
+    }
+
+    .peel-cell {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      transform-origin: left center;
+      transform-style: preserve-3d;
       backface-visibility: hidden;
       background-repeat: no-repeat;
     }
 
-    .peel-seg--last {
+    .peel-cell--bottom {
       border-bottom: $border-standard;
     }
 
@@ -222,25 +231,27 @@
 
 // The flutter lives in a short window of a long cycle, so the breeze
 // only passes "once in a while"; identical timing keeps all cards in sync
+// Gusts tilt around shifting diagonal axes, so the flutter reads as wind
+// crossing the photos corner-to-corner rather than straight on
 @keyframes photo-breeze {
   0%, 89%, 100% {
-    transform: perspective(60rem) rotateX(0) rotateY(0);
+    transform: perspective(60rem) rotate3d(1, 0, 0, 0deg);
   }
 
   91% {
-    transform: perspective(60rem) rotateX(4deg) rotateY(6deg) skewY(0.6deg);
+    transform: perspective(60rem) rotate3d(1, 0.55, 0, 5.5deg) skewY(0.5deg);
   }
 
   93.5% {
-    transform: perspective(60rem) rotateX(5deg) rotateY(-6deg) skewY(-0.6deg);
+    transform: perspective(60rem) rotate3d(1, -0.65, 0, 4.5deg) skewY(-0.5deg);
   }
 
   96% {
-    transform: perspective(60rem) rotateX(3deg) rotateY(4deg) skewY(0.3deg);
+    transform: perspective(60rem) rotate3d(0.85, 0.6, 0, 3.5deg) skewY(0.3deg);
   }
 
   98% {
-    transform: perspective(60rem) rotateX(1deg) rotateY(-2deg);
+    transform: perspective(60rem) rotate3d(1, -0.4, 0, 1.5deg);
   }
 }
 
