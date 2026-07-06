@@ -447,6 +447,14 @@ main {
       touch-action: none;
       cursor: crosshair;
     }
+
+    // Small mirrored webcam preview while camera painting is on
+    #cam-preview {
+      width: 12rem;
+      margin: 0 $space-base $space-md;
+      border: $border-standard;
+      transform: scaleX(-1);
+    }
   }
 
   &.about {

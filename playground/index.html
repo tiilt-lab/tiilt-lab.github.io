@@ -32,8 +32,9 @@
         <a href="/projects/sportsense/paintball/">PaintBall</a> is a SportSense
         prototype that turns movement data into art. This is a small live version
         you can try right now: <b>on a phone, wave or shake your device</b> to
-        paint with your motion; on a computer, <b>drag across the canvas</b> —
-        faster movement makes bigger, wilder splats.
+        paint with your motion; on a laptop, <b>enable camera painting and wave
+        your hands</b>, or just <b>drag across the canvas</b> — faster movement
+        makes bigger, wilder splats.
       </p>
       <p>
         Everything runs in your browser. No motion data leaves your device.
@@ -44,10 +45,12 @@
       <h2 class="card-title">Canvas</h2>
       <div class="paint-controls">
         <button type="button" id="motion-btn">enable motion painting</button>
+        <button type="button" id="camera-btn">enable camera painting</button>
         <button type="button" id="clear-btn">clear</button>
         <button type="button" id="save-btn">save as image</button>
         <span id="motion-status" role="status" aria-live="polite"></span>
       </div>
+      <video id="cam-preview" hidden muted playsinline aria-label="Mirrored camera preview. Your movement in front of the camera paints on the canvas. Video stays on your device."></video>
       <canvas id="paint" aria-label="Painting canvas. Drag with your pointer, or enable motion painting and move your device, to create splats of color."></canvas>
     </section>
   </main>
@@ -161,6 +164,78 @@
       } else {
         statusEl.textContent = "no motion sensors here — paint by dragging instead.";
       }
+    });
+
+    // --- Camera painting (laptops/desktops: wave in front of the webcam) ---
+    // Frame differencing on a small grayscale grid; the motion centroid drives
+    // the brush. Everything stays on-device: no frames are stored or sent.
+    var camVideo = document.getElementById("cam-preview");
+    var camStream = null;
+    var camPrev = null;
+    var camWork = document.createElement("canvas");
+    var GRID_W = 64, GRID_H = 48;
+    camWork.width = GRID_W; camWork.height = GRID_H;
+    var camCtx = camWork.getContext("2d", { willReadFrequently: true });
+
+    function camStep() {
+        if (!camStream) return;
+        if (camVideo.readyState >= 2) {
+            camCtx.drawImage(camVideo, 0, 0, GRID_W, GRID_H);
+            var frame = camCtx.getImageData(0, 0, GRID_W, GRID_H).data;
+            if (camPrev) {
+                var sum = 0, cx = 0, cy = 0;
+                for (var i = 0; i < GRID_W * GRID_H; i++) {
+                    var o = i * 4;
+                    var g1 = frame[o] + frame[o + 1] + frame[o + 2];
+                    var g2 = camPrev[o] + camPrev[o + 1] + camPrev[o + 2];
+                    var d = Math.abs(g1 - g2);
+                    if (d > 90) { // ignore sensor noise
+                        sum += d;
+                        cx += (i % GRID_W) * d;
+                        cy += Math.floor(i / GRID_W) * d;
+                    }
+                }
+                if (sum > 2500) {
+                    var rect = canvas.getBoundingClientRect();
+                    // mirror x so moving your hand left paints left
+                    var px = (1 - (cx / sum) / GRID_W) * rect.width;
+                    var py = ((cy / sum) / GRID_H) * rect.height;
+                    var energy = Math.min(sum / 9000, 24);
+                    splat(px, py, energy);
+                }
+            }
+            camPrev = frame.slice ? frame.slice(0) : new Uint8ClampedArray(frame);
+        }
+        requestAnimationFrame(camStep);
+    }
+
+    var camBtn = document.getElementById("camera-btn");
+    camBtn.addEventListener("click", function () {
+        if (camStream) { // toggle off
+            camStream.getTracks().forEach(function (t) { t.stop(); });
+            camStream = null; camPrev = null;
+            camVideo.hidden = true;
+            camBtn.textContent = "enable camera painting";
+            statusEl.textContent = "";
+            return;
+        }
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            statusEl.textContent = "no camera available here — paint by dragging instead.";
+            return;
+        }
+        navigator.mediaDevices.getUserMedia({ video: { width: 320, height: 240, facingMode: "user" }, audio: false })
+            .then(function (stream) {
+                camStream = stream;
+                camVideo.srcObject = stream;
+                camVideo.hidden = false;
+                camVideo.play();
+                camBtn.textContent = "stop camera painting";
+                statusEl.textContent = "wave your hands to paint! (video never leaves your device)";
+                requestAnimationFrame(camStep);
+            })
+            .catch(function () {
+                statusEl.textContent = "camera permission was declined — you can still paint by dragging.";
+            });
     });
 
     document.getElementById("clear-btn").addEventListener("click", function () {
