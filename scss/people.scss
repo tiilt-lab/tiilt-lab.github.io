@@ -141,9 +141,8 @@
   }
 
   // Easter egg: portraits with a photo_silly hide it under the visible
-  // photo; script.js makes the top photo grabbable (paper-peel physics)
-  // and sends a synchronized gust of wind through them every so often.
-  // Portraits without a hidden photo stay still.
+  // photo; script.js makes the top photo grabbable (paper-peel physics).
+  // Nothing advertises it beyond a small twitch on hover.
   .photo-stack {
     position: relative;
 

@@ -122,8 +122,9 @@ function initThemeToggle() {
     paint();
 }
 
-// People-page easter egg: grab the top portrait and peel it up like a
-// sheet of paper taped along its very top edge. The sheet is 8 full-width
+// People-page easter egg (undocumented on purpose -- for visitors to
+// discover): grab the top portrait and peel it up like a sheet of paper
+// taped along its very top edge. The sheet is 8 full-width
 // strips, each nested inside the one above, and every strip carries BOTH
 // a fold (rotateX) and a small twist (rotateY) that its children inherit
 // -- so the surface is connected by construction and cannot crack apart
@@ -132,7 +133,6 @@ function initThemeToggle() {
 // hover-lift stays as the no-JS fallback.
 function initPhotoPeel() {
     var ROWS = 8;
-    var gusts = [];
     var MAX = 75;          // fold angle at the crease; the tip curls past this
     var FOLLOW = 0.55;     // fold: how much each strip chases the one above
     var HFOLLOW = 0.8;     // twist propagation down the strips
@@ -276,30 +276,7 @@ function initPhotoPeel() {
         img.addEventListener("pointerup", release);
         img.addEventListener("pointercancel", release);
 
-        // A gust of wind: lift the sheet through the same springs the hand
-        // uses, with a diagonal twist, then let it flutter back down
-        gusts.push(function () {
-            if (dragging) return;
-            buildSheet();
-            layoutSheet();
-            sheet.style.display = "block";
-            stack.classList.add("peeling");
-            if (card) card.style.zIndex = "60";
-            target = 48; hTarget = -HMAX; ensureRaf();
-            setTimeout(function () { if (!dragging) { target = 22; hTarget = HMAX * 0.8; } }, 380);
-            setTimeout(function () { if (!dragging) { target = 40; hTarget = -HMAX * 0.6; } }, 760);
-            setTimeout(function () { if (!dragging) { target = 0; hTarget = 0; } }, 1150);
-        });
     });
-
-    // One clock for every sheet, so the wind crosses them all together.
-    // Photos without a hidden photo underneath don't move at all.
-    if (gusts.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        setTimeout(function fire() {
-            if (!document.hidden) gusts.forEach(function (g) { g(); });
-            setTimeout(fire, 24000);
-        }, 7000);
-    }
 }
 
 // On mobile the nav sits at the bottom of the screen, so dropdown menus
