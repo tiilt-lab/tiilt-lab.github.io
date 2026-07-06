@@ -247,7 +247,7 @@
       var out = document.createElement("canvas");
       out.width = canvas.width; out.height = canvas.height;
       var octx = out.getContext("2d");
-      octx.fillStyle = getComputedStyle(document.body).backgroundColor || "#fff";
+      octx.fillStyle = "#fff"; // canvas is always paper-white
       octx.fillRect(0, 0, out.width, out.height);
       octx.drawImage(canvas, 0, 0);
       var a = document.createElement("a");

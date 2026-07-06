@@ -446,6 +446,9 @@ main {
       border: $border-standard;
       touch-action: none;
       cursor: crosshair;
+      // always paper-white: the splat palette includes deep purple and
+      // navy that vanish on a dark canvas
+      background-color: #fff;
     }
 
     // Small mirrored webcam preview while camera painting is on

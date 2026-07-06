@@ -8,13 +8,13 @@ classes:
   - title: "Human Computer Interaction"
     description: "Introduction to human-computer interaction and the design of systems that work for people and their organizations. Students explore how humans engage with computers in professional contexts, with particular emphasis on interface design as a creative problem-solving discipline. Rather than seeking one ideal solution, the course examines what distinguishes effective interfaces from ineffective ones and teaches proven techniques for designing interfaces that meet human needs."
     objectives: []
-    additional_description: "COMP_SCI 330. Next offered Spring 2026."
+    additional_description: "COMP_SCI 330. Last offered Spring 2026."
     link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/330-1.html"
 
   - title: "CS Education Research in the Community II: Sports and Computer Science"
     description: "This course enables students to explore practical aspects of teaching computer programming to youth. Throughout the quarter, participants engage with scholarly literature on CS education initiatives while teaching one to two weekly coding lessons at local elementary schools alongside teacher partners. Students deliver coding instruction to elementary students and conduct educational research through field observations, note-taking, and surveys to comprehend how young learners experience coding curricula."
     objectives: []
-    additional_description: "COMP_SCI 316-2. Next offered Spring 2026. Formerly offered as COMP_SCI 396/496."
+    additional_description: "COMP_SCI 316-2. Last offered Spring 2026. Formerly offered as COMP_SCI 396/496."
     link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/316-2.html"
 
   - title: "Sports, Technology, and Learning"
@@ -29,7 +29,7 @@ classes:
       - "critically explore Making as a practice that promotes democratization."
       - "develop interfaces that allow a broader population of students to participate in digital fabrication."
       - "co-design artifacts that positively impact accessibility and inclusivity."
-    additional_description: "COMP_SCI 311. Cross-listed as LRN_SCI 309/409. Next offered Spring 2026. Formerly offered as COMP_SCI 397/497."
+    additional_description: "COMP_SCI 311. Cross-listed as LRN_SCI 309/409. Last offered Spring 2026. Formerly offered as COMP_SCI 397/497."
     link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/311.html"
 
   - title: "Advanced Multimodal Interfaces and Analysis Research"
@@ -47,18 +47,18 @@ classes:
     objectives:
       - "design experiences that allow people who are homeless or living in poverty to design and interact with technology"
       - "create technologies that address one or more needs of someone who is homeless or an organization that serves the homeless"
-      - "develop computational models (and experiences) that can be used educate people about the levers that impact homeless."
+      - "develop computational models (and experiences) that can be used to educate people about the levers that impact homelessness."
     additional_description: "COMP_SCI 397/497. Last offered Spring 2018."
     link: ""
 
   - title: "Interactive Media and Technology for Learning"
-    description: "This is a hands-on project course. All students will design and implement interactive technologies for supporting learning. Students will be expected to do computer programming as part of this class. During this course, students will get a hands-on introduction to designing novel interfaces with multimodal sensor technology. Each week students will explore a specific modality or theory, and complete one or more activities that will challenge them to utilize that theory or modality. In order to support a strong introduction to both theory and practice, every week will include one class session involving hands-on work, and another that uses a seminar style to discuss theory and closely examine the assigned Readings. Students will be expected to use insights and ideas presented in the class in a collaborative final project."
+    description: "This is a hands-on project course. All students will design and implement interactive technologies for supporting learning. Students will be expected to do computer programming as part of this class. During this course, students will get a hands-on introduction to designing novel interfaces with multimodal sensor technology. Each week students will explore a specific modality or theory, and complete one or more activities that will challenge them to utilize that theory or modality. In order to support a strong introduction to both theory and practice, every week will include one class session involving hands-on work, and another that uses a seminar style to discuss theory and closely examine the assigned readings. Students will be expected to use insights and ideas presented in the class in a collaborative final project."
     objectives: []
     additional_description: "Last offered Fall 2018."
     link: ""
 
   - title: "Multimodal Learning Analytics"
-    description: "Multimodal (learning) Analytics will introduce students to a different analytic techniques and modalities for studying human learning in face to face learning environments. Students will spend the first few weeks designing an education research study that leverages pertinent theories from the learning sciences. Students will then run their study and collect data from several modalities. Finally students will analyze that data and articulate their findings in the form of a research paper. During the course students will encounter several data collection and analysis tools including: Rapid Miner, Tableau, Xbox Kinect, Raspberry Pi, LIWC and more. There are no prerequisites for this course but students will be required to do some computer programming.\nThis is a hands-on project course. All students will design and implement at least one study and also work with digital technologies. For this reason you will be expected to do computer programming. However, all projects can be completed in teams. Hence, it is not essential that all students come with prior knowledge in computer programming. Additionally, a portion of class and office hours will be devoted to helping students gain familiarity in basic computer programming as needed."
+    description: "Multimodal Learning Analytics will introduce students to different analytic techniques and modalities for studying human learning in face to face learning environments. Students will spend the first few weeks designing an education research study that leverages pertinent theories from the learning sciences. Students will then run their study and collect data from several modalities. Finally students will analyze that data and articulate their findings in the form of a research paper. During the course students will encounter several data collection and analysis tools including: Rapid Miner, Tableau, Xbox Kinect, Raspberry Pi, LIWC and more. There are no prerequisites for this course but students will be required to do some computer programming.\nThis is a hands-on project course. All students will design and implement at least one study and also work with digital technologies. For this reason you will be expected to do computer programming. However, all projects can be completed in teams. Hence, it is not essential that all students come with prior knowledge in computer programming. Additionally, a portion of class and office hours will be devoted to helping students gain familiarity in basic computer programming as needed."
     objectives: []
     additional_description: "COMP_SCI 397/497. Next offered Fall 2026."
     link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/397-497-10.html"

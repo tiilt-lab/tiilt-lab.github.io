@@ -281,7 +281,10 @@ function wrapCardFooters() {
     });
 }
 
-window.onload = () => {
+// Runs immediately: this script sits at the end of <body>, so the DOM is
+// parsed. (This used to hang on window.onload, which waits for every
+// YouTube iframe — leaving iframe-heavy pages invisible until then.)
+(() => {
     if (location.pathname.includes("people")) {
         addReadMoreButtons();
     }
@@ -314,4 +317,4 @@ window.onload = () => {
         cards.forEach(function (card) { card.classList.add('visible'); });
     }, 1500);
 
-};
+})();
