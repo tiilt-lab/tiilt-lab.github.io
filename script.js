@@ -123,47 +123,99 @@ function initThemeToggle() {
 }
 
 // People-page easter egg: grab the top portrait and peel it up like a
-// sheet of paper to reveal the photo underneath. A small spring model
-// (angle + velocity) drives the transform each frame, so the photo has
-// weight while dragging and flutters back down on release. The CSS
-// hover-lift stays as the no-JS fallback; .js-peel turns it off here.
+// sheet of paper. The sheet is 4 stacked slices of the photo, each nested
+// in the one above and driven by its own spring that chases its parent —
+// the lag ripples down the chain, so the sheet bends and flutters like
+// paper instead of tilting like a board. CSS hover-lift stays as the
+// no-JS fallback; .js-peel turns it off here.
 function initPhotoPeel() {
+    var SEGS = 4;
+    var MAX = 65;          // root fold angle; the tip curls well past this
+    var FOLLOW = 0.3;      // how much each slice chases the one above
+
     Array.from(document.querySelectorAll(".photo-stack--reveal")).forEach(function (stack) {
         var img = stack.querySelector("picture img");
+        var card = stack.closest(".textblock");
         if (!img) return;
         stack.classList.add("js-peel");
         img.draggable = false;
 
-        var MAX = 85;                         // fully peeled: edge-on, still visible (deg)
-        var angle = 0, vel = 0, target = 0;   // spring state
-        var sway = 0, swayTarget = 0;         // side wobble from hand movement
+        var sheet = null, segs = [], shade = null;
+        var angles = [], vels = [];
+        var target = 0, sway = 0, swayTarget = 0;
         var dragging = false, raf = null;
         var grabY = 0, grabAngle = 0, lastX = 0;
+        for (var i = 0; i < SEGS; i++) { angles.push(0); vels.push(0); }
+
+        function buildSheet() {
+            if (sheet) return;
+            sheet = document.createElement("div");
+            sheet.className = "peel-sheet";
+            sheet.setAttribute("aria-hidden", "true");
+            shade = document.createElement("div");
+            shade.className = "peel-shade";
+            stack.insertBefore(shade, img.closest("picture"));
+            var parent = sheet;
+            for (var i = 0; i < SEGS; i++) {
+                var seg = document.createElement("div");
+                seg.className = "peel-seg" + (i === SEGS - 1 ? " peel-seg--last" : "");
+                parent.appendChild(seg);
+                segs.push(seg);
+                parent = seg;
+            }
+            stack.appendChild(sheet);
+        }
+
+        function layoutSheet() {
+            var W = img.clientWidth, H = img.clientHeight;
+            var segH = H / SEGS;
+            // reproduce object-fit: cover / object-position: top per slice
+            var nw = img.naturalWidth || W, nh = img.naturalHeight || H;
+            var scale = Math.max(W / nw, H / nh);
+            var bgW = nw * scale, bgH = nh * scale;
+            var offX = (W - bgW) / 2;
+            segs.forEach(function (seg, i) {
+                seg.style.height = segH + "px";
+                seg.style.top = i === 0 ? "0" : segH + "px";
+                seg.style.backgroundImage = "url('" + (img.currentSrc || img.src) + "')";
+                seg.style.backgroundSize = bgW + "px " + bgH + "px";
+                seg.style.backgroundPosition = offX + "px " + (-i * segH) + "px";
+            });
+        }
 
         function apply() {
-            var a = Math.max(0, Math.min(MAX, angle));
-            var s = Math.max(-12, Math.min(12, sway));
-            img.style.transform =
-                "perspective(60rem) rotateX(" + a.toFixed(2) + "deg) rotateY(" + s.toFixed(2) + "deg)";
-            img.style.filter = "drop-shadow(0 " + (a * 0.015).toFixed(2) + "rem " +
-                (0.4 + a * 0.012).toFixed(2) + "rem rgba(0,0,0," + (a / MAX * 0.35).toFixed(3) + "))";
+            segs.forEach(function (seg, i) {
+                var a = Math.max(-4, angles[i]);
+                seg.style.transform = i === 0
+                    ? "rotateX(" + a.toFixed(2) + "deg) rotateY(" + sway.toFixed(2) + "deg)"
+                    : "rotateX(" + a.toFixed(2) + "deg)";
+            });
+            shade.style.opacity = (Math.max(0, angles[0]) / MAX * 0.45).toFixed(3);
         }
 
         function frame() {
-            // critically-damped-ish spring: stiff while held, loose when falling
-            vel += (target - angle) * (dragging ? 0.32 : 0.045);
-            vel *= dragging ? 0.52 : 0.9;
-            angle += vel;
+            var moving = false;
+            for (var i = 0; i < SEGS; i++) {
+                // slice 0 chases the hand; each other slice chases its parent.
+                // outer slices are springier — that's the flimsiness
+                var t = i === 0 ? target : angles[i - 1] * FOLLOW;
+                var k = dragging ? 0.34 - i * 0.055 : 0.05 + i * 0.012;
+                var d = dragging ? 0.52 : 0.9 - i * 0.02;
+                vels[i] += (t - angles[i]) * k;
+                vels[i] *= d;
+                angles[i] += vels[i];
+                if (Math.abs(vels[i]) > 0.02 || Math.abs(t - angles[i]) > 0.05) moving = true;
+            }
             swayTarget *= 0.9;
             sway += (swayTarget - sway) * 0.15;
+            if (Math.abs(sway) > 0.05) moving = true;
 
-            var settled = !dragging && Math.abs(vel) < 0.02 &&
-                Math.abs(target - angle) < 0.05 && Math.abs(sway) < 0.05;
-            if (settled && target === 0) {
-                angle = 0; vel = 0; sway = 0;
-                img.style.transform = "";
-                img.style.filter = "";
+            if (!dragging && !moving && target === 0) {
+                for (var j = 0; j < SEGS; j++) { angles[j] = 0; vels[j] = 0; }
+                sway = 0;
+                sheet.style.display = "none";
                 stack.classList.remove("peeling");
+                if (card) card.style.zIndex = "";
                 raf = null;
                 return;
             }
@@ -176,11 +228,15 @@ function initPhotoPeel() {
         }
 
         img.addEventListener("pointerdown", function (e) {
+            buildSheet();
+            layoutSheet();
+            sheet.style.display = "block";
             dragging = true;
             grabY = e.clientY;
-            grabAngle = angle;
+            grabAngle = angles[0];
             lastX = e.clientX;
             stack.classList.add("peeling");
+            if (card) card.style.zIndex = "60"; // ride above neighboring cards
             img.setPointerCapture(e.pointerId);
             e.preventDefault();
             ensureRaf();
@@ -190,8 +246,8 @@ function initPhotoPeel() {
             if (!dragging) return;
             var pull = grabY - e.clientY; // pixels pulled upward
             var h = stack.offsetHeight || 300;
-            target = Math.max(0, Math.min(MAX, grabAngle + (pull / h) * 200));
-            swayTarget += (e.clientX - lastX) * 0.25;
+            target = Math.max(0, Math.min(MAX, grabAngle + (pull / h) * 170));
+            swayTarget += (e.clientX - lastX) * 0.3;
             lastX = e.clientX;
             ensureRaf();
         });
@@ -199,12 +255,11 @@ function initPhotoPeel() {
         function release() {
             if (!dragging) return;
             dragging = false;
-            target = 0; // let go: the sheet floats back down
+            target = 0; // let go: the sheet flutters back down
             ensureRaf();
         }
         img.addEventListener("pointerup", release);
         img.addEventListener("pointercancel", release);
-        img.addEventListener("lostpointercapture", release);
     });
 }
 

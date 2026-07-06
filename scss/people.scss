@@ -151,16 +151,56 @@
 
     // JS peel: the sheet is grabbable; while a drag is live the spring
     // loop owns the transform, so transitions and the breeze must yield
-    &--reveal.js-peel picture img {
-      cursor: grab;
-      touch-action: none;
-      will-change: transform;
+    &--reveal.js-peel {
+      perspective: 60rem;
+
+      picture img {
+        cursor: grab;
+        touch-action: none;
+        will-change: transform;
+      }
     }
 
     &--reveal.peeling picture img {
       animation: none;
       transition: none;
       cursor: grabbing;
+      opacity: 0; // the sliced sheet takes over rendering during a drag
+    }
+
+    // The draggable sheet: 4 nested slices of the photo, each rotating
+    // around its top edge inside its parent's space, so bends accumulate
+    .peel-sheet {
+      display: none;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      transform-style: preserve-3d;
+    }
+
+    .peel-seg {
+      position: absolute;
+      left: 0;
+      right: 0;
+      transform-origin: top center;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      background-repeat: no-repeat;
+    }
+
+    .peel-seg--last {
+      border-bottom: $border-standard;
+    }
+
+    // Shadow the lifted sheet casts on the photo underneath
+    .peel-shade {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05) 70%);
     }
 
     // Discovery hint: a corner twitch on hover says "this one moves"
