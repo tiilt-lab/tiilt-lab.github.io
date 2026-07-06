@@ -8,6 +8,16 @@
   .textblock {
     max-width: 75rem;
     margin-bottom: $space-3xl;
+
+    // markdown content in posts: restore list markers and indent
+    ol,
+    ul {
+      padding-left: $space-3xl;
+    }
+
+    ul {
+      list-style: disc;
+    }
   }
   img {
     @include card-image;

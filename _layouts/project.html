@@ -39,6 +39,7 @@
       <a class="box" href="{{ btn.url }}"{% if btn.url contains "http" %} target="_blank"{% endif %}>{{ btn.label }}</a>
       {% endfor %}{% endif %}
 
+      {% capture picture_grid %}
       {% if section.images and section.images.size > 0 %}
       <div class="pictures">
         {% for img in section.images %}
@@ -49,17 +50,31 @@
         {% endfor %}
       </div>
       {% endif %}
+      {% endcapture %}
 
+      {% if forloop.first and section.images.size > 0 and section.images.size <= 2 and section.body != "" and section.body != nil %}
+      {% comment %} hero: intro text beside the images on wide screens {% endcomment %}
+      <div class="intro-columns">
+        <div class="window__description">{{ section.body | markdownify }}</div>
+        {{ picture_grid }}
+      </div>
+      {% else %}
+      {{ picture_grid }}
       {% if section.body != "" and section.body != nil %}
       <div class="window__description">{{ section.body | markdownify }}</div>
       {% endif %}
+      {% endif %}
 
-      {% if section.videos %}{% for vid in section.videos %}
-      {% if vid.caption != "" and vid.caption != nil %}<h3>{{ vid.caption }}</h3>{% endif %}
-      <p>
-        <iframe width="560" height="315" src="{{ vid.url }}" title="{{ vid.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </p>
-      {% endfor %}{% endif %}
+      {% if section.videos and section.videos.size > 0 %}
+      <div class="videos{% if section.videos.size > 1 %} videos--grid{% endif %}">
+        {% for vid in section.videos %}
+        <div class="video">
+          {% if vid.caption != "" and vid.caption != nil %}<h3>{{ vid.caption }}</h3>{% endif %}
+          <iframe width="560" height="315" src="{{ vid.url }}" title="{{ vid.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
     </section>
     {% endfor %}
 

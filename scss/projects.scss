@@ -66,15 +66,61 @@
           }
         }
 
-        // markdown lists: restore markers and indent (the global reset
-        // zeroes padding and strips ul bullets)
-        ol,
-        ul {
-          padding-left: $space-3xl;
+        // markdown h3s get an accent bar
+        h3 {
+          border-left: 0.4rem solid var(--accent, $color-black);
+          padding-left: $space-md;
+          margin: $space-base 0 $space-md;
+        }
+      }
+
+      // restore list markers and indent everywhere in project content —
+      // the global reset zeroes padding and strips ul bullets (this also
+      // repairs the DataInMotion lesson pages' lists)
+      ol,
+      ul {
+        padding-left: $space-3xl;
+      }
+
+      ul {
+        list-style: disc;
+      }
+
+      // hero: on wide screens the intro text sits beside its images
+      .intro-columns {
+        display: flex;
+        gap: $space-lg;
+        margin: $space-base;
+
+        > .window__description {
+          flex: 3;
+          margin: 0;
         }
 
-        ul {
-          list-style: disc;
+        > .pictures {
+          flex: 2;
+          margin: 0;
+          grid-template-columns: 1fr;
+          align-content: start;
+        }
+
+        @include mobile {
+          flex-direction: column;
+        }
+      }
+
+      // video embeds: cells with captions; multiple videos become a grid
+      .videos {
+        margin: $space-base;
+
+        .video h3 {
+          margin-bottom: $space-md;
+        }
+
+        &--grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+          gap: $space-lg;
         }
       }
     }
@@ -98,7 +144,7 @@
         width: 100%;
         aspect-ratio: 4 / 3;
         object-fit: cover;
-        border: $border-standard;
+        border: 2px solid var(--accent, $color-black);
       }
     }
 
