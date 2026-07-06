@@ -80,15 +80,6 @@ layout: null
         </div>
       </section>
 
-      <section class="textblock">
-        <h2 class="card-title">Publications per year</h2>
-        <div id="years-chart" class="chart" role="img" aria-label="Column chart of TIILT Lab publications per year. A data table follows."></div>
-        <details class="chart-table">
-          <summary>view as table</summary>
-          <table id="years-table"></table>
-        </details>
-      </section>
-
       <section class="textblock paper-filters" aria-label="Filter publications">
         <div class="paper-filters__row">
           <input type="search" id="paper-search" placeholder="search citations…" aria-label="Search citations">
@@ -122,20 +113,13 @@ layout: null
       {% endfor %}
 
     </main>
-    <div id="chart-tooltip" class="chart-tooltip" hidden></div>
     <script src="../script.js"></script>
     <script>
       window.LAB_MEMBERS = [
         {% for member in site.data.people.members %}{% if member.status == "active" %}{{ member.name | jsonify }},{% endif %}{% endfor %}
       ];
     </script>
-    <script>
-      window.IMPACT_DATA = {
-        years: [{% for p in all_papers %}{{ p.year }},{% endfor %}]
-      };
-    </script>
     <script src="/assets/js/papers.js"></script>
-    <script src="/assets/js/impact.js"></script>
   <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
