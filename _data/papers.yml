@@ -471,7 +471,7 @@ papers:
 
   - citation: "Maldonado, R. M., Worsley, M., Schneider, B., & Kharrufa, A. (2019). International Workshop on Collaboration Analytics: Making Learning Visible in Collaborative Settings. A Wide Lens: Combining Embodied, Enactive, Extended, and Embedded Learning in Collaborative Settings."
     year: 2019
-    pdf: "../assets/papers/international_workshop_2020.pdf"
+    pdf: "https://github.com/tiilt-lab/tiilt-lab.github.io/releases/download/hosted-assets/international_workshop_2020.pdf"
     doi: ""
     link: ""
 
