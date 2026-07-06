@@ -5,8 +5,9 @@ members:
     alumni_type: ''
     bio: I am an associate professor of Learning Sciences and Computer Science at Northwestern's School of Education and Social Policy and the McCormick School of Engineering. My research aims to advance society's understanding of how students learn in complex learning environments by forging new opportunities for using multimodal technology.
     photo: /assets/img/people/marcelo-worsley copy.jpg
-    photo_alt: "Portrait of Marcelo Worsley"
+    photo_alt: Portrait of Marcelo Worsley
     website: ''
+    destination: ''
     sort_name: Worsley
   - name: Bookyung Shin
     role: grad
@@ -14,8 +15,9 @@ members:
     alumni_type: ''
     bio: Bookyung is a doctoral student in the Learning Sciences at Northwestern University. Her research focuses on collaborative inquiry in formal and informal learning environments. Specifically, she is interested in how learners ask questions as they engage in joint activity, interacting with each other and with multiple technologies and texts simultaneously. In exploring the process of collaborative inquiry, she hopes to bring together ideas and methods from multimodal learning analytics, interaction analysis, and the science of learning.
     photo: /assets/img/people/bookyungshin_profile_2509.png
-    photo_alt: "Portrait of Bookyung Shin"
+    photo_alt: Portrait of Bookyung Shin
     website: ''
+    destination: ''
     sort_name: Shin
   - name: Di Wu
     role: grad
@@ -26,17 +28,19 @@ members:
       His research explores how interactive systems can become physical, embedded, and intuitive—not merely placing interfaces onto the human body, but transforming the body itself into the interface. Inspired by the vision of the “Ultimate Display,” his work seeks to dissolve the boundary between perception and control, where sensing and actuation are no longer separate components but unified as lived experience.
       To realize this vision, he develops a systematic design space that spans material innovation, device fabrication, power management, and human-computer interaction. Through this integrated approach, he aims to create soft, embodied technologies that seamlessly integrate into the fabric of everyday life. Within this fabric, new possibilities emerge across domains such as assistive technology, rehabilitation, and embodied learning.
     photo: /assets/img/people/di.jpg
-    photo_alt: "Portrait of Di Wu"
+    photo_alt: Portrait of Di Wu
     website: ''
+    destination: ''
     sort_name: Wu
   - name: Maryam Azmandian
     role: grad
     status: active
     alumni_type: ''
     bio: Maryam is a doctoral student in Computer Science at Northwestern University. Prior to Northwestern, she earned her Bachelor of Science in Electrical Engineering and Computer Science (EECS) at UC Berkeley. Her research is in human-computer interaction, tangible technologies, and learning. She's passionate about designing tools and experiences that foster human development and connection. Her vision for the future is one where tech bolsters authentic, meaningful, accessible, and enriching human experiences.
-    photo: ''
+    photo: /assets/img/people/IMG_6258.jpeg
     photo_alt: ''
     website: ''
+    destination: ''
     sort_name: Azmandian
   - name: Jacob Puthipiroj
     role: grad
@@ -44,7 +48,7 @@ members:
     alumni_type: ''
     bio: Jacob is a PhD student in Computer Science and Learning Sciences at Northwestern University. His research focuses on AI education, knowledge representation, and computational linguistics, with an emphasis on developing innovative learning models such as structured hackathons and AI literacy frameworks. In his spare time, Jacob enjoys climbing, quizbowl, and reading social science, which he continuously tries to incorporate into his research.
     photo: /assets/img/people/jacob-puthipiroj.JPG
-    photo_alt: "Portrait of Jacob Puthipiroj"
+    photo_alt: Portrait of Jacob Puthipiroj
     website: ''
     sort_name: Puthipiroj
   - name: Khushbu Kshirsagar
@@ -53,7 +57,7 @@ members:
     alumni_type: ''
     bio: Khushbu is a doctoral student in Learning Sciences at Northwestern University. Her work lies at the intersection of mechanical design, mathematics, and art, focusing on informal learning spaces such as museums, playgrounds, and everyday public environments. Khushbu is passionate about encouraging creative exploration and accessibility through her designs; reimagining where and how learning happens, and about designing tools that support playful, curiosity-driven interactions beyond traditional classrooms.
     photo: /assets/img/people/Khushbu-Kshirsagar.jpg
-    photo_alt: "Portrait of Khushbu Kshirsagar"
+    photo_alt: Portrait of Khushbu Kshirsagar
     website: ''
     sort_name: Kshirsagar
   - name: Michael Smith
@@ -62,7 +66,7 @@ members:
     alumni_type: ''
     bio: Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow. Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games.
     photo: /assets/img/people/michael-smith copy.jpg
-    photo_alt: "Portrait of Michael Smith"
+    photo_alt: Portrait of Michael Smith
     website: https://michaelshanesmith.github.io/
     sort_name: Smith
   - name: Sarah Priscilla Lee
@@ -80,7 +84,7 @@ members:
     alumni_type: ''
     bio: Ashley is a Learning Sciences PhD candidate at Northwestern University. Their research focuses on data education across K-16 contexts with an emphasis on agency, culture, and identity.
     photo: /assets/img/people/ashley-quiterio.jpg
-    photo_alt: "Portrait of Ashley Quiterio"
+    photo_alt: Portrait of Ashley Quiterio
     website: ''
     sort_name: Quiterio
   - name: Tochukwu Eze
@@ -98,7 +102,7 @@ members:
     alumni_type: ''
     bio: Victoria (V/they/she) is a Chicago-born and raised Chapine (Guatemalan) educator, scholar, and engineer. Currently, they're a third-year PhD student at Northwestern University's Computer Science Program. Victoria's research interests explore systemic issues within computer science education, centering the experiences of Black, Disabled, Indigenous, and Latine/x students. Most recently, their research has focused on teaching and learning accessibility as well as unpacking how ableism is codified in the policies, practices, and pedagogies used in college CS courses.
     photo: /assets/img/people/victoria.jpg
-    photo_alt: "Portrait of Victoria C. Chavez"
+    photo_alt: Portrait of Victoria C. Chavez
     website: https://vickiebananas.com/
     sort_name: Chavez
   - name: Meg Butler
@@ -127,7 +131,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Assistant Professor of Instruction, Northwestern University"
+    destination: Assistant Professor of Instruction, Northwestern University
     sort_name: Bain
   - name: David Bar-El
     role: grad
@@ -137,7 +141,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Senior UX Researcher, adidas"
+    destination: Senior UX Researcher, adidas
     sort_name: Bar-El
   - name: Herminio Bodon
     role: grad
@@ -147,7 +151,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Postdoctoral Fellow, Northwestern University"
+    destination: Postdoctoral Fellow, Northwestern University
     sort_name: Bodon
   - name: DJ (Stephanie T. Jones)
     role: grad
@@ -157,7 +161,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "AI Education Fellow, Computing Research Association"
+    destination: AI Education Fellow, Computing Research Association
     sort_name: Jones
   - name: Kit Martin
     role: grad
@@ -167,7 +171,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Assistant Professor, Penn State University"
+    destination: Assistant Professor, Penn State University
     sort_name: Martin
   - name: Natalie Melo
     role: grad
@@ -177,7 +181,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Postdoctoral Scholar, Northwestern University"
+    destination: Postdoctoral Scholar, Northwestern University
     sort_name: Melo
   - name: JaCoya Thompson
     role: grad
@@ -187,7 +191,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Postdoctoral Researcher, Clemson University"
+    destination: Postdoctoral Researcher, Clemson University
     sort_name: Thompson
   - name: Emily Q. Wang
     role: grad
@@ -197,7 +201,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Assistant Professor, Oberlin College"
+    destination: Assistant Professor, Oberlin College
     sort_name: Wang
   - name: AnnaRose
     role: undergrad
@@ -216,7 +220,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Northern Trust"
+    destination: Software Engineer, Northern Trust
     sort_name: Apte
   - name: Justin Aronson
     role: undergrad
@@ -226,7 +230,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.linkedin.com/in/justin-aronson/
-    destination: "Software Engineer, Amazon"
+    destination: Software Engineer, Amazon
     sort_name: Aronson
   - name: Sam Arrants
     role: undergrad
@@ -236,7 +240,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Senior Software Engineer, Amazon"
+    destination: Senior Software Engineer, Amazon
     sort_name: Arrants
   - name: Prasanna Bansode
     role: grad
@@ -246,7 +250,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Co-Founder, CuraFitt"
+    destination: Co-Founder, CuraFitt
     sort_name: Bansode
   - name: Robert Bell
     role: undergrad
@@ -274,7 +278,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.afreenbhumgara.me/
-    destination: "Senior Product Manager, Aurora"
+    destination: Senior Product Manager, Aurora
     sort_name: Bhumgara
   - name: Emily Blackman
     role: undergrad
@@ -284,7 +288,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Engineer, DMC"
+    destination: Engineer, DMC
     sort_name: Blackman
   - name: Sara Bouftas
     role: undergrad
@@ -357,7 +361,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Motion Capture Engineer, Square Enix"
+    destination: Motion Capture Engineer, Square Enix
     sort_name: De Boom
   - name: Audrey DeBruine
     role: undergrad
@@ -367,7 +371,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "MPP candidate, UC Berkeley"
+    destination: MPP candidate, UC Berkeley
     sort_name: DeBruine
   - name: Caroline DeMarco
     role: undergrad
@@ -377,7 +381,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Research Assistant, Boston University"
+    destination: Research Assistant, Boston University
     sort_name: DeMarco
   - name: Melissa Escamilla Perez
     role: undergrad
@@ -387,7 +391,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Graduate Researcher, University of Michigan"
+    destination: Graduate Researcher, University of Michigan
     sort_name: Escamilla Perez
   - name: Timothy Fu
     role: undergrad
@@ -397,7 +401,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Xage Security"
+    destination: Software Engineer, Xage Security
     sort_name: Fu
   - name: Kira Furuichi
     role: undergrad
@@ -407,7 +411,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Product Marketing, RunReveal"
+    destination: Product Marketing, RunReveal
     sort_name: Furuichi
   - name: Durell Gill
     role: undergrad
@@ -417,7 +421,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Oracle"
+    destination: Software Engineer, Oracle
     sort_name: Gill
   - name: Alex Gist
     role: undergrad
@@ -463,7 +467,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD candidate, Columbia University"
+    destination: PhD candidate, Columbia University
     sort_name: Human
   - name: Sengdao Inthavong
     role: undergrad
@@ -473,7 +477,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Expedia Group"
+    destination: Software Engineer, Expedia Group
     sort_name: Inthavong
   - name: Jannah Issa
     role: undergrad
@@ -510,7 +514,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Meta"
+    destination: Software Engineer, Meta
     sort_name: Jiang
   - name: Edward Kang
     role: undergrad
@@ -529,7 +533,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Data Analyst & Systems Engineer, Brown University"
+    destination: Data Analyst & Systems Engineer, Brown University
     sort_name: Karp
   - name: Priya Kini
     role: undergrad
@@ -539,7 +543,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Coursera"
+    destination: Software Engineer, Coursera
     sort_name: Kini
   - name: Andy Ko
     role: undergrad
@@ -558,7 +562,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Samsara"
+    destination: Software Engineer, Samsara
     sort_name: Kothari
   - name: Vishesh Kumar
     role: undergrad
@@ -568,7 +572,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.visheshk.net/
-    destination: "Assistant Professor, Vanderbilt University"
+    destination: Assistant Professor, Vanderbilt University
     sort_name: Kumar
   - name: Tom Large
     role: undergrad
@@ -578,7 +582,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Ab Initio Software"
+    destination: Ab Initio Software
     sort_name: Large
   - name: Judy Lee
     role: undergrad
@@ -615,7 +619,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Application Engineer, Steelcase"
+    destination: Application Engineer, Steelcase
     sort_name: Liew
   - name: Jeremy Libretti-River
     role: undergrad
@@ -634,7 +638,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Verkada"
+    destination: Software Engineer, Verkada
     sort_name: Liu
   - name: Aryan Mahajan
     role: undergrad
@@ -662,7 +666,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD student, University of Michigan"
+    destination: PhD student, University of Michigan
     sort_name: Mallwitz
   - name: Seth May
     role: undergrad
@@ -672,7 +676,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Boeing"
+    destination: Software Engineer, Boeing
     sort_name: May
   - name: Zachary McCoy
     role: undergrad
@@ -682,7 +686,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.zacharymccoy.dev/
-    destination: "Associate AI Engineer, OCC"
+    destination: Associate AI Engineer, OCC
     sort_name: McCoy
   - name: Kevin Mendoza
     role: undergrad
@@ -692,7 +696,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Tableau"
+    destination: Software Engineer, Tableau
     sort_name: Mendoza
   - name: Eric Mertz
     role: undergrad
@@ -702,7 +706,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Apple"
+    destination: Software Engineer, Apple
     sort_name: Mertz
   - name: Aziza Mirsaidova
     role: grad
@@ -712,7 +716,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Applied Scientist, Oracle"
+    destination: Applied Scientist, Oracle
     sort_name: Mirsaidova
   - name: Andy Moran
     role: undergrad
@@ -740,7 +744,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD candidate, University of Michigan"
+    destination: PhD candidate, University of Michigan
     sort_name: Nanoff
   - name: Jordan Nishina
     role: undergrad
@@ -750,7 +754,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Crunchyroll"
+    destination: Software Engineer, Crunchyroll
     sort_name: Nishina
   - name: Saahas Parise
     role: undergrad
@@ -760,7 +764,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Plaid"
+    destination: Plaid
     sort_name: Parise
   - name: Julie Park
     role: undergrad
@@ -779,7 +783,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Google"
+    destination: Software Engineer, Google
     sort_name: Pearl
   - name: Sebastian Perez
     role: undergrad
@@ -798,7 +802,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Microsoft"
+    destination: Microsoft
     sort_name: Pineda
   - name: Ethan Pineda
     role: undergrad
@@ -808,7 +812,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://ethanpinedaa.dev/
-    destination: "Software Engineer, Salesforce"
+    destination: Software Engineer, Salesforce
     sort_name: Pineda
   - name: Lindsay Rawitscher
     role: undergrad
@@ -818,7 +822,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Senior Solutions Engineer, Salesforce"
+    destination: Senior Solutions Engineer, Salesforce
     sort_name: Rawitscher
   - name: Alexander Redding
     role: undergrad
@@ -828,7 +832,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD student, UC San Diego"
+    destination: PhD student, UC San Diego
     sort_name: Redding
   - name: Nathan Summer Reiff
     role: undergrad
@@ -856,7 +860,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Microsoft"
+    destination: Software Engineer, Microsoft
     sort_name: Rocha
   - name: Gabe Rojas-Westall
     role: undergrad
@@ -866,7 +870,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Remitly"
+    destination: Software Engineer, Remitly
     sort_name: Rojas-Westall
   - name: Sophie Rollins
     role: undergrad
@@ -876,7 +880,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD student, Northwestern University"
+    destination: PhD student, Northwestern University
     sort_name: Rollins
   - name: Deniz Sagnaklar
     role: undergrad
@@ -886,7 +890,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Chief Growth Officer, Entara"
+    destination: Chief Growth Officer, Entara
     sort_name: Sagnaklar
   - name: Siddhartha Saha
     role: undergrad
@@ -923,7 +927,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Aviro"
+    destination: Aviro
     sort_name: Sheth
   - name: Sydney Simmons
     role: undergrad
@@ -933,7 +937,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "PhD student, Northwestern University"
+    destination: PhD student, Northwestern University
     sort_name: Simmons
   - name: Jimmy Song
     role: undergrad
@@ -952,7 +956,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Apple"
+    destination: Software Engineer, Apple
     sort_name: Stettin
   - name: Kya Suzuki
     role: undergrad
@@ -998,7 +1002,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Adobe"
+    destination: Software Engineer, Adobe
     sort_name: Ulaganathan
   - name: Neil Vakharia
     role: undergrad
@@ -1008,7 +1012,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Meta"
+    destination: Software Engineer, Meta
     sort_name: Vakharia
   - name: Aimee van den Berg
     role: undergrad
@@ -1018,7 +1022,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Developer, Epic"
+    destination: Software Developer, Epic
     sort_name: van den Berg
   - name: Avi Vaid
     role: undergrad
@@ -1028,7 +1032,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "hotlines.ai"
+    destination: hotlines.ai
     sort_name: Vaid
   - name: Adia Wallace
     role: undergrad
@@ -1038,7 +1042,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://sites.northwestern.edu/adiawallace/
-    destination: "PhD student, Northwestern University"
+    destination: PhD student, Northwestern University
     sort_name: Wallace
   - name: Angela Wan
     role: undergrad
@@ -1066,7 +1070,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Software Engineer, Sierra"
+    destination: Software Engineer, Sierra
     sort_name: Wang
   - name: Naomi Wu
     role: undergrad
@@ -1076,7 +1080,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Adobe"
+    destination: Adobe
     sort_name: Wu
   - name: Richard Wu
     role: undergrad
@@ -1095,7 +1099,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Success Engineer, Mirata Software"
+    destination: Success Engineer, Mirata Software
     sort_name: Xiao
   - name: Kris Yun
     role: undergrad
@@ -1105,7 +1109,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "Analyst, Shostack + Associates"
+    destination: Analyst, Shostack + Associates
     sort_name: Yun
   - name: Mitchell Zhen
     role: undergrad
@@ -1124,5 +1128,5 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
-    destination: "MSc student, ETH Zurich"
+    destination: MSc student, ETH Zurich
     sort_name: Zurbuchen
