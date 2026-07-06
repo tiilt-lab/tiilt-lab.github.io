@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>TIILT Lab - {{ page.title }}</title>
+  <title>tiilt Lab - {{ page.title }}</title>
   {% assign first_section = page.sections | first %}
   <meta name="description" content="{{ first_section.body | strip_html | strip_newlines | truncate: 160 }}"/>
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TIILT Lab - {{ page.title }}">
+  <meta property="og:title" content="tiilt Lab - {{ page.title }}">
   <meta property="og:description" content="{{ first_section.body | strip_html | strip_newlines | truncate: 160 }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
@@ -81,7 +81,7 @@
     {% assign proj_papers = site.data.papers.papers | where: "project", page.slug | sort: "year" | reverse %}
     {% if proj_papers.size > 0 %}
     <section class="textblock">
-      <h2 class="card-title">Publications from this project</h2>
+      <h2 class="card-title">Publications from This Project</h2>
       {% for paper in proj_papers %}
       <div class="window__paper">
         <p>{{ paper.citation }}</p>

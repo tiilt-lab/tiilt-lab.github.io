@@ -411,8 +411,8 @@ papers:
     year: 2020
     project: "minecraft"
     pdf: ""
-    doi: ""
-    link: "https://link.springer.com/chapter/10.1007/978-3-030-57983-8_22"
+    doi: "https://doi.org/10.1007/978-3-030-57983-8_22"
+    link: ""
 
   - citation: "Jones, S. T., Thompson, J., & Worsley, M. (2020). Data in Motion: Sports as a site for expansive learning. Computer Science Education, 30(3), 279-312."
     year: 2020

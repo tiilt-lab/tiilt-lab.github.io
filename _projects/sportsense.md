@@ -21,14 +21,14 @@ sections:
       [Black Kids Predict Initiative](https://www.blackkidspredict.org).
   - heading: "Tools and Repositories Used Across Activities"
     body: |-
-      - [Microbit Based Codes and Games](https://github.com/tiilt-lab-code?tab=repositories)
-      - [Scratch Variant – with Microbit and (soon to come) Game Object Detection](https://tiilt.northwestern.edu/scratch/)
-      - [Microbit hex for Scratch connection](https://github.com/Visheshk/prg-extension-boilerplate/blob/robotdev/v2-accel-scratch.hex)
+      - [micro:bit Based Codes and Games](https://github.com/tiilt-lab-code?tab=repositories)
+      - [Scratch Variant – with micro:bit and (soon to come) Game Object Detection](https://tiilt.northwestern.edu/scratch/)
+      - [micro:bit hex for Scratch connection](https://github.com/Visheshk/prg-extension-boilerplate/blob/robotdev/v2-accel-scratch.hex)
   - heading: "Sample SportSense Curriculum Materials"
     body: |-
-      1. [Power of Sensors](/projects/sportsense/DatainMotionPowerofSensors.html)
-      2. [Promise of Wearables](/projects/sportsense/DatainMotionPromiseofWearables.html)
-      3. [Take Off that Silly Watch](/projects/sportsense/DatainMotionTakeoffthatsillywatch.html)
+      1. [The Power of Sensors](/projects/sportsense/DatainMotionPowerofSensors.html)
+      2. [The Promise of Wearables](/projects/sportsense/DatainMotionPromiseofWearables.html)
+      3. [Take Off That Silly Watch](/projects/sportsense/DatainMotionTakeoffthatsillywatch.html)
       4. [Designers Wanted](/projects/sportsense/DatainMotionDesignersWanted.html)
       5. [Limitations with Wearables and Sensors](/projects/sportsense/DatainMotionLimitationswithSensors.html)
       6. [Design Your Future](/projects/sportsense/DatainMotionDesignYourFuture.html)

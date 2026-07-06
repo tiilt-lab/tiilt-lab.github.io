@@ -5,12 +5,12 @@ layout: null
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>TIILT Lab - Research</title>
-  <meta name="description" content="TIILT Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance."/>
+    <title>tiilt Lab - Research</title>
+  <meta name="description" content="tiilt Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance."/>
   <link rel="canonical" href="https://tiilt.northwestern.edu/papers/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TIILT Lab - Research">
-  <meta property="og:description" content="TIILT Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance.">
+  <meta property="og:title" content="tiilt Lab - Research">
+  <meta property="og:description" content="tiilt Lab research: 120+ publications on multimodal learning analytics, inclusive making, and sports-based STEM learning, plus the lab's output and collaboration at a glance.">
   <meta property="og:url" content="https://tiilt.northwestern.edu/papers/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -26,7 +26,7 @@ layout: null
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      "name": "TIILT Lab Publications",
+      "name": "tiilt Lab Publications",
       "itemListElement": [
         {% assign ld_papers = site.data.papers.papers | sort: "year" | reverse %}
         {% for paper in ld_papers %}
@@ -55,7 +55,7 @@ layout: null
       {% assign active_members = site.data.people.members | where: "status", "active" %}
       {% assign alumni_members = site.data.people.members | where: "status", "alumni" %}
       <section class="textblock">
-        <h2 class="card-title">The lab in numbers</h2>
+        <h2 class="card-title">The Lab in Numbers</h2>
         <div class="stat-row">
           <div class="stat-tile">
             <span class="stat-tile__value">{{ all_papers.size }}</span>

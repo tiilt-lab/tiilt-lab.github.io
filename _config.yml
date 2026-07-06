@@ -18,7 +18,7 @@ collections:
 
 # Site URL (used by jekyll-sitemap and jekyll-feed)
 url: "https://tiilt.northwestern.edu"
-title: TIILT Lab
+title: tiilt Lab
 description: Technological Innovations for Inclusive Learning and Teaching at Northwestern University
 
 plugins:

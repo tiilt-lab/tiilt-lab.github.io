@@ -50,7 +50,7 @@ function headerGenerator() {
     // The site is served from the domain root, so absolute paths work from
     // every page regardless of nesting depth.
     header.innerHTML =
-    `<p class="site-title"><a href="/" aria-label="TIILT Lab home">technological innovations for inclusive learning &amp; teaching</a></p>
+    `<p class="site-title"><a href="/" aria-label="tiilt Lab home">technological innovations for inclusive learning &amp; teaching</a></p>
     <nav aria-label="Main Navigation">
         <ul>
             <li>
@@ -120,7 +120,7 @@ function footerGenerator() {
         &middot; <a href="https://github.com/tiilt-lab">github</a>
         &middot; <a href="/feed.xml">rss</a>
     </p>
-    <p>&copy; ${new Date().getFullYear()} TIILT Lab</p>`;
+    <p>&copy; ${new Date().getFullYear()} tiilt Lab</p>`;
     document.body.appendChild(footer);
 }
 

@@ -6,12 +6,12 @@ layout: null
 
 <head>
   <meta charset="utf-8" />
-  <title>TIILT Lab - Blog</title>
-  <meta name="description" content="News and updates from the TIILT Lab at Northwestern University."/>
+  <title>tiilt Lab - News</title>
+  <meta name="description" content="News and updates from the tiilt Lab at Northwestern University."/>
   <link rel="canonical" href="https://tiilt.northwestern.edu/blog/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="TIILT Lab - Blog">
-  <meta property="og:description" content="News and updates from the TIILT Lab at Northwestern University.">
+  <meta property="og:title" content="tiilt Lab - News">
+  <meta property="og:description" content="News and updates from the tiilt Lab at Northwestern University.">
   <meta property="og:url" content="https://tiilt.northwestern.edu/blog/">
   <meta property="og:image" content="https://tiilt.northwestern.edu/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -28,7 +28,7 @@ layout: null
 <body>
   <header></header>
   <main class="blog">
-    <h1 class="visually_hidden">Blog</h1>
+    <h1 class="visually_hidden">News</h1>
     {% assign posts = site.posts | sort: "date" | reverse %}
     {% if posts.size > 0 %}
     {% for post in posts %}
@@ -44,7 +44,7 @@ layout: null
     {% else %}
     <section class="textblock">
       <h2 class="card-title">Coming Soon</h2>
-      <p><b>Stay tuned for TIILT Lab's blog!</b></p>
+      <p><b>Stay tuned for tiilt Lab's blog!</b></p>
     </section>
     {% endif %}
 

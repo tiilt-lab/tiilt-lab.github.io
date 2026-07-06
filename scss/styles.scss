@@ -61,17 +61,19 @@ html {
   padding: 0;
   background-color: $color-white; // covers the gutters beside the capped body
   color-scheme: light dark;
-  font-size: 12px;
+  // percentage of the user's browser default (16px -> 12px) so user
+  // font-size preferences scale the whole design instead of being ignored
+  font-size: 75%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
   // Scale the whole rem-based design up on large monitors
   @include wide {
-    font-size: 14px;
+    font-size: 87.5%; // 14px at default
   }
 
   @include ultrawide {
-    font-size: 16px;
+    font-size: 100%; // 16px at default
   }
 }
 
@@ -272,21 +274,17 @@ header nav .theme-toggle {
     }
   }
 
-  // Very narrow phones: shave the labels so all six tabs stay on one row
+  // Very narrow phones: shave paddings so all tabs stay on one row
+  // (labels stay at 1rem — no sub-12px text)
   @media only screen and (max-width: 360px) {
     body header nav ul {
-      li a {
-        font-size: 0.85rem;
-
-        .nav-icon {
-          width: 1.7rem;
-          height: 1.7rem;
-        }
+      li a .nav-icon {
+        width: 1.7rem;
+        height: 1.7rem;
       }
 
       .nav-dropdown > .nav-dropdown__toggle {
         padding: 0 0.1rem;
-        font-size: 0.85rem;
       }
     }
   }

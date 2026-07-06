@@ -3,11 +3,11 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>TIILT Lab - {{ page.member.name }}</title>
-  <meta name="description" content="{{ page.member.name }} at the TIILT Lab, Northwestern University. {{ page.member.bio | strip_html | strip_newlines | truncate: 120 }}" />
+  <title>tiilt Lab - {{ page.member.name }}</title>
+  <meta name="description" content="{{ page.member.name }} at the tiilt Lab, Northwestern University. {{ page.member.bio | strip_html | strip_newlines | truncate: 120 }}" />
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta property="og:type" content="profile">
-  <meta property="og:title" content="{{ page.member.name }} — TIILT Lab">
+  <meta property="og:title" content="{{ page.member.name }} — tiilt Lab">
   <meta property="og:description" content="{{ page.member.bio | strip_html | strip_newlines | truncate: 160 }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:image" content="{% if page.member.photo != '' and page.member.photo != nil %}{{ page.member.photo | absolute_url }}{% else %}{{ '/assets/img/og-image.png' | absolute_url }}{% endif %}">
@@ -22,7 +22,7 @@
     {% if page.member.website != "" and page.member.website != nil %}"sameAs": {{ page.member.website | jsonify }},{% endif %}
     "affiliation": {
       "@type": "ResearchOrganization",
-      "name": "TIILT Lab, Northwestern University",
+      "name": "tiilt Lab, Northwestern University",
       "url": "https://tiilt.northwestern.edu/"
     }
   }
