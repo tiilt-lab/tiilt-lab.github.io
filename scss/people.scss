@@ -7,6 +7,11 @@
     margin-bottom: $space-lg;
   }
 
+  // Breathing room between member sections (global reset zeroes margins)
+  article + article > h2 {
+    margin-top: $space-4xl;
+  }
+
   .people-group {
     @include auto-grid(20rem);
     gap: $space-3xl;
@@ -62,10 +67,10 @@
   }
 
   .alumni {
-    // Alumni sub-groups (PhD Alumni, Other Alumni)
+    // Alumni sub-groups (PhD Alumni, Graduate Alumni, …)
     h3 {
       font-size: $font-size-lg;
-      margin-top: $space-2xl;
+      margin-top: $space-3xl;
       margin-bottom: $space-md;
     }
 

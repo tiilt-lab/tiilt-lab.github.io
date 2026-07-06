@@ -173,6 +173,11 @@
     margin: $space-xl 0;
 }
 
+// Later sections ("Past Projects") need clear separation from the grid above
+* + .section-heading {
+    margin-top: $space-4xl;
+}
+
 @include mobile {
   .projects {
     grid-template-columns: 1fr;
