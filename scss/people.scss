@@ -168,9 +168,10 @@
       opacity: 0; // the sliced sheet takes over rendering during a drag
     }
 
-    // The draggable sheet: a 4x4 grid of photo slices. Rows nest
-    // vertically (rotateX curls), each row's cells nest horizontally
-    // (rotateY bends), so folds accumulate along both axes
+    // The draggable sheet: 8 nested strips, each folding (rotateX) and
+    // twisting (rotateY) inside its parent's space. Children inherit
+    // every ancestor transform, so the surface stays seamlessly
+    // connected no matter how violently it's shaken
     .peel-sheet {
       display: none;
       position: absolute;
@@ -188,17 +189,16 @@
       transform-style: preserve-3d;
     }
 
-    .peel-cell {
+    // The strip's photo slice, kept separate from the transform chain
+    // so it can overhang 1px and hide subpixel row seams
+    .peel-skin {
       position: absolute;
-      top: 0;
-      height: 100%;
-      transform-origin: left center;
-      transform-style: preserve-3d;
+      inset: 0 0 auto;
       backface-visibility: hidden;
       background-repeat: no-repeat;
     }
 
-    .peel-cell--bottom {
+    .peel-skin--bottom {
       border-bottom: $border-standard;
     }
 
