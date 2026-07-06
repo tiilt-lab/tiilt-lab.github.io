@@ -38,7 +38,7 @@ members:
     alumni_type: ''
     bio: Maryam is a doctoral student in Computer Science at Northwestern University. Prior to Northwestern, she earned her Bachelor of Science in Electrical Engineering and Computer Science (EECS) at UC Berkeley. Her research is in human-computer interaction, tangible technologies, and learning. She's passionate about designing tools and experiences that foster human development and connection. Her vision for the future is one where tech bolsters authentic, meaningful, accessible, and enriching human experiences.
     photo: /assets/img/people/maryam-azmandian.jpeg
-    photo_alt: Portrait of Maryam Azmandian
+    photo_alt: Picture of Maryam smiling and looking ahead at the camera
     website: ''
     destination: ''
     sort_name: Azmandian
@@ -75,7 +75,7 @@ members:
     alumni_type: ''
     bio: Sarah (she/her) is a PhD candidate in Learning Sciences. She is writing an multi-sited ethnography of refugee students and a cross-cultural coalition of youth that examines how intergenerational learning and (multi)culturally sustaining pedagogy complicate notions of youth identity and belonging (vis-a-vis transnationalism and spatial justice). She enjoys FaceTime calls, crafting, pickeball, and a good cup of earl gray.
     photo: /assets/img/people/spl-headshot-2026.jpeg
-    photo_alt: Sarah Priscilla Lee
+    photo_alt: Portrait of Sarah Priscilla Lee
     website: https://www.sarahplee.com/
     sort_name: Lee
   - name: Ashley Quiterio
@@ -93,7 +93,7 @@ members:
     alumni_type: ''
     bio: Tochukwu is a PhD candidate in Computer Science at Northwestern University, specializing in Collaborative Learning Analytics, AI, and Educational Technology. He focuses on developing predictive models to analyze student cognition, behavior, and interaction, utilizing computer vision and NLP techniques. He has developed a collaboration literacy analytics framework and a multimodal fusion ML algorithm to assess the same. Tochukwu is also a lifetime member of the Edward Alexander Bouchet Graduate Honor Society, a fellow of the Center for Leadership, the Assistant Chair of Chapin Residential College at Northwestern University, and the Co-president of the African Graduate Student Association, where he fosters a supportive environment for African graduate students, emphasizing cultural exchange and academic excellence. He enjoys traveling, exploring diverse cultures, and is passionate about the intersection of technology, education, and social impact.
     photo: /assets/img/people/tochukwu-eze-3.jpg
-    photo_alt: Tochukwu Eze
+    photo_alt: Portrait of Tochukwu Eze
     website: ''
     sort_name: Eze
   - name: Victoria C. Chavez
@@ -111,7 +111,7 @@ members:
     alumni_type: ''
     bio: As a disabled researcher and educator, Meg is particularly interested in educational dignity. Her work seeks to challenge the deficit-based views of human learning that are complicit in the reification of normatively powered dynamics and push beyond the practices that maintain and enact ableism to a dynamic coexistence of multiple ways of seeing and knowing. She enjoys riding her bike, hanging out with animals, and eating Albanese gummy bears.
     photo: /assets/img/people/meg-butler-hotdog.jpg
-    photo_alt: Meg Butler Hotdog
+    photo_alt: Portrait of Meg Butler in a hot dog costume
     website: ''
     sort_name: Butler
   - name: Khalil Anderson
