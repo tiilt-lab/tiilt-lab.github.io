@@ -71,13 +71,13 @@ function headerGenerator() {
                 </div>
             </li>
             <li>
-                <a href="/papers/">research
-                    ${navIcon("flask")}
+                <a href="/people/">people
+                    ${navIcon("users-alt")}
                 </a>
             </li>
             <li>
-                <a href="/people/">people
-                    ${navIcon("users-alt")}
+                <a href="/papers/">research
+                    ${navIcon("flask")}
                 </a>
             </li>
             <li>
