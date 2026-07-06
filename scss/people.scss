@@ -85,13 +85,36 @@
         border: $border-standard;
         padding: $space-md;
         text-align: center;
+        position: relative;
       }
 
+      // Where-are-they-now appears as a small card under the chip only
+      // while it's hovered/focused, so the wall itself stays uniform.
+      // Hidden via opacity (not display/visibility) so screen readers
+      // still announce the destination with the name.
       .alumni-dest {
         display: block;
         font-weight: normal;
         font-size: $font-size-sm;
         color: $color-gray;
+        position: absolute;
+        top: calc(100% + 0.4rem);
+        left: 50%;
+        transform: translateX(-50%);
+        width: max-content;
+        max-width: 20rem;
+        background-color: $color-white;
+        border: $border-standard;
+        padding: $space-md;
+        z-index: 10;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s ease;
+      }
+
+      li:hover .alumni-dest,
+      li:focus-within .alumni-dest {
+        opacity: 1;
       }
 
       li.alumni-chip--linked {
