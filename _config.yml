@@ -10,6 +10,12 @@ exclude:
 # Blog post permalink structure
 permalink: /blog/:year/:month/:day/:title/
 
+# Project detail pages, CMS-editable (see admin/config.yml)
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
 # Site URL (used by jekyll-sitemap and jekyll-feed)
 url: "https://tiilt.northwestern.edu"
 title: TIILT Lab

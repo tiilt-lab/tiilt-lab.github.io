@@ -98,6 +98,52 @@ collections:
               - { name: "doi", label: "DOI URL", widget: "string", required: false, default: "" }
               - { name: "link", label: "External Link", widget: "string", required: false, default: "" }
 
+  # --- Project pages ---
+  - name: "project_pages"
+    label: "Project Pages"
+    folder: "_projects"
+    extension: "md"
+    format: "frontmatter"
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{title}}"
+    editor: { preview: false }
+    fields:
+      - { name: "layout", widget: "hidden", default: "project" }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "slug", label: "URL slug (becomes /projects/<slug>/)", widget: "string" }
+      - { name: "accent", label: "Accent color", widget: "select", default: "purple", options: ["purple", "teal", "blue", "green", "red", "pink", "orange-red", "orange", "yellow"] }
+      - name: "sections"
+        label: "Sections (first one is the intro; its heading is ignored)"
+        widget: "list"
+        summary: "{{fields.heading}}"
+        fields:
+          - { name: "heading", label: "Heading", widget: "string", required: false, default: "" }
+          - { name: "body", label: "Text (markdown)", widget: "markdown", required: false, default: "" }
+          - name: "buttons"
+            label: "Buttons (shown at the top of the card)"
+            widget: "list"
+            required: false
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+          - name: "images"
+            label: "Images"
+            widget: "list"
+            required: false
+            fields:
+              - { name: "src", label: "Image", widget: "image", media_folder: "assets/img/projects", public_folder: "/assets/img/projects" }
+              - { name: "alt", label: "Alt text (describe the image)", widget: "string" }
+              - { name: "caption", label: "Caption", widget: "string", required: false, default: "" }
+          - name: "videos"
+            label: "Video embeds"
+            widget: "list"
+            required: false
+            fields:
+              - { name: "url", label: "Embed URL (youtube-nocookie.com/embed/...)", widget: "string" }
+              - { name: "title", label: "Accessible title", widget: "string" }
+              - { name: "caption", label: "Caption shown above the video", widget: "string", required: false, default: "" }
+
       # --- Classes ---
       - name: "classes"
         label: "Classes"

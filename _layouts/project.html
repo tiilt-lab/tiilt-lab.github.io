@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>TIILT Lab - {{ page.title }}</title>
+  {% assign first_section = page.sections | first %}
+  <meta name="description" content="{{ first_section.body | strip_html | strip_newlines | truncate: 160 }}"/>
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TIILT Lab - {{ page.title }}">
+  <meta property="og:description" content="{{ first_section.body | strip_html | strip_newlines | truncate: 160 }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ '/assets/img/og-image.png' | absolute_url }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="/assets/fonts/AHAMONO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="theme-color" content="#ccc4df"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/ico" href="/assets/img/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/styles.css"/>
+</head>
+
+<body>
+  <header></header>
+
+  <main class="projectpages" style="--accent: var(--logo-{{ page.accent | default: 'purple' }})">
+    {% for section in page.sections %}
+    <section class="textblock">
+      {% if forloop.first %}
+      <h1>{{ page.title }}</h1>
+      {% elsif section.heading != "" and section.heading != nil %}
+      <h2 class="card-title">{{ section.heading }}</h2>
+      {% endif %}
+
+      {% if section.buttons %}{% for btn in section.buttons %}
+      <a class="box" href="{{ btn.url }}"{% if btn.url contains "http" %} target="_blank"{% endif %}>{{ btn.label }}</a>
+      {% endfor %}{% endif %}
+
+      {% if section.images and section.images.size > 0 %}
+      <div class="pictures">
+        {% for img in section.images %}
+        <div>
+          {% if img.caption != "" and img.caption != nil %}<h3>{{ img.caption }}</h3>{% endif %}
+          <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy">
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if section.body != "" and section.body != nil %}
+      <div class="window__description">{{ section.body | markdownify }}</div>
+      {% endif %}
+
+      {% if section.videos %}{% for vid in section.videos %}
+      {% if vid.caption != "" and vid.caption != nil %}<h3>{{ vid.caption }}</h3>{% endif %}
+      <p>
+        <iframe width="560" height="315" src="{{ vid.url }}" title="{{ vid.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </p>
+      {% endfor %}{% endif %}
+    </section>
+    {% endfor %}
+
+    {% assign proj_papers = site.data.papers.papers | where: "project", page.slug | sort: "year" | reverse %}
+    {% if proj_papers.size > 0 %}
+    <section class="textblock">
+      <h2 class="card-title">Publications from this project</h2>
+      {% for paper in proj_papers %}
+      <div class="window__paper">
+        <p>{{ paper.citation }}</p>
+        {% if paper.pdf != "" and paper.pdf != nil %}<a class="box" href="{{ paper.pdf | replace_first: '../', '/' }}" target="_blank">PDF</a>{% endif %}
+        {% if paper.doi != "" and paper.doi != nil %}<a class="box" href="{{ paper.doi }}" target="_blank">DOI</a>{% endif %}
+        {% if paper.link != "" and paper.link != nil %}<a class="box" href="{{ paper.link }}" target="_blank">READ</a>{% endif %}
+      </div>
+      {% endfor %}
+    </section>
+    {% endif %}
+  </main>
+
+  <script src="/script.js"></script>
+  <script data-goatcounter="https://tiilt.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
