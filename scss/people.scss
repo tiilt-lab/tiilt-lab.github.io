@@ -162,19 +162,23 @@
 // only passes "once in a while"; identical timing keeps all cards in sync
 @keyframes photo-breeze {
   0%, 89%, 100% {
-    transform: perspective(60rem) rotateX(0);
+    transform: perspective(60rem) rotateX(0) rotateY(0);
   }
 
-  91.5% {
-    transform: perspective(60rem) rotateX(7deg);
+  91% {
+    transform: perspective(60rem) rotateX(4deg) rotateY(6deg) skewY(0.6deg);
   }
 
-  94% {
-    transform: perspective(60rem) rotateX(-3deg);
+  93.5% {
+    transform: perspective(60rem) rotateX(5deg) rotateY(-6deg) skewY(-0.6deg);
   }
 
-  96.5% {
-    transform: perspective(60rem) rotateX(4deg);
+  96% {
+    transform: perspective(60rem) rotateX(3deg) rotateY(4deg) skewY(0.3deg);
+  }
+
+  98% {
+    transform: perspective(60rem) rotateX(1deg) rotateY(-2deg);
   }
 }
 

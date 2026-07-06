@@ -13,6 +13,7 @@ members:
     role: grad
     status: active
     alumni_type: ''
+    photo_silly: /assets/img/people/bookyung-shin-silly.jpg
     bio: Bookyung is a doctoral student in the Learning Sciences at Northwestern University. Her research focuses on collaborative inquiry in formal and informal learning environments. Specifically, she is interested in how learners ask questions as they engage in joint activity, interacting with each other and with multiple technologies and texts simultaneously. In exploring the process of collaborative inquiry, she hopes to bring together ideas and methods from multimodal learning analytics, interaction analysis, and the science of learning.
     photo: /assets/img/people/bookyungshin_profile_2509.png
     photo_alt: Portrait of Bookyung Shin
