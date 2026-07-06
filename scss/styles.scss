@@ -458,16 +458,36 @@ main {
   }
 
   &.about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 55rem);
+    gap: $space-lg;
+    align-items: start;
+
     ol {
       margin: $space-base;
     }
 
     .textblock {
+      grid-column: 2;
       max-width: 55rem;
       margin-bottom: 1vh;
-      margin-left: auto;
-      position: relative;
-      z-index: $z-overlay;
+    }
+
+    aside {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    // the logo used to be position:fixed, which collides with the footer;
+    // in-flow keeps the same composition without overlap
+    .big-logo {
+      position: static;
+      width: 100%;
+      max-width: 42rem;
+    }
+
+    @include mobile {
+      display: block; // logo is hidden on mobile anyway
     }
   }
 }

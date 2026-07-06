@@ -2,18 +2,34 @@
 @use "./mixins" as *;
 
 .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 55rem);
+    gap: $space-lg;
+    align-items: start;
+
     .textblock {
+      grid-column: 2;
       max-width: 55rem;
       margin-top: $space-lg;
-      margin-left: auto;
-      position: relative;
-      z-index: $z-overlay;
 
       h3 {
         margin: $space-base $space-base 0;
       }
     }
+
+    // in-flow logo (was position:fixed, colliding with the footer)
+    .big-logo {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      position: static;
+      width: 100%;
+      max-width: 42rem;
+      align-self: end;
+    }
+
     @include mobile {
+      display: block;
+
       .textblock {
         margin-left: 0;
       }
@@ -23,9 +39,5 @@
       list-style-type: disc;
     }
 
-    .big-logo {
-      left: unset;
-      // Stay pinned to the content column's right edge on wide monitors
-      right: max(#{$space-3xl}, calc(50vw - #{$content-max-width} / 2));
-    }
+
 }
