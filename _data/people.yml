@@ -118,6 +118,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Assistant Professor of Instruction, Northwestern University"
     sort_name: Bain
   - name: David Bar-El
     role: grad
@@ -127,6 +128,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Senior UX Researcher, adidas"
     sort_name: Bar-El
   - name: Herminio Bodon
     role: grad
@@ -136,6 +138,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Postdoctoral Fellow, Northwestern University"
     sort_name: Bodon
   - name: DJ (Stephanie T. Jones)
     role: grad
@@ -145,6 +148,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "AI Education Fellow, Computing Research Association"
     sort_name: Jones
   - name: Kit Martin
     role: grad
@@ -154,6 +158,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Assistant Professor, Penn State University"
     sort_name: Martin
   - name: Natalie Melo
     role: grad
@@ -163,6 +168,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Postdoctoral Scholar, Northwestern University"
     sort_name: Melo
   - name: JaCoya Thompson
     role: grad
@@ -172,6 +178,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Postdoctoral Researcher, Clemson University"
     sort_name: Thompson
   - name: Emily Q. Wang
     role: grad
@@ -181,6 +188,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Assistant Professor, Oberlin College"
     sort_name: Wang
   - name: AnnaRose
     role: undergrad
@@ -208,6 +216,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.linkedin.com/in/justin-aronson/
+    destination: "Software Engineer, Amazon"
     sort_name: Aronson
   - name: Sam Arrants
     role: undergrad
@@ -226,6 +235,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Co-Founder, CuraFitt"
     sort_name: Bansode
   - name: Robert Bell
     role: undergrad
@@ -253,6 +263,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.afreenbhumgara.me/
+    destination: "Senior Product Manager, Aurora"
     sort_name: Bhumgara
   - name: Emily Blackman
     role: undergrad
@@ -532,6 +543,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.visheshk.net/
+    destination: "Assistant Professor, Vanderbilt University"
     sort_name: Kumar
   - name: Tom Large
     role: undergrad
@@ -667,6 +679,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Applied Scientist, Oracle"
     sort_name: Mirsaidova
   - name: Andy Moran
     role: undergrad
@@ -757,6 +770,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://ethanpinedaa.dev/
+    destination: "Software Engineer, Salesforce"
     sort_name: Pineda
   - name: Lindsay Rawitscher
     role: undergrad
@@ -973,6 +987,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://sites.northwestern.edu/adiawallace/
+    destination: "PhD student, Northwestern University"
     sort_name: Wallace
   - name: Angela Wan
     role: undergrad
@@ -1027,6 +1042,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Success Engineer, Mirata Software"
     sort_name: Xiao
   - name: Kris Yun
     role: undergrad

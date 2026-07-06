@@ -82,6 +82,13 @@
         text-align: center;
       }
 
+      .alumni-dest {
+        display: block;
+        font-weight: normal;
+        font-size: $font-size-sm;
+        color: $color-gray;
+      }
+
       li:has(a) {
         border-color: $color-blue;
         padding: 0;

@@ -101,23 +101,32 @@ layout: null
     <article class="alumni" aria-label="Alumni of the lab">
       <h2>Alumni</h2>
 
+      {% assign all_alumni = site.data.people.members | where: "status", "alumni" | sort: "sort_name" %}
+
       <h3>PhD Alumni</h3>
       <div class="list-group">
         <ul>
-          {% assign phd_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "phd" | sort: "sort_name" %}
-          {% for member in phd_alumni %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</li>
-          {% endfor %}
+          {% for member in all_alumni %}{% if member.alumni_type == "phd" %}
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</li>
+          {% endif %}{% endfor %}
         </ul>
       </div>
 
-      <h3>Other Alumni</h3>
+      <h3>Graduate Alumni</h3>
       <div class="list-group">
         <ul>
-          {% assign other_alumni = site.data.people.members | where: "status", "alumni" | where: "alumni_type", "other" | sort: "sort_name" %}
-          {% for member in other_alumni %}
-          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}</li>
-          {% endfor %}
+          {% for member in all_alumni %}{% if member.role == "grad" and member.alumni_type != "phd" %}
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</li>
+          {% endif %}{% endfor %}
+        </ul>
+      </div>
+
+      <h3>Undergraduate Alumni</h3>
+      <div class="list-group">
+        <ul>
+          {% for member in all_alumni %}{% if member.role == "undergrad" %}
+          <li>{% if member.website != "" and member.website != nil %}<a href="{{ member.website }}" target="_blank">{{ member.name }}</a>{% else %}{{ member.name }}{% endif %}{% if member.destination != "" and member.destination != nil %}<span class="alumni-dest">{{ member.destination }}</span>{% endif %}</li>
+          {% endif %}{% endfor %}
         </ul>
       </div>
     </article>

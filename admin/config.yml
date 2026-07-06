@@ -51,6 +51,7 @@ collections:
               - { name: "photo", label: "Photo", widget: "image", required: false, default: "" }
               - { name: "photo_alt", label: "Photo Alt Text", widget: "string", required: false, default: "" }
               - { name: "website", label: "Website URL", widget: "string", required: false, default: "" }
+              - { name: "destination", label: "Where are they now (alumni only, e.g. 'PhD student, MIT')", widget: "string", required: false, default: "" }
               - { name: "sort_name", label: "Sort Name (last name for alphabetical ordering)", widget: "string" }
 
       # --- Projects ---
