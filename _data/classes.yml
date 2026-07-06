@@ -1,4 +1,10 @@
 classes:
+  - title: "Exploration in Sports Video Analytics"
+    description: "Video analytics is a core component of sports development. Athletes, coaches, and trainers routinely spend hours per week analyzing their individual performance and preparing for upcoming opponents. Many of the approaches used in sports video analytics are closely tied to interaction analysis, a foundational tool in the Learning Sciences used to break down and interpret the nuances of human-human and human-object interaction. In this class we will utilize and develop frameworks for systematically approaching analysis of sports video, using a combination of industry-standard and custom video annotation tools that let students operationalize core ideas from interaction analysis in the context of sports."
+    objectives: []
+    additional_description: "COMP_SCI 396/496. Next offered Fall 2026."
+    link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-496-24.html"
+
   - title: "Human Computer Interaction"
     description: "Introduction to human-computer interaction and the design of systems that work for people and their organizations. Students explore how humans engage with computers in professional contexts, with particular emphasis on interface design as a creative problem-solving discipline. Rather than seeking one ideal solution, the course examines what distinguishes effective interfaces from ineffective ones and teaches proven techniques for designing interfaces that meet human needs."
     objectives: []
@@ -14,8 +20,8 @@ classes:
   - title: "Sports, Technology, and Learning"
     description: "Sports, Technology and Learning will examine the apparent alignment and discrepancies among these three areas. Students will read conference and journal papers, watch sports-related movies, critique existing sports-related technologies and prototype their own technologies. The course also plans to include guest speakers from other universities, industry and sports teams and more.\nIn addition to in-class discussions and student reflections, students will complete a course project. The course projects can take on many different forms. Some possible project areas include creating a custom wearable device, using data mining to model or predict sports-related behaviors or actions, or designing a curriculum to engage student-athletes in consequential learning experiences. Projects can be completed in groups or individually. Some elements of the course will involve students using different computer programming tools. However, no prior experience with programming is required. Current and former student-athletes are strongly encouraged to enroll."
     objectives: []
-    additional_description: "COMP_SCI 397/497. Cross-listed as LRN_SCI 351/451. Next offered Fall 2025."
-    link: ""
+    additional_description: "COMP_SCI 317. Cross-listed as LRN_SCI 351/451. Next offered Fall 2026."
+    link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/317.html"
 
   - title: "Inclusive Making"
     description: "Excitement for the Maker Movement continues to grow. Part of this growth stems from the idea that Making provides a means for democratization of fabrication and invention. While this is true, in part, the practices and people that are typically included under this brand are limited. In particular, issues of diversity, equity and inclusivity are seldom at the forefront of the design and implementation of Makerspaces, the tools used or the artifacts created. Hence, the purpose of this course is to bring issues of diversity, equity and inclusivity to the forefront."
@@ -34,7 +40,7 @@ classes:
       - "Use an existing data set to explore additional multimodal analytic techniques that answer one or more research questions that are relevant to their field."
       - "A select group of students may initiate a new project, or join an existing project team."
     additional_description: "COMP_SCI 397/497. This is a hands-on project course. All students will be heavily involved in developing data analysis and/or interface development skills. Additionally, students will be expected to submit their work to one or more conferences, workshops or journals before the conclusion of the course. Last offered Winter 2019."
-    link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/397-497-10.html"
+    link: ""
 
   - title: "Computing and Socioeconomic Mobility"
     description: "This project-based class will explore opportunities to utilize computer science in the service of advancing social and/or economic mobility. Students will work in teams to:"
@@ -54,5 +60,5 @@ classes:
   - title: "Multimodal Learning Analytics"
     description: "Multimodal (learning) Analytics will introduce students to a different analytic techniques and modalities for studying human learning in face to face learning environments. Students will spend the first few weeks designing an education research study that leverages pertinent theories from the learning sciences. Students will then run their study and collect data from several modalities. Finally students will analyze that data and articulate their findings in the form of a research paper. During the course students will encounter several data collection and analysis tools including: Rapid Miner, Tableau, Xbox Kinect, Raspberry Pi, LIWC and more. There are no prerequisites for this course but students will be required to do some computer programming.\nThis is a hands-on project course. All students will design and implement at least one study and also work with digital technologies. For this reason you will be expected to do computer programming. However, all projects can be completed in teams. Hence, it is not essential that all students come with prior knowledge in computer programming. Additionally, a portion of class and office hours will be devoted to helping students gain familiarity in basic computer programming as needed."
     objectives: []
-    additional_description: "Last offered Winter 2020."
-    link: ""
+    additional_description: "COMP_SCI 397/497. Next offered Fall 2026."
+    link: "https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/397-497-10.html"

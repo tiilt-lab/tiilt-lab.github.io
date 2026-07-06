@@ -93,6 +93,7 @@ collections:
             fields:
               - { name: "citation", label: "Full Citation", widget: "text" }
               - { name: "year", label: "Year", widget: "number", value_type: "int" }
+              - { name: "project", label: "Project (shows on that project's page)", widget: "select", required: false, default: "", options: ["", "blinc", "sportsense", "sportsensefordata", "minecraft", "multicraft", "famjam", "imr"] }
               - { name: "pdf", label: "PDF File", widget: "file", required: false, default: "", media_folder: "assets/papers", public_folder: "/assets/papers" }
               - { name: "doi", label: "DOI URL", widget: "string", required: false, default: "" }
               - { name: "link", label: "External Link", widget: "string", required: false, default: "" }

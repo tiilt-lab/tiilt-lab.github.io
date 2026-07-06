@@ -64,6 +64,16 @@
       max-width: 100%;
     }
 
+    // Per-project publication entries
+    .window__paper {
+      border-bottom: $border-standard;
+      padding-bottom: $space-md;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
     // Video embeds keep their aspect ratio as they shrink on narrow screens
     // instead of letterboxing at their hardcoded height
     iframe[src*="youtube"],

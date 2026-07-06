@@ -1,0 +1,42 @@
+# Accessibility regression check: builds the site and runs pa11y (WCAG 2 AA)
+# against the key pages. Fails if anyone reintroduces missing alt text,
+# broken heading order, contrast failures, etc.
+name: Accessibility check
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pa11y:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build site
+        run: |
+          npx --yes sass scss/styles.scss css/styles.css --style=compressed --no-source-map
+          bundle exec jekyll build
+
+      - name: Run pa11y
+        run: |
+          (cd _site && python3 -m http.server 8880 --bind 127.0.0.1 &)
+          sleep 2
+          npx --yes pa11y-ci --config .pa11yci.json

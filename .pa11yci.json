@@ -1,0 +1,20 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 1200,
+    "chromeLaunchConfig": { "args": ["--no-sandbox"] }
+  },
+  "urls": [
+    "http://127.0.0.1:8880/",
+    "http://127.0.0.1:8880/papers/",
+    "http://127.0.0.1:8880/people/",
+    "http://127.0.0.1:8880/projects/",
+    "http://127.0.0.1:8880/projects/blinc/",
+    "http://127.0.0.1:8880/projects/sportsense/",
+    "http://127.0.0.1:8880/classes/",
+    "http://127.0.0.1:8880/blog/",
+    "http://127.0.0.1:8880/contact/",
+    "http://127.0.0.1:8880/playground/"
+  ]
+}
