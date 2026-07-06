@@ -207,6 +207,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Northern Trust"
     sort_name: Apte
   - name: Justin Aronson
     role: undergrad
@@ -226,6 +227,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Senior Software Engineer, Amazon"
     sort_name: Arrants
   - name: Prasanna Bansode
     role: grad
@@ -273,6 +275,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Engineer, DMC"
     sort_name: Blackman
   - name: Sara Bouftas
     role: undergrad
@@ -345,6 +348,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Motion Capture Engineer, Square Enix"
     sort_name: De Boom
   - name: Audrey DeBruine
     role: undergrad
@@ -354,6 +358,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "MPP candidate, UC Berkeley"
     sort_name: DeBruine
   - name: Caroline DeMarco
     role: undergrad
@@ -363,6 +368,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Research Assistant, Boston University"
     sort_name: DeMarco
   - name: Melissa Escamilla Perez
     role: undergrad
@@ -372,6 +378,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Graduate Researcher, University of Michigan"
     sort_name: Escamilla Perez
   - name: Timothy Fu
     role: undergrad
@@ -381,6 +388,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Xage Security"
     sort_name: Fu
   - name: Kira Furuichi
     role: undergrad
@@ -390,6 +398,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Product Marketing, RunReveal"
     sort_name: Furuichi
   - name: Durell Gill
     role: undergrad
@@ -399,6 +408,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Oracle"
     sort_name: Gill
   - name: Alex Gist
     role: undergrad
@@ -444,6 +454,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD candidate, Columbia University"
     sort_name: Human
   - name: Sengdao Inthavong
     role: undergrad
@@ -453,6 +464,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Expedia Group"
     sort_name: Inthavong
   - name: Jannah Issa
     role: undergrad
@@ -489,6 +501,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Meta"
     sort_name: Jiang
   - name: Edward Kang
     role: undergrad
@@ -507,6 +520,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Data Analyst & Systems Engineer, Brown University"
     sort_name: Karp
   - name: Priya Kini
     role: undergrad
@@ -516,6 +530,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Coursera"
     sort_name: Kini
   - name: Andy Ko
     role: undergrad
@@ -534,6 +549,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Samsara"
     sort_name: Kothari
   - name: Vishesh Kumar
     role: undergrad
@@ -553,6 +569,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Ab Initio Software"
     sort_name: Large
   - name: Judy Lee
     role: undergrad
@@ -589,6 +606,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Application Engineer, Steelcase"
     sort_name: Liew
   - name: Jeremy Libretti-River
     role: undergrad
@@ -607,6 +625,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Verkada"
     sort_name: Liu
   - name: Aryan Mahajan
     role: undergrad
@@ -634,6 +653,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD student, University of Michigan"
     sort_name: Mallwitz
   - name: Seth May
     role: undergrad
@@ -643,6 +663,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Boeing"
     sort_name: May
   - name: Zachary McCoy
     role: undergrad
@@ -652,6 +673,7 @@ members:
     photo: ''
     photo_alt: ''
     website: https://www.zacharymccoy.dev/
+    destination: "Associate AI Engineer, OCC"
     sort_name: McCoy
   - name: Kevin Mendoza
     role: undergrad
@@ -661,6 +683,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Tableau"
     sort_name: Mendoza
   - name: Eric Mertz
     role: undergrad
@@ -670,6 +693,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Apple"
     sort_name: Mertz
   - name: Aziza Mirsaidova
     role: grad
@@ -707,6 +731,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD candidate, University of Michigan"
     sort_name: Nanoff
   - name: Jordan Nishina
     role: undergrad
@@ -716,6 +741,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Crunchyroll"
     sort_name: Nishina
   - name: Saahas Parise
     role: undergrad
@@ -725,6 +751,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Plaid"
     sort_name: Parise
   - name: Julie Park
     role: undergrad
@@ -743,6 +770,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Google"
     sort_name: Pearl
   - name: Sebastian Perez
     role: undergrad
@@ -761,6 +789,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Microsoft"
     sort_name: Pineda
   - name: Ethan Pineda
     role: undergrad
@@ -780,6 +809,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Senior Solutions Engineer, Salesforce"
     sort_name: Rawitscher
   - name: Alexander Redding
     role: undergrad
@@ -789,6 +819,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD student, UC San Diego"
     sort_name: Redding
   - name: Nathan Summer Reiff
     role: undergrad
@@ -816,6 +847,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Microsoft"
     sort_name: Rocha
   - name: Gabe Rojas-Westall
     role: undergrad
@@ -825,6 +857,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Remitly"
     sort_name: Rojas-Westall
   - name: Sophie Rollins
     role: undergrad
@@ -834,6 +867,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD student, Northwestern University"
     sort_name: Rollins
   - name: Deniz Sagnalakar
     role: undergrad
@@ -843,6 +877,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Chief Growth Officer, Entara"
     sort_name: Sagnalakar
   - name: Siddhartha Saha
     role: undergrad
@@ -879,6 +914,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Aviro"
     sort_name: Sheth
   - name: Sydney Simmons
     role: undergrad
@@ -888,6 +924,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "PhD student, Northwestern University"
     sort_name: Simmons
   - name: Jimmy Song
     role: undergrad
@@ -906,6 +943,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Apple"
     sort_name: Stettin
   - name: Kya Suzuki
     role: undergrad
@@ -951,6 +989,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Adobe"
     sort_name: Ulaganathan
   - name: Neil Vakharia
     role: undergrad
@@ -960,6 +999,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Meta"
     sort_name: Vakharia
   - name: Aimee van der Berg
     role: undergrad
@@ -969,6 +1009,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Developer, Epic"
     sort_name: van der Berg
   - name: Avi Vaid
     role: undergrad
@@ -978,6 +1019,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "hotlines.ai"
     sort_name: Vaid
   - name: Adia Wallace
     role: undergrad
@@ -1015,6 +1057,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Software Engineer, Sierra"
     sort_name: Wang
   - name: Naomi Wu
     role: undergrad
@@ -1024,6 +1067,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Adobe"
     sort_name: Wu
   - name: Richard Wu
     role: undergrad
@@ -1052,6 +1096,7 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "Analyst, Shostack + Associates"
     sort_name: Yun
   - name: Mitchell Zhen
     role: undergrad
@@ -1070,4 +1115,5 @@ members:
     photo: ''
     photo_alt: ''
     website: ''
+    destination: "MSc student, ETH Zurich"
     sort_name: Zurbuchen
