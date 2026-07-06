@@ -123,15 +123,16 @@ function initThemeToggle() {
 }
 
 // People-page easter egg: grab the top portrait and peel it up like a
-// sheet of paper. The sheet is a 4x4 grid of slices: rows nest vertically
-// (rotateX chains -> the sheet curls as you pull) and each row's cells nest
-// horizontally (rotateY chains -> the sheet bends sideways). Every row's
-// sideways bend chases the row above it, so lateral ripples travel down
-// the sheet diagonally, like cloth. CSS hover-lift stays as the no-JS
-// fallback; .js-peel turns it off here.
+// notepad page. The sheet is a 4x4 grid of slices: the top row is glued
+// flat to the photo underneath, and the fold creases along that band's
+// bottom edge. Rows below it nest vertically (rotateX chains -> the sheet
+// curls as you pull) and each row's cells nest horizontally (rotateY
+// chains -> the sheet bends sideways). Every row's sideways bend chases
+// the row above it, so lateral ripples travel down the sheet diagonally,
+// like cloth. CSS hover-lift stays as the no-JS fallback.
 function initPhotoPeel() {
     var ROWS = 4, COLS = 4;
-    var MAX = 65;          // root fold angle; the tip curls well past this
+    var MAX = 75;          // fold angle at the crease; the tip curls past this
     var FOLLOW = 0.3;      // vertical: how much each row chases the one above
     var HFOLLOW = 0.72;    // lateral bend propagation down the rows
     var HMAX = 5;          // per-cell lateral bend (deg); 4 cells compound it
@@ -205,22 +206,23 @@ function initPhotoPeel() {
         }
 
         function apply() {
-            for (var r = 0; r < ROWS; r++) {
+            for (var r = 1; r < ROWS; r++) {
                 strips[r].style.transform = "rotateX(" + Math.max(-4, vAng[r]).toFixed(2) + "deg)";
                 var bend = "rotateY(" + hAng[r].toFixed(2) + "deg)";
                 for (var c = 0; c < COLS; c++) cellRows[r][c].style.transform = bend;
             }
-            shade.style.opacity = (Math.max(0, vAng[0]) / MAX * 0.45).toFixed(3);
+            shade.style.opacity = (Math.max(0, vAng[1]) / MAX * 0.45).toFixed(3);
         }
 
         function frame() {
             var moving = false;
             hTarget *= 0.9; // the hand's sideways flick relaxes on its own
-            for (var r = 0; r < ROWS; r++) {
-                // row 0 chases the hand; each other row chases the row above.
-                // outer rows are springier -- that's the flimsiness
-                var vt = r === 0 ? target : vAng[r - 1] * FOLLOW;
-                var ht = r === 0 ? hTarget : hAng[r - 1] * HFOLLOW;
+            for (var r = 1; r < ROWS; r++) {
+                // row 0 is the glued band and never moves; row 1 chases the
+                // hand; each row below chases the one above it. Outer rows
+                // are springier -- that's the flimsiness
+                var vt = r === 1 ? target : vAng[r - 1] * FOLLOW;
+                var ht = r === 1 ? hTarget : hAng[r - 1] * HFOLLOW;
                 var k = dragging ? 0.34 - r * 0.055 : 0.05 + r * 0.012;
                 var d = dragging ? 0.52 : 0.9 - r * 0.02;
                 vVel[r] += (vt - vAng[r]) * k;
@@ -255,7 +257,7 @@ function initPhotoPeel() {
             sheet.style.display = "block";
             dragging = true;
             grabY = e.clientY;
-            grabAngle = vAng[0];
+            grabAngle = vAng[1];
             lastX = e.clientX;
             stack.classList.add("peeling");
             if (card) card.style.zIndex = "60"; // ride above neighboring cards
