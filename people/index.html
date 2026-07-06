@@ -34,10 +34,15 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
-          <picture>
-            <source srcset="{{ webp }}" type="image/webp">
-            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
-          </picture>
+          <div class="photo-stack{% if member.photo_silly != "" and member.photo_silly != nil %} photo-stack--reveal{% endif %}">
+            {% if member.photo_silly != "" and member.photo_silly != nil %}
+            <img class="photo-under" src="{{ member.photo_silly }}" alt="A sillier photo of {{ member.name }}" loading="lazy">
+            {% endif %}
+            <picture>
+              <source srcset="{{ webp }}" type="image/webp">
+              <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
+            </picture>
+          </div>
           {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
@@ -61,10 +66,15 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
-          <picture>
-            <source srcset="{{ webp }}" type="image/webp">
-            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
-          </picture>
+          <div class="photo-stack{% if member.photo_silly != "" and member.photo_silly != nil %} photo-stack--reveal{% endif %}">
+            {% if member.photo_silly != "" and member.photo_silly != nil %}
+            <img class="photo-under" src="{{ member.photo_silly }}" alt="A sillier photo of {{ member.name }}" loading="lazy">
+            {% endif %}
+            <picture>
+              <source srcset="{{ webp }}" type="image/webp">
+              <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
+            </picture>
+          </div>
           {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
@@ -87,10 +97,15 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
-          <picture>
-            <source srcset="{{ webp }}" type="image/webp">
-            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
-          </picture>
+          <div class="photo-stack{% if member.photo_silly != "" and member.photo_silly != nil %} photo-stack--reveal{% endif %}">
+            {% if member.photo_silly != "" and member.photo_silly != nil %}
+            <img class="photo-under" src="{{ member.photo_silly }}" alt="A sillier photo of {{ member.name }}" loading="lazy">
+            {% endif %}
+            <picture>
+              <source srcset="{{ webp }}" type="image/webp">
+              <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
+            </picture>
+          </div>
           {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
@@ -112,10 +127,15 @@ layout: null
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
           {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
-          <picture>
-            <source srcset="{{ webp }}" type="image/webp">
-            <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
-          </picture>
+          <div class="photo-stack{% if member.photo_silly != "" and member.photo_silly != nil %} photo-stack--reveal{% endif %}">
+            {% if member.photo_silly != "" and member.photo_silly != nil %}
+            <img class="photo-under" src="{{ member.photo_silly }}" alt="A sillier photo of {{ member.name }}" loading="lazy">
+            {% endif %}
+            <picture>
+              <source srcset="{{ webp }}" type="image/webp">
+              <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
+            </picture>
+          </div>
           {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
