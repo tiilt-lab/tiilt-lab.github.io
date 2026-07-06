@@ -30,6 +30,7 @@ The official website for the **Technological Innovations for Inclusive Learning 
 ├── classes/              # Course listings page
 ├── blog/                 # Blog page
 ├── contact/              # Contact page
+├── scratch2/             # redirect stub -> /scratch/ (app lives in tiilt-lab/scratch)
 ├── scss/                 # SCSS source files (compile to css/)
 ├── css/                  # Compiled CSS (do not edit directly)
 ├── assets/               # Images, papers, and other static files

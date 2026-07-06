@@ -6,10 +6,6 @@ exclude:
   - Gemfile.lock
   - node_modules
   - scripts
-  # Source maps for the compiled Scratch build — 43MB that only browser
-  # devtools would ever request; keep them out of the deployed site
-  - "scratch/*.map"
-  - "scratch/**/*.map"
 
 # Blog post permalink structure
 permalink: /blog/:year/:month/:day/:title/
