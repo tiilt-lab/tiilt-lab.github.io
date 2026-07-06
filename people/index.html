@@ -32,11 +32,13 @@ layout: null
         {% if member.role == "pi" and member.status == "active" %}
         <section class="textblock top_dog">
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
+          {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source srcset="{{ webp }}" type="image/webp">
             <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
+          {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
@@ -57,11 +59,13 @@ layout: null
         {% if member.role == "grad" and member.status == "active" %}
         <section class="textblock">
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
+          {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source srcset="{{ webp }}" type="image/webp">
             <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
+          {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
@@ -81,11 +85,13 @@ layout: null
         {% for member in postdocs %}
         <section class="textblock">
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
+          {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source srcset="{{ webp }}" type="image/webp">
             <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
+          {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>
@@ -104,11 +110,13 @@ layout: null
         {% for member in undergrads %}
         <section class="textblock">
           <h3><a class="member-link" href="/people/{{ member.name | slugify }}/">{{ member.name }}</a></h3>
+          {% if member.photo != "" and member.photo != nil %}
           {% assign p = member.photo | split: "." %}{% assign ext = p | last %}{% assign webp = member.photo | remove: ext | append: "webp" %}
           <picture>
             <source srcset="{{ webp }}" type="image/webp">
             <img src="{{ member.photo }}" alt="{{ member.photo_alt }}" loading="lazy">
           </picture>
+          {% endif %}
           <p>{{ member.bio }}</p>
           {% if member.website != "" and member.website != nil %}
           <a href="{{ member.website }}" target="_blank" rel="noopener" aria-label="{{ member.name }}'s Website">website</a>

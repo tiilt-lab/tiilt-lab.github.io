@@ -29,6 +29,15 @@ members:
     photo_alt: "Portrait of Di Wu"
     website: ''
     sort_name: Wu
+  - name: Maryam Azmandian
+    role: grad
+    status: active
+    alumni_type: ''
+    bio: Maryam is a doctoral student in Computer Science at Northwestern University. Prior to Northwestern, she earned her Bachelor of Science in Electrical Engineering and Computer Science (EECS) at UC Berkeley. Her research is in human-computer interaction, tangible technologies, and learning. She's passionate about designing tools and experiences that foster human development and connection. Her vision for the future is one where tech bolsters authentic, meaningful, accessible, and enriching human experiences.
+    photo: ''
+    photo_alt: ''
+    website: ''
+    sort_name: Azmandian
   - name: Jacob Puthipiroj
     role: grad
     status: active
