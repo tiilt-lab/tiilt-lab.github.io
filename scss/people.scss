@@ -117,10 +117,10 @@
     user-select: none;
   }
 
-  // Easter egg: every so often a shared breeze ripples through the
-  // portraits (one animation timeline, so they all flutter together).
-  // Portraits with a photo_silly lift up on hover like a photo being
-  // peeled back, revealing the sillier shot underneath.
+  // Easter egg: portraits with a photo_silly hide it under the visible
+  // photo; script.js makes the top photo grabbable (paper-peel physics)
+  // and sends a synchronized gust of wind through them every so often.
+  // Portraits without a hidden photo stay still.
   .photo-stack {
     position: relative;
 
@@ -134,12 +134,6 @@
       transform-origin: top center;
       backface-visibility: hidden;
       transition: transform 0.5s ease, filter 0.5s ease;
-    }
-
-    @media (prefers-reduced-motion: no-preference) {
-      picture img {
-        animation: photo-breeze 24s ease-in-out infinite;
-      }
     }
 
     // No-JS fallback: plain hover lift
@@ -227,32 +221,6 @@
         transition: opacity 0.3s ease;
       }
     }
-  }
-}
-
-// The flutter lives in a short window of a long cycle, so the breeze
-// only passes "once in a while"; identical timing keeps all cards in sync
-// Gusts tilt around shifting diagonal axes, so the flutter reads as wind
-// crossing the photos corner-to-corner rather than straight on
-@keyframes photo-breeze {
-  0%, 89%, 100% {
-    transform: perspective(60rem) rotate3d(1, 0, 0, 0deg);
-  }
-
-  91% {
-    transform: perspective(60rem) rotate3d(1, 0.55, 0, 5.5deg) skewY(0.5deg);
-  }
-
-  93.5% {
-    transform: perspective(60rem) rotate3d(1, -0.65, 0, 4.5deg) skewY(-0.5deg);
-  }
-
-  96% {
-    transform: perspective(60rem) rotate3d(0.85, 0.6, 0, 3.5deg) skewY(0.3deg);
-  }
-
-  98% {
-    transform: perspective(60rem) rotate3d(1, -0.4, 0, 1.5deg);
   }
 }
 
