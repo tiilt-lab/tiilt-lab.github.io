@@ -869,7 +869,7 @@ members:
     website: ''
     destination: "PhD student, Northwestern University"
     sort_name: Rollins
-  - name: Deniz Sagnalakar
+  - name: Deniz Sagnaklar
     role: undergrad
     status: alumni
     alumni_type: other
@@ -878,7 +878,7 @@ members:
     photo_alt: ''
     website: ''
     destination: "Chief Growth Officer, Entara"
-    sort_name: Sagnalakar
+    sort_name: Sagnaklar
   - name: Siddhartha Saha
     role: undergrad
     status: alumni
@@ -1001,7 +1001,7 @@ members:
     website: ''
     destination: "Software Engineer, Meta"
     sort_name: Vakharia
-  - name: Aimee van der Berg
+  - name: Aimee van den Berg
     role: undergrad
     status: alumni
     alumni_type: other
@@ -1010,7 +1010,7 @@ members:
     photo_alt: ''
     website: ''
     destination: "Software Developer, Epic"
-    sort_name: van der Berg
+    sort_name: van den Berg
   - name: Avi Vaid
     role: undergrad
     status: alumni
