@@ -122,6 +122,92 @@ function initThemeToggle() {
     paint();
 }
 
+// People-page easter egg: grab the top portrait and peel it up like a
+// sheet of paper to reveal the photo underneath. A small spring model
+// (angle + velocity) drives the transform each frame, so the photo has
+// weight while dragging and flutters back down on release. The CSS
+// hover-lift stays as the no-JS fallback; .js-peel turns it off here.
+function initPhotoPeel() {
+    Array.from(document.querySelectorAll(".photo-stack--reveal")).forEach(function (stack) {
+        var img = stack.querySelector("picture img");
+        if (!img) return;
+        stack.classList.add("js-peel");
+        img.draggable = false;
+
+        var MAX = 85;                         // fully peeled: edge-on, still visible (deg)
+        var angle = 0, vel = 0, target = 0;   // spring state
+        var sway = 0, swayTarget = 0;         // side wobble from hand movement
+        var dragging = false, raf = null;
+        var grabY = 0, grabAngle = 0, lastX = 0;
+
+        function apply() {
+            var a = Math.max(0, Math.min(MAX, angle));
+            var s = Math.max(-12, Math.min(12, sway));
+            img.style.transform =
+                "perspective(60rem) rotateX(" + a.toFixed(2) + "deg) rotateY(" + s.toFixed(2) + "deg)";
+            img.style.filter = "drop-shadow(0 " + (a * 0.015).toFixed(2) + "rem " +
+                (0.4 + a * 0.012).toFixed(2) + "rem rgba(0,0,0," + (a / MAX * 0.35).toFixed(3) + "))";
+        }
+
+        function frame() {
+            // critically-damped-ish spring: stiff while held, loose when falling
+            vel += (target - angle) * (dragging ? 0.32 : 0.045);
+            vel *= dragging ? 0.52 : 0.9;
+            angle += vel;
+            swayTarget *= 0.9;
+            sway += (swayTarget - sway) * 0.15;
+
+            var settled = !dragging && Math.abs(vel) < 0.02 &&
+                Math.abs(target - angle) < 0.05 && Math.abs(sway) < 0.05;
+            if (settled && target === 0) {
+                angle = 0; vel = 0; sway = 0;
+                img.style.transform = "";
+                img.style.filter = "";
+                stack.classList.remove("peeling");
+                raf = null;
+                return;
+            }
+            apply();
+            raf = requestAnimationFrame(frame);
+        }
+
+        function ensureRaf() {
+            if (!raf) raf = requestAnimationFrame(frame);
+        }
+
+        img.addEventListener("pointerdown", function (e) {
+            dragging = true;
+            grabY = e.clientY;
+            grabAngle = angle;
+            lastX = e.clientX;
+            stack.classList.add("peeling");
+            img.setPointerCapture(e.pointerId);
+            e.preventDefault();
+            ensureRaf();
+        });
+
+        img.addEventListener("pointermove", function (e) {
+            if (!dragging) return;
+            var pull = grabY - e.clientY; // pixels pulled upward
+            var h = stack.offsetHeight || 300;
+            target = Math.max(0, Math.min(MAX, grabAngle + (pull / h) * 200));
+            swayTarget += (e.clientX - lastX) * 0.25;
+            lastX = e.clientX;
+            ensureRaf();
+        });
+
+        function release() {
+            if (!dragging) return;
+            dragging = false;
+            target = 0; // let go: the sheet floats back down
+            ensureRaf();
+        }
+        img.addEventListener("pointerup", release);
+        img.addEventListener("pointercancel", release);
+        img.addEventListener("lostpointercapture", release);
+    });
+}
+
 // On mobile the nav sits at the bottom of the screen, so dropdown menus
 // open upward ("dropup") instead of downward.
 function changeDropdown() {
@@ -148,6 +234,7 @@ function changeDropdown() {
     markCurrentPage();
     initDropdowns();
     initThemeToggle();
+    initPhotoPeel();
     changeDropdown();
     window.addEventListener("resize", changeDropdown);
     window.addEventListener("orientationchange", changeDropdown);

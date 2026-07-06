@@ -142,14 +142,36 @@
       }
     }
 
-    &--reveal:hover picture img {
+    // No-JS fallback: plain hover lift
+    &--reveal:not(.js-peel):hover picture img {
       animation: none;
       transform: perspective(60rem) rotateX(70deg);
       filter: drop-shadow(0 1.5rem 1rem rgba(0, 0, 0, 0.35));
     }
 
+    // JS peel: the sheet is grabbable; while a drag is live the spring
+    // loop owns the transform, so transitions and the breeze must yield
+    &--reveal.js-peel picture img {
+      cursor: grab;
+      touch-action: none;
+      will-change: transform;
+    }
+
+    &--reveal.peeling picture img {
+      animation: none;
+      transition: none;
+      cursor: grabbing;
+    }
+
+    // Discovery hint: a corner twitch on hover says "this one moves"
+    @media (prefers-reduced-motion: no-preference) {
+      &--reveal.js-peel:not(.peeling):hover picture img {
+        transform: perspective(60rem) rotateX(9deg) rotateY(-1.5deg);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      &--reveal:hover picture img {
+      &--reveal:not(.js-peel):hover picture img {
         transform: none;
         opacity: 0;
         transition: opacity 0.3s ease;
