@@ -131,7 +131,7 @@ function initThemeToggle() {
 // the row above it, so lateral ripples travel down the sheet diagonally,
 // like cloth. CSS hover-lift stays as the no-JS fallback.
 function initPhotoPeel() {
-    var ROWS = 4, COLS = 4;
+    var ROWS = 8, COLS = 8;
     var MAX = 75;          // fold angle at the crease; the tip curls past this
     var FOLLOW = 0.3;      // vertical: how much each row chases the one above
     var HFOLLOW = 0.72;    // lateral bend propagation down the rows
