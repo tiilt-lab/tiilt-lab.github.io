@@ -47,6 +47,7 @@ members:
     role: grad
     status: active
     alumni_type: ''
+    photo_silly: /assets/img/people/jacob-puthipiroj-silly.jpg
     bio: Jacob is a PhD student in Computer Science and Learning Sciences at Northwestern University. His research focuses on AI education, knowledge representation, and computational linguistics, with an emphasis on developing innovative learning models such as structured hackathons and AI literacy frameworks. In his spare time, Jacob enjoys climbing, quizbowl, and reading social science, which he continuously tries to incorporate into his research.
     photo: /assets/img/people/jacob-puthipiroj.JPG
     photo_alt: Portrait of Jacob Puthipiroj
