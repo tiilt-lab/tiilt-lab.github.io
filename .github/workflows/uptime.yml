@@ -19,7 +19,7 @@ jobs:
         id: ping
         run: |
           down=""
-          for url in https://tiilt.northwestern.edu/ https://tiilt-blinc.com/; do
+          for url in https://tiilt.northwestern.edu/ https://nublinc.com/; do
             code=$(curl -s -o /dev/null --max-time 20 -L -w "%{http_code}" "$url" || echo 000)
             echo "$code $url"
             case "$code" in
