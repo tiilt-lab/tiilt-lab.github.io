@@ -6,17 +6,19 @@ accent: teal
 sections:
   - heading: ""
     buttons:
-      - { label: "tiilt-blinc.com", url: "https://tiilt-blinc.com" }
+      - { label: "nublinc.com", url: "https://nublinc.com" }
     images:
       - { src: "/projects/blinc/combined.png", alt: "BLINC dashboard interface showing discussion timelines, keywords, and speech direction visualizations", caption: "Dashboard" }
       - { src: "/projects/blinc/pod.jpg", alt: "A BLINC pod: a small 3D-printed data-capture device housing a microphone array", caption: "Pod" }
-      - { src: "/assets/img/projects/respeakers.jpg", alt: "Several ReSpeaker Core v2.0 microphone array boards", caption: "Respeaker" }
     body: >-
-      This team works on developing data-capture devices that provide educators
-      with real-time multimodal learning analytics. We use ReSpeaker Core v2.0
-      microphone arrays to show educators what keywords have been said, a
-      discussion timeline, direction of speech, and emotional tone indicators.
-      We are also working to incorporate body pose estimation into our analyses.
-      We have tested our devices in multiple classrooms and are continuing
-      development and testing in the coming months.
+      BLINC (Building Literacy in N-person Collaborations) is a web-based
+      platform that helps students and educators understand and improve how
+      they collaborate. During group discussions, BLINC surfaces real-time
+      analytics — discussion timelines, keywords, speaking patterns, and
+      emotional tone — grounded in our collaboration literacy framework.
+      Rather than simply monitoring
+      participation, the goal is to help groups reflect on the quality of
+      their collaboration and grow collaboration literacy as a skill. We have
+      deployed BLINC in university and K-12 classrooms and continue to develop
+      and study the platform.
 ---
