@@ -61,33 +61,6 @@ members:
     photo_alt: Portrait of Khushbu Kshirsagar
     website: ''
     sort_name: Kshirsagar
-  - name: Michael Smith
-    role: grad
-    status: active
-    alumni_type: ''
-    bio: Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow. Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games.
-    photo: /assets/img/people/michael-smith copy.jpg
-    photo_alt: Portrait of Michael Smith
-    website: https://michaelshanesmith.github.io/
-    sort_name: Smith
-  - name: Sarah Priscilla Lee
-    role: grad
-    status: active
-    alumni_type: ''
-    bio: Sarah (she/her) is a PhD candidate in Learning Sciences. She is writing an multi-sited ethnography of refugee students and a cross-cultural coalition of youth that examines how intergenerational learning and (multi)culturally sustaining pedagogy complicate notions of youth identity and belonging (vis-a-vis transnationalism and spatial justice). She enjoys FaceTime calls, crafting, pickeball, and a good cup of earl gray.
-    photo: /assets/img/people/spl-headshot-2026.jpeg
-    photo_alt: Portrait of Sarah Priscilla Lee
-    website: https://www.sarahplee.com/
-    sort_name: Lee
-  - name: Ashley Quiterio
-    role: grad
-    status: active
-    alumni_type: ''
-    bio: Ashley is a Learning Sciences PhD candidate at Northwestern University. Their research focuses on data education across K-16 contexts with an emphasis on agency, culture, and identity.
-    photo: /assets/img/people/ashley-quiterio.jpg
-    photo_alt: Portrait of Ashley Quiterio
-    website: ''
-    sort_name: Quiterio
   - name: Tochukwu Eze
     role: grad
     status: active
@@ -97,15 +70,6 @@ members:
     photo_alt: Portrait of Tochukwu Eze
     website: ''
     sort_name: Eze
-  - name: Victoria C. Chavez
-    role: grad
-    status: active
-    alumni_type: ''
-    bio: Victoria (V/they/she) is a Chicago-born and raised Chapine (Guatemalan) educator, scholar, and engineer. Currently, they're a third-year PhD student at Northwestern University's Computer Science Program. Victoria's research interests explore systemic issues within computer science education, centering the experiences of Black, Disabled, Indigenous, and Latine/x students. Most recently, their research has focused on teaching and learning accessibility as well as unpacking how ableism is codified in the policies, practices, and pedagogies used in college CS courses.
-    photo: /assets/img/people/victoria.jpg
-    photo_alt: Portrait of Victoria C. Chavez
-    website: https://vickiebananas.com/
-    sort_name: Chavez
   - name: Meg Butler
     role: grad
     status: active
@@ -154,6 +118,15 @@ members:
     website: ''
     destination: Postdoctoral Fellow, Northwestern University
     sort_name: Bodon
+  - name: Victoria C. Chavez
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ''
+    photo: ''
+    photo_alt: ''
+    website: https://vickiebananas.com/
+    sort_name: Chavez
   - name: DJ (Stephanie T. Jones)
     role: grad
     status: alumni
@@ -164,6 +137,15 @@ members:
     website: ''
     destination: AI Education Fellow, Computing Research Association
     sort_name: Jones
+  - name: Sarah Priscilla Lee
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ''
+    photo: ''
+    photo_alt: ''
+    website: https://www.sarahplee.com/
+    sort_name: Lee
   - name: Kit Martin
     role: grad
     status: alumni
@@ -184,6 +166,24 @@ members:
     website: ''
     destination: Postdoctoral Scholar, Northwestern University
     sort_name: Melo
+  - name: Ashley Quiterio
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ''
+    photo: ''
+    photo_alt: ''
+    website: ''
+    sort_name: Quiterio
+  - name: Michael Smith
+    role: grad
+    status: alumni
+    alumni_type: phd
+    bio: ''
+    photo: ''
+    photo_alt: ''
+    website: https://michaelshanesmith.github.io/
+    sort_name: Smith
   - name: JaCoya Thompson
     role: grad
     status: alumni
