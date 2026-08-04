@@ -143,8 +143,8 @@ members:
     bio: ''
     photo: ''
     photo_alt: ''
-    website: ''
-    destination: AI Education Fellow, Computing Research Association
+    website: https://www.stephanietjones.com/
+    destination: Assistant Professor, Chicago State University
     sort_name: Jones
   - name: Sarah Priscilla Lee
     role: grad
