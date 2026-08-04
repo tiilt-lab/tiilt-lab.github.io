@@ -61,6 +61,15 @@ members:
     photo_alt: Portrait of Khushbu Kshirsagar
     website: ''
     sort_name: Kshirsagar
+  - name: Michael Smith
+    role: grad
+    status: active
+    alumni_type: ''
+    bio: Michael Smith is a Computer Science and Learning Sciences PhD student at Northwestern University, and a National GEM Consortium PhD Fellow. Some of his research and project interests include exploring the intersections of technology & education, formal and informal learning, computing culture, new media and community, and games.
+    photo: /assets/img/people/michael-smith copy.jpg
+    photo_alt: Portrait of Michael Smith
+    website: https://michaelshanesmith.github.io/
+    sort_name: Smith
   - name: Tochukwu Eze
     role: grad
     status: active
@@ -175,15 +184,6 @@ members:
     photo_alt: ''
     website: ''
     sort_name: Quiterio
-  - name: Michael Smith
-    role: grad
-    status: alumni
-    alumni_type: phd
-    bio: ''
-    photo: ''
-    photo_alt: ''
-    website: https://michaelshanesmith.github.io/
-    sort_name: Smith
   - name: JaCoya Thompson
     role: grad
     status: alumni
