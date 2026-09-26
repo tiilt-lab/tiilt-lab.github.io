@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Scoresheet</title>
+<style>
+  :root{
+    --bg:#0e1210; --panel:#161c19; --panel2:#1d2420; --line:#2a332d;
+    --amber:#ffb020; --amber-dim:#7a5416; --text:#eef2ee; --sub:#8fa096;
+    --pos:#3fae5c; --neg:#c0463a; --away:#5fb0d6;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top:env(safe-area-inset-top,0px); height:100%;}
+  body{margin:0;min-height:100%;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;}
+  .digits{font-family:'Courier New',monospace;font-variant-numeric:tabular-nums;}
+  header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;
+    background:var(--panel);border-bottom:1px solid var(--line);padding:10px 14px;}
+  .scoreline{display:flex;align-items:center;justify-content:center;gap:14px;}
+  .scoreline .tname{font-size:.85rem;color:var(--sub);max-width:34vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .scoreline .sc{font-size:2rem;font-weight:700;color:var(--amber);}
+  .scoreline .sc.away{color:var(--away);}
+  .scoreline .dash{color:var(--sub);font-size:1.3rem;}
+  .foulsrow{display:flex;justify-content:center;gap:18px;margin-top:2px;font-size:.72rem;color:var(--sub);}
+  .foulsrow b.home{color:var(--amber);}
+  .foulsrow b.away{color:var(--away);}
+  .qtabs{display:flex;gap:6px;margin-top:8px;overflow-x:auto;}
+  .qtab{flex:0 0 auto;padding:6px 14px;border-radius:6px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--sub);font-size:.85rem;cursor:pointer;}
+  .qtab.active{background:var(--amber-dim);color:var(--amber);border-color:var(--amber-dim);}
+  .teamsection{margin-top:18px;}
+  .teamsection:first-of-type{margin-top:6px;}
+  .teamhead{font-size:1rem;margin:0 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line);}
+  .teamhead.home{color:var(--amber);border-color:var(--amber-dim);}
+  .teamhead.away{color:var(--away);border-color:#123240;}
+  main{padding:12px 14px 80px;max-width:760px;margin:0 auto;}
+  .setup-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:18px;margin-top:14px;}
+  .setup-card h1{font-size:1.15rem;margin:0 0 4px;}
+  .setup-card p{color:var(--sub);font-size:.85rem;margin:0 0 12px;}
+  label{display:block;font-size:.78rem;color:var(--sub);margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;}
+  input[type=text],input[type=number],select,input[type=file]{width:100%;padding:10px 12px;border-radius:7px;
+    border:1px solid var(--line);background:var(--panel2);color:var(--text);font-size:.95rem;}
+  .row2{display:flex;gap:8px;margin-top:10px;}
+  .row2 input{flex:1;}
+  .row2 input.num{flex:0 0 64px;}
+  button.btn{padding:10px 16px;border-radius:7px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--text);font-size:.9rem;cursor:pointer;}
+  button.btn.primary{background:var(--amber);border-color:var(--amber);color:#241a00;font-weight:700;}
+  button.btn.danger{background:transparent;border-color:var(--neg);color:var(--neg);}
+  .plist{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+  .plist .p{display:flex;align-items:center;justify-content:space-between;
+    background:var(--panel2);border-radius:7px;padding:8px 12px;}
+  .plist .p span.n{color:var(--sub);font-size:.85rem;margin-right:8px;}
+  .plist .p button{background:none;border:none;color:var(--neg);font-size:1.1rem;cursor:pointer;}
+  .playercard{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:8px 10px;margin-top:6px;}
+  .pchead{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;
+    padding:2px 0;}
+  .pchead .name{font-weight:700;font-size:.95rem;}
+  .pchead .num{color:var(--sub);font-size:.78rem;margin-left:5px;}
+  .pchead .pts{font-size:1.15rem;color:var(--amber);font-weight:700;}
+  .pchead .chev{color:var(--sub);font-size:.75rem;width:20px;text-align:center;flex:0 0 auto;}
+  .pcbody{margin-top:8px;}
+  .ptsbtns{display:flex;gap:6px;margin-bottom:8px;}
+  .ptsbtns button{flex:1;padding:8px 0;border-radius:7px;border:1px solid var(--amber-dim);
+    background:rgba(255,176,32,.08);color:var(--amber);font-weight:700;font-size:.9rem;cursor:pointer;}
+  .ptsbtns button:active{background:var(--amber-dim);}
+  .ptsbtns.minus{display:none;}
+  .ptsbtns button.minusbtn{border-color:var(--line);background:var(--panel2);color:var(--neg);}
+  .ptsbtns button.minusbtn:active{background:var(--line);}
+  .statgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;}
+  .stat{background:var(--panel2);border-radius:6px;padding:4px 2px;text-align:center;}
+  .stat.pf{background:color-mix(in srgb, var(--panel2) 65%, black);}
+  .stat .lbl{font-size:.58rem;color:var(--sub);letter-spacing:.02em;}
+  .stat .val{font-size:.85rem;font-weight:700;margin:1px 0;}
+  .stat .ctl{display:flex;gap:2px;justify-content:center;}
+  .stat .ctl button{width:22px;height:22px;border-radius:5px;border:1px solid var(--line);
+    background:var(--panel);color:var(--text);font-size:.85rem;cursor:pointer;line-height:1;padding:0;}
+  .stat .ctl button:active{background:var(--line);}
+  .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 8px;}
+  details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-top:14px;}
+  summary{padding:10px 14px;cursor:pointer;color:var(--sub);font-size:.88rem;}
+  .logtable{width:100%;border-collapse:collapse;font-size:.78rem;}
+  .logtable th,.logtable td{padding:6px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap;}
+  .logtable th{color:var(--sub);font-weight:600;}
+  .logwrap{overflow-x:auto;max-height:260px;overflow-y:auto;padding:0 6px 10px;}
+  .toast{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:50%;
+    transform:translateX(-50%);background:var(--panel2);border:1px solid var(--line);
+    padding:8px 16px;border-radius:20px;font-size:.85rem;color:var(--text);opacity:0;
+    transition:opacity .2s;pointer-events:none;z-index:20;}
+  .toast.show{opacity:1;}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f5f6f4; --panel:#ffffff; --panel2:#eef0ec; --line:#dde1da;
+      --text:#171a16; --sub:#5b6660; --amber-dim:#ffe3ae;
+    }
+    :root:not([data-theme="dark"]) .stat .ctl button{background:#fff;}
+  }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = 'bball_scoresheet_v2';
+const LEAGUE_KEY = 'bball_league_v1';
+const QUARTERS = ['Q1','Q2','Q3','Q4','OT'];
+const SIDES = ['home','away'];
+const STAT_FIELDS = [
+  {k:'pf',label:'PF'},{k:'reb',label:'REB'},{k:'ast',label:'AST'},{k:'stl',label:'STL'},
+  {k:'blk',label:'BLK'},{k:'to',label:'TO'}
+];
+
+function blankStat(){ return {pts:0,reb:0,ast:0,stl:0,blk:0,to:0,pf:0}; }
+function blankTeam(){ return { name:'', selectedLeagueTeam:'', players:[] }; }
+
+function loadState(){
+  try{ const raw = localStorage.getItem(STORAGE_KEY); if(raw) return JSON.parse(raw); }catch(e){}
+  return { started:false, quarter:'Q1', activeSide:'home',
+    teams:{ home:blankTeam(), away:blankTeam() }, stats:{ home:{}, away:{} }, log:[] };
+}
+function loadLeague(){
+  try{ const raw = localStorage.getItem(LEAGUE_KEY); if(raw) return JSON.parse(raw); }catch(e){}
+  return {};
+}
+let state = loadState();
+let leagueData = loadLeague();
+
+function saveState(){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){} }
+function saveLeague(){ try{ localStorage.setItem(LEAGUE_KEY, JSON.stringify(leagueData)); }catch(e){} }
+
+function ensureQuarterStat(side, q, pid){
+  if(!state.stats[side][q]) state.stats[side][q] = {};
+  if(!state.stats[side][q][pid]) state.stats[side][q][pid] = blankStat();
+  return state.stats[side][q][pid];
+}
+function playerTotal(side, pid, field){
+  let sum = 0;
+  QUARTERS.forEach(q=>{ const s = state.stats[side][q] && state.stats[side][q][pid]; if(s) sum += s[field]||0; });
+  return sum;
+}
+function teamTotalForQuarter(side, q, field){
+  let sum = 0;
+  if(state.stats[side][q]) Object.values(state.stats[side][q]).forEach(s=> sum += s[field]||0);
+  return sum;
+}
+function teamGrandTotal(side, field){
+  let sum = 0; QUARTERS.forEach(q=> sum += teamTotalForQuarter(side, q, field)); return sum;
+}
+function teamFoulsHalf(side, half){
+  const qs = half===1 ? ['Q1','Q2'] : ['Q3','Q4','OT'];
+  let sum = 0; qs.forEach(q=> sum += teamTotalForQuarter(side, q, 'pf')); return sum;
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
+  clearTimeout(showToast._h); showToast._h = setTimeout(()=>t.classList.remove('show'), 1600);
+}
+function fmtTime(iso){ const d = new Date(iso); return d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
+function fmtTimeFull(iso){ return new Date(iso).toLocaleString(); }
+function safeName(s){ return (s||'team').replace(/[^a-z0-9]+/gi,'_').replace(/^_+|_+$/g,'') || 'team'; }
+function escapeHtml(s){ return String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+
+function logAction(side, pname, stat, delta){
+  state.log.push({ t:new Date().toISOString(), q:state.quarter, side, team:state.teams[side].name, pname, stat, delta });
+}
+function addPoints(side, pid, pname, amt){
+  const s = ensureQuarterStat(side, state.quarter, pid);
+  const applied = Math.max(0, s.pts + amt) - s.pts;
+  s.pts += applied;
+  if(applied !== 0){ logAction(side, pname, 'PTS', applied); saveState(); render(); }
+}
+function bumpStat(side, pid, pname, field, delta){
+  const s = ensureQuarterStat(side, state.quarter, pid); s[field] = Math.max(0,(s[field]||0)+delta);
+  logAction(side, pname, field.toUpperCase(), delta); saveState(); render();
+  if(field === 'pf' && delta > 0 && playerTotal(side, pid, 'pf') === 5){
+    const p = state.teams[side].players.find(x=>x.id===pid);
+    alert('#' + (p ? p.num || '?' : '?') + ' (' + state.teams[side].name + ') has reached 5 fouls.');
+  }
+}
+
+function csvEscape(v){ v = String(v); if(/[",\n]/.test(v)) return '"' + v.replace(/"/g,'""') + '"'; return v; }
+function rowsToCSV(headers, rows){ const l=[headers.map(csvEscape).join(',')]; rows.forEach(r=>l.push(r.map(csvEscape).join(','))); return l.join('\n'); }
+
+async function saveCSV(filename, csvText){
+  try{
+    const dl = await window.claude.use('downloads');
+    if(!dl){ showToast('Downloads unavailable here'); return; }
+    const res = await dl.save({ filename, data: new Blob([csvText], {type:'text/csv'}) });
+    showToast(res.status === 'saved' ? 'Saved '+filename : 'Sent '+filename);
+  }catch(e){ showToast('Could not save: ' + (e && e.code ? e.code : 'error')); }
+}
+
+function exportLog(){
+  const headers = ['Timestamp','Quarter','Team','Player','Stat','Change'];
+  const rows = state.log.map(e=>[fmtTimeFull(e.t), e.q, e.team, e.pname, e.stat, (e.delta>0?'+':'')+e.delta]);
+  saveCSV(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_log.csv', rowsToCSV(headers, rows));
+}
+function exportBoxScore(){
+  const hasOT = teamTotalForQuarter('home','OT','pts') > 0 || teamTotalForQuarter('away','OT','pts') > 0;
+  const periods = hasOT ? ['Q1','Q2','Q3','Q4','OT'] : ['Q1','Q2','Q3','Q4'];
+  const headers = ['Team', ...periods];
+  const rows = SIDES.map(side=>{
+    let cum = 0;
+    const vals = periods.map(q=>{ cum += teamTotalForQuarter(side,q,'pts'); return cum; });
+    return [state.teams[side].name, ...vals];
+  });
+  saveCSV(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_boxscore.csv', rowsToCSV(headers, rows));
+}
+function exportStats(){
+  const headers = ['Scope','Team','Period','Player','PTS','REB','AST','STL','BLK','TO','PF'];
+  const periods = [...QUARTERS, 'Total'];
+  const playerRows = [];
+  const teamRows = [];
+  periods.forEach(period=>{
+    SIDES.forEach(side=>{
+      const tname = state.teams[side].name;
+      state.teams[side].players.forEach(p=>{
+        if(period === 'Total'){
+          playerRows.push(['Player', tname, 'Total', p.name,
+            playerTotal(side,p.id,'pts'),playerTotal(side,p.id,'reb'),playerTotal(side,p.id,'ast'),
+            playerTotal(side,p.id,'stl'),playerTotal(side,p.id,'blk'),playerTotal(side,p.id,'to'),playerTotal(side,p.id,'pf')]);
+        } else {
+          const s = state.stats[side][period] && state.stats[side][period][p.id];
+          if(s) playerRows.push(['Player', tname, period, p.name, s.pts,s.reb,s.ast,s.stl,s.blk,s.to,s.pf]);
+        }
+      });
+      if(period === 'Total'){
+        teamRows.push(['Team', tname, 'Total', tname,
+          teamGrandTotal(side,'pts'),teamGrandTotal(side,'reb'),teamGrandTotal(side,'ast'),
+          teamGrandTotal(side,'stl'),teamGrandTotal(side,'blk'),teamGrandTotal(side,'to'),teamGrandTotal(side,'pf')]);
+      } else if(state.stats[side][period]){
+        teamRows.push(['Team', tname, period, tname,
+          teamTotalForQuarter(side,period,'pts'),teamTotalForQuarter(side,period,'reb'),teamTotalForQuarter(side,period,'ast'),
+          teamTotalForQuarter(side,period,'stl'),teamTotalForQuarter(side,period,'blk'),teamTotalForQuarter(side,period,'to'),teamTotalForQuarter(side,period,'pf')]);
+      }
+    });
+  });
+  const rows = playerRows.concat(teamRows);
+  saveCSV(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_stats.csv', rowsToCSV(headers, rows));
+}
+
+function parseCSV(text){
+  const lines = text.split(/\r?\n/).filter(l=>l.trim().length);
+  return lines.map(line=>{
+    const out=[]; let cur=''; let inQ=false;
+    for(let i=0;i<line.length;i++){
+      const c=line[i];
+      if(c==='"'){ if(inQ && line[i+1]==='"'){cur+='"';i++;} else inQ=!inQ; }
+      else if(c===',' && !inQ){ out.push(cur); cur=''; }
+      else cur+=c;
+    }
+    out.push(cur); return out.map(s=>s.trim());
+  });
+}
+function importLeagueCSV(text){
+  const rows = parseCSV(text);
+  if(!rows.length){ showToast('Empty file'); return; }
+  const header = rows[0].map(h=>h.toLowerCase());
+  const hasHeader = header.includes('team') && header.includes('name');
+  const teamIdx = hasHeader ? header.indexOf('team') : 0;
+  const numIdx = hasHeader ? header.indexOf('number') : 1;
+  const nameIdx = hasHeader ? header.indexOf('name') : 2;
+  const start = hasHeader ? 1 : 0;
+  const league = {};
+  for(let i=start;i<rows.length;i++){
+    const r = rows[i];
+    const team = (r[teamIdx]||'').trim();
+    const name = (r[nameIdx]||'').trim();
+    if(!team || !name) continue;
+    if(!league[team]) league[team] = [];
+    league[team].push({ id:'lp'+i+'_'+(Date.now()%100000), num:(r[numIdx]||'').trim(), name });
+  }
+  leagueData = league; saveLeague();
+  showToast(Object.keys(league).length + ' teams imported');
+  render();
+}
+
+function pickLeagueTeam(side, teamName){
+  const t = state.teams[side];
+  t.selectedLeagueTeam = teamName;
+  if(teamName && leagueData[teamName]){
+    t.name = teamName;
+    t.players = leagueData[teamName].map(p=>({ id:'g'+p.id, num:p.num, name:p.name }));
+  }
+  saveState(); render();
+}
+function addPlayer(side, name, num){
+  name = (name||'').trim(); if(!name) return;
+  const id = 'p'+Date.now()+Math.floor(Math.random()*1000);
+  state.teams[side].players.push({ id, name, num:(num||'').trim() });
+  saveState(); render();
+}
+function removePlayer(side, id){
+  state.teams[side].players = state.teams[side].players.filter(p=>p.id!==id);
+  saveState(); render();
+}
+function canStart(){ return state.teams.home.players.length>0 && state.teams.away.players.length>0; }
+
+function toggleOpen(side, pid){
+  const p = state.teams[side].players.find(x=>x.id===pid);
+  if(p){ p.open = !p.open; saveState(); render(); }
+}
+
+function resetGame(){
+  if(!confirm('Reset the whole game? This clears all stats and the log (rosters and league data stay).')) return;
+  state = { started:false, quarter:'Q1', activeSide:'home', teams: state.teams, stats:{home:{},away:{}}, log:[] };
+  saveState(); render();
+}
+function newMatchup(){
+  if(!confirm('Start a brand new matchup? This clears both rosters and the current game.')) return;
+  state = { started:false, quarter:'Q1', activeSide:'home', teams:{home:blankTeam(),away:blankTeam()}, stats:{home:{},away:{}}, log:[] };
+  saveState(); render();
+}
+
+function render(){
+  const app = document.getElementById('app');
+  if(!state.started){ app.innerHTML = renderSetup(); bindSetupEvents(); }
+  else { app.innerHTML = renderGame(); bindGameEvents(); }
+}
+
+function sideBlockHtml(side){
+  const label = side==='home' ? 'Home team' : 'Away team';
+  const leagueNames = Object.keys(leagueData);
+  const t = state.teams[side];
+  const options = leagueNames.map(n=>`<option value="${escapeHtml(n)}" ${t.selectedLeagueTeam===n?'selected':''}>${escapeHtml(n)}</option>`).join('');
+  const plist = t.players.map(p=>`
+    <div class="p"><div><span class="n">#${p.num||'-'}</span>${escapeHtml(p.name)}</div>
+    <button data-remove="${side}|${p.id}">&times;</button></div>`).join('');
+  return `
+  <div class="setup-card">
+    <h1>${label}</h1>
+    ${leagueNames.length ? `
+    <label>Choose from league</label>
+    <select id="sel_${side}">
+      <option value="">— manual entry —</option>
+      ${options}
+    </select>` : ''}
+    <label style="margin-top:12px">Team name</label>
+    <input type="text" id="name_${side}" value="${escapeHtml(t.name)}" placeholder="Team name">
+    <label style="margin-top:12px">Add / edit player</label>
+    <div class="row2">
+      <input type="number" class="num" id="num_${side}" placeholder="#">
+      <input type="text" id="pname_${side}" placeholder="Player name">
+      <button class="btn" data-addp="${side}">Add</button>
+    </div>
+    <div class="plist">${plist || '<p style="color:var(--sub);font-size:.85rem">No players yet.</p>'}</div>
+  </div>`;
+}
+
+function renderSetup(){
+  return `
+  <main>
+    <div class="setup-card">
+      <h1>League roster</h1>
+      <p>Import a CSV with columns <strong>Team, Number, Name</strong> (header optional) to populate the team pickers below. Re-importing replaces the loaded league.</p>
+      <input type="file" id="csvFile" accept=".csv,text/csv">
+      ${Object.keys(leagueData).length ? `<p style="color:var(--sub);font-size:.82rem;margin-top:8px">${Object.keys(leagueData).length} team(s) loaded.</p>` : ''}
+    </div>
+    ${sideBlockHtml('home')}
+    ${sideBlockHtml('away')}
+    <div class="toolbar">
+      <button class="btn primary" id="startBtn" ${canStart()?'':'disabled'}>Start game</button>
+    </div>
+  </main>`;
+}
+
+function bindSetupEvents(){
+  const csvFile = document.getElementById('csvFile');
+  if(csvFile) csvFile.addEventListener('change', e=>{
+    const f = e.target.files[0]; if(!f) return;
+    const r = new FileReader();
+    r.onload = ()=> importLeagueCSV(r.result);
+    r.readAsText(f);
+  });
+  SIDES.forEach(side=>{
+    const sel = document.getElementById('sel_'+side);
+    if(sel) sel.addEventListener('change', e=> pickLeagueTeam(side, e.target.value));
+    document.getElementById('name_'+side).addEventListener('change', e=>{
+      state.teams[side].name = e.target.value; saveState();
+    });
+    const addBtn = document.querySelector(`[data-addp="${side}"]`);
+    addBtn.addEventListener('click', ()=>{
+      addPlayer(side, document.getElementById('pname_'+side).value, document.getElementById('num_'+side).value);
+    });
+  });
+  document.querySelectorAll('[data-remove]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const [side,id] = b.getAttribute('data-remove').split('|');
+      removePlayer(side, id);
+    });
+  });
+  const startBtn = document.getElementById('startBtn');
+  if(startBtn) startBtn.addEventListener('click', ()=>{
+    SIDES.forEach(side=>{ if(!state.teams[side].name) state.teams[side].name = side==='home'?'Home':'Away'; });
+    state.started = true; saveState(); render();
+  });
+}
+
+function renderTeamSection(side){
+  const cards = state.teams[side].players.map(p=>{
+    const s = (state.stats[side][state.quarter] && state.stats[side][state.quarter][p.id]) || blankStat();
+    const gamePts = playerTotal(side,p.id,'pts');
+    const open = !!p.open;
+    const statCells = STAT_FIELDS.map(f=>`
+      <div class="stat${f.k==='pf'?' pf':''}">
+        <div class="lbl">${f.label}</div>
+        <div class="val">${s[f.k]}</div>
+        <div class="ctl"><button data-dec="${side}|${p.id}|${f.k}">−</button><button data-inc="${side}|${p.id}|${f.k}">+</button></div>
+      </div>`).join('');
+    const body = open ? `
+      <div class="pcbody">
+        <div class="ptsbtns">
+          <button data-pts="${side}|${p.id}|1">+1</button><button data-pts="${side}|${p.id}|2">+2</button><button data-pts="${side}|${p.id}|3">+3</button><button data-pts="${side}|${p.id}|-1" class="minusbtn">−1</button>
+        </div>
+        <div class="statgrid">${statCells}</div>
+      </div>` : '';
+    return `
+    <div class="playercard">
+      <div class="pchead" data-toggle="${side}|${p.id}">
+        <div><span class="name">${escapeHtml(p.name)}</span><span class="num">#${p.num||'-'}</span></div>
+        <div style="display:flex;align-items:center;gap:8px">
+          <div class="pts">${gamePts}</div>
+          <div class="chev">${open?'▲':'▼'}</div>
+        </div>
+      </div>
+      ${body}
+    </div>`;
+  }).join('');
+  return `<section class="teamsection">
+    <h2 class="teamhead ${side}">${escapeHtml(state.teams[side].name)}</h2>
+    ${cards || '<p style="color:var(--sub)">No players on this roster.</p>'}
+  </section>`;
+}
+
+function renderGame(){
+  const homeScore = teamGrandTotal('home','pts');
+  const awayScore = teamGrandTotal('away','pts');
+  const qtabs = QUARTERS.map(q=>`<div class="qtab ${q===state.quarter?'active':''}" data-q="${q}">${q}</div>`).join('');
+  const logRows = state.log.slice().reverse().slice(0,200).map(e=>`
+    <tr><td>${fmtTime(e.t)}</td><td>${e.q}</td><td>${escapeHtml(e.team)}</td><td>${escapeHtml(e.pname)}</td><td>${e.stat}</td><td>${e.delta>0?'+':''}${e.delta}</td></tr>
+  `).join('');
+
+  return `
+  <header>
+    <div class="scoreline">
+      <span class="tname">${escapeHtml(state.teams.home.name)}</span>
+      <span class="sc digits">${homeScore}</span>
+      <span class="dash">–</span>
+      <span class="sc digits away">${awayScore}</span>
+      <span class="tname">${escapeHtml(state.teams.away.name)}</span>
+    </div>
+    <div class="foulsrow">
+      <span>1H FOULS <b class="home">${teamFoulsHalf('home',1)}</b>–<b class="away">${teamFoulsHalf('away',1)}</b></span>
+      <span>2H FOULS <b class="home">${teamFoulsHalf('home',2)}</b>–<b class="away">${teamFoulsHalf('away',2)}</b></span>
+    </div>
+    <div class="qtabs">${qtabs}</div>
+  </header>
+  <main>
+    ${renderTeamSection('home')}
+    ${renderTeamSection('away')}
+    <div class="toolbar">
+      <button class="btn primary" id="exportLogBtn">Export action log (CSV)</button>
+      <button class="btn primary" id="exportStatsBtn">Export stats (CSV)</button>
+      <button class="btn primary" id="exportBoxBtn">Export box score (CSV)</button>
+    </div>
+    <div class="toolbar">
+      <button class="btn danger" id="resetBtn">Reset game</button>
+      <button class="btn danger" id="newMatchupBtn">New matchup</button>
+    </div>
+    <details>
+      <summary>Action log (${state.log.length} events)</summary>
+      <div class="logwrap">
+        <table class="logtable">
+          <thead><tr><th>Time</th><th>Qtr</th><th>Team</th><th>Player</th><th>Stat</th><th>Δ</th></tr></thead>
+          <tbody>${logRows || '<tr><td colspan="6" style="color:var(--sub)">No actions yet</td></tr>'}</tbody>
+        </table>
+      </div>
+    </details>
+  </main>`;
+}
+
+function bindGameEvents(){
+  document.querySelectorAll('.qtab').forEach(t=>{
+    t.addEventListener('click', ()=>{ state.quarter = t.getAttribute('data-q'); saveState(); render(); });
+  });
+  document.querySelectorAll('[data-toggle]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const [side, pid] = el.getAttribute('data-toggle').split('|');
+      toggleOpen(side, pid);
+    });
+  });
+  document.querySelectorAll('[data-pts]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const [side, pid, amt] = b.getAttribute('data-pts').split('|');
+      const p = state.teams[side].players.find(x=>x.id===pid);
+      addPoints(side, pid, p.name, parseInt(amt,10));
+    });
+  });
+  document.querySelectorAll('[data-inc]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const [side, pid, field] = b.getAttribute('data-inc').split('|');
+      const p = state.teams[side].players.find(x=>x.id===pid);
+      bumpStat(side, pid, p.name, field, 1);
+    });
+  });
+  document.querySelectorAll('[data-dec]').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const [side, pid, field] = b.getAttribute('data-dec').split('|');
+      const p = state.teams[side].players.find(x=>x.id===pid);
+      bumpStat(side, pid, p.name, field, -1);
+    });
+  });
+  document.getElementById('exportLogBtn').addEventListener('click', exportLog);
+  document.getElementById('exportStatsBtn').addEventListener('click', exportStats);
+  document.getElementById('exportBoxBtn').addEventListener('click', exportBoxScore);
+  document.getElementById('resetBtn').addEventListener('click', resetGame);
+  document.getElementById('newMatchupBtn').addEventListener('click', newMatchup);
+}
+
+render();
+</script>
+</body>
+</html>
