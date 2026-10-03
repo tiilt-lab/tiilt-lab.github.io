@@ -20,7 +20,7 @@
   header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;
     background:var(--panel);border-bottom:1px solid var(--line);padding:10px 14px;}
   .scoreline{display:flex;align-items:center;justify-content:center;gap:14px;}
-  .scoreline .tname{font-size:.85rem;color:var(--sub);max-width:34vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .scoreline .tname{font-size:1.1rem;font-weight:700;color:var(--sub);max-width:34vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
   .scoreline .sc{font-size:2rem;font-weight:700;color:var(--amber);}
   .scoreline .sc.away{color:var(--away);}
   .scoreline .dash{color:var(--sub);font-size:1.3rem;}
@@ -31,12 +31,19 @@
   .qtab{flex:0 0 auto;padding:6px 14px;border-radius:6px;border:1px solid var(--line);
     background:var(--panel2);color:var(--sub);font-size:.85rem;cursor:pointer;}
   .qtab.active{background:var(--amber-dim);color:var(--amber);border-color:var(--amber-dim);}
-  .teamsection{margin-top:18px;}
+  .teamsection{margin-top:18px;min-width:0;}
   .teamsection:first-of-type{margin-top:6px;}
   .teamhead{font-size:1rem;margin:0 0 8px;padding-bottom:6px;border-bottom:2px solid var(--line);}
   .teamhead.home{color:var(--amber);border-color:var(--amber-dim);}
   .teamhead.away{color:var(--away);border-color:#123240;}
   main{padding:12px 14px 80px;max-width:760px;margin:0 auto;}
+  main.game-main{max-width:1200px;}
+  .teams-grid{display:grid;grid-template-columns:1fr;gap:0 24px;}
+  @media (min-width:900px){
+    .teams-grid{grid-template-columns:1fr 1fr;align-items:start;}
+    .teams-grid .teamsection{margin-top:6px;}
+    .teams-grid .teamsection.away{border-left:1px solid var(--line);padding-left:24px;}
+  }
   .setup-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;
     padding:18px;margin-top:14px;}
   .setup-card h1{font-size:1.15rem;margin:0 0 4px;}
@@ -60,8 +67,14 @@
     padding:8px 10px;margin-top:6px;}
   .pchead{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;
     padding:2px 0;}
-  .pchead .name{font-weight:700;font-size:.95rem;}
-  .pchead .num{color:var(--sub);font-size:.78rem;margin-left:5px;}
+  .pchead .name{font-weight:400;font-size:.85rem;color:var(--sub);}
+  .pchead .num{font-weight:700;font-size:1.1rem;margin-right:6px;}
+  .pchead [data-edit]{cursor:context-menu;}
+  .pchead input.inline-edit{font:inherit;font-weight:inherit;color:var(--text);
+    background:var(--panel2);border:1px solid var(--amber-dim);border-radius:4px;
+    padding:1px 5px;width:auto;}
+  .pchead .num input.inline-edit{width:48px;}
+  .pchead .name input.inline-edit{width:120px;}
   .pchead .pts{font-size:1.15rem;color:var(--amber);font-weight:700;}
   .pchead .chev{color:var(--sub);font-size:.75rem;width:20px;text-align:center;flex:0 0 auto;}
   .pcbody{margin-top:8px;}
@@ -93,6 +106,12 @@
     padding:8px 16px;border-radius:20px;font-size:.85rem;color:var(--text);opacity:0;
     transition:opacity .2s;pointer-events:none;z-index:20;}
   .toast.show{opacity:1;}
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:30;
+    display:flex;align-items:center;justify-content:center;padding:20px;}
+  .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+    padding:20px;max-width:360px;width:100%;}
+  .modal-box p{margin:0 0 16px;font-size:.92rem;color:var(--text);line-height:1.4;}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;}
   @media (prefers-color-scheme: light){
     :root:not([data-theme="dark"]){
       --bg:#f5f6f4; --panel:#ffffff; --panel2:#eef0ec; --line:#dde1da;
@@ -161,6 +180,30 @@ function showToast(msg){
   const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show');
   clearTimeout(showToast._h); showToast._h = setTimeout(()=>t.classList.remove('show'), 1600);
 }
+
+// Custom confirm modal: native window.confirm()/alert() silently return false/no-op
+// in sandboxed iframes (e.g. some embeds and preview contexts) without triggering
+// any visible dialog, which makes guarded buttons look broken. This works everywhere.
+function showConfirm(message, onConfirm){
+  const existing = document.getElementById('confirmOverlay');
+  if(existing) existing.remove();
+  const overlay = document.createElement('div');
+  overlay.id = 'confirmOverlay';
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-box">
+      <p>${escapeHtml(message)}</p>
+      <div class="modal-actions">
+        <button class="btn" id="modalCancelBtn">Cancel</button>
+        <button class="btn danger" id="modalConfirmBtn">Confirm</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+  const close = ()=> overlay.remove();
+  document.getElementById('modalCancelBtn').addEventListener('click', close);
+  document.getElementById('modalConfirmBtn').addEventListener('click', ()=>{ close(); onConfirm(); });
+  overlay.addEventListener('click', (ev)=>{ if(ev.target === overlay) close(); });
+}
 function fmtTime(iso){ const d = new Date(iso); return d.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit',second:'2-digit'}); }
 function fmtTimeFull(iso){ return new Date(iso).toLocaleString(); }
 function safeName(s){ return (s||'team').replace(/[^a-z0-9]+/gi,'_').replace(/^_+|_+$/g,'') || 'team'; }
@@ -180,20 +223,27 @@ function bumpStat(side, pid, pname, field, delta){
   logAction(side, pname, field.toUpperCase(), delta); saveState(); render();
   if(field === 'pf' && delta > 0 && playerTotal(side, pid, 'pf') === 5){
     const p = state.teams[side].players.find(x=>x.id===pid);
-    alert('#' + (p ? p.num || '?' : '?') + ' (' + state.teams[side].name + ') has reached 5 fouls.');
+    showToast('#' + (p ? p.num || '?' : '?') + ' (' + state.teams[side].name + ') has reached 5 fouls.');
   }
 }
 
 function csvEscape(v){ v = String(v); if(/[",\n]/.test(v)) return '"' + v.replace(/"/g,'""') + '"'; return v; }
 function rowsToCSV(headers, rows){ const l=[headers.map(csvEscape).join(',')]; rows.forEach(r=>l.push(r.map(csvEscape).join(','))); return l.join('\n'); }
 
-async function saveCSV(filename, csvText){
+function saveCSV(filename, csvText){
   try{
-    const dl = await window.claude.use('downloads');
-    if(!dl){ showToast('Downloads unavailable here'); return; }
-    const res = await dl.save({ filename, data: new Blob([csvText], {type:'text/csv'}) });
-    showToast(res.status === 'saved' ? 'Saved '+filename : 'Sent '+filename);
-  }catch(e){ showToast('Could not save: ' + (e && e.code ? e.code : 'error')); }
+    const blob = new Blob([csvText], {type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    // Revoke after a tick so the download has time to start in all browsers
+    setTimeout(()=>URL.revokeObjectURL(url), 1000);
+    showToast('Saved '+filename);
+  }catch(e){ showToast('Could not save: ' + (e && e.message ? e.message : 'error')); }
 }
 
 function exportLog(){
@@ -307,15 +357,53 @@ function toggleOpen(side, pid){
   if(p){ p.open = !p.open; saveState(); render(); }
 }
 
+function startInlineEdit(el){
+  if(el.querySelector('input')) return; // already editing
+  const [side, pid, field] = el.getAttribute('data-edit').split('|');
+  const p = state.teams[side].players.find(x=>x.id===pid);
+  if(!p) return;
+  const isNum = field === 'num';
+  const current = isNum ? (p.num || '') : (p.name || '');
+  const classList = el.className;
+
+  const input = document.createElement('input');
+  input.type = isNum ? 'number' : 'text';
+  input.value = current;
+  input.className = 'inline-edit';
+  input.addEventListener('click', ev=>ev.stopPropagation());
+  input.addEventListener('contextmenu', ev=>ev.stopPropagation());
+
+  let cancelled = false;
+  const commit = ()=>{
+    if(cancelled) return;
+    const val = input.value.trim();
+    if(isNum) p.num = val; else p.name = val || p.name;
+    saveState(); render();
+  };
+  input.addEventListener('keydown', ev=>{
+    if(ev.key === 'Enter'){ ev.preventDefault(); input.blur(); }
+    else if(ev.key === 'Escape'){ ev.preventDefault(); cancelled = true; render(); }
+  });
+  input.addEventListener('blur', commit, { once:true });
+
+  el.innerHTML = '';
+  el.appendChild(input);
+  el.className = classList; // keep num/name styling on the wrapper
+  input.focus();
+  input.select();
+}
+
 function resetGame(){
-  if(!confirm('Reset the whole game? This clears all stats and the log (rosters and league data stay).')) return;
-  state = { started:false, quarter:'Q1', activeSide:'home', teams: state.teams, stats:{home:{},away:{}}, log:[] };
-  saveState(); render();
+  showConfirm('Reset the whole game? This clears all stats and the log (rosters and league data stay).', ()=>{
+    state = { started:false, quarter:'Q1', activeSide:'home', teams: state.teams, stats:{home:{},away:{}}, log:[] };
+    saveState(); render();
+  });
 }
 function newMatchup(){
-  if(!confirm('Start a brand new matchup? This clears both rosters and the current game.')) return;
-  state = { started:false, quarter:'Q1', activeSide:'home', teams:{home:blankTeam(),away:blankTeam()}, stats:{home:{},away:{}}, log:[] };
-  saveState(); render();
+  showConfirm('Start a brand new matchup? This clears both rosters and the current game.', ()=>{
+    state = { started:false, quarter:'Q1', activeSide:'home', teams:{home:blankTeam(),away:blankTeam()}, stats:{home:{},away:{}}, log:[] };
+    saveState(); render();
+  });
 }
 
 function render(){
@@ -403,7 +491,13 @@ function bindSetupEvents(){
 }
 
 function renderTeamSection(side){
-  const cards = state.teams[side].players.map(p=>{
+  const sortedPlayers = state.teams[side].players.slice().sort((a,b)=>{
+    const na = parseInt(a.num,10), nb = parseInt(b.num,10);
+    const va = isNaN(na) ? Infinity : na;
+    const vb = isNaN(nb) ? Infinity : nb;
+    return va - vb;
+  });
+  const cards = sortedPlayers.map(p=>{
     const s = (state.stats[side][state.quarter] && state.stats[side][state.quarter][p.id]) || blankStat();
     const gamePts = playerTotal(side,p.id,'pts');
     const open = !!p.open;
@@ -423,7 +517,7 @@ function renderTeamSection(side){
     return `
     <div class="playercard">
       <div class="pchead" data-toggle="${side}|${p.id}">
-        <div><span class="name">${escapeHtml(p.name)}</span><span class="num">#${p.num||'-'}</span></div>
+        <div><span class="num" data-edit="${side}|${p.id}|num" title="Right-click to edit">#${p.num||'-'}</span><span class="name" data-edit="${side}|${p.id}|name" title="Right-click to edit">${escapeHtml(p.name)}</span></div>
         <div style="display:flex;align-items:center;gap:8px">
           <div class="pts">${gamePts}</div>
           <div class="chev">${open?'▲':'▼'}</div>
@@ -432,7 +526,7 @@ function renderTeamSection(side){
       ${body}
     </div>`;
   }).join('');
-  return `<section class="teamsection">
+  return `<section class="teamsection ${side}">
     <h2 class="teamhead ${side}">${escapeHtml(state.teams[side].name)}</h2>
     ${cards || '<p style="color:var(--sub)">No players on this roster.</p>'}
   </section>`;
@@ -461,9 +555,11 @@ function renderGame(){
     </div>
     <div class="qtabs">${qtabs}</div>
   </header>
-  <main>
-    ${renderTeamSection('home')}
-    ${renderTeamSection('away')}
+  <main class="game-main">
+    <div class="teams-grid">
+      ${renderTeamSection('home')}
+      ${renderTeamSection('away')}
+    </div>
     <div class="toolbar">
       <button class="btn primary" id="exportLogBtn">Export action log (CSV)</button>
       <button class="btn primary" id="exportStatsBtn">Export stats (CSV)</button>
@@ -490,9 +586,17 @@ function bindGameEvents(){
     t.addEventListener('click', ()=>{ state.quarter = t.getAttribute('data-q'); saveState(); render(); });
   });
   document.querySelectorAll('[data-toggle]').forEach(el=>{
-    el.addEventListener('click', ()=>{
+    el.addEventListener('click', (ev)=>{
+      if(ev.target.closest('[data-edit]')) return; // don't toggle while clicking name/number
       const [side, pid] = el.getAttribute('data-toggle').split('|');
       toggleOpen(side, pid);
+    });
+  });
+  document.querySelectorAll('[data-edit]').forEach(el=>{
+    el.addEventListener('contextmenu', (ev)=>{
+      ev.preventDefault();
+      ev.stopPropagation();
+      startInlineEdit(el);
     });
   });
   document.querySelectorAll('[data-pts]').forEach(b=>{
