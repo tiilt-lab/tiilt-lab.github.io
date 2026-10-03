@@ -336,7 +336,14 @@ function pickLeagueTeam(side, teamName){
   t.selectedLeagueTeam = teamName;
   if(teamName && leagueData[teamName]){
     t.name = teamName;
-    t.players = leagueData[teamName].map(p=>({ id:'g'+p.id, num:p.num, name:p.name }));
+    t.players = leagueData[teamName]
+      .map(p=>({ id:'g'+p.id, num:p.num, name:p.name }))
+      .sort((a,b)=>{
+        const na = parseInt(a.num,10), nb = parseInt(b.num,10);
+        const va = isNaN(na) ? Infinity : na;
+        const vb = isNaN(nb) ? Infinity : nb;
+        return va - vb;
+      });
   }
   saveState(); render();
 }
@@ -414,7 +421,7 @@ function render(){
 
 function sideBlockHtml(side){
   const label = side==='home' ? 'Home team' : 'Away team';
-  const leagueNames = Object.keys(leagueData);
+  const leagueNames = Object.keys(leagueData).sort((a,b)=> a.localeCompare(b, undefined, {sensitivity:'base'}));
   const t = state.teams[side];
   const options = leagueNames.map(n=>`<option value="${escapeHtml(n)}" ${t.selectedLeagueTeam===n?'selected':''}>${escapeHtml(n)}</option>`).join('');
   const plist = t.players.map(p=>`
