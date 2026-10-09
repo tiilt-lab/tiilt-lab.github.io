@@ -24,12 +24,13 @@
   .scoreline .sc{font-size:2rem;font-weight:700;color:var(--amber);}
   .scoreline .sc.away{color:var(--away);}
   .scoreline .dash{color:var(--sub);font-size:1.3rem;}
-  .foulsrow{display:flex;justify-content:center;gap:18px;margin-top:2px;font-size:.72rem;color:var(--sub);}
+  .statusrow{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:10px;margin-top:6px;}
+  .foulsrow{display:flex;justify-self:center;gap:18px;font-size:.72rem;color:var(--sub);flex-wrap:wrap;justify-content:center;}
   .foulsrow b.home{color:var(--amber);}
   .foulsrow b.away{color:var(--away);}
-  .qtabs{display:flex;gap:6px;margin-top:8px;overflow-x:auto;}
-  .qtab{flex:0 0 auto;padding:6px 14px;border-radius:6px;border:1px solid var(--line);
-    background:var(--panel2);color:var(--sub);font-size:.85rem;cursor:pointer;}
+  .qtabs{display:flex;justify-self:start;gap:4px;overflow-x:auto;min-width:0;}
+  .qtab{flex:0 0 auto;padding:4px 9px;border-radius:5px;border:1px solid var(--line);
+    background:var(--panel2);color:var(--sub);font-size:.72rem;cursor:pointer;}
   .qtab.active{background:var(--amber-dim);color:var(--amber);border-color:var(--amber-dim);}
   .teamsection{margin-top:18px;min-width:0;}
   .teamsection:first-of-type{margin-top:6px;}
@@ -65,35 +66,31 @@
   .plist .p button{background:none;border:none;color:var(--neg);font-size:1.1rem;cursor:pointer;}
   .playercard{background:var(--panel);border:1px solid var(--line);border-radius:10px;
     padding:8px 10px;margin-top:6px;}
-  .pchead{display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;
-    padding:2px 0;}
-  .pchead .name{font-weight:400;font-size:.85rem;color:var(--sub);}
-  .pchead .num{font-weight:700;font-size:1.1rem;margin-right:6px;}
-  .pchead [data-edit]{cursor:context-menu;}
-  .pchead input.inline-edit{font:inherit;font-weight:inherit;color:var(--text);
+  .pcrow{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;overflow-x:auto;}
+  .pname{display:flex;align-items:baseline;gap:4px;flex:1 1 auto;min-width:0;}
+  .pname .name{font-weight:400;font-size:.85rem;color:var(--sub);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .pname .num{font-weight:700;font-size:1.1rem;flex:0 0 auto;}
+  .pname [data-edit]{cursor:context-menu;}
+  .pname input.inline-edit{font:inherit;font-weight:inherit;color:var(--text);
     background:var(--panel2);border:1px solid var(--amber-dim);border-radius:4px;
     padding:1px 5px;width:auto;}
-  .pchead .num input.inline-edit{width:48px;}
-  .pchead .name input.inline-edit{width:120px;}
-  .pchead .pts{font-size:1.15rem;color:var(--amber);font-weight:700;}
-  .pchead .chev{color:var(--sub);font-size:.75rem;width:20px;text-align:center;flex:0 0 auto;}
-  .pcbody{margin-top:8px;}
-  .ptsbtns{display:flex;gap:6px;margin-bottom:8px;}
-  .ptsbtns button{flex:1;padding:8px 0;border-radius:7px;border:1px solid var(--amber-dim);
-    background:rgba(255,176,32,.08);color:var(--amber);font-weight:700;font-size:.9rem;cursor:pointer;}
+  .pname .num input.inline-edit{width:40px;}
+  .pname .name input.inline-edit{width:100px;}
+  .pcrow .pts{font-size:1.05rem;color:var(--amber);font-weight:700;flex:0 0 auto;}
+  .ptsbtns{display:flex;gap:4px;flex:0 0 auto;}
+  .ptsbtns button{padding:7px 9px;border-radius:7px;border:1px solid var(--amber-dim);
+    background:rgba(255,176,32,.08);color:var(--amber);font-weight:700;font-size:.8rem;cursor:pointer;white-space:nowrap;}
   .ptsbtns button:active{background:var(--amber-dim);}
-  .ptsbtns.minus{display:none;}
   .ptsbtns button.minusbtn{border-color:var(--line);background:var(--panel2);color:var(--neg);}
   .ptsbtns button.minusbtn:active{background:var(--line);}
-  .statgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;}
-  .stat{background:var(--panel2);border-radius:6px;padding:4px 2px;text-align:center;}
-  .stat.pf{background:color-mix(in srgb, var(--panel2) 65%, black);}
-  .stat .lbl{font-size:.58rem;color:var(--sub);letter-spacing:.02em;}
-  .stat .val{font-size:.85rem;font-weight:700;margin:1px 0;}
-  .stat .ctl{display:flex;gap:2px;justify-content:center;}
-  .stat .ctl button{width:22px;height:22px;border-radius:5px;border:1px solid var(--line);
-    background:var(--panel);color:var(--text);font-size:.85rem;cursor:pointer;line-height:1;padding:0;}
-  .stat .ctl button:active{background:var(--line);}
+  .pfcell{display:flex;align-items:center;gap:6px;flex:0 0 auto;
+    background:color-mix(in srgb, var(--panel2) 65%, black);border-radius:7px;padding:5px 9px;}
+  .pfcell .lbl{font-size:.6rem;color:var(--sub);letter-spacing:.02em;}
+  .pfcell .val{font-size:.85rem;font-weight:700;min-width:12px;text-align:center;}
+  .pfcell .ctl{display:flex;gap:2px;}
+  .pfcell .ctl button{width:20px;height:20px;border-radius:5px;border:1px solid var(--line);
+    background:var(--panel);color:var(--text);font-size:.8rem;cursor:pointer;line-height:1;padding:0;}
+  .pfcell .ctl button:active{background:var(--line);}
   .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 8px;}
   details{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin-top:14px;}
   summary{padding:10px 14px;cursor:pointer;color:var(--sub);font-size:.88rem;}
@@ -135,7 +132,7 @@ const STAT_FIELDS = [
   {k:'blk',label:'BLK'},{k:'to',label:'TO'}
 ];
 
-function blankStat(){ return {pts:0,reb:0,ast:0,stl:0,blk:0,to:0,pf:0}; }
+function blankStat(){ return {pts:0,reb:0,ast:0,stl:0,blk:0,to:0,pf:0,sa:0}; }
 function blankTeam(){ return { name:'', selectedLeagueTeam:'', players:[] }; }
 
 function loadState(){
@@ -254,16 +251,16 @@ function exportLog(){
 function exportBoxScore(){
   const hasOT = teamTotalForQuarter('home','OT','pts') > 0 || teamTotalForQuarter('away','OT','pts') > 0;
   const periods = hasOT ? ['Q1','Q2','Q3','Q4','OT'] : ['Q1','Q2','Q3','Q4'];
-  const headers = ['Team', ...periods];
+  const headers = ['Team', ...periods, 'Total'];
   const rows = SIDES.map(side=>{
-    let cum = 0;
-    const vals = periods.map(q=>{ cum += teamTotalForQuarter(side,q,'pts'); return cum; });
-    return [state.teams[side].name, ...vals];
+    const vals = periods.map(q=> teamTotalForQuarter(side,q,'pts'));
+    const total = vals.reduce((a,b)=>a+b, 0);
+    return [state.teams[side].name, ...vals, total];
   });
   saveCSV(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_boxscore.csv', rowsToCSV(headers, rows));
 }
 function exportStats(){
-  const headers = ['Scope','Team','Period','Player','PTS','REB','AST','STL','BLK','TO','PF'];
+  const headers = ['Scope','Team','Period','Player','PTS','REB','AST','STL','BLK','TO','PF','SA'];
   const periods = [...QUARTERS, 'Total'];
   const playerRows = [];
   const teamRows = [];
@@ -274,20 +271,20 @@ function exportStats(){
         if(period === 'Total'){
           playerRows.push(['Player', tname, 'Total', p.name,
             playerTotal(side,p.id,'pts'),playerTotal(side,p.id,'reb'),playerTotal(side,p.id,'ast'),
-            playerTotal(side,p.id,'stl'),playerTotal(side,p.id,'blk'),playerTotal(side,p.id,'to'),playerTotal(side,p.id,'pf')]);
+            playerTotal(side,p.id,'stl'),playerTotal(side,p.id,'blk'),playerTotal(side,p.id,'to'),playerTotal(side,p.id,'pf'),playerTotal(side,p.id,'sa')]);
         } else {
           const s = state.stats[side][period] && state.stats[side][period][p.id];
-          if(s) playerRows.push(['Player', tname, period, p.name, s.pts,s.reb,s.ast,s.stl,s.blk,s.to,s.pf]);
+          if(s) playerRows.push(['Player', tname, period, p.name, s.pts,s.reb,s.ast,s.stl,s.blk,s.to,s.pf,s.sa||0]);
         }
       });
       if(period === 'Total'){
         teamRows.push(['Team', tname, 'Total', tname,
           teamGrandTotal(side,'pts'),teamGrandTotal(side,'reb'),teamGrandTotal(side,'ast'),
-          teamGrandTotal(side,'stl'),teamGrandTotal(side,'blk'),teamGrandTotal(side,'to'),teamGrandTotal(side,'pf')]);
+          teamGrandTotal(side,'stl'),teamGrandTotal(side,'blk'),teamGrandTotal(side,'to'),teamGrandTotal(side,'pf'),teamGrandTotal(side,'sa')]);
       } else if(state.stats[side][period]){
         teamRows.push(['Team', tname, period, tname,
           teamTotalForQuarter(side,period,'pts'),teamTotalForQuarter(side,period,'reb'),teamTotalForQuarter(side,period,'ast'),
-          teamTotalForQuarter(side,period,'stl'),teamTotalForQuarter(side,period,'blk'),teamTotalForQuarter(side,period,'to'),teamTotalForQuarter(side,period,'pf')]);
+          teamTotalForQuarter(side,period,'stl'),teamTotalForQuarter(side,period,'blk'),teamTotalForQuarter(side,period,'to'),teamTotalForQuarter(side,period,'pf'),teamTotalForQuarter(side,period,'sa')]);
       }
     });
   });
@@ -358,11 +355,6 @@ function removePlayer(side, id){
   saveState(); render();
 }
 function canStart(){ return state.teams.home.players.length>0 && state.teams.away.players.length>0; }
-
-function toggleOpen(side, pid){
-  const p = state.teams[side].players.find(x=>x.id===pid);
-  if(p){ p.open = !p.open; saveState(); render(); }
-}
 
 function startInlineEdit(el){
   if(el.querySelector('input')) return; // already editing
@@ -505,32 +497,30 @@ function renderTeamSection(side){
     return va - vb;
   });
   const cards = sortedPlayers.map(p=>{
-    const s = (state.stats[side][state.quarter] && state.stats[side][state.quarter][p.id]) || blankStat();
     const gamePts = playerTotal(side,p.id,'pts');
-    const open = !!p.open;
-    const statCells = STAT_FIELDS.map(f=>`
-      <div class="stat${f.k==='pf'?' pf':''}">
-        <div class="lbl">${f.label}</div>
-        <div class="val">${s[f.k]}</div>
-        <div class="ctl"><button data-dec="${side}|${p.id}|${f.k}">−</button><button data-inc="${side}|${p.id}|${f.k}">+</button></div>
-      </div>`).join('');
-    const body = open ? `
-      <div class="pcbody">
+    const pfVal = playerTotal(side,p.id,'pf');
+    const saVal = playerTotal(side,p.id,'sa');
+    return `
+    <div class="playercard">
+      <div class="pcrow">
+        <div class="pname">
+          <span class="num" data-edit="${side}|${p.id}|num" title="Right-click to edit">#${p.num||'-'}</span><span class="name" data-edit="${side}|${p.id}|name" title="Right-click to edit">${escapeHtml(p.name)}</span>
+        </div>
+        <div class="pts">${gamePts}</div>
         <div class="ptsbtns">
           <button data-pts="${side}|${p.id}|1">+1</button><button data-pts="${side}|${p.id}|2">+2</button><button data-pts="${side}|${p.id}|3">+3</button><button data-pts="${side}|${p.id}|-1" class="minusbtn">−1</button>
         </div>
-        <div class="statgrid">${statCells}</div>
-      </div>` : '';
-    return `
-    <div class="playercard">
-      <div class="pchead" data-toggle="${side}|${p.id}">
-        <div><span class="num" data-edit="${side}|${p.id}|num" title="Right-click to edit">#${p.num||'-'}</span><span class="name" data-edit="${side}|${p.id}|name" title="Right-click to edit">${escapeHtml(p.name)}</span></div>
-        <div style="display:flex;align-items:center;gap:8px">
-          <div class="pts">${gamePts}</div>
-          <div class="chev">${open?'▲':'▼'}</div>
+        <div class="pfcell">
+          <div class="lbl">PF</div>
+          <div class="val">${pfVal}</div>
+          <div class="ctl"><button data-dec="${side}|${p.id}|pf">−</button><button data-inc="${side}|${p.id}|pf">+</button></div>
+        </div>
+        <div class="pfcell">
+          <div class="lbl">SA</div>
+          <div class="val">${saVal}</div>
+          <div class="ctl"><button data-dec="${side}|${p.id}|sa">−</button><button data-inc="${side}|${p.id}|sa">+</button></div>
         </div>
       </div>
-      ${body}
     </div>`;
   }).join('');
   return `<section class="teamsection ${side}">
@@ -556,11 +546,14 @@ function renderGame(){
       <span class="sc digits away">${awayScore}</span>
       <span class="tname">${escapeHtml(state.teams.away.name)}</span>
     </div>
-    <div class="foulsrow">
-      <span>1H FOULS <b class="home">${teamFoulsHalf('home',1)}</b>–<b class="away">${teamFoulsHalf('away',1)}</b></span>
-      <span>2H FOULS <b class="home">${teamFoulsHalf('home',2)}</b>–<b class="away">${teamFoulsHalf('away',2)}</b></span>
+    <div class="statusrow">
+      <div class="qtabs">${qtabs}</div>
+      <div class="foulsrow">
+        <span>1H FOULS <b class="home">${teamFoulsHalf('home',1)}</b>–<b class="away">${teamFoulsHalf('away',1)}</b></span>
+        <span>2H FOULS <b class="home">${teamFoulsHalf('home',2)}</b>–<b class="away">${teamFoulsHalf('away',2)}</b></span>
+      </div>
+      <div></div>
     </div>
-    <div class="qtabs">${qtabs}</div>
   </header>
   <main class="game-main">
     <div class="teams-grid">
@@ -591,13 +584,6 @@ function renderGame(){
 function bindGameEvents(){
   document.querySelectorAll('.qtab').forEach(t=>{
     t.addEventListener('click', ()=>{ state.quarter = t.getAttribute('data-q'); saveState(); render(); });
-  });
-  document.querySelectorAll('[data-toggle]').forEach(el=>{
-    el.addEventListener('click', (ev)=>{
-      if(ev.target.closest('[data-edit]')) return; // don't toggle while clicking name/number
-      const [side, pid] = el.getAttribute('data-toggle').split('|');
-      toggleOpen(side, pid);
-    });
   });
   document.querySelectorAll('[data-edit]').forEach(el=>{
     el.addEventListener('contextmenu', (ev)=>{
