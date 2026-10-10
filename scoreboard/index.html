@@ -108,7 +108,12 @@
   .modal-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;
     padding:20px;max-width:360px;width:100%;}
   .modal-box p{margin:0 0 16px;font-size:.92rem;color:var(--text);line-height:1.4;}
-  .modal-actions{display:flex;gap:8px;justify-content:flex-end;}
+  .modal-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;}
+  .article-box{max-width:520px;}
+  .article-headline{margin:0 0 10px;font-size:1.05rem;color:var(--text);}
+  .article-text{width:100%;min-height:260px;resize:vertical;margin-bottom:14px;
+    background:var(--panel2);border:1px solid var(--line);border-radius:7px;
+    color:var(--text);font:inherit;font-size:.85rem;line-height:1.5;padding:10px;}
   @media (prefers-color-scheme: light){
     :root:not([data-theme="dark"]){
       --bg:#f5f6f4; --panel:#ffffff; --panel2:#eef0ec; --line:#dde1da;
@@ -227,9 +232,9 @@ function bumpStat(side, pid, pname, field, delta){
 function csvEscape(v){ v = String(v); if(/[",\n]/.test(v)) return '"' + v.replace(/"/g,'""') + '"'; return v; }
 function rowsToCSV(headers, rows){ const l=[headers.map(csvEscape).join(',')]; rows.forEach(r=>l.push(r.map(csvEscape).join(','))); return l.join('\n'); }
 
-function saveCSV(filename, csvText){
+function saveTextFile(filename, text, mime){
   try{
-    const blob = new Blob([csvText], {type:'text/csv;charset=utf-8;'});
+    const blob = new Blob([text], {type:(mime||'text/plain')+';charset=utf-8;'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
@@ -242,6 +247,7 @@ function saveCSV(filename, csvText){
     showToast('Saved '+filename);
   }catch(e){ showToast('Could not save: ' + (e && e.message ? e.message : 'error')); }
 }
+function saveCSV(filename, csvText){ saveTextFile(filename, csvText, 'text/csv'); }
 
 function exportLog(){
   const headers = ['Timestamp','Quarter','Team','Player','Stat','Change'];
@@ -259,6 +265,196 @@ function exportBoxScore(){
   });
   saveCSV(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_boxscore.csv', rowsToCSV(headers, rows));
 }
+function possessive(name){ return /s$/i.test(name) ? name + "'" : name + "'s"; }
+function formatNameList(items){
+  if(items.length === 0) return '';
+  if(items.length === 1) return items[0];
+  if(items.length === 2) return items[0] + ' and ' + items[1];
+  return items.slice(0,-1).join(', ') + ', and ' + items[items.length-1];
+}
+
+function generateHighlightArticle(){
+  const homeName = state.teams.home.name || 'Home';
+  const awayName = state.teams.away.name || 'Away';
+  const homeScore = teamGrandTotal('home','pts');
+  const awayScore = teamGrandTotal('away','pts');
+  const totalPts = homeScore + awayScore;
+  const hasOT = teamTotalForQuarter('home','OT','pts') > 0 || teamTotalForQuarter('away','OT','pts') > 0;
+  const periods = hasOT ? ['Q1','Q2','Q3','Q4','OT'] : ['Q1','Q2','Q3','Q4'];
+  const tied = homeScore === awayScore;
+  const winnerName = tied ? null : (homeScore > awayScore ? homeName : awayName);
+  const loserName = tied ? null : (homeScore > awayScore ? awayName : homeName);
+  const hi = Math.max(homeScore, awayScore), lo = Math.min(homeScore, awayScore);
+  const margin = hi - lo;
+
+  const headline = tied
+    ? `${homeName} and ${awayName} Battle to a ${homeScore}-${awayScore} Tie`
+    : `${winnerName} Tops ${loserName}, ${hi}-${lo}`;
+
+  const paragraphs = [];
+
+  // --- Opening: style-of-game flavor + result ---
+  const paceLine = totalPts >= 150
+    ? `Buckets came early and often in a high-scoring shootout that kept both benches on their feet.`
+    : (totalPts > 0 && totalPts <= 80
+      ? `Defense took center stage in a grind-it-out battle that never let either offense get comfortable.`
+      : `Both sides traded baskets in a well-balanced, back-and-forth contest.`);
+  const resultLine = tied
+    ? `In the end, ${homeName} and ${awayName} couldn't be separated, playing to a ${homeScore}-${awayScore} deadlock.`
+    : `${winnerName} came out on top, defeating ${loserName} ${hi}-${lo} in ${margin >= 15 ? 'a commanding' : (margin >= 8 ? 'a solid' : 'a narrow')} ${margin}-point decision.`;
+  paragraphs.push(paceLine + ' ' + resultLine);
+
+  // --- Game flow: lead changes / biggest lead, reconstructed from the action log ---
+  function computeGameFlow(){
+    let home = 0, away = 0, leadChanges = 0, prevSign = 0, biggest = 0, biggestTeam = null;
+    const sortedLog = state.log.slice().sort((a,b)=>a.t-b.t);
+    sortedLog.forEach(e=>{
+      if(e.stat !== 'PTS') return;
+      if(e.team === homeName) home += e.delta;
+      else if(e.team === awayName) away += e.delta;
+      const diff = home - away;
+      const sign = diff > 0 ? 1 : (diff < 0 ? -1 : 0);
+      if(sign !== 0 && prevSign !== 0 && sign !== prevSign) leadChanges++;
+      if(sign !== 0) prevSign = sign;
+      if(Math.abs(diff) > biggest){ biggest = Math.abs(diff); biggestTeam = diff > 0 ? homeName : awayName; }
+    });
+    return { leadChanges, biggest, biggestTeam };
+  }
+  const flow = computeGameFlow();
+  if(flow.biggest > 0){
+    const changeDesc = flow.leadChanges === 0
+      ? `neither team ever trailed by more than a single swing`
+      : `the lead changed hands ${flow.leadChanges} time${flow.leadChanges === 1 ? '' : 's'}`;
+    paragraphs.push(`It was a game of swings: ${changeDesc}, and ${possessive(flow.biggestTeam)} largest cushion of the night reached ${flow.biggest} point${flow.biggest === 1 ? '' : 's'}.`);
+  }
+
+  // --- Quarter-by-quarter recap, one sentence per period ---
+  const qSentences = periods.map(q=>{
+    const h = teamTotalForQuarter('home', q, 'pts');
+    const a = teamTotalForQuarter('away', q, 'pts');
+    const qLabel = q === 'OT' ? 'In overtime' : `In the ${({Q1:'first',Q2:'second',Q3:'third',Q4:'fourth'})[q] || q} quarter`;
+    if(h === a) return `${qLabel}, the two teams traded baskets evenly, ${h}-${a}.`;
+    const qWinner = h > a ? homeName : awayName;
+    const qLoser = h > a ? awayName : homeName;
+    return `${qLabel}, ${qWinner} outscored ${qLoser} ${Math.max(h,a)}-${Math.min(h,a)}.`;
+  });
+  if(qSentences.length) paragraphs.push(qSentences.join(' '));
+
+  // --- Leading scorers, up to three per team ---
+  function topScorers(side, n){
+    return state.teams[side].players
+      .map(p=>({ name: p.name, num: p.num, pts: playerTotal(side, p.id, 'pts') }))
+      .filter(p=>p.pts > 0)
+      .sort((a,b)=>b.pts - a.pts)
+      .slice(0, n);
+  }
+  function scoringParagraph(side, teamName){
+    const top = topScorers(side, 3);
+    if(top.length === 0) return null;
+    const lead = top[0];
+    const support = top.slice(1).map(p=>`#${p.num||'-'} ${p.name} added ${p.pts}`);
+    let line = `#${lead.num||'-'} ${lead.name} paced ${teamName} with ${lead.pts} point${lead.pts === 1 ? '' : 's'}`;
+    if(support.length) line += `, while ${formatNameList(support)}.`;
+    else line += '.';
+    return line;
+  }
+  const scoringBits = [scoringParagraph('home', homeName), scoringParagraph('away', awayName)].filter(Boolean);
+  if(scoringBits.length) paragraphs.push(scoringBits.join(' '));
+
+  // --- Shooting, including made 3-pointers if any were logged ---
+  function shootingLine(side, teamName){
+    const makes = state.log.filter(e=>e.team === teamName && e.stat === 'PTS' && e.delta > 0).length;
+    const threes = state.log.filter(e=>e.team === teamName && e.stat === 'PTS' && e.delta === 3).length;
+    const attempts = teamGrandTotal(side, 'sa');
+    if(attempts <= 0 && makes === 0) return null;
+    let line;
+    if(attempts > 0){
+      const pct = Math.round((makes / attempts) * 100);
+      line = `${teamName} converted ${makes}-of-${attempts} on recorded shot attempts (${pct}%)`;
+    } else {
+      line = `${teamName} connected on ${makes} made basket${makes === 1 ? '' : 's'}`;
+    }
+    if(threes > 0) line += `, including ${threes} from beyond the arc`;
+    return line + '.';
+  }
+  const shootBits = [shootingLine('home', homeName), shootingLine('away', awayName)].filter(Boolean);
+  if(shootBits.length) paragraphs.push(shootBits.join(' '));
+
+  // --- Foul trouble / foul-outs ---
+  function foulNotes(side, teamName){
+    return state.teams[side].players
+      .map(p=>({ name: p.name, num: p.num, pf: playerTotal(side, p.id, 'pf') }))
+      .filter(p=>p.pf >= 4)
+      .sort((a,b)=>b.pf - a.pf)
+      .map(p=> p.pf >= 5
+        ? `#${p.num||'-'} ${p.name} (${teamName}) fouled out with ${p.pf} personal fouls`
+        : `#${p.num||'-'} ${p.name} (${teamName}) played through foul trouble, finishing with ${p.pf} fouls`);
+  }
+  const foulBits = [...foulNotes('home', homeName), ...foulNotes('away', awayName)];
+  if(foulBits.length){
+    paragraphs.push(`Discipline played a role as well: ${foulBits.join('; ')}.`);
+  } else {
+    paragraphs.push(`Neither team found serious foul trouble, with no player cracking four personal fouls on the night.`);
+  }
+
+  // --- Closing ---
+  paragraphs.push(tied
+    ? `A fitting end to an evenly matched contest — final score, ${homeName} ${homeScore}, ${awayName} ${awayScore}.`
+    : `${winnerName} closes it out ${hi}-${lo}. Final score: ${homeName} ${homeScore}, ${awayName} ${awayScore}.`);
+
+  return { headline, paragraphs };
+}
+
+function showArticleModal(){
+  const { headline, paragraphs } = generateHighlightArticle();
+  const bodyText = headline + '\n\n' + paragraphs.join('\n\n');
+
+  const existing = document.getElementById('articleOverlay');
+  if(existing) existing.remove();
+  const overlay = document.createElement('div');
+  overlay.id = 'articleOverlay';
+  overlay.className = 'modal-overlay';
+  overlay.innerHTML = `
+    <div class="modal-box article-box">
+      <h3 class="article-headline">${escapeHtml(headline)}</h3>
+      <textarea class="article-text" readonly>${escapeHtml(bodyText)}</textarea>
+      <div class="modal-actions">
+        <button class="btn" id="articleCloseBtn">Close</button>
+        <button class="btn" id="articleCopyBtn">Copy text</button>
+        <button class="btn primary" id="articleDownloadBtn">Download (.txt)</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+
+  const close = ()=> overlay.remove();
+  document.getElementById('articleCloseBtn').addEventListener('click', close);
+  overlay.addEventListener('click', (ev)=>{ if(ev.target === overlay) close(); });
+
+  document.getElementById('articleCopyBtn').addEventListener('click', async ()=>{
+    const ta = overlay.querySelector('.article-text');
+    try{
+      await navigator.clipboard.writeText(bodyText);
+      showToast('Copied to clipboard');
+    }catch(e){
+      // Clipboard API can be blocked in sandboxed contexts; fall back to select + execCommand.
+      try{
+        ta.removeAttribute('readonly');
+        ta.focus(); ta.select();
+        const ok = document.execCommand('copy');
+        ta.setAttribute('readonly', 'true');
+        showToast(ok ? 'Copied to clipboard' : 'Text selected — press Ctrl/Cmd+C');
+      }catch(e2){
+        ta.focus(); ta.select();
+        showToast('Text selected — press Ctrl/Cmd+C');
+      }
+    }
+  });
+
+  document.getElementById('articleDownloadBtn').addEventListener('click', ()=>{
+    saveTextFile(safeName(state.teams.home.name)+'_vs_'+safeName(state.teams.away.name)+'_recap.txt', bodyText);
+  });
+}
+
 function exportStats(){
   const headers = ['Scope','Team','Period','Player','PTS','REB','AST','STL','BLK','TO','PF','SA'];
   const periods = [...QUARTERS, 'Total'];
@@ -564,6 +760,7 @@ function renderGame(){
       <button class="btn primary" id="exportLogBtn">Export action log (CSV)</button>
       <button class="btn primary" id="exportStatsBtn">Export stats (CSV)</button>
       <button class="btn primary" id="exportBoxBtn">Export box score (CSV)</button>
+      <button class="btn primary" id="articleBtn">Generate highlight article</button>
     </div>
     <div class="toolbar">
       <button class="btn danger" id="resetBtn">Reset game</button>
@@ -616,6 +813,7 @@ function bindGameEvents(){
   document.getElementById('exportLogBtn').addEventListener('click', exportLog);
   document.getElementById('exportStatsBtn').addEventListener('click', exportStats);
   document.getElementById('exportBoxBtn').addEventListener('click', exportBoxScore);
+  document.getElementById('articleBtn').addEventListener('click', showArticleModal);
   document.getElementById('resetBtn').addEventListener('click', resetGame);
   document.getElementById('newMatchupBtn').addEventListener('click', newMatchup);
 }
