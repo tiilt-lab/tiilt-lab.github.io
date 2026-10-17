@@ -60,6 +60,12 @@
   button.btn.primary{background:var(--amber);border-color:var(--amber);color:#241a00;font-weight:700;}
   button.btn.danger{background:transparent;border-color:var(--neg);color:var(--neg);}
   .plist{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+  .addplayer-row{display:flex;gap:6px;margin-top:12px;}
+  .addplayer-row input{width:auto;padding:7px 9px;font-size:.85rem;border-radius:6px;
+    border:1px solid var(--line);background:var(--panel2);color:var(--text);}
+  .addplayer-row input.addp-num{flex:0 0 52px;}
+  .addplayer-row input.addp-name{flex:1 1 auto;min-width:0;}
+  .addplayer-row button{flex:0 0 auto;padding:7px 12px;font-size:.8rem;white-space:nowrap;}
   .plist .p{display:flex;align-items:center;justify-content:space-between;
     background:var(--panel2);border-radius:7px;padding:8px 12px;}
   .plist .p span.n{color:var(--sub);font-size:.85rem;margin-right:8px;}
@@ -722,6 +728,11 @@ function renderTeamSection(side){
   return `<section class="teamsection ${side}">
     <h2 class="teamhead ${side}">${escapeHtml(state.teams[side].name)}</h2>
     ${cards || '<p style="color:var(--sub)">No players on this roster.</p>'}
+    <div class="addplayer-row">
+      <input type="number" class="addp-num" id="gnum_${side}" placeholder="#">
+      <input type="text" class="addp-name" id="gname_${side}" placeholder="Player name">
+      <button class="btn" data-gaddp="${side}">+ Add player</button>
+    </div>
   </section>`;
 }
 
@@ -788,6 +799,17 @@ function bindGameEvents(){
       ev.stopPropagation();
       startInlineEdit(el);
     });
+  });
+  document.querySelectorAll('[data-gaddp]').forEach(b=>{
+    const side = b.getAttribute('data-gaddp');
+    const nameInput = document.getElementById('gname_'+side);
+    const numInput = document.getElementById('gnum_'+side);
+    const submit = ()=>{
+      addPlayer(side, nameInput.value, numInput.value);
+    };
+    b.addEventListener('click', submit);
+    nameInput.addEventListener('keydown', ev=>{ if(ev.key === 'Enter'){ ev.preventDefault(); submit(); } });
+    numInput.addEventListener('keydown', ev=>{ if(ev.key === 'Enter'){ ev.preventDefault(); submit(); } });
   });
   document.querySelectorAll('[data-pts]').forEach(b=>{
     b.addEventListener('click', ()=>{
